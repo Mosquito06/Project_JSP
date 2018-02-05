@@ -6,7 +6,7 @@
   <properties resource="db.properties"/>
   
   <typeAliases>
-     	<package name="project.dto"/>    
+     	<package name="Project_JSP.dto"/>    
   </typeAliases>
   
   <environments default="development">
@@ -38,6 +38,6 @@
   </environments>
   
   <mappers>
-      <mapper resource="mappers/ProjectMapper.xml"/>
+      <mapper resource="mappers/FacilityTypeMapper.xml"/>
   </mappers>
 </configuration>

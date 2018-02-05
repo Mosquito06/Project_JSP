@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Project_JSP.dao.FacilityTypeDao">
+    
+    <resultMap type="FacilityType" id="FacilityTypeResult">
+        <result property="facilityTypeNum" column="facility_type_num"/>
+        <result property="facilityTypeName" column="facility_type_name"/>
+    </resultMap>
+   
+    <sql id="selectFacilityTypeSql">
+        select facility_type_num, facility_type_name from facility_type
+    </sql>
+    
+    <sql id="whereSql">
+        <where>
+            <if test="facilityTypeNum != null">
+                facility_type_num = ${facilityTypeNum}
+            </if>            
+        </where>        
+    </sql>
+    
+	<select id="selectFacilityType" resultMap="FacilityTypeResult">
+	    <include refid="selectFacilityTypeSql"/>	    
+	</select>
+    
+</mapper>
