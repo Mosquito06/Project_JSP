@@ -33,4 +33,53 @@ public class FacilityTypeDaoService implements FacilityTypeDao {
 		return null;
 	}
 
+	@Override
+	public FacilityType selectFacilityTypeByNum(FacilityType facilityType) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			FacilityTypeDao dao = session.getMapper(FacilityTypeDao.class);
+			return dao.selectFacilityTypeByNum(facilityType);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+	@Override
+	public void insertFacilityType(FacilityType facilityType) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			FacilityTypeDao dao = session.getMapper(FacilityTypeDao.class);
+			dao.insertFacilityType(facilityType);
+			session.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
+	public void updateFacilityType(FacilityType facilityType) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			FacilityTypeDao dao = session.getMapper(FacilityTypeDao.class);
+			dao.updateFacilityType(facilityType);
+			session.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
+	public void deleteFacilityType(FacilityType facilityType) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			FacilityTypeDao dao = session.getMapper(FacilityTypeDao.class);
+			dao.deleteFacilityType(facilityType);
+			session.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
 }

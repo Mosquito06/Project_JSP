@@ -22,5 +22,22 @@
 	<select id="selectFacilityType" resultMap="FacilityTypeResult">
 	    <include refid="selectFacilityTypeSql"/>	    
 	</select>
+	
+	<select id="selectFacilityTypeByNum" parameterType="FacilityType" resultMap="FacilityTypeResult">
+	    <include refid="selectFacilityTypeSql"/>
+	    <include refid="whereSql"/>	    
+	</select>
+	
+	<insert id="insertFacilityType" parameterType="FacilityType">
+	   insert into facility_type values(#{facilityTypeNum}, #{facilityTypeName})
+	</insert>
+	
+	<update id="updateFacilityType" parameterType="FacilityType">
+	    update facility_type set facility_type_name = #{facilityTypeName} where facility_type_num = #{facilityTypeNum}
+	</update>
+	
+	<delete id="deleteFacilityType" parameterType="FacilityType">
+	    delete from facility_type where facility_type_num = #{facilityTypeNum}
+	</delete>
     
 </mapper>
