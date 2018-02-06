@@ -30,11 +30,8 @@
 			<div id="headNav">
 				<ul>
 					<li><a href="#">로그인</a></li>
-						<li><i class="line"></i></li>
 					<li><a href="#">신라리워즈 가입</a></li>
-						<li><i class="line"></i></li> 
 					<li><a href="#">예약확인</a></li>
-						<li><i class="line"></i></li>  
 					<li><a href="#">관리자</a></li>
 				</ul>
 			</div>  

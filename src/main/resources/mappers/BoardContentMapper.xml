@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Project_JSP.dao.BoardContentDao">
+    
+    <resultMap type="BoardContent" id="BoardContentResult">
+    	<id property="num" column="board_num"/>
+    	<result property="content" column="board_content"/>
+    </resultMap>
+   
+   <insert id="insert" parameterType="BoardContent">
+   		insert into board_content(board_num,board_content)
+   		values(#{num},#{content})
+   </insert>
+   
+   <select id="findByNum" parameterType="int" resultMap="BoardContentResult">
+   		select * from board_content where board_num = #{num}
+   </select>
+   
+   <select id="deletByNum" parameterType="int">
+   		delete from board_content where board_num = #{num}
+   </select>
+   
+   <select id="update" parameterType="BoardContent">
+   		update board_content set 
+   		board_content =#{content}
+   		where board_num = #{num}
+   </select>
+</mapper>
