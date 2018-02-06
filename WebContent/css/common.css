@@ -254,6 +254,7 @@ footer{
 		float: left;
 		margin-right: 20px;
 		margin-top: 10px;
+		line-height: 17px;
 	}
 	#footer_up #cont #ul_link{
 		margin-top: 20px;
@@ -268,7 +269,8 @@ footer{
 		margin: 0px;
 	}
 	#footer_up #cont #ul_link dl:FIRST-CHILD{
-		padding-top: 5px;
+		 padding-top: 8px; 
+		margin-bottom: 20px;
 	}
 	#footer_up #content #ul_link dt{
 		color:#856f56;
@@ -325,10 +327,10 @@ footer{
 	}
 	#footer_down_choice{
 		padding:20px 0px;
+		overflow: hidden;
 	}
 	#footer_down_choice ul{
 		list-style: none;
-		 overflow: hidden; 
 		width:800px !important;
 		padding:0px;
 		margin:0px;
@@ -338,15 +340,15 @@ footer{
 		float: left;
 		 border-right:1px solid #BDBDBD; 
 		text-align: center;
-			height:15px;
-		line-height: 10px; 
+		 height:8px;
+		 line-height: 8px;
 	}
 	#footer_down_choice ul li:LAST-CHILD{
 		border:none;
 	}
 	#footer_down_choice ul li a{
 		text-decoration: none;
-		display:block; 
+		display:block;
 		font-size: 14px;
 	}
 	#footer_down_choice #choice1, #choice2{
