@@ -1,7 +1,7 @@
 package Project_JSP.dto;
 
 public class EventContent {
-	private Event evnetNum;
+	private Event eventNum;
 	private String eventContentImg;
 
 	public EventContent() {
@@ -9,12 +9,12 @@ public class EventContent {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Event getEvnetNum() {
-		return evnetNum;
+	public Event getEventNum() {
+		return eventNum;
 	}
 
-	public void setEvnetNum(Event evnetNum) {
-		this.evnetNum = evnetNum;
+	public void setEventNum(Event eventNum) {
+		this.eventNum = eventNum;
 	}
 
 	public String getEventContentImg() {
@@ -27,7 +27,7 @@ public class EventContent {
 
 	@Override
 	public String toString() {
-		return "EventContent [evnetNum=" + evnetNum + ", eventContentImg=" + eventContentImg + "]";
+		return "EventContent [eventNum=" + eventNum + ", eventContentImg=" + eventContentImg + "]";
 	}
 
 }

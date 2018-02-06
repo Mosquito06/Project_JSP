@@ -44,7 +44,7 @@ public class TestEventDaoService {
 
 	}*/
 
-	/*@Test
+	@Test
 	public void insertEvent() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			EventDao dao = session.getMapper(EventDao.class);
@@ -60,7 +60,7 @@ public class TestEventDaoService {
 			e.printStackTrace();
 		}
 
-	}*/
+	}
 
 	/*@Test
 	public void updateEvent() {
@@ -81,7 +81,7 @@ public class TestEventDaoService {
 
 	}*/
 
-	@Test
+	/*@Test
 	public void deleteEvent() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			EventDao dao = session.getMapper(EventDao.class);
@@ -96,5 +96,5 @@ public class TestEventDaoService {
 			e.printStackTrace();
 		}
 
-	}
+	}*/
 }
