@@ -4,19 +4,19 @@
     
     <resultMap type="Reservation" id="ReservationResult">
         <result property="reservationNum" column="reservation_num"/>
-        <result property="roomNum" column="room_num"/>
-        <result property="total_price" column="total_price"/>
+        <result property="roomNum.roomNum" column="room_num"/>
+        <result property="totalPrice" column="total_price"/>
         <result property="checkIn" column="check_in"/>
         <result property="checkOut" column="check_out"/>
         <result property="personnel" column="personnel"/>
         <result property="state" column="reservation_state"/>
-        <result property="clientNum" column="client_num"/>
+        <result property="clientNum.clientNum" column="client_num"/>
         <result property="optionPrice" column="option_total_price"/>
         <result property="payDate" column="pay_date"/>
       
     </resultMap>
    
-    <sql id="selectReservationSql">
+    <sql id="selectReservationSql" >
         select * from reservation
     </sql>
     
@@ -36,17 +36,17 @@
 	    <include refid="selectReservationSql"/>
 	    <include refid="whereSql"/>	    
 	</select>
-	
-	<insert id="insertClient" parameterType="Client">
-	   insert into client(id,password,korean_name,english_name,birth,email,phone,home,address,client_grade) values(#{id}, #{pw},#{nameKo}, #{nameEn},#{birth}, #{email},#{phone}, #{home},#{address}, #{clientGrade})
+
+	<insert id="insertReservation" parameterType="Reservation">
+	   insert into reservation(room_num,total_price,check_in,check_out,personnel,reservation_state,client_num,option_total_price,pay_date) values(#{roomNum.roomNum},#{totalPrice},#{checkIn},#{checkOut},#{personnel},#{state},#{clientNum.clientNum},#{optionPrice},#{payDate})
 	</insert>
 	
-	<update id="updateClient" parameterType="Client">
-	    update client set id=#{id},password=#{pw},korean_name=#{nameKo},english_name=#{nameEn},birth=#{birth},email=#{email},phone=#{phone},home=#{home},address=#{address},client_grade=#{clientGrade} where client_num = #{clientNum}
+	<update id="updateReservation" parameterType="Reservation">
+	    update reservation set room_num=#{roomNum.roomNum},total_price=#{totalPrice},check_in=#{checkIn},check_out=#{checkOut},personnel=#{personnel},reservation_state=#{state},client_num=#{clientNum.clientNum},option_total_price=#{optionPrice},pay_date=#{payDate} where reservation_num = ${reservationNum}
 	</update>
-	 
-	<delete id="deleteClient" parameterType="Client">
-	    delete from client where client_num = #{clientNum}
+	 	
+	<delete id="deleteReservation" parameterType="Reservation">
+	    delete from reservation where reservation_num = ${reservationNum}
 	</delete> 
-    
+
 </mapper>

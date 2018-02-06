@@ -1,18 +1,17 @@
 package Project_JSP.service.test;
 
-import java.util.List;
+import java.util.Date;
 
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
 import Project_JSP.dao.ReservationDao;
-import Project_JSP.dto.Client;
 import Project_JSP.dto.Reservation;
 import Project_JSP.mvc.util.MySqlSessionFactory;
 
 public class TestReservationDaoService {
 
-	@Test
+/*	@Test
 	public void selectReservation() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			ReservationDao dao = session.getMapper(ReservationDao.class);
@@ -27,32 +26,32 @@ public class TestReservationDaoService {
 			e.printStackTrace();
 		}
 		
-	}
+	}*/
 
-/*	@Test
-	public void selectClientNum() {
+	/*@Test
+	public void selectReservationNum() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
-			ClientDao dao = session.getMapper(ClientDao.class);
-			Client client = new Client();
-			client.setClientNum(1);
-			Client selectClient = dao.selectClientNum(client);
-			System.out.println(selectClient.getNameKo());
+			ReservationDao dao = session.getMapper(ReservationDao.class);
+			Reservation reservation = new Reservation();
+			reservation.setReservationNum(1);
+			Reservation reservation1 = dao.selectReservationNum(reservation);
+			System.out.println(reservation1.getPersonnel());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}*/
 	
-/*	@Test
+	/*@Test
 	public void insertClient() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
-			ClientDao dao = session.getMapper(ClientDao.class);
+			ReservationDao dao = session.getMapper(ReservationDao.class);
 			
-			Client client = new Client();
-			client.setClientNum(12);
-			client.setNameEn("비즈니스센터");
+			Reservation reservation = new Reservation();
+			
+			reservation.setPersonnel(2);
 			
 			
-			dao.insertClient(client);
+			dao.insertReservation(reservation);
 			session.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -63,29 +62,29 @@ public class TestReservationDaoService {
 /*	@Test
 	public void updateClient() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
-			ClientDao dao = session.getMapper(ClientDao.class);
+			ReservationDao dao = session.getMapper(ReservationDao.class);
 			
-			Client client = new Client();
-			client.setClientNum(1);
-			client.setHome("SDf");
-			client.setId("Asd");
-			dao.updateClient(client);
+			Reservation reservation = new Reservation();
+			reservation.setReservationNum(1);
+			reservation.setCheckIn(new Date());
+			reservation.setOptionPrice(1123);
+			dao.updateReservation(reservation);
 			session.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 	}*/
-
-/*	@Test
-	public void deleteClient() {
+/*
+	@Test
+	public void deleteReservation() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
-			ClientDao dao = session.getMapper(ClientDao.class);
+			ReservationDao dao = session.getMapper(ReservationDao.class);
 			
-			Client client = new Client();
-			client.setClientNum(1);
+			Reservation client = new Reservation();
+			client.setReservationNum(1);
 			
-			dao.deleteClient(client);
+			dao.deleteReservation(client);
 			session.commit();
 		} catch (Exception e) {
 			e.printStackTrace();

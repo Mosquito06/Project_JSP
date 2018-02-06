@@ -5,7 +5,7 @@ import java.util.Date;
 public class Reservation {
 	private int reservationNum;
 	private Room roomNum;
-	private int total_price;
+	private int totalPrice;
 	private Date checkIn;
 	private Date checkOut;
 	private int personnel;
@@ -18,7 +18,7 @@ public class Reservation {
 			ReservationState state, Client clientNum, int optionPrice, Date payDate) {
 		super();
 		this.roomNum = roomNum;
-		this.total_price = total_price;
+		this.totalPrice = total_price;
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
 		this.personnel = personnel;
@@ -49,11 +49,11 @@ public class Reservation {
 	}
 
 	public int getTotal_price() {
-		return total_price;
+		return totalPrice;
 	}
 
-	public void setTotal_price(int total_price) {
-		this.total_price = total_price;
+	public void setTotal_price(int totalPrice) {
+		this.totalPrice = totalPrice;
 	}
 
 	public Date getCheckIn() {

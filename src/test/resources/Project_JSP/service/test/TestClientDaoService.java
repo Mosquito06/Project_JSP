@@ -10,7 +10,7 @@ import Project_JSP.dto.Client;
 import Project_JSP.mvc.util.MySqlSessionFactory;
 
 public class TestClientDaoService {
-/*
+
 	@Test
 	public void selectacilityType() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
@@ -26,7 +26,7 @@ public class TestClientDaoService {
 			e.printStackTrace();
 		}
 		
-	}*/
+	}
 
 /*	@Test
 	public void selectClientNum() {
