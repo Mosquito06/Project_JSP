@@ -1,5 +1,5 @@
 package Project_JSP.dto;
 
-public enum FacilityType {
-	
+public enum ViewType {
+
 }

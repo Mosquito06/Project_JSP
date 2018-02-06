@@ -78,7 +78,7 @@ public class TestFacilityTypeDaoService {
 
 	}*/
 
-	@Test
+	/*@Test
 	public void deleteFacilityType() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			FacilityTypeDao dao = session.getMapper(FacilityTypeDao.class);
@@ -92,5 +92,5 @@ public class TestFacilityTypeDaoService {
 			e.printStackTrace();
 		}
 
-	}
+	}*/
 }
