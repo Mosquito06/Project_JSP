@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Project_JSP.dao.RoomInfoDao">
+    
+    <resultMap type="RoomInfo" id="RoomInfoResult">
+        <id property="roomInfoNum" column="room_info_num"/>
+        <result property="roomInfoName" column="room_info_name"/>
+        <result property="roomGrade" column="room_grade"/>
+        <result property="viewType" column="view_type"/>
+        <result property="bedType" column="bed_type"/>
+        <result property="roomImg" column="room_img"/>
+    </resultMap>
+   
+    <sql id="selectSql">
+        select room_info_num, room_info_name, room_grade, view_type, bed_type, room_img from room_info
+    </sql>
+    
+    <sql id="whereSql">
+        <where>
+            <if test="roomInfoNum != null">
+                room_info_num = #{roomInfoNum}
+            </if>            
+        </where>        
+    </sql>
+    
+	<select id="selectRoomInfo" resultMap="RoomInfoResult">
+	    <include refid="selectSql"/>	    
+	</select>
+	
+	<select id="selectRoomInfoByNum" parameterType="RoomInfo" resultMap="RoomInfoResult">
+	    <include refid="selectSql"/>
+	    <include refid="whereSql"/>	    
+	</select>
+	
+	<insert id="insertRoomInfo" parameterType="RoomInfo">
+	   insert into room_info(room_info_name, room_grade, view_type, bed_type, room_img) 
+	   values(#{roomInfoName}, #{roomGrade}, #{viewType}, #{bedType}, #{roomImg})
+	</insert>
+	
+	<update id="updateRoomInfo" parameterType="RoomInfo">
+	    update room_info set room_info_name = #{roomInfoName}, room_grade = #{roomGrade}, 
+	    view_type = #{viewType}, bed_type = #{bedType}, room_img = #{roomImg}
+	  	<include refid="whereSql"/>
+	</update>
+	
+	<delete id="deleteRoomInfo" parameterType="Event">
+	    delete from room_info
+	    <include refid="whereSql"/>
+	</delete>
+    
+</mapper>
