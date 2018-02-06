@@ -38,8 +38,8 @@
   </environments>
   
   <mappers>
-      <mapper resource="mappers/FacilityTypeMapper.xml"/>
-      <mapper resource="mappers/ClientMapper.xml"/>
+       <mapper resource="mappers/ClientMapper.xml"/>
+       <mapper resource="mappers/ReservationMapper.xml"/>
   </mappers>
 
 </configuration>
