@@ -39,5 +39,7 @@
   
   <mappers>
       <mapper resource="mappers/FacilityTypeMapper.xml"/>
+      <mapper resource="mappers/ClientMapper.xml"/>
   </mappers>
+
 </configuration>

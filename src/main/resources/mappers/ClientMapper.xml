@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Project_JSP.dao.ClientDao">
+    
+    <resultMap type="Client" id="ClientResult">
+        <result property="clientNum" column="client_num"/>
+        <result property="id" column="id"/>
+        <result property="pw" column="password"/>
+        <result property="nameKo" column="korean_name"/>
+        <result property="nameEn" column="english_name"/>
+        <result property="birth" column="birth"/>
+        <result property="email" column="email"/>
+        <result property="phone" column="phone"/>
+        <result property="home" column="home"/>
+        <result property="address" column="address"/>
+        <result property="clientGrade" column="client_grade"/>
+    </resultMap>
+   
+    <sql id="selectClientSql">
+        select * from Client
+    </sql>
+    
+    <sql id="whereSql">
+        <where>
+            <if test="clientNum != null">
+                client_num = ${clientNum}
+            </if>            
+        </where>        
+    </sql>
+    
+	<select id="selectClient" resultMap="ClientResult">
+	    <include refid="selectClientSql"/>	    
+	</select>
+	
+	<select id="selectClientNum" parameterType="Client" resultMap="ClientResult">
+	    <include refid="selectClientSql"/>
+	    <include refid="whereSql"/>	    
+	</select>
+	
+	<insert id="insertClient" parameterType="Client">
+	   insert into client(id,password,korean_name,english_name,birth,email,phone,home,address,client_grade) values(#{id}, #{pw},#{nameKo}, #{nameEn},#{birth}, #{email},#{phone}, #{home},#{address}, #{clientGrade})
+	</insert>
+	
+	<update id="updateClient" parameterType="Client">
+	    update client set id=#{id},password=#{pw},korean_name=#{nameKo},english_name=#{nameEn},birth=#{birth},email=#{email},phone=#{phone},home=#{home},address=#{address},client_grade=#{clientGrade} where client_num = #{clientNum}
+	</update>
+	 
+	<delete id="deleteClient" parameterType="Client">
+	    delete from client where client_num = #{clientNum}
+	</delete> 
+    
+</mapper>
