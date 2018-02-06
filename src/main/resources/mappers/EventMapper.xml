@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Project_JSP.dao.EventDao">
+    
+    <resultMap type="Event" id="EventResult">
+        <id property="eventNum" column="event_num"/>
+        <result property="eventName" column="event_name"/>
+        <result property="eventTitle" column="event_title"/>
+        <result property="eventStartDay" column="event_start_day"/>
+        <result property="eventEndDay" column="event_end_day"/>
+        <result property="eventImg" column="event_img"/>
+    </resultMap>
+   
+    <sql id="selectSql">
+        select event_num, event_name, event_title, event_start_day, event_end_day, event_img from event
+    </sql>
+    
+    <sql id="whereSql">
+        <where>
+            <if test="eventNum != null">
+                event_num = ${eventNum}
+            </if>            
+        </where>        
+    </sql>
+    
+	<select id="selectEvent" resultMap="EventResult">
+	    <include refid="selectSql"/>	    
+	</select>
+	
+	<select id="selectEventByNum" parameterType="Event" resultMap="EventResult">
+	    <include refid="selectSql"/>
+	    <include refid="whereSql"/>	    
+	</select>
+	
+	<insert id="insertEvent" parameterType="Event">
+	   insert into event(event_name, event_title, event_start_day, event_end_day, event_img) 
+	   values(#{eventName}, #{eventTitle}, #{eventStartDay}, #{eventEndDay}, #{eventImg})
+	</insert>
+	
+	<update id="updateEvent" parameterType="Event">
+	    update event set event_name = #{eventName}, event_title = #{eventTitle}, 
+	    event_start_day = #{eventStartDay}, event_end_day = #{eventEndDay}, event_img = #{eventImg}
+	  	<include refid="whereSql"/>
+	</update>
+	
+	<delete id="deleteEvent" parameterType="Event">
+	    delete from event
+	    <include refid="whereSql"/>
+	</delete>
+    
+</mapper>

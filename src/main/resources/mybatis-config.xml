@@ -38,6 +38,6 @@
   </environments>
   
   <mappers>
-      <mapper resource="mappers/FacilityTypeMapper.xml"/>
+      <mapper resource="mappers/EventMapper.xml"/>
   </mappers>
 </configuration>
