@@ -39,5 +39,6 @@
   
   <mappers>
       <mapper resource="mappers/EventMapper.xml"/>
+      <mapper resource="mappers/ClientMapper.xml"/>
   </mappers>
 </configuration>
