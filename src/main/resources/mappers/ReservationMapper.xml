@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Project_JSP.dao.ReservationDao">
+    
+    <resultMap type="Reservation" id="ReservationResult">
+        <result property="reservationNum" column="reservation_num"/>
+        <result property="roomNum.roomNum" column="room_num"/>
+        <result property="totalPrice" column="total_price"/>
+        <result property="checkIn" column="check_in"/>
+        <result property="checkOut" column="check_out"/>
+        <result property="personnel" column="personnel"/>
+        <result property="state" column="reservation_state"/>
+        <result property="clientNum.clientNum" column="client_num"/>
+        <result property="optionPrice" column="option_total_price"/>
+        <result property="payDate" column="pay_date"/>
+      
+    </resultMap>
+   
+    <sql id="selectReservationSql" >
+        select * from reservation
+    </sql>
+    
+    <sql id="whereSql">
+        <where>
+            <if test="reservationNum != null">
+                reservation_num = #{reservationNum}
+            </if>            
+        </where>        
+    </sql>
+    
+	<select id="selectReservation" resultMap="ReservationResult">
+	    <include refid="selectReservationSql"/>	    
+	</select>
+	
+	<select id="selectReservationNum" parameterType="Reservation" resultMap="ReservationResult">
+	    <include refid="selectReservationSql"/>
+	    <include refid="whereSql"/>	    
+	</select>
+
+	<insert id="insertReservation" parameterType="Reservation">
+	   insert into reservation(room_num,total_price,check_in,check_out,personnel,reservation_state,client_num,option_total_price,pay_date) values(#{roomNum.roomNum},#{totalPrice},#{checkIn},#{checkOut},#{personnel},#{state},#{clientNum.clientNum},#{optionPrice},#{payDate})
+	</insert>
+	
+	<update id="updateReservation" parameterType="Reservation">
+	    update reservation set room_num=#{roomNum.roomNum},total_price=#{totalPrice},check_in=#{checkIn},check_out=#{checkOut},personnel=#{personnel},reservation_state=#{state},client_num=#{clientNum.clientNum},option_total_price=#{optionPrice},pay_date=#{payDate} where reservation_num = #{reservationNum}
+	</update>
+	 	
+	<delete id="deleteReservation" parameterType="Reservation">
+	    delete from reservation where reservation_num = #{reservationNum}
+	</delete> 
+
+</mapper>

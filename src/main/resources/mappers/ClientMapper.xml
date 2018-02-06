@@ -23,7 +23,7 @@
     <sql id="whereSql">
         <where>
             <if test="clientNum != null">
-                client_num = ${clientNum}
+                client_num = #{clientNum}
             </if>            
         </where>        
     </sql>

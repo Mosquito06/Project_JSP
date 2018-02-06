@@ -41,5 +41,8 @@
       <mapper resource="mappers/EventMapper.xml"/>
       <mapper resource="mappers/EventContentMapper.xml"/>
       <mapper resource="mappers/ClientMapper.xml"/>
+       <mapper resource="mappers/ReservationMapper.xml"/>
+       <mapper resource="mappers/OptionMapper.xml"/>
+       <mapper resource="mappers/GalleryMapper.xml"/>
   </mappers>
 </configuration>

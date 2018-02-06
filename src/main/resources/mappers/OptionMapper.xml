@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Project_JSP.dao.OptionDao">
+    
+    <resultMap type="Option" id="OptionResult">
+        <result property="optionNum" column="option_num"/>
+        <result property="optionContent" column="option_content"/>
+        <result property="optionPrice" column="option_price"/>
+        
+    </resultMap>
+   
+    <sql id="selectOptionSql">
+        select * from option
+    </sql>
+    
+    <sql id="whereSql">
+        <where>
+            <if test="optionNum != null">
+                option_num = #{optionNum}
+            </if>            
+        </where>        
+    </sql>
+    
+	<select id="selectOption" resultMap="OptionResult">
+	    <include refid="selectOptionSql"/>	    
+	</select>
+	
+	<select id="selectOptionNum" parameterType="Option" resultMap="OptionResult">
+	    <include refid="selectOptionSql"/>
+	    <include refid="whereSql"/>	    
+	</select>
+	
+	<insert id="insertOption" parameterType="Option">
+	   insert into Option(option_content,option_price) values(#{optionContent},#{optionPrice})
+	</insert>
+	
+	<update id="updateOption" parameterType="Option">
+	    update Option set option_content=#{optionContent},option_price=#{optionPrice} where option_num = #{optionNum}
+	</update>
+	
+	<delete id="deleteOption" parameterType="Option">
+	    delete from Option where option_num = #{optionNum}
+	</delete> 
+    
+</mapper>

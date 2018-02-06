@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Project_JSP.dao.GalleryDao">
+    
+    <resultMap type="Gallery" id="GalleryResult">
+        <result property="galleryNum" column="gallery_num"/>
+        <result property="galleryName" column="gallery_name"/>
+        <result property="galleryContent" column="gallery_content"/>
+        <result property="galleryPath" column="gallery_path"/>
+        <result property="galleryType" column="gallery_type"/>
+    </resultMap>
+   
+    <sql id="selectGallerySql">
+        select * from option
+    </sql>
+    
+    <sql id="whereSql">
+        <where>
+            <if test="galleryNum != null">
+                gallery_num = #{galleryNum}
+            </if>            
+        </where>        
+    </sql>
+    
+	<select id="selectGallery" resultMap="GalleryResult">
+	    <include refid="selectGallerySql"/>	    
+	</select>
+	
+	<select id="selectGalleryNum" parameterType="Gallery" resultMap="GalleryResult">
+	    <include refid="selectOptionSql"/>
+	    <include refid="whereSql"/>	    
+	</select>
+	
+	<!-- <insert id="insertGallery" parameterType="Gallery">
+	   insert into Gallery(option_content,option_price) values(#{optionContent},#{optionPrice})
+	</insert>
+	
+	<update id="updateGallery" parameterType="Gallery">
+	    update Gallery set option_content=#{optionContent},option_price=#{optionPrice} where option_num = #{optionNum}
+	</update>
+	
+	<delete id="deleteGallery" parameterType="Gallery">
+	    delete from Gallery where option_num = #{optionNum}
+	</delete> 
+     -->
+</mapper>
