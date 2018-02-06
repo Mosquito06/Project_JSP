@@ -18,7 +18,7 @@
     <sql id="whereSql">
         <where>
             <if test="eventNum != null">
-                event_num = ${eventNum}
+                event_num = #{eventNum}
             </if>            
         </where>        
     </sql>

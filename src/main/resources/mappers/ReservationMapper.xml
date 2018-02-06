@@ -23,7 +23,7 @@
     <sql id="whereSql">
         <where>
             <if test="reservationNum != null">
-                reservation_num = ${reservationNum}
+                reservation_num = #{reservationNum}
             </if>            
         </where>        
     </sql>
@@ -42,11 +42,11 @@
 	</insert>
 	
 	<update id="updateReservation" parameterType="Reservation">
-	    update reservation set room_num=#{roomNum.roomNum},total_price=#{totalPrice},check_in=#{checkIn},check_out=#{checkOut},personnel=#{personnel},reservation_state=#{state},client_num=#{clientNum.clientNum},option_total_price=#{optionPrice},pay_date=#{payDate} where reservation_num = ${reservationNum}
+	    update reservation set room_num=#{roomNum.roomNum},total_price=#{totalPrice},check_in=#{checkIn},check_out=#{checkOut},personnel=#{personnel},reservation_state=#{state},client_num=#{clientNum.clientNum},option_total_price=#{optionPrice},pay_date=#{payDate} where reservation_num = #{reservationNum}
 	</update>
 	 	
 	<delete id="deleteReservation" parameterType="Reservation">
-	    delete from reservation where reservation_num = ${reservationNum}
+	    delete from reservation where reservation_num = #{reservationNum}
 	</delete> 
 
 </mapper>

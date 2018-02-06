@@ -40,5 +40,6 @@
   <mappers>
        <mapper resource="mappers/ClientMapper.xml"/>
        <mapper resource="mappers/ReservationMapper.xml"/>
+       <mapper resource="mappers/OptionMapper.xml"/>
   </mappers>
 </configuration>
