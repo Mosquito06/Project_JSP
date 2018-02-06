@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Project_JSP.dao.EventContentDao">
+    
+    <resultMap type="EventContent" id="EventContentResult">
+        <id property="eventNum.eventNum" column="event_num"/>
+        <result property="eventContentImg" column="event_content_img"/>
+    </resultMap>
+   
+    <sql id="selectSql">
+        select event_num, event_content_img from event_content
+    </sql>
+    
+    <sql id="whereSql">
+        <where>
+            <if test="eventNum != null">
+                event_num = ${eventNum.eventNum}
+            </if>            
+        </where>        
+    </sql>
+    
+	<select id="selectEventContent" resultMap="EventContentResult">
+	    <include refid="selectSql"/>	    
+	</select>
+	
+	<select id="selectEventContentByNum" parameterType="Event" resultMap="EventContentResult">
+	    <include refid="selectSql"/>
+	    <include refid="whereSql"/>	    
+	</select>
+	
+	<insert id="insertEventContent" parameterType="EventContent">
+	   insert into event_content(event_num, event_content_img) 
+	   values(#{eventNum.eventNum}, #{eventContentImg})
+	</insert>
+	
+	<update id="updateEventContent" parameterType="EventContent">
+	    update event_content set event_content_img = #{eventContentImg}
+	  	<include refid="whereSql"/>
+	</update>
+	
+	<delete id="deleteEventContent" parameterType="EventContent">
+	    delete from event_content
+	    <include refid="whereSql"/>
+	</delete>
+    
+</mapper>

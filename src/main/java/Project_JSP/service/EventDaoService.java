@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import Project_JSP.dao.EventDao;
-import Project_JSP.dto.Event;
+import Project_JSP.dao.EventContentDao;
+import Project_JSP.dto.EventContent;
 import Project_JSP.mvc.util.MySqlSessionFactory;
 
-public class EventDaoService implements EventDao {
+public class EventDaoService implements EventContentDao {
 	private static final EventDaoService INSTANCE = new EventDaoService();
 
 	public static EventDaoService getInstance() {
@@ -21,10 +21,10 @@ public class EventDaoService implements EventDao {
 	}
 
 	@Override
-	public List<Event> selectEvent() {
+	public List<EventContent> selectEventContent() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
-			EventDao dao = session.getMapper(EventDao.class);
-			return dao.selectEvent();
+			EventContentDao dao = session.getMapper(EventContentDao.class);
+			return dao.selectEventContent();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -34,10 +34,10 @@ public class EventDaoService implements EventDao {
 	}
 
 	@Override
-	public Event selectEventByNum(Event event) {
+	public EventContent selectEventContentByNum(EventContent eventContent) {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
-			EventDao dao = session.getMapper(EventDao.class);
-			return dao.selectEventByNum(event);
+			EventContentDao dao = session.getMapper(EventContentDao.class);
+			return dao.selectEventContentByNum(eventContent);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -47,39 +47,39 @@ public class EventDaoService implements EventDao {
 	}
 
 	@Override
-	public void insertEvent(Event event) {
+	public void insertEventContent(EventContent eventContent) {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
-			EventDao dao = session.getMapper(EventDao.class);
-			dao.insertEvent(event);
+			EventContentDao dao = session.getMapper(EventContentDao.class);
+			dao.insertEventContent(eventContent);
 			session.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
 	}
 
 	@Override
-	public void updateEvent(Event event) {
+	public void updateEventContent(EventContent eventContent) {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
-			EventDao dao = session.getMapper(EventDao.class);
-			dao.updateEvent(event);
+			EventContentDao dao = session.getMapper(EventContentDao.class);
+			dao.updateEventContent(eventContent);
 			session.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
 	}
 
 	@Override
-	public void deleteEvent(Event event) {
+	public void deleteEventContent(EventContent eventContent) {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
-			EventDao dao = session.getMapper(EventDao.class);
-			dao.deleteEvent(event);
+			EventContentDao dao = session.getMapper(EventContentDao.class);
+			dao.deleteEventContent(eventContent);
 			session.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
 	}
 
 }
