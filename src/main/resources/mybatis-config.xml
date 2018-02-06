@@ -41,7 +41,7 @@
       <mapper resource="mappers/ClientMapper.xml"/>
       <mapper resource="mappers/ReservationMapper.xml"/>
       <mapper resource="mappers/OptionMapper.xml"/>
-      <!-- <mapper resource="mappers/GalleryMapper.xml"/> --> 
+ 	  <mapper resource="mappers/GalleryMapper.xml"/>
       <mapper resource="mappers/RoomInfoMapper.xml"/>
       <mapper resource="mappers/RoomMapper.xml"/>
 	  <mapper resource="mappers/BoardMapper.xml" />

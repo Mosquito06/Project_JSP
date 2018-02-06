@@ -5,7 +5,12 @@ public class Gallery {
 	private String galleryName;
 	private String galleryContent;
 	private String galleryPath;
-	private String galleryType;
+	private GalleryType galleryType;
+
+	public Gallery() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public int getGalleryNum() {
 		return galleryNum;
@@ -39,26 +44,18 @@ public class Gallery {
 		this.galleryPath = galleryPath;
 	}
 
-	public String getGalleryType() {
+	public GalleryType getGalleryType() {
 		return galleryType;
 	}
 
-	public void setGalleryType(String galleryType) {
+	public void setGalleryType(GalleryType galleryType) {
 		this.galleryType = galleryType;
 	}
 
-	public Gallery(String galleryName, String galleryContent, String galleryPath, String galleryType) {
-		super();
-		this.galleryName = galleryName;
-		this.galleryContent = galleryContent;
-		this.galleryPath = galleryPath;
-		this.galleryType = galleryType;
+	@Override
+	public String toString() {
+		return "Gallery [galleryNum=" + galleryNum + ", galleryName=" + galleryName + ", galleryContent="
+				+ galleryContent + ", galleryPath=" + galleryPath + ", galleryType=" + galleryType + "]";
 	}
-
-	public Gallery() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	
 
 }

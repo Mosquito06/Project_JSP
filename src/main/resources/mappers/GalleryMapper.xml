@@ -10,8 +10,8 @@
         <result property="galleryType" column="gallery_type"/>
     </resultMap>
    
-   <!--  <sql id="selectGallerySql">
-        select * from option
+   <sql id="selectGallerySql">
+        select gallery_num, gallery_name, gallery_content, gallery_path, gallery_type from gallery
     </sql>
     
     <sql id="whereSql">
@@ -26,21 +26,25 @@
 	    <include refid="selectGallerySql"/>	    
 	</select>
 	
-	<select id="selectGalleryNum" parameterType="Gallery" resultMap="GalleryResult">
-	    <include refid="selectOptionSql"/>
+	<select id="selecGalleryByNum" parameterType="Gallery" resultMap="GalleryResult">
+	    <include refid="selectGallerySql"/>
 	    <include refid="whereSql"/>	    
 	</select>
 	
 	<insert id="insertGallery" parameterType="Gallery">
-	   insert into Gallery(option_content,option_price) values(#{optionContent},#{optionPrice})
+	   insert into Gallery(gallery_name, gallery_content, gallery_path, gallery_type) 
+	   values(#{galleryName}, #{galleryContent}, #{galleryPath}, #{galleryType})
 	</insert>
 	
 	<update id="updateGallery" parameterType="Gallery">
-	    update Gallery set option_content=#{optionContent},option_price=#{optionPrice} where option_num = #{optionNum}
+	    update Gallery set gallery_name = #{galleryName}, gallery_content = #{galleryContent},
+	    gallery_path = #{galleryPath}, gallery_type = #{galleryType}
+	    <include refid="whereSql"/>
 	</update>
 	
 	<delete id="deleteGallery" parameterType="Gallery">
-	    delete from Gallery where option_num = #{optionNum}
+	    delete from Gallery
+	    <include refid="whereSql"/>
 	</delete> 
-     -->
+
 </mapper>
