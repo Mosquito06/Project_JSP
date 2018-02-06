@@ -12,5 +12,6 @@
 </head>  
 <body>
 	<%@ include file="WEB-INF/common/header.jsp" %>
+	<jsp:include page="WEB-INF/common/footer.jsp"/>
 </body>
 </html>
