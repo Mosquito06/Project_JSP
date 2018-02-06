@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Project_JSP.dao.BoardDao">
+    
+    <resultMap type="Board" id="BoardResult">
+    	<id property="num" column="board_num"/>
+    	<result property="type" column="board_type"/>
+    	<result property="name" column="board_name"/>
+    	<result property="email" column="board_email"/>
+    	<result property="tel" column="board_tel"/>
+    	<result property="title" column="board_title"/>
+    </resultMap>
+   
+   <insert id="insertBoard" parameterType="Board">
+   		insert into board(board_num,board_type,board_name,board_email,board_tel,board_title)
+   		values(#{num},#{type},#{name},#{email},#{tel},#{title})
+   </insert>
+   
+   <select id="selcetAllBoard" resultMap="BoardResult">
+   		select * from board
+   </select>
+   
+   <select id="findByNumBoard" parameterType="Board" resultMap="BoardResult">
+   		select * from board where board_num = #{num}
+   </select>
+   
+   <select id="deletByNumBoard" parameterType="Board">
+   		delete from board where board_num = #{num}
+   </select>
+   
+   <select id="updateBoard" parameterType="Board">
+   		update board set 
+   		board_type = #{type},board_name =#{name},
+   		board_email = #{email},board_tel =#{tel},board_title=#{title}
+   		where board_num = #{num}
+   </select>
+</mapper>

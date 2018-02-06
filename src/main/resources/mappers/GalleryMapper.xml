@@ -10,7 +10,7 @@
         <result property="galleryType" column="gallery_type"/>
     </resultMap>
    
-    <sql id="selectGallerySql">
+   <!--  <sql id="selectGallerySql">
         select * from option
     </sql>
     
@@ -31,7 +31,7 @@
 	    <include refid="whereSql"/>	    
 	</select>
 	
-	<!-- <insert id="insertGallery" parameterType="Gallery">
+	<insert id="insertGallery" parameterType="Gallery">
 	   insert into Gallery(option_content,option_price) values(#{optionContent},#{optionPrice})
 	</insert>
 	
