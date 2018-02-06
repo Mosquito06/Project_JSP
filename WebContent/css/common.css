@@ -1,1 +1,212 @@
 @CHARSET "UTF-8";
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+/*헤더 Style*/
+#headerWrap {
+	width: 100%;
+	background: #f1e3c4;
+}
+
+#header {
+	width: 1200px;
+	height: 90px;
+	margin: 0 auto;
+}
+
+#header_gnb {
+	width: 100%;
+	height: 50px;
+	background: #81725f;
+	clear: both;
+}
+
+#navWrap {
+	width: 1200px;
+	height: 50px;
+	margin: 0 auto;
+}
+/*헤드 로고*/
+#hotelSearch {
+	float: left;
+	position: relative;
+}
+
+#hotelSearch ul#hotelList {
+	position: absolute;
+	z-index: 9999;
+	background: #3e2b2c;
+	top: 50px;
+	left: 10px;
+}
+
+ul#hotelList li a,ul#hotelList li span{
+	display:block;
+	width: 140px;
+	height: 37px;
+	padding: 0px 15px; 
+	line-height: 37px;
+	color:#f1ebd6;  
+	font-size: 13px;
+}ul#hotelList li a:HOVER{
+	color:#fff !important;
+	text-decoration: underline;
+}
+.selTitle{    
+	background-color: #322223;
+	color:#f1ebd6 !important;
+	font-weight:bold !important;
+}  
+.stayHead{
+	border-top:1px solid #322223;
+	color:#b3a291 !important;
+	font-weight:bold !important;
+}
+ 
+#hotelSearch a.openList {
+	display: block;
+	font-size: 12px;
+	color: #5d4930;
+	line-height: 35px;
+	padding: 0 10px;
+	background: url();
+	width: 91px;
+	height: 35px;
+	margin-top: 15px;
+}
+
+#head_logo {
+	display: block;
+	width: 200px;
+	margin: 0;
+	margin-left: 389px;
+	float: left;
+}
+
+#headNav {
+	margin-top: 24px;
+	float: right;
+}
+
+#headNav ul li {
+	float: left;
+}
+
+#headNav ul li a {
+	font-size: 12px;
+	display: block;
+	color: #5d4930;
+	padding-right: 15px;
+	margin-right: 15px;
+	border-right: 1px solid #cccfcf;
+}
+
+#headNav ul li:nth-child(3) a {
+	margin-right: 0px;
+	border-right: none;
+}
+
+#headNav ul li:last-child a {
+	border-right: none;
+	padding: 5px 10px;
+	margin-top: -5px;
+	border-radius: 2px;
+	background-color: #b3a28f;
+	color: #fff;
+}
+
+#headNav ul li:last-child a:HOVER {
+	background: #3e2b2c;
+}
+/*헤드 메뉴*/
+ul#mainNav {
+	width: 900px;
+}
+
+ul#mainNav>li {
+	float: left;
+	width: 16.66666%;
+	text-align: center;
+}
+
+ul#mainNav>li>a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	line-height: 50px;
+	color: #dfd4c6;
+}
+
+ul#mainNav a:HOVER {
+	color: #fff;
+	font-weight: bold;
+}
+
+div.subBg {
+	width: 100%;
+	height: 30px;
+	background-color: #685845;
+}
+
+ul.subNav {
+	width: 1200px;
+	padding-left: 25px;
+}
+
+ul.subNav>li {
+	float: left;
+}
+
+ul.subNav>li a {
+	display: block;
+	height: 30px;
+	font-size: 12px;
+	line-height: 30px;
+	padding: 0 20px;
+	color: #eae1c1;
+}
+
+ul#mainNav>li:nth-child(1) ul.subNav {
+	padding-left: 10px;
+}
+
+ul#mainNav>li:nth-child(4) ul.subNav, ul#mainNav>li:nth-child(5) ul.subNav
+	{
+	margin-left: -300px;
+}
+
+.line {
+	display: block;
+	background: #cccfcf;
+	width: 1px;
+	height: 8px;
+	margin: 11px 0;
+}
+
+#reservationBtn {
+	display: block;
+	height: 50px;
+	width: 208px;
+	line-height: 50px;
+	text-decoration: underline;
+	color: #dfd4c6;
+	float: right;
+	text-align: center;
+	background: rgba(0, 0, 0, 0.45);
+}
+
+#reservationBtn:HOVER {
+	color: #fff;
+	font-weight: bold;
+}
+
+.active {
+	display: block;
+}
+
+.hide {
+	display: none;
+}
