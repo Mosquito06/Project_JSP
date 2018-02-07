@@ -29,10 +29,11 @@
 					<li><a href="#">신라스테이 제주</a></li>
 				</ul>
 			</div>
+
 			<h1 id="head_logo"><a href="#"><img src="${pageContext.request.contextPath }/img/common/logo.jpg"></a></h1>
 			<div id="headNav"> 
 				<ul>  
-					<li><a href="#">로그인</a></li>
+					<li><a href="login.do">로그인</a></li>
 					<li><a href="#">신라리워즈 가입</a></li>
 					<li><a href="#">예약확인</a></li>
 					<li><a href="#">관리자</a></li>
@@ -117,7 +118,7 @@
 				</li>
 			</ul>
 			
-			<a href="#" id="reservationBtn">
+			<a href="step1.do" id="reservationBtn">
 				예약
 			</a>			
 		</div>
