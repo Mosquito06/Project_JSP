@@ -30,7 +30,7 @@
 				</ul>
 			</div>
 
-			<h1 id="head_logo"><a href="#"><img src="${pageContext.request.contextPath }/img/common/logo.jpg"></a></h1>
+			<h1 id="head_logo"><a href="${pageContext.request.contextPath }/index.jsp"><img src="${pageContext.request.contextPath }/img/common/logo.jpg"></a></h1>
 			<div id="headNav"> 
 				<ul>  
 					<li><a href="login.do">로그인</a></li>
@@ -126,12 +126,4 @@
 		</div>
 		</div>
 		
-	</div>
-	
-	<div id="contentWrap">
-	
-	</div>
-	
-	<div id="footer">
-	
 	</div>

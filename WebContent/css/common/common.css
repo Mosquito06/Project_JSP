@@ -9,14 +9,14 @@ a {
 #headerWrap {
 	width: 100%;
 	background: #f1e3c4;
-	position: absolute;  
-	z-index: 9999;
+	position:absolute;
 	top:0;
 	left:0;
+	z-index: 9999;
 }
 section{
 	margin-top: 142px;
-}
+} 
 #header { 
 	width: 1200px;
 	height: 90px;
@@ -249,7 +249,7 @@ footer{
 		width:100%;
 		height:62px;
 		border-bottom:1px solid #C2C2C2;
-		background: url("../img/common/logo2.jpg") no-repeat;
+		background: url("/Project_JSP/img/common/logo2.jpg") no-repeat;
 	}
 	#footer_up #content #cont{
 		margin-top: 10px;
@@ -264,7 +264,7 @@ footer{
 	}
 	#footer_up #cont #ul_link{
 		margin-top: 20px;
-		width:750px;
+		width:750px;  
 	}
 	#footer_up #content #ul_link a{
 		text-decoration: none;
@@ -386,3 +386,73 @@ footer{
 		color:#ABABAB;
 		font-size: 12px;
 	}
+	
+	@CHARSET "UTF-8";
+/*section 왼쪽 메뉴 스타일*/
+#section{
+	padding:50px 0;
+} 
+
+#contentWrap{
+	width: 1200px;
+	margin: 0px auto;
+	overflow: hidden;
+}
+
+#leftArea{
+	float: left;
+	padding:23px;
+	background:#f1e3c4;
+}
+ 
+.title{
+	font-size: 23px;
+	padding-bottom: 15px;
+	border-bottom:5px solid #432c10;  
+	margin-bottom: 25px;
+	color:#432c10;
+	letter-spacing: -2px;
+}
+
+.leftMenu{
+	width: 216px;
+}
+li.bMenu{
+	margin-bottom: 20px; 
+}
+li.bMenu>a{
+	display:block;
+	width:100%;
+	height:30px;
+	line-height:30px;
+	color:#432c10;
+	font-size: 16px;
+	font-weight: bold;
+	letter-spacing:-2px;    
+	border-bottom: 1px dotted #cec2a8;
+}
+.sMenu a{
+	display:block;
+	width:100%;
+	height:25px;
+	line-height:25px;
+	color:#876234;
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: -1px;
+}
+.sMenu li:FIRST-CHILD a{
+	margin-top: 5px;
+}
+.noBorder{
+	border: none !important;
+}
+
+/*section 오른쪽 공간 스타일*/
+#rightArea{
+	width:866px;
+	height:600px;
+	background:gray;
+	float: right;
+	
+}

@@ -12,6 +12,9 @@
 </head>  
 <body>
 	<%@ include file="WEB-INF/common/header.jsp" %>
+	<section>
+	
+	</section>
 	<jsp:include page="WEB-INF/common/footer.jsp"/>
 </body>
 </html>
