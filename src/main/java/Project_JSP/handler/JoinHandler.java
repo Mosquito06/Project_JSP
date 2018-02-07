@@ -12,7 +12,7 @@ public class JoinHandler implements CommandHandler {
 		if(req.getMethod().equalsIgnoreCase("get")){
 			return JOIN_VIEW;
 		}else if(req.getMethod().equalsIgnoreCase("post")){
-			
+			return null;
 		}
 		return null;
 	}
