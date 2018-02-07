@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+table,td{
+	border:1px solid black;
+	
+}
+#title{
+	font-size: 27px;
+	color:#9c875c;
+}
+#wrap_title{
+	border-bottom: #432c10 solid 5px;
+}
