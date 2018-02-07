@@ -17,12 +17,11 @@ $(function(){
 	
 	$("input").each(function(i, obj) {
 		$(obj).focusin(function(e) {
-			$(this).css("border"," 1px solid black");
-			
-		})
-		
+			$(this).css("border","1px solid black");
+		});
 		$(obj).blur(function(e) {
-			$(this).css("border"," none");
-		})
+			
+			$(this).css("border","1px solid #ccc");
+		});
 	});
 })

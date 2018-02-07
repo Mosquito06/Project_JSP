@@ -3,3 +3,124 @@
 	width:870px;
 	margin:0 auto;
 }
+#join_title{
+	width:100%;
+	height:100px;
+	position:relative;
+	color:#865009;
+}
+#join_title >h1{
+	font-size: 2.0em;
+	position: absolute;
+	bottom:15px;
+	left:0px;
+}
+#join_title_info{
+	overflow: hidden;
+	width:100%;
+	margin-bottom: 40px;
+}
+#join_title_info ul{
+	list-style: none;
+	width:100%;
+	
+}
+#join_title_info ul li{
+	float:left;
+	width:48%;
+	height:40px;
+	line-height:35px;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	border-left: 1px solid #cacbc3;
+	border-right:  1px solid #cacbc3;
+	border-top:1px solid #cacbc3;
+	border-bottom: 4px solid #9F876B;
+	background-color: #FAF9F7;
+}
+#join_title_info ul li:LAST-CHILD{
+	background-color: white;
+		border-bottom: 1px solid #9F876B;
+	color:#cacbc3;
+}
+#info_insert >h1{
+	width:100%;
+	height:30px;
+	line-height:30px;
+	font-size: 17px;
+	font-weight: bold;
+	border-bottom: 3px solid #9F876B;
+	padding-bottom: 5px;
+}
+.star{
+	color:red;
+}
+/*회원입력 form */
+#info_basic{
+	margin-top: 30px;
+	font-size: 14px;
+}
+#info_basic_title{
+	height:30px;
+	position: relative;
+}
+#info_basic_title h1{
+	font-weight: bold;
+}
+#info_basic_title h1:FIRST-CHILD{
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+#info_basic_title h1:LAST-CHILD{
+	position:absolute;
+	right:0px;
+	top:0px;
+}
+#info_basic_input{
+	border-top: 1px solid #CDCBBE;
+	border-bottom:1px solid #CDCBBE;
+	width:100%;
+}
+#info_basic_input p{
+	overflow: hidden;
+	border-bottom: 1px solid #ECEAE1;
+	line-height: 45px;
+}
+#info_basic_input p:LAST-CHILD{
+	border:none;
+}
+#info_basic_input p label{
+	width:150px;
+	float:left;
+	background-color: #FAF9F4;
+	display:block;
+	padding-left:10px;
+	font-weight: bold;
+	height:45px;
+	line-height: 45px;
+}
+#info_basic_input input[type='text']{
+	height:24px;
+}
+#info_basic_input input[name='nameKo']{
+	margin:5px 15px;
+}
+.ename{
+	padding:10px 0px 5px 15px;
+}
+input[name='nameEn1'],input[name='nameEn2']{
+	margin:5px;
+}
+#birth_select{
+	margin:15px;
+	line-height: 40px;
+}
+select{
+	height:28px;
+	width:100px;
+}
+#email_select select{
+	width:120px;
+}

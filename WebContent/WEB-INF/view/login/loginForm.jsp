@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>로그인 | 신라호텔</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
 <link rel="stylesheet" type="text/css" href="css/login/loginForm.css">
