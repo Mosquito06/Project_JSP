@@ -9,9 +9,15 @@ a {
 #headerWrap {
 	width: 100%;
 	background: #f1e3c4;
+	position: absolute;  
+	z-index: 9999;
+	top:0;
+	left:0;
 }
-
-#header {
+section{
+	margin-top: 142px;
+}
+#header { 
 	width: 1200px;
 	height: 90px;
 	margin: 0 auto;

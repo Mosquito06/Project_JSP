@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script type="text/javascript">
+ var contextPath = "${pageContext.request.contextPath }";
+</script>
 <div id="headerWrap">   
 		<div id="header">
 			<div id="hotelSearch">
@@ -13,7 +16,7 @@
 					<li><a href="#">신라스테이 광화문</a></li>
 					<li><a href="#">신라스테이 마포</a></li>  
 					<li><a href="#">신라스테이 서대문</a></li>
-					<li><span class="stayHead">서울 강남</span></li>
+					<li><span class="stayHead">서울 강남</span></li> 
 					<li><a href="#">신라스테이 역삼</a></li>
 					<li><a href="#">신라스테이 서초</a></li>  
 					<li><a href="#">신라스테이 서초</a></li>
