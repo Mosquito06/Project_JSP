@@ -22,7 +22,7 @@ public class ControllerUsingURI extends HttpServlet {
 		// properties 파일을 호출
 		String configFile = getInitParameter("configFile");
 		Properties prop = new Properties();
-		
+		System.out.println("init()2");
 		// CommandHandler.properties 파일의 = 을 기준으로 파일을 분리
 		String configFilePath = getServletContext().getRealPath(configFile);
 		
