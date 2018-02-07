@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE>
 <html>
 <head>
@@ -30,7 +31,7 @@
 				
 				
 			</div>
-			<form>
+			<form action="free_board.do" method="post">
 				<table>
 					<tr>
 						<th id="th1">번호</th>
@@ -47,7 +48,7 @@
 						<td class="td4">2018.02.07</td>
 						<td class="td5">1</td>
 					</tr> -->
-					<c:if test="${boardList == null}">
+					<c:if test="${error != null}">
 						<tr>
 							<td class="td1" colspan="5">게시물이 존재하지 않습니다.</td>
 							
@@ -59,7 +60,7 @@
 								<td class="td1">${item.num}</td>
 								<td class="td2"><a href="#">${item.title}</a></td>
 								<td class="td3">${item.name}</td>
-								<td class="td4">${item.date}</td>
+								<td class="td4"><fmt:formatDate value="${item.date}" pattern="yyyy-MM-dd"/></td>
 								<td class="td5">${item.check}</td>
 							</tr>
 						</c:forEach>
@@ -69,8 +70,8 @@
 				</table>
 				<div id="search_form">
 					<div id="wrap_search">
-						<select>
-							<option>제목&내용</option>
+						<select name="search_type">
+							<option value="1">제목&내용</option>
 							<option>제목</option>
 							<option>내용</option>
 							<option>글쓴이</option>

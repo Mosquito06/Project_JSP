@@ -30,6 +30,11 @@
    		delete from board where board_num = #{num}
    </select>
    
+   <select id="findByNameBoard" parameterType="Board" resultMap="BoardResult">
+   		select * from board where board_name = #{name}
+   </select>
+   
+   
    <select id="updateBoard" parameterType="Board">
    		update board set 
    		board_type = #{type},board_name =#{name},

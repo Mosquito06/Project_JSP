@@ -8,7 +8,7 @@ import Project_JSP.dao.BoardDao;
 import Project_JSP.dto.Board;
 import Project_JSP.mvc.util.MySqlSessionFactory;
 
-public class BoardService {
+public class BoardService implements BoardDao{
 	private static final BoardService instance = new BoardService();
 
 	private BoardService() {
@@ -18,18 +18,7 @@ public class BoardService {
 		return instance;
 	}
 
-	public int insertBoard(Board board) {
-		try (SqlSession session = MySqlSessionFactory.openSession()) {
-			BoardDao dao = session.getMapper(BoardDao.class);
-			dao.insertBoard(board);
-			session.commit();
-			return 0;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return -1;
-	}
+
 	
 	public Board findByNumBoard(Board board){
 		try(SqlSession session = MySqlSessionFactory.openSession()){
@@ -55,38 +44,36 @@ public class BoardService {
 		return null;
 	};
 	
-	public int updateBoard(Board board){
-		SqlSession session = MySqlSessionFactory.openSession();
-		try{
-			BoardDao dao = session.getMapper(BoardDao.class);
+	
 
-			dao.updateBoard(board);
-			session.commit();
-			return 0;
-		}catch (Exception e) {
-			session.rollback();
-			e.printStackTrace();
-			return -1;
-		}finally {
-			session.close();
-		}
+
+	@Override
+	public void insertBoard(Board board) {
+		// TODO Auto-generated method stub
 		
 	}
-	
-	public int deletByNumBoard(Board board){
-		SqlSession session = MySqlSessionFactory.openSession();
-		try{
-			BoardDao dao = session.getMapper(BoardDao.class);
 
-			dao.deletByNumBoard(board);
-			session.commit();
-			return 0;
+	@Override
+	public List<Board> findByNameBoard(Board board) {
+		try(SqlSession session = MySqlSessionFactory.openSession()){
+			BoardDao dao = session.getMapper(BoardDao.class);
+			
+			return dao.findByNameBoard(board);
 		}catch (Exception e) {
-			session.rollback();
 			e.printStackTrace();
-			return -1;
-		}finally {
-			session.close();
 		}
+		return null;
+	}
+
+	@Override
+	public void deletByNumBoard(Board board) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateBoard(Board board) {
+		// TODO Auto-generated method stub
+		
 	};
 }
