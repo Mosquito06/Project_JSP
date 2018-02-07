@@ -7,7 +7,7 @@
 <title>STEP1 날짜&인원 선택</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
-<link rel="stylesheet" type="text/css" href="css/reservation/common.css">
+<link rel="stylesheet" type="text/css" href="css/reservation/common.css?a=df">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
 </head>
@@ -50,7 +50,6 @@
 							</div>
 							<div class="selectType">
 								<div class="selectText">성인</div>
-								<img class="importantImg" src="/Project_JSP/img/reservation/important.png">
 								<div class="selectNum">
 									<div class="num">1</div>
 									<img src="/Project_JSP/img/reservation/selectBtn.jpg">
@@ -78,7 +77,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td colspan="4">
+						<td colspan="4" id="tdText">
 							예약을 원하시면 호텔, 날짜, 인원을 선택 후 검색 버튼을 눌러주세요.
 						</td>
 					</tr>
