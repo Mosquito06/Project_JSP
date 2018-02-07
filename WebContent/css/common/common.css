@@ -451,8 +451,5 @@ li.bMenu>a{
 /*section 오른쪽 공간 스타일*/
 #rightArea{
 	width:866px;
-	height:600px;
-	background:gray;
 	float: right;
-	
 }
