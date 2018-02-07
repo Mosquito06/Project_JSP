@@ -114,7 +114,7 @@
 				</li>
 			</ul>
 			
-			<a href="#" id="reservationBtn">
+			<a href="step1.do" id="reservationBtn">
 				예약
 			</a>			
 		</div>

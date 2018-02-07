@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+
+section#main{
+	width: 1200px;
+	border: 1px solid black;	
+	margin: 0 auto;
+	min-height: 800px;
+}
+
+section#main table{
+	width: 100%;	
+	border: 1px solid black;
+	z-index: -100;
+}
+
+section#main table th{
+	border-bottom: 4px solid #a0886e;
+	padding: 5px;
+	color: #a0886e;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+section#main table th.noSelect{
+	border-bottom: 4px solid #cacbc3;
+	padding: 5px;
+	color: #cacbc3;
+}
+
