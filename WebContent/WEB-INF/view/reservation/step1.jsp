@@ -8,15 +8,34 @@
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
 <link rel="stylesheet" type="text/css" href="css/reservation/common.css?a=df">
+<link rel="stylesheet" type="text/css" href="css/reservation/Loading.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
+<script type="text/javascript" src="js/reservation/Loading.js"></script>
+<script>
+	$(function(){
+		$("#searchBtn").click(function(){
+			$("section").addClass("backSetting");
+			var $parent = $("div#container");
+			startLoading($parent, "이용가능한 객실을 검색하는 중입니다.");
+			
+		})
+		
+		$(".importantImg").click(function(){
+			var $parent = $("div#container");
+			stopLoading($parent);
+			$("section").removeClass("backSetting");
+		})
+	})
+
+</script>
 </head>
 <body>
-	<div>
+	<div id="container">
 		<header>
 			<jsp:include page="/WEB-INF/common/header.jsp" />
 		</header>
-		<section>
+		<section> 
 			<div id="main">
 				<table>
 					<tr>
@@ -57,7 +76,7 @@
 							</div>
 							<div class="selectType">
 								<div class="selectText">어린이</div>
-								<img class="div#main table tr td" src="/Project_JSP/img/reservation/important.png">
+								<img class="importantImg" src="/Project_JSP/img/reservation/important.png">
 								<div class="selectNum">
 									<div class="num">1</div>
 									<img src="/Project_JSP/img/reservation/selectBtn.jpg">
