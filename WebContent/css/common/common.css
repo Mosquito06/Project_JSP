@@ -9,8 +9,14 @@ a {
 #headerWrap {
 	width: 100%;
 	background: #f1e3c4;
+	position:absolute;
+	top:0;
+	left:0;
 	z-index: 9999;
 }
+section{
+	margin-top: 142px;
+} 
 #header { 
 	width: 1200px;
 	height: 90px;
@@ -383,9 +389,13 @@ footer{
 	
 	@CHARSET "UTF-8";
 /*section 왼쪽 메뉴 스타일*/
+#section{
+	padding:50px 0;
+} 
+
 #contentWrap{
 	width: 1200px;
-	margin: 50px auto;
+	margin: 0px auto;
 	overflow: hidden;
 }
 
@@ -394,7 +404,7 @@ footer{
 	padding:23px;
 	background:#f1e3c4;
 }
-
+ 
 .title{
 	font-size: 23px;
 	padding-bottom: 15px;

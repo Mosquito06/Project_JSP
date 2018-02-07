@@ -14,7 +14,7 @@
 </head>  
 <body>
 	<%@ include file="../../common/header.jsp" %>
-	<section>  
+	<section id="section">  
 		<div id="contentWrap">
 			 <div id="leftArea">
 			 	<div id="lnbWrap">
