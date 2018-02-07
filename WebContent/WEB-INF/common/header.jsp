@@ -3,7 +3,7 @@
 <div id="headerWrap">   
 		<div id="header">
 			<div id="hotelSearch">
-				<a href="#" class="openList"><img src="img/common/hotolIcon.png"></a>
+				<a href="#" class="openList"><img src="${pageContext.request.contextPath }/img/common/hotolIcon.png"></a>
 				<ul id="hotelList" class="hide">
 					<li><a href="#" class="selTitle">The Shilla</a></li>
 					<li><a href="#">서울신라호텔</a></li>
@@ -26,9 +26,9 @@
 					<li><a href="#">신라스테이 제주</a></li>
 				</ul>
 			</div>
-			<h1 id="head_logo"><a href="#"><img src="img/logo.jpg"></a></h1>
-			<div id="headNav">
-				<ul>
+			<h1 id="head_logo"><a href="#"><img src="${pageContext.request.contextPath }/img/common/logo.jpg"></a></h1>
+			<div id="headNav"> 
+				<ul>  
 					<li><a href="#">로그인</a></li>
 					<li><a href="#">신라리워즈 가입</a></li>
 					<li><a href="#">예약확인</a></li>
