@@ -42,7 +42,7 @@ public class TestBoardService {
 		
 		serivce.insertBoard(board);
 	}*/
-	
+/*	
 	@Test
 	public void testSelectAll() {
 		BoardService serivce = BoardService.getInstance();
@@ -77,6 +77,6 @@ public class TestBoardService {
 	}
 	
 	
-	
+	*/
 
 }
