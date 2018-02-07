@@ -33,9 +33,9 @@
 						<div id="sns">
 							<dl>
 								<dt>SNS</dt>
-								<dd><a href="https://www.facebook.com/theshillajeju"><img src="img/facebookIcon.png"></a></dd>
-								<dd><a href="http://blog.naver.com/shillajeju_"><img src="img/blogicon.png"></a></dd>
-								<dd><a href="https://plus.google.com/116571259877956708092"><img src="img/googleIcon.png"></a></dd>
+								<dd><a href="https://www.facebook.com/theshillajeju"><img src="img/common/facebookIcon.png"></a></dd>
+								<dd><a href="http://blog.naver.com/shillajeju_"><img src="img/common/blogicon.png"></a></dd>
+								<dd><a href="https://plus.google.com/116571259877956708092"><img src="img/common/googleIcon.png"></a></dd>
 							</dl>
 						</div>
 					</div>
