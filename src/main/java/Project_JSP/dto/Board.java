@@ -1,5 +1,7 @@
 package Project_JSP.dto;
 
+import java.util.Date;
+
 public class Board {
 	private int num;
 	private int type;
@@ -7,18 +9,49 @@ public class Board {
 	private String email;
 	private String tel;
 	private String title;
-	
-	public Board(int num, int type, String name, String email, String tel, String title) {
+	private Date date;
+	private int check;
+
+	public int getCheck() {
+		return check;
+	}
+
+	public void setCheck(int check) {
+		this.check = check;
+	}
+
+	public Board(int type, String name, String email, String tel, String title, Date date, int check) {
 		super();
-		this.num = num;
 		this.type = type;
 		this.name = name;
 		this.email = email;
 		this.tel = tel;
 		this.title = title;
+		this.date = date;
+		this.check = check;
 	}
-	
-	public Board() {}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public Board(int type, String name, String email, String tel, String title, Date date) {
+		super();
+
+		this.type = type;
+		this.name = name;
+		this.email = email;
+		this.tel = tel;
+		this.title = title;
+		this.date = date;
+	}
+
+	public Board() {
+	}
 
 	public int getNum() {
 		return num;
@@ -73,5 +106,5 @@ public class Board {
 		return "Board [num=" + num + ", type=" + type + ", name=" + name + ", email=" + email + ", tel=" + tel
 				+ ", title=" + title + "]";
 	}
-	
+
 }
