@@ -229,7 +229,7 @@ footer{
 	#footer_wrap #logo{
 		width:250px;
 		height:172px;
-		background: url("../img/common/logo.jpg") no-repeat center left;
+		background: url("/Project_JSP/img/common/logo.jpg") no-repeat center left;
 		float:left;
 	}
 	#footer_up #content{
