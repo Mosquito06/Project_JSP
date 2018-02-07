@@ -127,11 +127,3 @@
 		</div>
 		
 	</div>
-	
-	<div id="contentWrap">
-	
-	</div>
-	
-	<div id="footer">
-	
-	</div>
