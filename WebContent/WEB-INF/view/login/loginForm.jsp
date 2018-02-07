@@ -44,7 +44,7 @@
 								<input type="submit" value="로그인">
 							</div>	
 						<br>
-							<a href=""><button type="button" id="join">회원가입</button></a>
+							<a href="join.do"><button type="button" id="join">회원가입</button></a>
 							<a href=""><button type="button" id="searchId">아이디 찾기</button></a>
 							<a href=""><button type="button" id="searchPw">비밀번호 찾기</button></a>
 					</div>

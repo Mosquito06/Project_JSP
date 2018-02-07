@@ -68,6 +68,7 @@ fieldset{
 /*회원 로그인 form  */
 fieldset .login{
 	position: relative;
+	margin-bottom: 20px;
 }
 fieldset .login > input[type='submit']{
 	position:absolute;
@@ -86,7 +87,7 @@ fieldset form label{
 	line-height: 35px;
 }
 fieldset form #member{
-	margin-top: 10px;
+	margin-top: 20px;
 }
 fieldset form .login  p:FIRST-CHILD {
 	margin-bottom: 10px;
@@ -96,13 +97,35 @@ fieldset form .login p input{
 	width:300px;
 	height:30px;
 }
-fieldset form .login a button:FIRST-CHILD{
+fieldset form .login #member #join{
 	background-color:  #3e2b2c;
 }
+button{
+	outline:none;
+}
+#join{
+	background-color:  #3e2b2c;
+	border:1px solid #3e2b2c;
+	color:white;
+	width:110px;
+}
+#searchId{
+	background-color: #9F876B;
+	border:1px solid #9F876B;
+	width:130px;
+	color:#F1EBD6;
+}
+#searchPw{
+	background-color: #9F876B;
+	border:1px solid #9F876B;
+	width:150px;
+	color:#F1EBD6;
+}
+
 /*비회원 로그인 form  */
 fieldset form #no_member{
 	display:none;
-	margin-top: 10px;
+	margin-top: 20px;
 }
 fieldset form #no_member .login  input[name='name2']{
 	width:170px;
