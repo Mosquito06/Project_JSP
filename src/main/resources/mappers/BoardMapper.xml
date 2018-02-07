@@ -9,11 +9,13 @@
     	<result property="email" column="board_email"/>
     	<result property="tel" column="board_tel"/>
     	<result property="title" column="board_title"/>
+    	<result property="date" column="board_date"/>
+    	<result property="check" column="board_check"/>
     </resultMap>
    
    <insert id="insertBoard" parameterType="Board">
-   		insert into board(board_num,board_type,board_name,board_email,board_tel,board_title)
-   		values(#{num},#{type},#{name},#{email},#{tel},#{title})
+   		insert into board(board_num,board_type,board_name,board_email,board_tel,board_title,board_date,board_check)
+   		values(#{num},#{type},#{name},#{email},#{tel},#{title},#{date},#{check})
    </insert>
    
    <select id="selcetAllBoard" resultMap="BoardResult">
