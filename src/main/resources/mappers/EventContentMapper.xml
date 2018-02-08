@@ -3,18 +3,18 @@
 <mapper namespace="Project_JSP.dao.EventContentDao">
     
     <resultMap type="EventContent" id="EventContentResult">
-        <id property="eventNum.eventNum" column="event_num"/>
-        <result property="eventContentImg" column="event_content_img"/>
+        <id property="eventNum" column="event_num"/>
+        <result property="eventContent" column="event_content"/>
     </resultMap>
    
     <sql id="selectSql">
-        select event_num, event_content_img from event_content
+        select event_num, event_content from event_content
     </sql>
     
     <sql id="whereSql">
         <where>
             <if test="eventNum != null">
-                event_num = ${eventNum.eventNum}
+                event_num = ${eventNum}
             </if>            
         </where>        
     </sql>
@@ -29,12 +29,12 @@
 	</select>
 	
 	<insert id="insertEventContent" parameterType="EventContent">
-	   insert into event_content(event_num, event_content_img) 
-	   values(#{eventNum.eventNum}, #{eventContentImg})
+	   insert into event_content(event_num, event_content) 
+	   values(#{eventNum}, #{eventContent})
 	</insert>
 	
 	<update id="updateEventContent" parameterType="EventContent">
-	    update event_content set event_content_img = #{eventContentImg}
+	    update event_content set event_content = #{eventContent}
 	  	<include refid="whereSql"/>
 	</update>
 	

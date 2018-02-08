@@ -4,16 +4,20 @@
     
     <resultMap type="Event" id="EventResult">
         <id property="eventNum" column="event_num"/>
-        <result property="eventName" column="event_name"/>
         <result property="eventTitle" column="event_title"/>
+        <result property="eventIntroduce" column="event_introduce"/>
         <result property="eventStartDay" column="event_start_day"/>
         <result property="eventEndDay" column="event_end_day"/>
-        <result property="eventImg" column="event_img"/>
+        <result property="eventImgPath" column="event_img_path"/>
     </resultMap>
    
     <sql id="selectSql">
-        select event_num, event_name, event_title, event_start_day, event_end_day, event_img from event
+        select event_num, event_title,event_introduce, event_start_day, event_end_day ,event_img_path from event
     </sql>
+    
+    <select id="selectLastInsert" resultType="int">
+    	select MAX(event_num) from event
+    </select>
     
     <sql id="whereSql">
         <where>
@@ -33,13 +37,13 @@
 	</select>
 	
 	<insert id="insertEvent" parameterType="Event">
-	   insert into event(event_name, event_title, event_start_day, event_end_day, event_img) 
-	   values(#{eventName}, #{eventTitle}, #{eventStartDay}, #{eventEndDay}, #{eventImg})
+	   insert into event( event_title,event_introduce, event_start_day, event_end_day,event_img_path) 
+	   values( #{eventTitle}, #{eventIntroduce},#{eventStartDay}, #{eventEndDay}, #{eventImgPath})
 	</insert>
 	
 	<update id="updateEvent" parameterType="Event">
-	    update event set event_name = #{eventName}, event_title = #{eventTitle}, 
-	    event_start_day = #{eventStartDay}, event_end_day = #{eventEndDay}, event_img = #{eventImg}
+	    update event set event_introduce = #{eventIntroduce}, event_title = #{eventTitle}, 
+	    event_start_day = #{eventStartDay}, event_end_day = #{eventEndDay}, event_img_path = #{eventImgPath}
 	  	<include refid="whereSql"/>
 	</update>
 	

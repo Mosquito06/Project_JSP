@@ -1,0 +1,138 @@
+@CHARSET "UTF-8";
+/*이벤트 작성 style*/
+	
+	#addEventForm{ 
+		background: #f8f8f8;
+		padding:20px;
+		border:1px solid #d1d1d1;
+		border-radius:5px;
+	}
+	
+	#editerTd{
+		width: 826px;
+		margin: 0 auto;
+	}
+	#editerTd td{
+		padding-bottom: 10px;
+	}  
+	#editerTd tr:last-child td{
+		padding-bottom: 0px;
+	}  
+	.inputTxt{
+		border:1px solid #ddd;
+		height:18px;
+		width:754px; 
+		border-left: none;
+		border-radius:0 5px 5px 0;
+		padding:5px;
+		float: left;
+	}
+	.titleTxt{  
+		display:inline-block;
+		height:18px;
+		background:#fff;
+		line-height:18px;
+		border:1px solid #ddd;
+		border-radius:5px 0 0 5px;
+		padding:5px 10px 5px 10px;
+		font-size:14px;
+		float: left;
+	}
+	
+	.date{
+		width:120px;
+		padding:5px;
+	}
+	 
+	.intro{
+		width: 708px;
+	}
+	
+	.banner{
+		width: 300px;
+	}
+	
+	i.bar{	
+		display:inline-block;
+		height:30px;
+		line-height:30px;
+		text-transform:none; 
+		color:#ddd; 
+		float: left;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	#cke_1_contents{
+		height: 400px !important;  
+	}
+	#hiddenContent{
+		display: none;
+	}
+	
+	/*이벤트 list */
+	
+	.cntEvent{
+		width: 100%;	
+	}
+			
+	.eventTitle p{
+		font-size:14px;
+		letter-spacing:-1px;
+		padding-bottom:10px;
+		border-bottom: 3px solid #a1886f;
+		margin-bottom: 40px;
+	}
+	
+	.outBox{
+		margin-bottom: 40px;
+		border-bottom: 1px solid #eceae1;
+	}
+	
+	.innerBox{
+		margin-bottom: 40px;
+		overflow: hidden;
+	}
+	
+	.eventLink{
+		float: left;
+	}
+	
+	.eventBanner{
+		width:270px;
+		height:150px;
+	}
+	
+	.eventInfo{
+		width: 556px;
+		float: right;
+	}
+	
+	.eventInfo .smTitle{
+		font-size: 16px;
+	    font-weight: bold;
+	    color: #856f56;
+	    margin: 0 0 12px 0;
+	    overflow: hidden;
+	    white-space: nowrap;
+	    text-overflow: ellipsis;
+	    text-decoration: underline;
+	}
+	.eventInfo .eventDate{
+		margin-bottom: 15px;
+	    padding-bottom: 13px;
+	    font-size:12px; 
+	    color: #444;
+	    border-bottom: 1px dotted #bfbfbf;
+	}
+	.tit{
+		margin-bottom: 12px;
+	}
+	.eventIntro{
+		font-size:12px;
+		color: #444;
+	}
+	
+	.noEvent{
+		text-align: center;
+		color:#444;
+	}

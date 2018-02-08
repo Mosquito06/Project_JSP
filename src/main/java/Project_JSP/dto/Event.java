@@ -4,16 +4,13 @@ import java.util.Date;
 
 public class Event {
 	private int eventNum;
-	private String eventName;
 	private String eventTitle;
+	private String eventIntroduce;
 	private Date eventStartDay;
 	private Date eventEndDay;
-	private String eventImg;
+	private String eventImgPath;
 
-	public Event() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	public Event() {}
 
 	public int getEventNum() {
 		return eventNum;
@@ -22,13 +19,16 @@ public class Event {
 	public void setEventNum(int eventNum) {
 		this.eventNum = eventNum;
 	}
+	
 
-	public String getEventName() {
-		return eventName;
+	
+
+	public String getEventImgPath() {
+		return eventImgPath;
 	}
 
-	public void setEventName(String eventName) {
-		this.eventName = eventName;
+	public void setEventImgPath(String eventImgPath) {
+		this.eventImgPath = eventImgPath;
 	}
 
 	public String getEventTitle() {
@@ -51,22 +51,24 @@ public class Event {
 		return eventEndDay;
 	}
 
+	public String getEventIntroduce() {
+		return eventIntroduce;
+	}
+
+	public void setEventIntroduce(String eventIntroduce) {
+		this.eventIntroduce = eventIntroduce;
+	}
+
 	public void setEventEndDay(Date eventEndDay) {
 		this.eventEndDay = eventEndDay;
 	}
 
-	public String getEventImg() {
-		return eventImg;
-	}
 
-	public void setEventImg(String eventImg) {
-		this.eventImg = eventImg;
-	}
 
 	@Override
 	public String toString() {
-		return "Event [eventNum=" + eventNum + ", eventName=" + eventName + ", eventTitle=" + eventTitle
-				+ ", eventStartDay=" + eventStartDay + ", eventEndDay=" + eventEndDay + ", eventImg=" + eventImg + "]";
+		return "Event [eventNum=" + eventNum + ", eventTitle=" + eventTitle + ", eventIntroduce=" + eventIntroduce
+				+ ", eventStartDay=" + eventStartDay + ", eventEndDay=" + eventEndDay + ", eventImgPath=" + eventImgPath
+				+ "]";
 	}
-
 }

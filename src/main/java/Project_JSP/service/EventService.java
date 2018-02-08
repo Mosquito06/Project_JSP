@@ -4,28 +4,27 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import Project_JSP.dao.EventContentDao;
 import Project_JSP.dao.EventDao;
 import Project_JSP.dto.Event;
+import Project_JSP.dto.EventContent;
 import Project_JSP.mvc.util.MySqlSessionFactory;
 
-public class EventContentDaoService implements EventDao {
-	private static final EventContentDaoService INSTANCE = new EventContentDaoService();
-
-	public static EventContentDaoService getInstance() {
+public class EventService  {
+	private static final EventService INSTANCE = new EventService();
+	private static final String log = "[EventService]";
+	
+	public static EventService getInstance() {
 		return INSTANCE;
 	}
 
-	private EventContentDaoService() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	private EventService() {}
 
-	@Override
-	public List<Event> selectEvent() {
+	public List<Event> selectListEvent() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			EventDao dao = session.getMapper(EventDao.class);
+			
 			return dao.selectEvent();
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -33,12 +32,10 @@ public class EventContentDaoService implements EventDao {
 		return null;
 	}
 
-	@Override
-	public Event selectEventByNum(Event event) {
+	public Event readEventByNum(Event event) {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			EventDao dao = session.getMapper(EventDao.class);
 			return dao.selectEventByNum(event);
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -46,19 +43,44 @@ public class EventContentDaoService implements EventDao {
 		return null;
 	}
 
-	@Override
-	public void insertEvent(Event event) {
-		try (SqlSession session = MySqlSessionFactory.openSession()) {
+	public int insertEvent(Event event, String content) {
+		SqlSession session = MySqlSessionFactory.openSession();
+		
+		try {
 			EventDao dao = session.getMapper(EventDao.class);
+			EventContentDao contentDao = session.getMapper(EventContentDao.class);
+			
 			dao.insertEvent(event);
+			System.out.println("insertEvent");
+			int newEventId = dao.selectLastInsert();	
+			System.out.println(newEventId);
+			
+			if(newEventId < 0){
+				System.out.println(log + "insert event fail");
+				return -2;
+			}
+			
+			EventContent eventContent = new EventContent(newEventId, content);
+			
+			int successContent = contentDao.insertEventContent(eventContent);
+			System.out.println(successContent);
+			
+			if(successContent <0){
+				System.out.println(log + "insert eventContent fail");
+				return -3;
+			}
+			
 			session.commit();
 		} catch (Exception e) {
+			session.rollback();
 			e.printStackTrace();
+		}finally {
+			session.close();
 		}
-
+		
+		return 1;
 	}
 
-	@Override
 	public void updateEvent(Event event) {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			EventDao dao = session.getMapper(EventDao.class);
@@ -70,7 +92,6 @@ public class EventContentDaoService implements EventDao {
 
 	}
 
-	@Override
 	public void deleteEvent(Event event) {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			EventDao dao = session.getMapper(EventDao.class);

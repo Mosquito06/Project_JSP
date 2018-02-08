@@ -8,17 +8,14 @@ import Project_JSP.dao.EventContentDao;
 import Project_JSP.dto.EventContent;
 import Project_JSP.mvc.util.MySqlSessionFactory;
 
-public class EventDaoService implements EventContentDao {
-	private static final EventDaoService INSTANCE = new EventDaoService();
+public class EventContentService implements EventContentDao {
+	private static final EventContentService INSTANCE = new EventContentService();
 
-	public static EventDaoService getInstance() {
+	public static EventContentService getInstance() {
 		return INSTANCE;
 	}
 
-	private EventDaoService() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	private EventContentService() {}
 
 	@Override
 	public List<EventContent> selectEventContent() {
@@ -42,12 +39,12 @@ public class EventDaoService implements EventContentDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
 		return null;
 	}
 
 	@Override
-	public void insertEventContent(EventContent eventContent) {
+	public int insertEventContent(EventContent eventContent) {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			EventContentDao dao = session.getMapper(EventContentDao.class);
 			dao.insertEventContent(eventContent);
@@ -55,6 +52,7 @@ public class EventDaoService implements EventContentDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return 0;
 		
 	}
 
