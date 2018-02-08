@@ -136,4 +136,14 @@ fieldset form #no_member .login  input[name='name1']{
 	width:115px;
 	height:30px;
 	}
-	
+
+/*로그인 실패시   */
+.error{
+	font-size: 13px;
+	color:red;
+}
+.error1{
+	font-size: 13px;
+	color:red;
+	margin-left:100px;
+}

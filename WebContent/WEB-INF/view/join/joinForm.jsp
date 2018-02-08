@@ -94,11 +94,12 @@
 										<option value="paran.com">paran.com</option>
 									</select>
 								</span>
-								<button type="button">이메일 중복확인</button>
+								<button type="button" id="email_btn">이메일 중복확인</button>
 							</p>
 							<p>
 								<label><span class="star">*</span>휴대전화</label>
-								<select name="p1">
+								<span id="p_select">
+									<select name="p1">
 									<option value="010">010</option>
 									<option value="011">011</option>
 									<option value="016">016</option>
@@ -106,12 +107,14 @@
 									<option value="018">018</option>
 									<option value="019">019</option>
 								</select>
-								<input type="tel" name="p2">-
-								<input type="tel" name="p3">
+								</span>
+								
+								<input type="tel" name="p2">-<input type="tel" name="p3">
 							</p>
 							<p>
 								<label>자택전화</label>
-								<select name="t1">
+								<span id="t_select">
+										<select name="t1">
 									<option value="">선택</option>
 									<option value="02">02</option>
 									<option value="031">031</option>
@@ -141,12 +144,13 @@
 									<option value="0505">0505</option>
 									<option value="0303">0303</option>
 								</select>
-								<input type="tel" name="t2">-
-								<input type="tel" name="t3">
+								</span>
+							
+								<input type="tel" name="t2">-<input type="tel" name="t3">
 							</p>
 							<p>
 								<label>주소</label>
-								<input type="text" name="addr1"><button type="button">주소찾기</button><br>
+								<input type="text" name="addr1"><button type="button" id="addr_btn">주소찾기</button><br>
 								<input type="text" name="addr2"><br>
 								<input type="text" name="addr3">
 							</p>

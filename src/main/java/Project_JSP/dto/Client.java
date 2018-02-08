@@ -121,4 +121,12 @@ public class Client {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public String toString() {
+		return String.format(
+				"Client [clientNum=%s, id=%s, pw=%s, nameKo=%s, nameEn=%s, birth=%s, email=%s, phone=%s, home=%s, address=%s, clientGrade=%s]",
+				clientNum, id, pw, nameKo, nameEn, birth, email, phone, home, address, clientGrade);
+	}
+
+	
 }
