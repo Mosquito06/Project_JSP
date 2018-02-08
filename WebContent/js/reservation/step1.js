@@ -1,4 +1,5 @@
 $(function(){
+	
 		// 로딩화면 구축
 		$("#searchBtn").click(function(){
 			$("section").addClass("backSetting");

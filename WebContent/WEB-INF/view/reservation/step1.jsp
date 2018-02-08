@@ -7,12 +7,14 @@
 <title>STEP1 날짜&인원 선택</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
-<link rel="stylesheet" type="text/css" href="css/reservation/step1.css?a=f">
+<link rel="stylesheet" type="text/css" href="css/reservation/step1.css?a=ddf">
 <link rel="stylesheet" type="text/css" href="css/reservation/Loading.css">
+<link rel="stylesheet" type="text/css" href="css/reservation/calendar.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
 <script type="text/javascript" src="js/reservation/Loading.js"></script>
 <script type="text/javascript" src="js/reservation/step1.js?a=df"></script>
+<script type="text/javascript" src="js/reservation/calendar.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -111,6 +113,25 @@
 					</tr>
 				</table>
 			</div>
+			
+
+
+<!--   <div class="main">
+				    <div class="custom-calendar-wrap">
+					      <div id="custom-inner" class="custom-inner">
+						        <div class="custom-header clearfix">
+							          <nav>
+								            <span id="custom-prev" class="custom-prev"></span>
+								            <span id="custom-next" class="custom-next"></span>
+							          </nav>
+							          <h2 id="custom-month" class="custom-month"></h2>
+							          <h3 id="custom-year" class="custom-year"></h3>
+						        </div>
+						        <div id="calendar" class="fc-calendar-container"></div>
+					      </div>
+				    </div>
+  </div> -->
+
 		</section>
 		<footer>
 			<jsp:include page="/WEB-INF/common/footer.jsp" />
