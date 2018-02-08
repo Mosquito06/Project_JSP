@@ -28,6 +28,7 @@
 								<dd><a href="#">연락처</a></dd>
 								<dd><a href="#">FAQ</a></dd>
 								<dd><a href="#">문의하기</a></dd>
+								<dd><a href="#">후기게시판</a>
 							</dl>
 						</div>
 						<div id="sns">
