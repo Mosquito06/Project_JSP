@@ -18,33 +18,7 @@
 	src="${pageContext.request.contextPath }/js/common/common.js"></script>
 <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 <style>
-	/*페이지 타이틀*/
-	#title{
-		display:inline-block;
-		font-size: 23px;
-		color:#9c875c;
-	}
 	
-	#wrap_home{
-		margin-top:10px;
-		display: inline-block;
-		float: right;
-		font-size: 12px;
-		
-	}
-	#board{
-		color: #865009;
-		text-decoration: underline;
-	}
-	
-	#wrap_title{
-		border-bottom: #432c10 solid 5px;
-		height: 47px;
-		width:866px;
-		margin:0px auto;
-		margin-bottom:40px;
-		overflow: hidden;
-	}
 	/*입력 form문 style*/
 	
 	#addEventForm{

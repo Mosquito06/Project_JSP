@@ -33,7 +33,7 @@
 			<h1 id="head_logo"><a href="${pageContext.request.contextPath }/index.jsp"><img src="${pageContext.request.contextPath }/img/common/logo.jpg"></a></h1>
 			<div id="headNav"> 
 				<ul>  
-					<li><a href="login.do">로그인</a></li>
+					<li><a href="${pageContext.request.contextPath }/login.do">로그인</a></li>
 					<li><a href="#">신라리워즈 가입</a></li>
 					<li><a href="#">예약확인</a></li>
 					<li><a href="#">관리자</a></li>
@@ -118,7 +118,7 @@
 				</li>
 			</ul>
 			
-			<a href="step1.do" id="reservationBtn">
+			<a href="${pageContext.request.contextPath }/step1.do" id="reservationBtn">
 				예약
 			</a>			
 		</div>

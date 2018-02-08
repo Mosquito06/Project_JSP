@@ -15,7 +15,9 @@ a {
 	z-index: 9999;
 }
 section{
+	padding:50px 0;
 	margin-top: 142px;
+	min-height: 500px;
 } 
 #header { 
 	width: 1200px;
@@ -389,10 +391,6 @@ footer{
 	
 	@CHARSET "UTF-8";
 /*section 왼쪽 메뉴 스타일*/
-#section{
-	padding:50px 0;
-} 
-
 #contentWrap{
 	width: 1200px;
 	margin: 0px auto;
@@ -453,3 +451,31 @@ li.bMenu>a{
 	width:866px;
 	float: right;
 }
+
+/*페이지 타이틀*/
+	#title{
+		display:inline-block;
+		font-size: 23px;
+		color:#9c875c;
+	}
+	
+	#wrap_home{
+		margin-top:10px;
+		display: inline-block;
+		float: right;
+		font-size: 12px;
+		
+	}
+	#board{
+		color: #865009;
+		text-decoration: underline;
+	}
+	
+	#wrap_title{
+		border-bottom: #432c10 solid 5px;
+		height: 47px;
+		width:866px;
+		margin:0px auto;
+		margin-bottom:40px;
+		overflow: hidden;
+	}
