@@ -57,12 +57,13 @@ public class EventWriteHandler implements CommandHandler {
 			map.put("orignFileName", originFileName);
 			
 			
+          
 			String title = multi.getParameter("title");
 			String startDate = multi.getParameter("startDate");
 			String endDate = multi.getParameter("endDate");
 			String content = multi.getParameter("hiddenContent");
 			String introduce = multi.getParameter("introduce");
-
+			
 			EventService service = EventService.getInstance();
 
 			Event event = new Event();
