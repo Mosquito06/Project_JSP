@@ -1,5 +1,6 @@
 @CHARSET "UTF-8";
 
+/* 예약 초기 화면 */
 div#main{
 	width: 1200px;
 	margin: 0 auto;
@@ -155,4 +156,25 @@ div#main table td#tdText{
 	font-weight: bold;
 }
 
+/* 이용 가능한 객실  */
 
+div#main tr.roomText{
+	background-color: #f1e3c4;
+	border: 1px solid black;
+}
+
+div#main tr.roomText td:NTH-CHILD(1){
+	text-align: left;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 10px 0 10px 20px;
+
+}
+
+div#main tr.roomText td:NTH-CHILD(2){
+	text-align: right;
+	font-size: 13px;
+	padding-right: 20px;
+	color: #747474;
+
+}
