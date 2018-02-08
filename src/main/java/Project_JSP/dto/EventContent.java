@@ -1,33 +1,36 @@
 package Project_JSP.dto;
 
 public class EventContent {
-	private Event eventNum;
-	private String eventContentImg;
-
-	public EventContent() {
-		super();
-		// TODO Auto-generated constructor stub
+	private int eventNum;
+	private String eventContent;
+	
+	
+	public EventContent(int eventNum, String eventContent) {
+		this.eventNum = eventNum;
+		this.eventContent = eventContent;
 	}
 
-	public Event getEventNum() {
+	public EventContent() {}
+
+	public int getEventNum() {
 		return eventNum;
 	}
 
-	public void setEventNum(Event eventNum) {
+	public void setEventNum(int eventNum) {
 		this.eventNum = eventNum;
 	}
 
-	public String getEventContentImg() {
-		return eventContentImg;
+	public String getEventContent() {
+		return eventContent;
 	}
 
-	public void setEventContentImg(String eventContentImg) {
-		this.eventContentImg = eventContentImg;
+	public void setEventContent(String eventContent) {
+		this.eventContent = eventContent;
 	}
 
 	@Override
 	public String toString() {
-		return "EventContent [eventNum=" + eventNum + ", eventContentImg=" + eventContentImg + "]";
+		return "EventContent [eventNum=" + eventNum + ", eventContent=" + eventContent + "]";
 	}
 
 }

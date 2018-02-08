@@ -8,123 +8,61 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath }/css/common/reset.css">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath }/css/common/common.css">
+	href="${pageContext.request.contextPath }/css/common/common.css?v=2">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath }/css/activity/style.css">
+	href="${pageContext.request.contextPath }/css/event/writeStyle.css?v=2">	
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"
 	integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-	crossorigin="anonymous"></script>
-<script type="text/javascript"
+	crossorigin="anonymous"></script> 
+<script type="text/javascript" 
 	src="${pageContext.request.contextPath }/js/common/common.js"></script>
-<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
-<style>
-	
-	/*입력 form문 style*/
-	
-	#addEventForm{
-		background: #f8f8f8;
-		padding:20px;
-		border:1px solid #d1d1d1;
-		border-radius:5px;
-	}
-	
-	#editerTd{
-		width: 826px;
-		margin: 0 auto;
-	}
-	#editerTd td{
-		padding-bottom: 10px;
-	}  
-	#editerTd tr:last-child td{
-		padding-bottom: 0px;
-	}  
-	.evenTitle{
-		border:1px solid #ddd;
-		height:18px;
-		width:754px; 
-		border-left: none;
-		border-radius:0 5px 5px 0;
-		padding:5px;
-		float: left;
-	}
-	.titleTxt{  
-		display:inline-block;
-		width:50px;
-		height:18px;
-		background:#fff;
-		line-height:18px;
-		border:1px solid #ddd;
-		border-radius:5px 0 0 5px;
-		border-right:none;
-		padding:5px 0px 5px 10px;
-		font-size:14px;
-		float: left;
-	}
-	
-	.dateTxt{
-		display:inline-block;
-		width:70px;
-		height:18px;
-		background:#eee;
-		line-height:18px;
-		border:1px solid #ddd;
-		border-radius:5px 0 0 5px;
-		padding:5px 0px 5px 10px;
-		font-size:14px; 
-		float: left;
-	}
-	
-	.date{
-		border:1px solid #ddd;
-		height:18px; 
-		border-left: none;
-		border-radius:0 5px 5px 0;
-		padding:5px;
-		float: left;
-	}
-	i.bar{	
-		display:inline-block;
-		height:30px;
-		line-height:30px;
-		text-transform:none; 
-		color:#ddd;
-		float: left;
-		margin-left: 10px;
-		margin-right: 10px;
-	}
-	
-</style>
+<script type="text/javascript" src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
+<script>
+	$(function(){
+		$("#addEventForm").submit(function() {
+			if(CKEDITOR.instances.noticeContent.getData().length < 1){
+				alert("내용을 입력해 주세요.");
+				return false;
+			}else{
+	 			var content =  CKEDITOR.instances.noticeContent.getData()
+				$("#hiddenContent").val(content);
+			}
+		}); 
+	});
+</script>
 </head>
 <body>
 	<%@ include file="../../common/header.jsp"%>
 	<section id="section">
 		<div id="contentWrap">
 			<%@ include file="leftMenu.jsp"%>
-
-			<div id="rightArea">
-				<div id="wrap_title">
-					<h1 id="title">게시판</h1>
-					<div id="wrap_home">
-						<img src="../img/common/locaton.gif" id="home">
-						> <span id="board">게시판</span>
-					</div>
-					
-					
-				</div>
-				<form action="" id="addEventForm">
+				
+				<form action="${pageContext.request.contextPath}/event/eventWrite.do" id="addEventForm" method="post" enctype="multipart/form-data" >
 					<table id="editerTd">
 						<tr>
 							<td>
-								<span class="titleTxt">제목</span><input type="text" name="title" class="evenTitle">
+								<span class="titleTxt">제목</span><input type="text" name="title" class="inputTxt">
 							</td>
 						</tr>
 						<tr> 
 							<td>
-								<span class="dateTxt">시작 날짜</span>
-								<input type="date" name="startDate" class="date"/>
+								<span class="titleTxt">시작 날짜</span>
+								<input type="date" name="startDate" class="inputTxt date"/>
 								<i class="bar">-</i>
-								<span class="dateTxt">종료 날짜</span>
-								<input type="date" name="endDate" class="date"/>
+								<span class="titleTxt">종료 날짜</span>
+								<input type="date" name="endDate" class="inputTxt date"/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="titleTxt">이벤트 소개</span>
+								<input type="text" name="introduce" class="inputTxt intro"/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="titleTxt">배너 이미지 업로드</span>
+								<input type="file" name="imgpath" class="inputTxt banner" />
 							</td>
 						</tr>
 						<tr>
@@ -141,10 +79,12 @@
 						<tr>
 							<td>
 								<input type="submit" value="저장">
-								<input type="submit" value="돌아가기">
+								<input type="reset" value="돌아가기">
 							</td>
 						</tr>
 					</table>
+					<textarea  name="hiddenContent" id="hiddenContent">
+					</textarea>
 				</form>
 			</div>
 		</div>

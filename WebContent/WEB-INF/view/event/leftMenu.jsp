@@ -10,3 +10,12 @@
 	</div>
 
 </div>
+
+<div id="rightArea">
+	<div id="wrap_title">
+		<h1 id="title">이벤트</h1>
+		<div id="wrap_home">
+			<img src="../img/common/locaton.gif" id="home"> > <span
+				id="board">이벤트</span>
+		</div>
+	</div>
