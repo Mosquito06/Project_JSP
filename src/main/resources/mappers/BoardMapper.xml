@@ -22,17 +22,40 @@
    		select * from board
    </select>
    
+    <select id="selcetAllLimitBoard" resultMap="BoardResult" parameterType="map">
+   		select * from board order by board_num desc limit #{num1},#{num2}
+   </select>
+   
    <select id="findByNumBoard" parameterType="Board" resultMap="BoardResult">
    		select * from board where board_num = #{num}
    </select>
+   
+   
+   
+    <select id="findByNameBoard" parameterType="Board" resultMap="BoardResult">
+   		select * from board where board_name like #{name}
+   </select>
+   
+   <select id="findByNameLimitBoard" parameterType="map" resultMap="BoardResult">
+   		select * from board where board_name like #{board.name} order by board_num desc limit #{num1},#{num2}
+   </select>
+   
+   <select id="findByTitleBoard" parameterType="Board" resultMap="BoardResult">
+   		select * from board where board_title like #{title}
+   </select>
+   
+   <select id="findByTitleLimitBoard" parameterType="map" resultMap="BoardResult">
+   		select * from board where board_title like #{board.title} order by board_num desc limit #{num1},#{num2}
+   </select>
+   
+	
+   
    
    <select id="deletByNumBoard" parameterType="Board">
    		delete from board where board_num = #{num}
    </select>
    
-   <select id="findByNameBoard" parameterType="Board" resultMap="BoardResult">
-   		select * from board where board_name = #{name}
-   </select>
+  
    
    
    <select id="updateBoard" parameterType="Board">

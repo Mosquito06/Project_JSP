@@ -1,28 +1,25 @@
 @CHARSET "UTF-8";
 
-#wrap_title{
+/* #wrap_title{
 	border-bottom: #432c10 solid 5px;
 	height: 47px;
 	width:866px;
 	margin:40px auto;
 	overflow: hidden;
-}
-section{
-	padding-top:1px;
-	min-height:498px;
-}
-#title{
+} */
+
+/* #title{
 	display:inline-block;
 	font-size: 23px;
 	color:#9c875c;
-}
-#wrap_home{
+} */
+/* #wrap_home{
 	margin-top:10px;
 	display: inline-block;
 	float: right;
 	font-size: 12px;
 	
-}
+} */
 #board{
 	color: #865009;
 	text-decoration: underline;
@@ -33,6 +30,7 @@ table{
 	width:800px;
 	margin:0 auto;
 	border-top:2px solid #432c10;
+	
 }
 th{
 	border-bottom: 1px solid #432c10;
@@ -76,7 +74,7 @@ td{
 	width:315px;
 	margin:0 auto;
 	position: relative;
-	margin-top:30px;
+	margin-top:40px;
 }
 #wrap_search{
 	width:250px;
@@ -110,10 +108,41 @@ select{
 #btn_search:hover{
 	background:rgb(93, 73, 48);
 }
+#wrap_btn_style{
+	width:100%;
+	position: relative;
+	margin-top:1px;
+}
+.btn_style:FIRST-CHILD{
+	position: absolute;
+	left:40px;
+}
+.btn_style:LAST-CHILD{
+	position: absolute;
+	right:40px;
+}
+.btn_style{
+	display:inline-block;
+	margin-top:2px;
+	font-weight: bold;
+	background: rgb(179, 162, 143);
+	border: 1px solid #ddd;
+	border-radius:3px;
+	padding: 4px 6px;
+	color:white;
+	font-size: 14px;
+}
+.btn_style:hover{
+	background:rgb(93, 73, 48);
+}
 
 .td2 a:hover{
 	font-weight: bold;
 	color:gray;
+}
+#page_num{
+	padding:8px;
+	
 }
 
 

@@ -37,6 +37,18 @@
 	    <include refid="whereSql"/>	    
 	</select>
 	
+	<select id="selectClientId" parameterType="Client" resultMap="ClientResult">
+		select * from Client where id=#{id} and client_grade = #{clientGrade}
+	</select>
+	
+	<select id="selectClientPw" parameterType="Client" resultMap="ClientResult">
+		select * from Client where password =password(#{pw})
+	</select>
+	
+	<select id="selectClientName" parameterType="Client" resultMap="ClientResult">
+		select * from Client where korean_name = #{nameKo} or english_name=#{nameEn}
+	</select>
+	
 	<insert id="insertClient" parameterType="Client">
 	   insert into client(id,password,korean_name,english_name,birth,email,phone,home,address,client_grade) values(#{id}, #{pw},#{nameKo}, #{nameEn},#{birth}, #{email},#{phone}, #{home},#{address}, #{clientGrade})
 	</insert>

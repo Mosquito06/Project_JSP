@@ -101,7 +101,10 @@
 	height:45px;
 	line-height: 45px;
 }
-#info_basic_input input[type='text']{
+#info_basic_input input[type='text'],input[name='email1'],input[name='email2'],input[name='p2'],input[name='p3']{
+	height:24px;
+}
+input[name='t2'],input[name='t3']{
 	height:24px;
 }
 #info_basic_input input[name='nameKo']{
@@ -118,9 +121,41 @@ input[name='nameEn1'],input[name='nameEn2']{
 	line-height: 40px;
 }
 select{
-	height:28px;
+	height:30px;
 	width:100px;
 }
+
 #email_select select{
 	width:120px;
+}
+input[name='email1']{
+	margin-left: 15px;
+}
+#email_btn{
+	background-color: #9F876B;
+	color:#F1EBD6;
+	border:1px solid #F1EBD6;
+	width:120px;
+	height:30px;
+}
+
+#info_basic_input p:LAST-CHILD  label{
+	height:135px;
+	line-height: 130px;
+}
+#info_basic_input p:LAST-CHILD  input{
+	margin-left:15px;
+}
+#p_select,#t_select{
+	margin-left: 15px;
+}
+input[name='addr2'],input[name='addr3']{
+	width:650px;
+}
+#addr_btn{
+	background-color: #727272;
+	border:1px solid #727272;
+	color:white;
+	height:30px;
+	margin:5px;
 }

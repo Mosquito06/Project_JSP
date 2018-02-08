@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,10 +28,18 @@
 		
 		
 		<fieldset>
+		
 			<form action="login.do" method="post">
-				<input type="radio" name="clientGrade" value="MEMBER" checked="checked">회원
-				<input type="radio" name="clientGrade" value="NONMEMBER">비회원(예약번호)
+				<c:if test="${noMember ==null }">
+					<input type="radio" name="clientGrade" value="MEMBER" id="mem" checked="checked">회원
+				<input type="radio" name="clientGrade" value="NONMEMBER" id="no">비회원(예약번호)
+				</c:if>
+				<c:if test="${noMember !=null }">
+					<input type="radio" name="clientGrade" value="MEMBER" id="mem" >회원
+				<input type="radio" name="clientGrade" value="NONMEMBER" id="no" checked="checked">비회원(예약번호)
+				</c:if>
 				<br><br>
+			
 				<div id="member">
 						<div class="login">
 							<p>
@@ -40,15 +49,28 @@
 							<p>	
 								<label>비밀번호</label>
 								<input type="password" placeholder="비밀번호" name="pw">
+								<c:if test="${error3 !=null }">
+								<br><span class="error1">${error3 }</span>	
+							</c:if>
 							</p>
 								<input type="submit" value="로그인">
 							</div>	
+							<c:if test="${error1 !=null }">
+								<span class="error">${error1 }</span><br>
+							</c:if>
+							
 						<br>
+						
+							<input type="hidden" name="clientGrade" value="MEMBER">
 							<a href="join.do"><button type="button" id="join">회원가입</button></a>
 							<a href=""><button type="button" id="searchId">아이디 찾기</button></a>
 							<a href=""><button type="button" id="searchPw">비밀번호 찾기</button></a>
 					</div>
-					 <div id="no_member">
+					 
+			</form>
+				
+			<form action="login.do" method="post">
+				<div id="no_member">
 							<div class="login">
 								<p>
 									<label>예약번호</label>
@@ -58,10 +80,16 @@
 									<label>성명</label>
 									<input type="text" placeholder="FIRST NAME(이름)" name="name2">
 									<input type="text" placeholder="LAST NAME(성)" name="name1">
+									<c:if test="${error4 !=null }">
+										<br><span class="error1">${error4 }</span>
+									</c:if>
 								</p>
+									<input type="hidden" value="NONMEMBER" name="clientGrade">
 									<input type="submit" value="로그인">
 							</div>	
-							
+							<c:if test="${error2 !=null }">
+								<span class="error">${error2 }</span>	
+							</c:if>
 					</div> 
 			</form>
 		</fieldset>
@@ -70,7 +98,6 @@
 		</div>
 	</div>
 	</section>
-	
 	<jsp:include page="/WEB-INF/common/footer.jsp"/>
 </body>
 </html>

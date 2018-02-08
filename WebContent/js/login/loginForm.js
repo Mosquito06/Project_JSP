@@ -3,7 +3,13 @@
  */
 $(function(){
 	/*회원일때와 비회원일때 다른 화면화면*/
+	if($("#no").attr("checked") =="checked"){
+		$("#no_member").show();
+		$("#member").hide();
+		$("#info2").hide();
+	}
 	$("input[type='radio']").change(function(e) {
+		$("error,error1").hide();
 		if($(this).val()=="MEMBER"){
 			$("#member").show();
 			$("#no_member").hide();
@@ -25,3 +31,4 @@ $(function(){
 		});
 	});
 })
+

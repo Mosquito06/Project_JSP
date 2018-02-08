@@ -5,12 +5,12 @@
 <!DOCTYPE>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8">  
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="../css/common/reset.css">
-<link rel="stylesheet" type="text/css" href="../css/common/common.css">
+<link rel="stylesheet" type="text/css" href="../css/common/common.css?ver=1">
 <link rel="stylesheet" type="text/css"
-	href="../css/adminpage/free_board.css">
+	href="../css/adminpage/free_board.css?v=2">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="../js/common/common.js"></script>
 </head>
@@ -22,21 +22,27 @@
 		</header>
 
 		<section>
+			<div id="contentWrap">
+			<jsp:include page="leftMenu.jsp"/>
+			<div id="rightArea">
+			
 			<div id="wrap_title">
-				<h1 id="title">게시판</h1>
+				<h1 id="title">후기 게시판</h1>
 				<div id="wrap_home">
 					<img src="../img/common/locaton.gif" id="home">
-					> <span id="board">게시판</span>
+					> <span id="board">후기게시판</span>
 				</div>
 				
 				
 			</div>
+			
 			<form action="free_board.do" method="post">
+				
 				<table>
 					<tr>
 						<th id="th1">번호</th>
 						<th id="th2">제목</th>
-						<th id="th3">글쓴이</th>
+						<th id="th3">작성자</th>
 						<th id="th4">작성일</th>
 						<th id="th5">조회</th>
 					</tr>
@@ -66,15 +72,37 @@
 						</c:forEach>
 						
 					</c:if>
-					
+					<tr>
+						<td class="td1" colspan="5" id="page_num">
+							
+								<script type="text/javascript">
+								
+									if(${change} ==1 ){
+										for(var i=0;i<(${page}+1); i++){
+											$("#page_num").append("<a href='free_board.do?page_num="+i+"'>  "+(i+1)+"  </a>");
+										}
+									}else{
+										
+										for(var i=0;i<(${page}+1); i++){
+											$("#page_num").append("<a href=''>"+(i+1)+"  </a>");
+										}
+									}
+								</script>
+							
+						</td>	
+					</tr>
 				</table>
+				<div id="wrap_btn_style">
+					<a href="free_board.do" class="btn_style">목록보기</a>
+					<a href="#" class="btn_style">글쓰기</a>
+				</div>
+				
 				<div id="search_form">
 					<div id="wrap_search">
 						<select name="search_type">
-							<option value="1">제목&내용</option>
+							
 							<option>제목</option>
-							<option>내용</option>
-							<option>글쓴이</option>
+							<option>작성자</option>
 						</select>
 						 
 						<input type="text" name="search" id="search">
@@ -82,7 +110,10 @@
 					
 					<input type="submit" value="검 색" id="btn_search">
 				</div>
+				
 			</form>
+			</div>
+			</div>
 		</section>
 		<footer>
 			<jsp:include page="/WEB-INF/common/footer.jsp" />

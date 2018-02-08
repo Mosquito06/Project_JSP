@@ -80,6 +80,43 @@ public class ClientDaoService implements ClientDao {
 		}
 	}
 
+	@Override
+	public Client selectClientId(Client client) {
+		
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			ClientDao dao = session.getMapper(ClientDao.class);
+			return dao.selectClientId(client);
+	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public Client selectClientPw(Client client) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			ClientDao dao = session.getMapper(ClientDao.class);
+			return dao.selectClientPw(client);
+	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public Client selectClientName(Client client) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			ClientDao dao = session.getMapper(ClientDao.class);
+			return dao.selectClientName(client);
+	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 
 
 

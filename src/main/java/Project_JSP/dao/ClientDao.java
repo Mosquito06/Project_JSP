@@ -12,4 +12,7 @@ public interface ClientDao {
 	public void insertClient(Client client);
 	public void updateClient(Client client);
 	public void deleteClient(Client client);
+	public Client selectClientId(Client client);
+	public Client selectClientPw(Client client);
+	public Client selectClientName(Client client);
 }
