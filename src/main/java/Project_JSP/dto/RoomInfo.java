@@ -7,6 +7,7 @@ public class RoomInfo {
 	private ViewType viewType;
 	private BedType bedType;
 	private String roomImg;
+	private String reservationImg;
 
 	public RoomInfo() {
 		super();
@@ -61,10 +62,19 @@ public class RoomInfo {
 		this.roomImg = roomImg;
 	}
 
+	public String getReservationImg() {
+		return reservationImg;
+	}
+
+	public void setReservationImg(String reservationImg) {
+		this.reservationImg = reservationImg;
+	}
+
 	@Override
 	public String toString() {
 		return "RoomInfo [roomInfoNum=" + roomInfoNum + ", roomInfoName=" + roomInfoName + ", roomGrade=" + roomGrade
-				+ ", viewType=" + viewType + ", bedType=" + bedType + ", roomImg=" + roomImg + "]";
+				+ ", viewType=" + viewType + ", bedType=" + bedType + ", roomImg=" + roomImg + ", reservationImg="
+				+ reservationImg + "]";
 	}
 
 }

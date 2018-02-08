@@ -4,6 +4,7 @@ public class Room {
 	private int roomNum;
 	private RoomInfo roomInfoNum;
 	private int roomPrice;
+	private RoomAvailability roomAvailability;
 
 	public Room() {
 		super();
@@ -34,9 +35,18 @@ public class Room {
 		this.roomPrice = roomPrice;
 	}
 
+	public RoomAvailability getRoomAvailability() {
+		return roomAvailability;
+	}
+
+	public void setRoomAvailability(RoomAvailability roomAvailability) {
+		this.roomAvailability = roomAvailability;
+	}
+
 	@Override
 	public String toString() {
-		return "Room [roomNum=" + roomNum + ", roomInfoNum=" + roomInfoNum + ", roomPrice=" + roomPrice + "]";
+		return "Room [roomNum=" + roomNum + ", roomInfoNum=" + roomInfoNum + ", roomPrice=" + roomPrice
+				+ ", roomAvailability=" + roomAvailability + "]";
 	}
 
 }

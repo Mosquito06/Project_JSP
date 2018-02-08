@@ -20,7 +20,15 @@ div#main table th{
 	color: #a0886e;
 	font-weight: bold;
 	font-size: 16px;
+	position: relative;
 }
+
+div#main table th img{
+	position: absolute;
+	right: 10px;
+	bottom: 8px;
+}
+
 
 div#main table th.noSelect{
 	border-bottom: 4px solid #cacbc3;
