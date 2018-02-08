@@ -1,0 +1,150 @@
+@CHARSET "UTF-8";
+
+div#main{
+	width: 1200px;
+	margin: 0 auto;
+	min-height: 800px;
+	
+}
+
+div#main table{
+	width: 100%;	
+	margin-top: 15%;
+	text-align: center;
+}
+
+div#main table th{
+	border-bottom: 4px solid #a0886e;
+	width: 25%;
+	padding: 15px;
+	color: #a0886e;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+div#main table th.noSelect{
+	border-bottom: 4px solid #cacbc3;
+	padding: 5px;
+	color: #cacbc3;
+}
+
+div#main table tr:NTH-CHILD(2) td{
+	padding: 50px 0;
+	border-bottom: 1px solid #f1e3c4;
+}
+
+
+div#main table tr td > div:NTH-CHILD(1){
+	width: 20%;	
+}
+
+div#main table tr td > div{
+	float: left;
+	display: inline-block;
+	width: 14.5%; 
+	height: 100px;
+	margin: 0 auto;
+	padding: 5px;
+	position: relative;
+}
+
+div#main table tr td > div:NTH-CHILD(1){
+	line-height: 100px;
+}
+
+
+div#main div.selectText{
+	font-size: 13px;
+	line-height: 30px;
+}
+
+div#main div.selectDay{
+	margin-top: 10%;
+}
+
+div#main div.selectType > img{
+	position: absolute;
+	top: 10px;
+	right: 25px;
+	cursor: pointer;
+}
+
+div#main span.alertText{
+	font-size: 13px;
+	text-align: left;
+	border: 1px solid #a0886e;
+	position: absolute;
+	top: -55px;
+	left: 15px;
+	width: 130px;
+	height: 40px;
+	padding: 10px;
+	line-height: 22px;
+	display: none;
+}
+
+div#main span#babyAlert{
+	font-size: 13px;
+	text-align: left;
+	border: 1px solid #a0886e;
+	position: absolute;
+	top: -55px;
+	left: 20px;
+	width: 130px;
+	height: 40px;
+	padding: 10px;
+	line-height: 40px;
+}
+
+div#main div.dayWrap{
+	float: left;
+	margin: 4% 0 0 15%; 
+	text-align: left;
+}
+
+div#main div.day{
+	margin-right: 10%;
+	font-size: 45px;
+}
+
+div#main div.month{
+	font-size: 24px;	
+}
+
+div#main table tr td:NTH-CHILD(2) img{
+	margin-bottom: 10%;
+	cursor: pointer;
+}
+
+div#main div.selectNum div.num{
+	float: left;
+	font-size: 45px;
+	margin: 10% 0 0 15%;
+}
+
+div#main div.selectNum div.selectBtn{
+	float: right;	
+	margin: 10% 20% 0 0;
+}
+
+
+div#main div.selectNum span.selectPlus img{
+	display: block;
+	cursor: pointer;
+	
+}
+
+div#main div.selectNum span.selectMinus img{
+	display: block;
+	cursor: pointer;
+	
+}
+
+div#main table td#tdText{
+	border-bottom: 1px solid #f1e3c4;
+	padding: 200px;
+	color: #a0886e;
+	font-weight: bold;
+}
+
+

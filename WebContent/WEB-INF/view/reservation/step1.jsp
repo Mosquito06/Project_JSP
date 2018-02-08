@@ -7,28 +7,12 @@
 <title>STEP1 날짜&인원 선택</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
-<link rel="stylesheet" type="text/css" href="css/reservation/common.css?a=df">
+<link rel="stylesheet" type="text/css" href="css/reservation/step1.css?a=f">
 <link rel="stylesheet" type="text/css" href="css/reservation/Loading.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
 <script type="text/javascript" src="js/reservation/Loading.js"></script>
-<script>
-	$(function(){
-		$("#searchBtn").click(function(){
-			$("section").addClass("backSetting");
-			var $parent = $("div#container");
-			startLoading($parent, "이용가능한 객실을 검색하는 중입니다.");
-			
-		})
-		
-		$(".importantImg").click(function(){
-			var $parent = $("div#container");
-			stopLoading($parent);
-			$("section").removeClass("backSetting");
-		})
-	})
-
-</script>
+<script type="text/javascript" src="js/reservation/step1.js?a=df"></script>
 </head>
 <body>
 	<div id="container">
@@ -70,24 +54,49 @@
 							<div class="selectType">
 								<div class="selectText">성인</div>
 								<div class="selectNum">
-									<div class="num">1</div>
-									<img src="/Project_JSP/img/reservation/selectBtn.jpg">
+									<div class="num" id="adultNum">1</div>
+									<div class="selectBtn">
+										<span class="selectPlus">
+											<img src="/Project_JSP/img/reservation/selectPlus.png">
+										</span>
+										<span class="selectMinus">
+											<img src="/Project_JSP/img/reservation/noMinus.png">
+										</span>
+									</div>
 								</div>
 							</div>
-							<div class="selectType">
+							<div class="selectType"> 
 								<div class="selectText">어린이</div>
-								<img class="importantImg" src="/Project_JSP/img/reservation/important.png">
+								<img class="importantImg" src="/Project_JSP/img/reservation/important.gif">
+								<span class="alertText">어린이 : 37개월 이상~ 만 12세 이하</span>
 								<div class="selectNum">
-									<div class="num">1</div>
-									<img src="/Project_JSP/img/reservation/selectBtn.jpg">
+									<div class="num" id="kidNum">0</div>
+									<div class="selectBtn">
+										<span class="selectPlus">
+											<img src="/Project_JSP/img/reservation/selectPlus.png">
+										</span>
+										<span class="selectMinus">
+											<img src="/Project_JSP/img/reservation/noMinus.png">
+										</span>
+									</div>
 								</div>
 							</div>
 							<div class="selectType">
 								<div class="selectText">유아</div>
-								<img class="importantImg" src="/Project_JSP/img/reservation/important.png">
+								<img class="importantImg" src="/Project_JSP/img/reservation/important.gif">
+								<span class="alertText" id="babyAlert">
+									유아: 36개월 이하
+								</span>
 								<div class="selectNum">
-									<div class="num">1</div>
-									<img src="/Project_JSP/img/reservation/selectBtn.jpg">
+									<div class="num" id="babyNum">0</div>
+									<div class="selectBtn">
+										<span class="selectPlus">
+											<img src="/Project_JSP/img/reservation/selectPlus.png">
+										</span>
+										<span class="selectMinus">
+											<img src="/Project_JSP/img/reservation/noMinus.png">
+										</span>
+									</div>
 								</div>
 							</div>
 						</td>
