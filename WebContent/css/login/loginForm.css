@@ -1,10 +1,9 @@
 @CHARSET "UTF-8";
- input:focus {
+ input{
   outline: none;
+  border:1px solid #ccc;
+	padding:2px;
 } 
-input{
-	border:1px soild #ccc;
-}
 #loginForm_wrap{
 	 	width: 870px;
 	 	margin:60px auto;	

@@ -50,7 +50,7 @@
 	</select>
 	
 	<insert id="insertClient" parameterType="Client">
-	   insert into client(id,password,korean_name,english_name,birth,email,phone,home,address,client_grade) values(#{id}, #{pw},#{nameKo}, #{nameEn},#{birth}, #{email},#{phone}, #{home},#{address}, #{clientGrade})
+	   insert into client(id,password,korean_name,english_name,birth,email,phone,home,address,client_grade) values(#{id}, password(#{pw}),#{nameKo}, #{nameEn},#{birth}, #{email},#{phone}, #{home},#{address}, #{clientGrade})
 	</insert>
 	
 	<update id="updateClient" parameterType="Client">

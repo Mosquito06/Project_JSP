@@ -23,7 +23,8 @@ $(function(){
 	
 	$("input").each(function(i, obj) {
 		$(obj).focusin(function(e) {
-			$(this).css("border","1px solid black");
+			$(this).css("border","1px solid #3e2b2c");
+
 		});
 		$(obj).blur(function(e) {
 			

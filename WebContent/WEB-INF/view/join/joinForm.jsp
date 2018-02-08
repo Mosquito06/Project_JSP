@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="css/join/joinForm.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> 
 <script src="js/common/common.js"></script>
+<script src="js/join/joinForm.js"></script>
 <script>
 	$(function(){
 		for(var i=1999;i>1899;i--){
@@ -40,7 +41,7 @@
 			
 			<div id="info_insert">
 				<h1>회원정보 입력</h1>
-				<form>
+				<form action="join.do" method="post">
 					<div id="info_basic">
 						<div id="info_basic_title">
 							<h1>기본 입력</h1>
@@ -50,13 +51,16 @@
 							<p>
 								<label><span class="star">*</span>성명(한글)</label>
 								<input type="text" name="nameKo">
+								<img src="img/join/x.png">
 							</p>
 							<p>
 								<label><span class="star">*</span>성명(영문)</label>
 								<span class="ename">First name(이름)</span>
 								<input type="text" name="nameEn1">
+								<img src="img/join/x.png">
 								<span class="ename">Last name(성)</span>
 								<input type="text" name="nameEn2">
+								<img src="img/join/x.png">
 							</p>
 							<p>
 								<label><span class="star">*</span>생년월일</label>
@@ -75,7 +79,9 @@
 							
 								<p>
 								<label><span class="star">*</span>이메일</label>
-								<input type="email" name="email1">@<input type="email" name="email2">
+								<input type="text" name="email1"><img src="img/join/x.png">
+								@
+								<input type="text" name="email2"><img src="img/join/x.png">
 								<span id="email_select">
 									<select id="sel_email">
 										<option value="">직접입력</option>
@@ -109,7 +115,9 @@
 								</select>
 								</span>
 								
-								<input type="tel" name="p2">-<input type="tel" name="p3">
+								<input type="tel" name="p2"><img src="img/join/x.png">
+								-
+								<input type="tel" name="p3"><img src="img/join/x.png">
 							</p>
 							<p>
 								<label>자택전화</label>
@@ -146,7 +154,9 @@
 								</select>
 								</span>
 							
-								<input type="tel" name="t2">-<input type="tel" name="t3">
+								<input type="tel" name="t2"><img src="img/join/x.png">
+								-
+								<input type="tel" name="t3"><img src="img/join/x.png">
 							</p>
 							<p>
 								<label>주소</label>
@@ -158,7 +168,26 @@
 						</div>
 					</div>
 				<div id="web_join_info">
-				
+					<div id="web_join_info_title">
+						<h1>웹사이트 비밀번호 입력</h1>
+					</div>
+					<div id="web_join_info_input">
+						<p>
+								<label><span class="star">*</span>아이디</label>
+								<input type="text" name="id"><img src="img/join/x.png">
+								<button id="id_check_btn">아이디 중복 확인</button>
+								<span id="id_info">5~12 이내 영문 또는 영문/숫자 조합</span>
+						</p>
+						<p>
+								<label><span class="star">*</span>비밀번호</label>
+								<input type="password" name="pw"><img src="img/join/x.png">
+								<span id="pw_info">8~20자 이내 영문/숫자 조합</span>
+						</p>
+						<p>
+								<label><span class="star">*</span>비밀번호 확인</label>
+								<input type="password" name="pw2"><img src="img/join/x.png">
+						</p>
+					</div>
 				</div>
 				<input type="submit" value="가입 신청">
 				</form>
