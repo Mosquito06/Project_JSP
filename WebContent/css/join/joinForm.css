@@ -114,6 +114,7 @@ img{
 	font-weight: bold;
 	height:45px;
 	line-height: 45px;
+	margin-right:15px;
 }
 #info_basic_input input[type='text'],input[name='p2'],input[name='p3']{
 	height:24px;
@@ -121,14 +122,10 @@ img{
 input[name='t2'],input[name='t3']{
 	height:24px;
 }
-#info_basic_input input[name='nameKo']{
-	margin-left: 15px;
-}
 .ename{
-	padding:10px 0px 5px 15px;
+	padding:10px 0px 5px 0px;
 }
 #birth_select{
-	margin:15px;
 	line-height: 40px;
 }
 select{
@@ -138,9 +135,6 @@ select{
 
 #email_select select{
 	width:120px;
-}
-input[name='email1']{
-	margin-left: 15px;
 }
 #email_btn{
 	background-color: #7C6347;
@@ -153,12 +147,6 @@ input[name='email1']{
 #info_basic_input p:LAST-CHILD  label{
 	height:135px;
 	line-height: 130px;
-}
-#info_basic_input p:LAST-CHILD  input{
-	margin-left:15px;
-}
-#p_select,#t_select{
-	margin-left: 15px;
 }
 input[name='addr2'],input[name='addr3']{
 	width:650px;
@@ -203,9 +191,9 @@ input[name='addr2'],input[name='addr3']{
 	font-weight: bold;
 	height:45px;
 	line-height: 45px;
+		margin-right:15px;
 }
 #web_join_info_input input[type='text'], #web_join_info_input input[type='password']{
-		margin-left:15px;
 			height:24px;
 }
 #id_check_btn{
