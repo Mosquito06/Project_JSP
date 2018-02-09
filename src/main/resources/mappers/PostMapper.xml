@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Project_JSP.dao.PostDao">
+    
+    <resultMap type="Post" id="PostResult">
+    	<result property="zipCode" column="zipcode"/>
+    	<result property="sido" column="sido"/>
+    	<result property="sigungu" column="sigungu"/>
+    	<result property="doro" column="doro"/>
+    	<result property="building1" column="building1"/>
+    	<result property="building2" column="building2"/>
+    </resultMap>
+      
+   <select id="selectPost" parameterType="string" resultMap="PostResult">
+   		select * from post where doro like #{doro}
+   </select>
+   
+
+</mapper>

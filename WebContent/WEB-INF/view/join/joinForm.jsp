@@ -13,21 +13,22 @@
 <script src="js/join/joinForm.js"></script>
 <script>
 	$(function(){
-		for(var i=1999;i>1899;i--){
-			$("select[name='birth_y']").append("<option value='"+i+"'>"+i+"</option>");
-		}
-		for(var i=1;i<13;i++){
-			$("select[name='birth_m']").append("<option value='"+i+"'>"+i+"</option>");
-		}
-		for(var i=1;i<32;i++){
-			$("select[name='birth_d']").append("<option value='"+i+"'>"+i+"</option>");
-		}
+		$(document).on("mouseover","#addr_content ul", function(){
+			$(this).css({"background-color":"black","opacity":"0.5"});
+		});
+		
+		$(document).on("mouseout","#addr_content ul", function(){
+			$(this).css({"background-color":"white","opacity":"1"});
+		});
 		
 	})
 </script>
 </head>
+<body>
 	<jsp:include page="/WEB-INF/common/header.jsp"/>
+	
 	<section>
+	<div id="addr_bg"></div>
 		<div id="join_wrap">
 			<div id="join_title">
 				<h1>회원가입</h1>
@@ -50,16 +51,16 @@
 						<div id="info_basic_input">
 							<p>
 								<label><span class="star">*</span>성명(한글)</label>
-								<input type="text" name="nameKo">
+								<input type="text" name="nameKo" style="ime-mode:active;" onkeyup="this.value=this.value.replace(/[^가-힣]/g,'');">
 								<img src="img/join/x.png">
 							</p>
 							<p>
 								<label><span class="star">*</span>성명(영문)</label>
 								<span class="ename">First name(이름)</span>
-								<input type="text" name="nameEn1">
+								<input type="text" name="nameEn1" style="ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');">
 								<img src="img/join/x.png">
 								<span class="ename">Last name(성)</span>
-								<input type="text" name="nameEn2">
+								<input type="text" name="nameEn2" style="ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');">
 								<img src="img/join/x.png">
 							</p>
 							<p>
@@ -115,9 +116,9 @@
 								</select>
 								</span>
 								
-								<input type="tel" name="p2"><img src="img/join/x.png">
+								<input type="tel" name="p2" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"><img src="img/join/x.png" >
 								-
-								<input type="tel" name="p3"><img src="img/join/x.png">
+								<input type="tel" name="p3" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"><img src="img/join/x.png" >
 							</p>
 							<p>
 								<label>자택전화</label>
@@ -154,9 +155,9 @@
 								</select>
 								</span>
 							
-								<input type="tel" name="t2"><img src="img/join/x.png">
+								<input type="tel" name="t2" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"><img src="img/join/x.png" >
 								-
-								<input type="tel" name="t3"><img src="img/join/x.png">
+								<input type="tel" name="t3" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"><img src="img/join/x.png" >
 							</p>
 							<p>
 								<label>주소</label>
@@ -194,8 +195,25 @@
 			</div>
 		</div>
 		
+			<div id="addr_box">
+				<div id="addr_title">
+					<h1>주소 검색</h1>
+					<input type="text" id="doro" placeholder="도로명 입력">
+					<button id="search_addr">검색</button>
+				</div>
+				<div>
+					<ul>
+						<li>우편번호</li>
+						<li>도로명</li>
+					</ul>
+				</div>
+				<div id="addr_content">
+				</div>
+			</div>
+		
 	</section>
+
 	<jsp:include page="/WEB-INF/common/footer.jsp"/>
-<body>
+
 </body>
 </html>

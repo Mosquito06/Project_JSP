@@ -46,5 +46,6 @@
       <mapper resource="mappers/RoomMapper.xml"/>
 	  <mapper resource="mappers/BoardMapper.xml" />
 	  <mapper resource="mappers/BoardContentMapper.xml" />
+	  <mapper resource="mappers/PostMapper.xml" />
   </mappers>
 </configuration>
