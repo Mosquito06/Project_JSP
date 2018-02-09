@@ -7,13 +7,13 @@
 <title>STEP1 날짜&인원 선택</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
-<link rel="stylesheet" type="text/css" href="css/reservation/step1.css?a=ddf">
+<link rel="stylesheet" type="text/css" href="css/reservation/step1.css?a=df">
 <link rel="stylesheet" type="text/css" href="css/reservation/Loading.css">
 <link rel="stylesheet" type="text/css" href="css/reservation/calendar.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
 <script type="text/javascript" src="js/reservation/Loading.js"></script>
-<script type="text/javascript" src="js/reservation/step1.js?a=df"></script>
+<script type="text/javascript" src="js/reservation/step1.js?a=ddf"></script>
 <script type="text/javascript" src="js/reservation/calendar.js"></script>
 </head>
 <body>
@@ -25,10 +25,10 @@
 			<div id="main">
 				<table>
 					<tr>
-						<th>STEP1 날짜/인원/객실 선택 </th>
-						<th class="noSelect">STEP1 옵션 선택</th>
-						<th class="noSelect">STEP2 고객 정보 입력</th>
-						<th class="noSelect">STEP3 예약 완료</th>
+						<th>STEP1 날짜/인원/객실 선택 <img src="/Project_JSP/img/reservation/BtnNext.gif"></th>
+						<th class="noSelect">STEP1 옵션 선택 <img src="/Project_JSP/img/reservation/BtnNext(no).png"></th>
+						<th class="noSelect">STEP2 고객 정보 입력 <img src="/Project_JSP/img/reservation/BtnNext(no).png"></th>
+						<th class="noSelect">STEP3 예약 완료 <img src="/Project_JSP/img/reservation/BtnNext(no).png"></th>
 					</tr>
 					<tr>
 						<td colspan="3">
@@ -109,6 +109,30 @@
 					<tr>
 						<td colspan="4" id="tdText">
 							예약을 원하시면 호텔, 날짜, 인원을 선택 후 검색 버튼을 눌러주세요.
+						</td>
+					</tr>
+					<tr class="roomText">
+						<td colspan="2">객실</td>
+						<td colspan="2">현재 예약 가능한 객실입니다.</td>
+					</tr>
+					<tr class="roomInfo">
+						<td>
+							<img src="/Project_JSP/img/reservation/room/(Standard)Standard.jpg">
+						</td>
+						<td colspan="2">
+							<div>
+								<span>[Standard]</span>
+								<span>Standard</span>
+								<span>크기: 39m</span>
+								<span>전망: 산, 정원</span>
+							</div>
+						</td>
+						<td>
+							<div>
+								<span>220,000~</span>
+								<span>원/1박</span>
+								<img src="/Project_JSP/img/reservation/reservationBtn.jpg">
+							</div>
 						</td>
 					</tr>
 				</table>

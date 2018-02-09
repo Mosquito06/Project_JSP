@@ -9,10 +9,11 @@
         <result property="viewType" column="view_type"/>
         <result property="bedType" column="bed_type"/>
         <result property="roomImg" column="room_img"/>
+        <result property="reservationImg" column="reservation_img"/>
     </resultMap>
    
     <sql id="selectSql">
-        select room_info_num, room_info_name, room_grade, view_type, bed_type, room_img from room_info
+        select room_info_num, room_info_name, room_grade, view_type, bed_type, room_img, reservation_img from room_info
     </sql>
     
     <sql id="whereSql">
@@ -33,13 +34,13 @@
 	</select>
 	
 	<insert id="insertRoomInfo" parameterType="RoomInfo">
-	   insert into room_info(room_info_name, room_grade, view_type, bed_type, room_img) 
-	   values(#{roomInfoName}, #{roomGrade}, #{viewType}, #{bedType}, #{roomImg})
+	   insert into room_info(room_info_name, room_grade, view_type, bed_type, room_img, reservation_img) 
+	   values(#{roomInfoName}, #{roomGrade}, #{viewType}, #{bedType}, #{roomImg}, ${reservationImg})
 	</insert>
 	
 	<update id="updateRoomInfo" parameterType="RoomInfo">
 	    update room_info set room_info_name = #{roomInfoName}, room_grade = #{roomGrade}, 
-	    view_type = #{viewType}, bed_type = #{bedType}, room_img = #{roomImg}
+	    view_type = #{viewType}, bed_type = #{bedType}, room_img = #{roomImg}, reservation_img = ${reservationImg}
 	  	<include refid="whereSql"/>
 	</update>
 	

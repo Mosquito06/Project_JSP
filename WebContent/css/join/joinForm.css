@@ -1,7 +1,21 @@
 @CHARSET "UTF-8";
+input{
+	outline: none;
+	border:1px solid #ccc;
+	padding:2px;
+}
+p{
+	position: relative;
+}
+img{
+	width:20px;
+	display:none;
+	position:absolute;
+}
+
 #join_wrap{
 	width:870px;
-	margin:0 auto;
+	margin:0 auto; 
 }
 #join_title{
 	width:100%;
@@ -100,24 +114,18 @@
 	font-weight: bold;
 	height:45px;
 	line-height: 45px;
+	margin-right:15px;
 }
-#info_basic_input input[type='text'],input[name='email1'],input[name='email2'],input[name='p2'],input[name='p3']{
+#info_basic_input input[type='text'],input[name='p2'],input[name='p3']{
 	height:24px;
 }
 input[name='t2'],input[name='t3']{
 	height:24px;
 }
-#info_basic_input input[name='nameKo']{
-	margin:5px 15px;
-}
 .ename{
-	padding:10px 0px 5px 15px;
-}
-input[name='nameEn1'],input[name='nameEn2']{
-	margin:5px;
+	padding:10px 0px 5px 0px;
 }
 #birth_select{
-	margin:15px;
 	line-height: 40px;
 }
 select{
@@ -128,13 +136,10 @@ select{
 #email_select select{
 	width:120px;
 }
-input[name='email1']{
-	margin-left: 15px;
-}
 #email_btn{
-	background-color: #9F876B;
+	background-color: #7C6347;
 	color:#F1EBD6;
-	border:1px solid #F1EBD6;
+	border:1px solid #7C6347;
 	width:120px;
 	height:30px;
 }
@@ -142,12 +147,6 @@ input[name='email1']{
 #info_basic_input p:LAST-CHILD  label{
 	height:135px;
 	line-height: 130px;
-}
-#info_basic_input p:LAST-CHILD  input{
-	margin-left:15px;
-}
-#p_select,#t_select{
-	margin-left: 15px;
 }
 input[name='addr2'],input[name='addr3']{
 	width:650px;
@@ -158,4 +157,61 @@ input[name='addr2'],input[name='addr3']{
 	color:white;
 	height:30px;
 	margin:5px;
+}
+
+/*아이디, 비밀번호 입력란*/
+#web_join_info{
+	margin-top: 30px;
+	font-size: 14px;
+}
+#web_join_info_title{
+		height:30px;
+		font-weight: bold;
+}
+#web_join_info_input{
+	border-top: 1px solid #CDCBBE;
+	border-bottom:1px solid #CDCBBE;
+	width:100%;
+}
+#web_join_info_input p{
+		overflow: hidden;
+	border-bottom: 1px solid #ECEAE1;
+	line-height: 45px;
+	
+}
+#web_join_info_input p:LAST-CHILD{
+	border:none;
+}
+#web_join_info_input p label{
+	width:150px;
+	float:left;
+	background-color: #FAF9F4;
+	display:block;
+	padding-left:10px;
+	font-weight: bold;
+	height:45px;
+	line-height: 45px;
+		margin-right:15px;
+}
+#web_join_info_input input[type='text'], #web_join_info_input input[type='password']{
+			height:24px;
+}
+#id_check_btn{
+	 background-color: #7C6347;
+    color: #F1EBD6;
+    border: 1px solid #7C6347;
+    height:30px;
+}
+
+/*회원가입 submit 버튼*/
+input[type='submit']{
+	 background-color: #3e2b2c;
+	 border: 1px solid #3e2b2c;
+    color: #F1EBD6;
+    display:block;
+    margin:0 auto;
+    height:60px;
+    width:120px;
+    font-size: 1.1em;
+    margin-top: 30px;
 }

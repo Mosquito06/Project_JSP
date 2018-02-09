@@ -68,7 +68,7 @@ public class TestEventContentDaoService {
 
 	}
 
-	@Test
+	/*@Test
 	public void updateEvent() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			EventContentDao dao = session.getMapper(EventContentDao.class);
@@ -86,7 +86,7 @@ public class TestEventContentDaoService {
 			e.printStackTrace();
 		}
 
-	}
+	}*/
 
 	@Test
 	public void deleteEvent() {
