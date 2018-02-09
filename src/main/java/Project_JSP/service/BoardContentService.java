@@ -15,18 +15,22 @@ public class BoardContentService {
 	
 	private BoardContentService() {}
 
-	public int insert(BoardContent content){
-		try (SqlSession session = MySqlSessionFactory.openSession()) {
+	/*public int insert(BoardContent content){
+		SqlSession session = MySqlSessionFactory.openSession();
+		try {
 			BoardContentDao dao = session.getMapper(BoardContentDao.class);
 			dao.insert(content);
 			session.commit();
 			return 0;
 		} catch (Exception e) {
+			session.rollback();
 			e.printStackTrace();
+		}finally {
+			session.close();
 		}
 		
 		return -1;		
-	};
+	};*/
 	public BoardContent findByNum(int boardNum){
 		try(SqlSession session = MySqlSessionFactory.openSession()){
 			BoardContentDao dao = session.getMapper(BoardContentDao.class);
@@ -39,14 +43,18 @@ public class BoardContentService {
 		return null;
 		
 	};
-	public int deletByNum(int boardNum){
+/*	public int deletByNum(int boardNum){
 		SqlSession session = MySqlSessionFactory.openSession();
 		try{
 			BoardContentDao dao = session.getMapper(BoardContentDao.class);
 
-			dao.deletByNum(boardNum);
+			int result=dao.deletByNum(boardNum);
+			System.out.println("deletcontent"+result);
+			if(result<=0){
+				return -1;
+			}
 			session.commit();
-			return 0;
+			return result;
 		}catch (Exception e) {
 			session.rollback();
 			e.printStackTrace();
@@ -54,7 +62,7 @@ public class BoardContentService {
 		}finally {
 			session.close();
 		}
-	};
+	};*/
 	public int update(BoardContent content){
 		SqlSession session = MySqlSessionFactory.openSession();
 		try{

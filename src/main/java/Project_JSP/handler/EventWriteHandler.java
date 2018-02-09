@@ -2,10 +2,13 @@ package Project_JSP.handler;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -35,14 +38,14 @@ public class EventWriteHandler implements CommandHandler {
 		if (dir.exists() == false) {
 			dir.mkdirs();// 폴더만들기
 		}
-
+		
 		System.out.println("uploadPath - " + uploadPath);
 
 		int maxSize = 1024 * 1024 * 10;// 10M
 		String fileName = "";
 		String originFileName = "";
 		try {
-
+			
 			MultipartRequest multi = new MultipartRequest(req, uploadPath, maxSize, "utf-8",
 					new DefaultFileRenamePolicy());
 
@@ -52,17 +55,29 @@ public class EventWriteHandler implements CommandHandler {
 			
 			fileName = multi.getFilesystemName("imgpath");
 			originFileName = multi.getOriginalFileName("imgpath");
-
+			
 			map.put("fileName", fileName);
 			map.put("orignFileName", originFileName);
 			
-			
-          
 			String title = multi.getParameter("title");
 			String startDate = multi.getParameter("startDate");
 			String endDate = multi.getParameter("endDate");
 			String content = multi.getParameter("hiddenContent");
 			String introduce = multi.getParameter("introduce");
+			
+			HttpSession session = req.getSession();
+			List<String> fileList =  (List<String>) session.getAttribute("fileList");
+			
+			if(fileList != null){
+				System.out.println("파일 리스트 존재");
+				for(String img : fileList){
+					if(!content.contains(img)){
+						System.out.println("이미지 파일 없음"+img);
+						deleteFile(img,uploadPath);
+					}
+				}
+				fileList = null;
+			}
 			
 			EventService service = EventService.getInstance();
 
@@ -82,7 +97,7 @@ public class EventWriteHandler implements CommandHandler {
 				return null;
 			}
 
-			res.sendRedirect(req.getContextPath() + "/event/evnetlist.do");
+			res.sendRedirect(req.getContextPath() + "/event/eventlist.do");
 			return null;
 
 		} catch (Exception e) {
@@ -90,6 +105,16 @@ public class EventWriteHandler implements CommandHandler {
 			return "";
 		}
 
+	}
+
+	private void deleteFile(String img, String uploadPath) {
+		String deleteFileName = uploadPath + "/" + img; 
+		File deletefile = new File (deleteFileName);
+		System.out.println("파일 삭제 진입" + deleteFileName);
+		if(deletefile.exists() && deletefile.isFile()){
+			System.out.println("파일 삭제" + deleteFileName);
+			deletefile.delete();
+		}
 	}
 
 }

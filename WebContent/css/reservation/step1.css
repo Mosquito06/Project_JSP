@@ -8,13 +8,13 @@ div#main{
 	
 }
 
-div#main table{
+div#main > table{
 	width: 100%;	
 	margin-top: 3%;
 	text-align: center;
 }
 
-div#main table th{
+div#main > table th{
 	border-bottom: 4px solid #a0886e;
 	width: 25%;
 	padding: 15px;
@@ -24,30 +24,30 @@ div#main table th{
 	position: relative;
 }
 
-div#main table th img{
+div#main > table th img{
 	position: absolute;
 	right: 10px;
 	bottom: 8px;
 }
 
 
-div#main table th.noSelect{
+div#main  >table th.noSelect{
 	border-bottom: 4px solid #cacbc3;
 	padding: 5px;
 	color: #cacbc3;
 }
 
-div#main table tr:NTH-CHILD(2) td{
+div#main > table tr:NTH-CHILD(2) td{
 	padding: 50px 0;
 	border-bottom: 1px solid #f1e3c4;
 }
 
 
-div#main table tr td > div:NTH-CHILD(1){
+div#main > table tr td > div:NTH-CHILD(1){
 	width: 20%;	
 }
 
-div#main table tr td > div{
+div#main > table tr td > div{
 	float: left;
 	display: inline-block;
 	width: 14.5%; 
@@ -57,7 +57,7 @@ div#main table tr td > div{
 	position: relative;
 }
 
-div#main table tr td > div:NTH-CHILD(1){
+div#main > table tr td > div:NTH-CHILD(1){
 	line-height: 100px;
 }
 
@@ -114,13 +114,14 @@ div#main div.dayWrap{
 div#main div.day{
 	margin-right: 10%;
 	font-size: 45px;
+	cursor: pointer;
 }
 
 div#main div.month{
 	font-size: 24px;	
 }
 
-div#main table tr td:NTH-CHILD(2) img{
+div#main > table tr td:NTH-CHILD(2) img{
 	margin-bottom: 10%;
 	cursor: pointer;
 }
@@ -149,18 +150,34 @@ div#main div.selectNum span.selectMinus img{
 	
 }
 
-div#main table td#tdText{
+div#main > table td#tdText{
 	border-bottom: 1px solid #f1e3c4;
 	padding: 200px;
 	color: #a0886e;
 	font-weight: bold;
 }
 
+/* 달력 */
+div#start-calendar{
+	position: absolute;
+	top: 430px;
+	left: 530px;
+	display: none;
+}
+
+div#end-calendar{
+	position: absolute;
+	top: 430px;
+	left: 530px;
+	display: none;
+}
+
+
+
 /* 이용 가능한 객실  */
 
 div#main tr.roomText{
 	background-color: #f1e3c4;
-	border: 1px solid black;
 }
 
 div#main tr.roomText td:NTH-CHILD(1){
@@ -178,3 +195,117 @@ div#main tr.roomText td:NTH-CHILD(2){
 	color: #747474;
 
 }
+
+div#main tr.roomInfo{
+	position: relative;
+}
+
+div#main tr.roomInfo td {
+	padding: 50px;
+}
+
+div#main tr.roomInfo td:NTH-CHILD(2){
+	padding: 0;
+}
+
+div#main tr.roomInfo td:NTH-CHILD(2) div{
+	width: 100%;
+	text-align: left;
+	line-height: 30px;
+	padding: 0px;
+	margin-bottom: 10px;
+}
+
+div#main tr.roomInfo td:NTH-CHILD(2) span.roomGrade{
+	font-size: 22px;
+	color: #a0886e;
+}
+
+div#main tr.roomInfo td:NTH-CHILD(2) span.roomName{
+	font-size: 20px;
+}
+
+div#main tr.roomInfo td:NTH-CHILD(2) span.roomSize, div#main tr.roomInfo td:NTH-CHILD(2) span.roomView{
+	font-size: 12px;
+}
+
+div#main tr.roomInfo td:NTH-CHILD(3){
+	padding-left: 0;
+}
+
+div#main tr.roomInfo td:NTH-CHILD(3) div{
+	line-height: 30px;
+	text-align: left;
+	width: 100%;
+	position: relative;
+}
+
+div#main tr.roomInfo td:NTH-CHILD(3) div img{
+	position: absolute;
+	top: 0;
+	right: -40px;
+}
+
+div#main tr.roomInfo td:NTH-CHILD(3) div span.roomPrice{
+	font-size: 30px;
+}
+
+div#main tr.roomInfo td:NTH-CHILD(3) div span.perDay{
+	font-size: 12px;
+	margin-left: 90px;
+}
+
+
+/* 객실 뷰 및 침대 선택  */
+div#main tr.selectViewAndBedTr{
+	border: 1px solid #cacbc3; /* 2. 예약하기 버튼 누른 뒤 나타나는 옵션의 선 */
+	text-align: left;
+	
+}
+
+div#main tr.selectViewAndBedTr td{
+	padding: 20px;
+	border-bottom: 1px solid #cacbc3;
+	border-right: 1px solid #cacbc3;
+}
+
+div#main tr.selectViewAndBedTr td:NTH-CHILD(2){
+	text-align: center;
+	vertical-align: middle;
+}
+
+div#main tr.selectViewAndBedTr td:NTH-CHILD(2) img{
+	margin-bottom: 0;
+}
+
+div#main tr#selectViewAndBedLastTr {
+	border-bottom: 1px solid #f1e3c4; /* 3. 예약하기 버튼을 누른 후 다른 방과 구분하기 위한 아래 선 */
+}
+
+div#main tr.emptyTr{
+	border-bottom: 1px solid #f1e3c4;
+}
+
+div#main tr.emptyTr td{
+	padding-top: 50px;	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

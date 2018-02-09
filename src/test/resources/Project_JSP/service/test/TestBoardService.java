@@ -20,16 +20,17 @@ public class TestBoardService {
 	public static void tearDownAfterClass() throws Exception {
 	}
 
-	/*@Test
+	@Test
 	public void testDeleteBoard() {
 		BoardService serivce = BoardService.getInstance();
 		Board board = new Board();
-		board.setNum(2);
+		board.setNum(4);
 		
 		serivce.deletByNumBoard(board);
 	}
 	
-	@Test
+	
+/*	//@Test
 	public void testInertBoard() {
 		BoardService serivce = BoardService.getInstance();
 		Board board = new Board();

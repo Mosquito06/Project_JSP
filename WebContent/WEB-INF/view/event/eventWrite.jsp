@@ -28,6 +28,10 @@
 				$("#hiddenContent").val(content);
 			}
 		}); 
+		
+		$("#addEventForm"){
+			
+		}
 	});
 </script>
 </head>

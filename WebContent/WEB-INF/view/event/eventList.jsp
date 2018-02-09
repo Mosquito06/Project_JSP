@@ -25,8 +25,13 @@
 		<div id="contentWrap">
 			<%@ include file="leftMenu.jsp"%>
 
-			
+			 
 				<div class="cntEvent">
+					<!-- 관리자 전용 버튼 -->
+					<div class="btnWrap">
+						<a href="${pageContext.request.contextPath }/event/eventWrite.do">이벤트 등록 하기</a>
+					</div>
+					
 					<div class="eventTitle">
 						<p>EVENT</p>	
 					</div>
@@ -44,12 +49,12 @@
 							<c:forEach var="item" items="${list}">
 								<li class="outBox">  
 									<div  class="innerBox">
-										<a href="#" class="eventLink">
-											<img  src="#" class="eventBanner">
+										<a href="${pageContext.request.contextPath}/event/eventread.do?no=${item.eventNum}" class="eventLink">
+											<img  src="${item.eventImgPath}" class="eventBanner">
 										</a>  
 										<div class="eventInfo">
 											<h3 class="tit">
-												<a href="#" class="smTitle">${item.eventTitle }</a>
+												<a href="${pageContext.request.contextPath}/event/eventread.do?no=${item.eventNum}" class="smTitle">${item.eventTitle }</a>
 											</h3>
 											<p class="eventDate">
 												<fmt:formatDate value="${item.eventStartDay }" pattern="yyyy-MM-dd"/>
