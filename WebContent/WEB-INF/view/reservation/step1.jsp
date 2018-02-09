@@ -7,14 +7,15 @@
 <title>STEP1 날짜&인원 선택</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
-<link rel="stylesheet" type="text/css" href="css/reservation/step1.css?a=df">
-<link rel="stylesheet" type="text/css" href="css/reservation/Loading.css">
-<link rel="stylesheet" type="text/css" href="css/reservation/calendar.css">
+<link rel="stylesheet" type="text/css" href="css/reservation/step1.css?a=ddf">
+<link rel="stylesheet" type="text/css" href="css/reservation/Loading.css?a=df">
+<link rel="stylesheet" type="text/css" href="css/reservation/jsCalendar.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
 <script type="text/javascript" src="js/reservation/Loading.js"></script>
-<script type="text/javascript" src="js/reservation/step1.js?a=ddf"></script>
-<script type="text/javascript" src="js/reservation/calendar.js"></script>
+<script type="text/javascript" src="js/reservation/step1.js?a=fdddf"></script>
+<script type="text/javascript" src="js/reservation/jsCalendar.js"></script>
+<script type="text/javascript" src="js/reservation/jsCalendar.lang.de.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -37,20 +38,20 @@
 								<div class="selectText">체크인</div>
 								<div class="selectDay">
 									<div class="dayWrap">
-										<div class="year">2018</div>
-										<div class="month">02</div>
+										<div class="year" id="sYear">2018</div>
+										<div class="month" id="sMonth">02</div>
 									</div>
-									<div class="day">07</div>
+									<div class="day" id="sDay">07</div>
 								</div>
 							</div>
 							<div>
 								<div class="selectText">체크아웃</div>
 								<div class="selectDay">
 									<div class="dayWrap">
-										<div class="year">2018</div>
-										<div class="month">02</div>
+										<div class="year" id="eYear">2018</div>
+										<div class="month" id="eMonth">02</div>
 									</div>
-									<div class="day">07</div>
+									<div class="day" id="eDay">07</div>
 								</div>
 							</div>
 							<div class="selectType">
@@ -119,7 +120,7 @@
 						<td>
 							<img src="/Project_JSP/img/reservation/room/(Standard)Standard.jpg">
 						</td>
-						<td colspan="2">
+						<td colspan="2">00:00:00 GMT+0900 (대한민국 표준시)
 							<div>
 								<span>[Standard]</span>
 								<span>Standard</span>
@@ -136,26 +137,10 @@
 						</td>
 					</tr>
 				</table>
+				
+				<div id="start-calendar"></div>
+				<div id="end-calendar"></div>
 			</div>
-			
-
-
-<!--   <div class="main">
-				    <div class="custom-calendar-wrap">
-					      <div id="custom-inner" class="custom-inner">
-						        <div class="custom-header clearfix">
-							          <nav>
-								            <span id="custom-prev" class="custom-prev"></span>
-								            <span id="custom-next" class="custom-next"></span>
-							          </nav>
-							          <h2 id="custom-month" class="custom-month"></h2>
-							          <h3 id="custom-year" class="custom-year"></h3>
-						        </div>
-						        <div id="calendar" class="fc-calendar-container"></div>
-					      </div>
-				    </div>
-  </div> -->
-
 		</section>
 		<footer>
 			<jsp:include page="/WEB-INF/common/footer.jsp" />

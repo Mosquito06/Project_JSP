@@ -1,6 +1,6 @@
 $(function(){
 	
-		// 로딩화면 구축
+		// 로딩화면 
 		$("#searchBtn").click(function(){
 			location.href = "step2.do";
 			
@@ -104,6 +104,59 @@ $(function(){
 			$("span.alertText").eq(1).css("display", "none");
 		})
 		
+		// 달력 
+		var month = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
+		var sElement = document.getElementById("start-calendar");
+		var sCalendar = jsCalendar.new(sElement);
+		
+		$("#sDay").click(function(){
+			$("#start-calendar").addClass("auto-jsCalendar material-theme shilla");
+			$("#start-calendar").css("display", "block");
+		})
+		
+		sCalendar.onDateClick(function(event, date){
+			$("#end-calendar").css("display", "none");
+			$("#sYear").text(date.getFullYear());
+			$("#sMonth").text(month[date.getMonth()]);
+			var date = date.getDate();
+			if(date >= 1 && date < 10){
+				$("#sDay").text("0"+date);
+			}else{
+				$("#sDay").text(date);
+			}
+			$("#start-calendar").css("display", "none");
+		});
+		
+		var eElement = document.getElementById("end-calendar");
+		var eCalendar = jsCalendar.new(eElement);
+		
+		$("#eDay").click(function(){
+			$("#end-calendar").addClass("auto-jsCalendar material-theme shilla");
+			$("#end-calendar").css("display", "block");
+		})
+		
+		eCalendar.onDateClick(function(event, date){
+			$("#start-calendar").css("display", "none");
+			var sYear = Number($("#sYear").text());
+			var sMonth = Number($("#sMonth").text());
+			var sDay = Number($("#sDay").text());
+			
+			if(date.getFullYear() < sYear || Number(month[date.getMonth()]) < sMonth || date.getDate() < sDay){
+				alert("체크인 날짜보다 이전 날짜를 선택할 수 없습니다.");
+				return;
+			}
+						
+			$("#eYear").text(date.getFullYear());
+			$("#eMonth").text(month[date.getMonth()]);
+			var date = date.getDate();
+			if(date >= 1 && date < 10){
+				$("#eDay").text("0"+date);
+			}else{
+				$("#eDay").text(date);
+			}
+			$("#end-calendar").css("display", "none");
+		});
+
 		
 		
 		
