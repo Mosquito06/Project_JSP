@@ -66,7 +66,7 @@ public class TestEventContentDaoService {
 			e.printStackTrace();
 		}
 
-	}*/
+	}
 
 	@Test
 	public void updateEvent() {
@@ -78,7 +78,7 @@ public class TestEventContentDaoService {
 			
 			EventContent eventContent = new EventContent();
 			eventContent.setEventNum(event);
-			eventContent.setEventContentImg("이벤트 내용 경로");;
+			eventContent.setEventContentImg("이벤트 내용 경로");
 			
 			dao.updateEventContent(eventContent);
 			session.commit();
@@ -88,7 +88,7 @@ public class TestEventContentDaoService {
 
 	}
 
-	/*@Test
+	@Test
 	public void deleteEvent() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			EventContentDao dao = session.getMapper(EventContentDao.class);
