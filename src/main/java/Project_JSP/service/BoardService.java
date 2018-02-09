@@ -7,10 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 
 import Project_JSP.dao.BoardContentDao;
 import Project_JSP.dao.BoardDao;
-import Project_JSP.dao.EventContentDao;
-import Project_JSP.dao.EventDao;
 import Project_JSP.dto.Board;
-import Project_JSP.dto.EventContent;
+import Project_JSP.dto.BoardContent;
 import Project_JSP.mvc.util.MySqlSessionFactory;
 
 public class BoardService {
@@ -111,8 +109,38 @@ public class BoardService {
 
 
 
-	public void insertBoard(Board board) {
-		// TODO Auto-generated method stub
+	public int insertBoard(Board board,BoardContent content) {
+		SqlSession session = MySqlSessionFactory.openSession();
+		try{
+			BoardDao dao = session.getMapper(BoardDao.class);
+			BoardContentDao contentDao = session.getMapper(BoardContentDao.class);
+
+			
+			int yes = dao.insertBoard(board);
+			if(yes<=0){	
+				return -1;
+			}
+			
+			int lastId=dao.lastId();
+			board.setNum(lastId);
+			content.setNum(board);
+
+			int result=contentDao.insert(content);
+			if(result<=0){
+				return -1;
+			}
+			
+			
+			session.commit();
+			return yes;
+		}catch (Exception e) {
+			e.printStackTrace();
+			session.rollback();
+		}finally{
+			session.close();
+		}
+		return -1;
+		
 		
 	}
 
@@ -182,7 +210,19 @@ public class BoardService {
 	}*/
 
 	public void updateBoard(Board board) {
-		// TODO Auto-generated method stub
+		SqlSession session = MySqlSessionFactory.openSession();
+		try{
+			BoardDao dao = session.getMapper(BoardDao.class);
+			
+			dao.updateBoard(board);
+			session.commit();
+		}catch (Exception e) {
+			session.rollback();
+			e.printStackTrace();
+		}finally {
+			session.close();
+		}
+		
 		
 	}
 
