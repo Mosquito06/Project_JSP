@@ -14,9 +14,13 @@
     </resultMap>
    
    <insert id="insertBoard" parameterType="Board">
-   		insert into board(board_num,board_type,board_name,board_email,board_tel,board_title,board_date,board_check)
-   		values(#{num},#{type},#{name},#{email},#{tel},#{title},#{date},#{check})
+   		insert into board(board_name,board_email,board_tel,board_title,board_date,board_check)
+   		values(#{name},#{email},#{tel},#{title},#{date},#{check})
    </insert>
+   
+   <select id="lastId" resultType="int">
+   		select max(board_num) from board 
+   </select>
    
    <select id="selcetAllBoard" resultMap="BoardResult">
    		select * from board
@@ -48,20 +52,17 @@
    		select * from board where board_title like #{board.title} order by board_num desc limit #{num1},#{num2}
    </select>
    
-	
-   
-   
+
    <delete id="deletByNumBoard" parameterType="Board">
    		delete from board where board_num = #{num}
    </delete>
    
-  
-   
-   
-   <select id="updateBoard" parameterType="Board">
+
+   <update id="updateBoard" parameterType="Board">
    		update board set 
    		board_type = #{type},board_name =#{name},
-   		board_email = #{email},board_tel =#{tel},board_title=#{title}
+   		board_email = #{email},board_tel =#{tel},board_title=#{title},
+   		board_check = #{check}
    		where board_num = #{num}
-   </select>
+   </update>
 </mapper>

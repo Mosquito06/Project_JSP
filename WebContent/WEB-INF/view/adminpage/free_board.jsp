@@ -92,7 +92,8 @@
 							</tr>
 						</table>
 						<div id="wrap_btn_style">
-							<a href="free_board.do" class="btn_style">목록보기</a> <a href="#"
+							<a href="free_board.do" class="btn_style">목록보기</a> 
+							<a href="write_board.do"
 								class="btn_style">글쓰기</a>
 						</div>
 
