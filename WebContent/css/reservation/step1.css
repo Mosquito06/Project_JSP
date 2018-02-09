@@ -178,7 +178,6 @@ div#end-calendar{
 
 div#main tr.roomText{
 	background-color: #f1e3c4;
-	border: 1px solid black;
 }
 
 div#main tr.roomText td:NTH-CHILD(1){
@@ -196,3 +195,80 @@ div#main tr.roomText td:NTH-CHILD(2){
 	color: #747474;
 
 }
+
+div#main tr.roomInfo td {
+	border-bottom: 1px solid #f1e3c4;
+	padding: 50px;
+}
+
+div#main tr.roomInfo td:NTH-CHILD(2){
+	padding: 0;
+}
+
+div#main tr.roomInfo td:NTH-CHILD(2) div{
+	width: 100%;
+	text-align: left;
+	line-height: 30px;
+	padding: 0px;
+	margin-bottom: 10px;
+}
+
+div#main tr.roomInfo td:NTH-CHILD(2) span.roomGrade{
+	font-size: 22px;
+	color: #a0886e;
+}
+
+div#main tr.roomInfo td:NTH-CHILD(2) span.roomName{
+	font-size: 20px;
+}
+
+div#main tr.roomInfo td:NTH-CHILD(2) span.roomSize, div#main tr.roomInfo td:NTH-CHILD(2) span.roomView{
+	font-size: 12px;
+}
+
+div#main tr.roomInfo td:NTH-CHILD(3){
+	padding-left: 0;
+}
+
+div#main tr.roomInfo td:NTH-CHILD(3) div{
+	line-height: 30px;
+	text-align: left;
+	width: 100%;
+	position: relative;
+}
+
+div#main tr.roomInfo td:NTH-CHILD(3) div img{
+	position: absolute;
+	top: 0;
+	right: -40px;
+}
+
+div#main tr.roomInfo td:NTH-CHILD(3) div span.roomPrice{
+	font-size: 30px;
+}
+
+div#main tr.roomInfo td:NTH-CHILD(3) div span.perDay{
+	font-size: 12px;
+	margin-left: 90px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

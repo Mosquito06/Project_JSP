@@ -51,9 +51,9 @@
 	
    
    
-   <select id="deletByNumBoard" parameterType="Board">
+   <delete id="deletByNumBoard" parameterType="Board">
    		delete from board where board_num = #{num}
-   </select>
+   </delete>
    
   
    

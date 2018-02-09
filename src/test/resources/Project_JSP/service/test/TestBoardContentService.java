@@ -44,7 +44,7 @@ public class TestBoardContentService {
 		
 	}*/
 	
-	
+	/*
 	@Test
 	public void testUpdateBoard() {
 		BoardContentService serivce = BoardContentService.getInstance();
@@ -63,5 +63,5 @@ public class TestBoardContentService {
 		BoardContent content = serivce.findByNum(3);
 		Assert.assertNotNull(content);
 		System.out.println(content);
-	}
+	}*/
 }

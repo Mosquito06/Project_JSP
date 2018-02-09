@@ -6,7 +6,7 @@ import java.util.List;
 import Project_JSP.dto.Board;
 
 public interface BoardDao {
-	public void insertBoard(Board board);
+	public int insertBoard(Board board);
 	public Board findByNumBoard(Board board);
 	public List<Board> selcetAllBoard();
 	public List<Board> findByNameBoard(Board board);
@@ -14,6 +14,6 @@ public interface BoardDao {
 	public List<Board> selcetAllLimitBoard(HashMap<String, Object> map);
 	public List<Board> findByNameLimitBoard(HashMap<String, Object> map);
 	public List<Board> findByTitleLimitBoard(HashMap<String, Object> map);
-	public void deletByNumBoard(Board board);
-	public void updateBoard(Board board);
+	public int deletByNumBoard(Board board);
+	public int updateBoard(Board board);
 }

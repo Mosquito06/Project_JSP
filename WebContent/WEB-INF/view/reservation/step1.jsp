@@ -7,7 +7,7 @@
 <title>STEP1 날짜&인원 선택</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
-<link rel="stylesheet" type="text/css" href="css/reservation/step1.css?a=ddf">
+<link rel="stylesheet" type="text/css" href="css/reservation/step1.css?a=ddd">
 <link rel="stylesheet" type="text/css" href="css/reservation/Loading.css?a=df">
 <link rel="stylesheet" type="text/css" href="css/reservation/jsCalendar.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -120,18 +120,17 @@
 						<td>
 							<img src="/Project_JSP/img/reservation/room/(Standard)Standard.jpg">
 						</td>
-						<td colspan="2">00:00:00 GMT+0900 (대한민국 표준시)
+						<td colspan="2">
 							<div>
-								<span>[Standard]</span>
-								<span>Standard</span>
-								<span>크기: 39m</span>
-								<span>전망: 산, 정원</span>
+								<span class="roomGrade">[Standard] </span><span class="roomName">Standard</span><br>
+								<span class="roomSize">크기: 39m</span><br>
+								<span class="roomView">전망: 산, 정원</span>
 							</div>
 						</td>
 						<td>
 							<div>
-								<span>220,000~</span>
-								<span>원/1박</span>
+								<span class="roomPrice">220,000~</span><br>
+								<span class="perDay">원/1박</span>
 								<img src="/Project_JSP/img/reservation/reservationBtn.jpg">
 							</div>
 						</td>
