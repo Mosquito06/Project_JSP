@@ -109,6 +109,23 @@ $(function(){
 		var sElement = document.getElementById("start-calendar");
 		var sCalendar = jsCalendar.new(sElement);
 		
+		var date = new Date();
+		
+		// 시작 시 날짜 설정
+		$("#sYear").text(date.getFullYear());
+		$("#sMonth").text(month[date.getMonth()]);
+		
+		$("#eYear").text(date.getFullYear());
+		$("#eMonth").text(month[date.getMonth()]);
+		if(date.getDate() >= 1 && date.getDate() < 10){
+			$("#sDay").text("0"+ date.getDate());
+		}else{
+			$("#sDay").text(date.getDate());
+		}
+		$("#eDay").text(Number($("#sDay").text()) + 1);
+		
+		
+		
 		$("#sDay").click(function(){
 			$("#start-calendar").addClass("auto-jsCalendar material-theme shilla");
 			$("#start-calendar").css("display", "block");
