@@ -1,10 +1,13 @@
 package Project_JSP.handler;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -45,6 +48,22 @@ public class FileUploadHandler implements CommandHandler {
 			
 			fileName = multi.getFilesystemName("upload");
 			originFileName = multi.getOriginalFileName("upload");
+			
+			HttpSession session = req.getSession(false);
+			List<String> fileList = new ArrayList<>();
+			
+			List<String> tempList = (List<String>) session.getAttribute("fileList");
+			
+			if(tempList == null){
+				fileList.add(fileName);
+				session.setAttribute("fileList", fileList);
+				System.out.println(fileList);
+			}else{
+				fileList = tempList;
+				fileList.add(fileName);
+				session.setAttribute("fileList", fileList);
+				System.out.println(fileList);
+			}
 			
 			map.put("fileName", fileName);
 			map.put("orignFileName", originFileName);

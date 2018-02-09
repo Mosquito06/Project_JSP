@@ -42,13 +42,13 @@
 		</div>
 		
 		<div id="header_gnb">
-			<div id="navWrap">
+			<div id="navWrap"> 
 			<ul id="mainNav">
 				<li><a href="#">스페셜 오퍼</a>
 					<ul class="subNav">
 						<li><a href="#">객실패키지</a></li>
 						<li><i class="line"></i></li>
-						<li><a href="#">이벤트</a></li>
+						<li><a href="${pageContext.request.contextPath }/event/eventlist.do">이벤트</a></li>
 					</ul>
 				</li>
 				<li><a href="#">객실</a>

@@ -2,7 +2,6 @@ package Project_JSP.handler;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -17,13 +16,14 @@ import Project_JSP.dto.Event;
 import Project_JSP.mvc.controller.CommandHandler;
 import Project_JSP.service.EventService;
 
-public class EventWriteHandler implements CommandHandler {
+public class EventModifyHandler implements CommandHandler {
+
 	private static final String filePath = "/WEB-INF/view/event/";
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		if (req.getMethod().equalsIgnoreCase("get")) {
-			return filePath + "eventWrite.jsp";
+			return filePath + "eventModify.jsp";
 		} else if (req.getMethod().equalsIgnoreCase("post")) {
 			return postProcess(req, res);
 		}
@@ -59,6 +59,8 @@ public class EventWriteHandler implements CommandHandler {
 			map.put("fileName", fileName);
 			map.put("orignFileName", originFileName);
 			
+			
+			
 			String title = multi.getParameter("title");
 			String startDate = multi.getParameter("startDate");
 			String endDate = multi.getParameter("endDate");
@@ -92,7 +94,7 @@ public class EventWriteHandler implements CommandHandler {
 			int result = service.insertEvent(event, content);
 
 			if (result < 0) {
-				req.setAttribute("error", "글쓰기에 실패하였습니다.");
+				req.setAttribute("error", "수정에 실패하였습니다.");
 				res.sendRedirect(filePath + "eventWrite.jsp");
 				return null;
 			}
@@ -116,5 +118,6 @@ public class EventWriteHandler implements CommandHandler {
 			deletefile.delete();
 		}
 	}
+
 
 }

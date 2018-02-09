@@ -25,8 +25,13 @@
 		<div id="contentWrap">
 			<%@ include file="leftMenu.jsp"%>
 
-			
+			 
 				<div class="cntEvent">
+					<!-- 관리자 전용 버튼 -->
+					<div class="btnWrap">
+						<a href="${pageContext.request.contextPath }/event/eventWrite.do">이벤트 등록 하기</a>
+					</div>
+					
 					<div class="eventTitle">
 						<p>EVENT</p>	
 					</div>

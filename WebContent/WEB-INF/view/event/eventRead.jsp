@@ -26,20 +26,27 @@
 			<div id="contentWrap">
 				<%@ include file="leftMenu.jsp"%>
 				<div class="eventContent">
+					
 					<div class="btnWrap">
+						<!-- ▽ 관리자 전용 버튼 -->
 						<div>
 							<a href="#" class="mod">수정하기</a> 
 							<a href="#" class="del">삭제하기</a> 
 						</div>
-						<a href="#">목록보기</a>
+						<!-- △ 관리자 전용 버튼 -->
+						<a href="${pageContext.request.contextPath }/event/eventlist.do">목록보기</a>
 					</div>
 					<div class="contentWrap">${content.eventContent }</div>
+					
+				
 					<div class="btnWrap">
+						<!-- ▽ 관리자 전용 버튼 -->
 						<div>
 							<a href="#" class="mod">수정하기</a> 
 							<a href="#" class="del">삭제하기</a>  
 						</div>
-						<a href="#">목록보기</a>
+						<!-- △ 관리자 전용 버튼 -->
+						<a href="${pageContext.request.contextPath }/event/eventlist.do">목록보기</a>
 					</div>
 				</div>
 			
