@@ -5,21 +5,14 @@ package Project_JSP.dto;
  *
  */
 public class BoardContent {
-	private int num;
+	private Board num;
 	private String content;
-	
-	public BoardContent(int num, String content) {
-		this.num = num;
-		this.content = content;
-	}
 
-	public BoardContent() {}
-
-	public int getNum() {
+	public Board getNum() {
 		return num;
 	}
 
-	public void setNum(int num) {
+	public void setNum(Board num) {
 		this.num = num;
 	}
 
@@ -31,10 +24,14 @@ public class BoardContent {
 		this.content = content;
 	}
 
-	@Override
-	public String toString() {
-		return "BoardContent [num=" + num + ", content=" + content + "]";
+	public BoardContent(Board num, String content) {
+		super();
+		this.num = num;
+		this.content = content;
 	}
-	
-	
+
+	public BoardContent() {
+		// TODO Auto-generated constructor stub
+	}
+
 }

@@ -3,26 +3,26 @@
 <mapper namespace="Project_JSP.dao.BoardContentDao">
     
     <resultMap type="BoardContent" id="BoardContentResult">
-    	<id property="num" column="board_num"/>
+    	<id property="num.num" column="board_num"/>
     	<result property="content" column="board_content"/>
     </resultMap>
    
-   <insert id="insert" parameterType="BoardContent">
+   <!-- <insert id="insert" parameterType="BoardContent">
    		insert into board_content(board_num,board_content)
    		values(#{num},#{content})
    </insert>
-   
+    -->
    <select id="findByNum" parameterType="int" resultMap="BoardContentResult">
-   		select * from board_content where board_num = #{num}
+   		select * from board_content where board_num = #{num.num}
    </select>
    
-   <select id="deletByNum" parameterType="int">
-   		delete from board_content where board_num = #{num}
-   </select>
+  <delete id="deletByNum" parameterType="int">
+   		delete from board_content where board_num = #{num.num}
+   </delete>
    
-   <select id="update" parameterType="BoardContent">
+   <!-- <select id="update" parameterType="BoardContent">
    		update board_content set 
    		board_content =#{content}
    		where board_num = #{num}
-   </select>
+   </select>  -->
 </mapper>
