@@ -35,6 +35,7 @@ public class EventService  {
 	public Event readEventByNum(Event event) {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			EventDao dao = session.getMapper(EventDao.class);
+			
 			return dao.selectEventByNum(event);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -100,7 +101,6 @@ public class EventService  {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 }
