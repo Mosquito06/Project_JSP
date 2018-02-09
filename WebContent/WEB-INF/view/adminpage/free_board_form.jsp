@@ -38,7 +38,7 @@
 						<table id="wrap_form">
 							<tr>
 								<th><span class="dot">*</span>제목</th>
-								<td><input type="text" name="titel"></td>
+								<td><input type="text" name="title"></td>
 							</tr>
 							<tr id="content">
 								<th><span class="dot">*</span>내용</th>

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import Project_JSP.dto.Board;
 import Project_JSP.dto.BoardContent;
 import Project_JSP.mvc.controller.CommandHandler;
+import Project_JSP.service.BoardService;
 
 public class BoardWriteHandler implements CommandHandler{
 
@@ -22,6 +23,8 @@ public class BoardWriteHandler implements CommandHandler{
 			String name = req.getParameter("name");
 			Board board = new Board(name, title, new Date(), 0);
 			BoardContent content2 =new BoardContent(board, content);
+			BoardService service = BoardService.getInstance();
+			service.insertBoard(board, content2);
 			
 			res.sendRedirect("free_board.do");
 			return null;
