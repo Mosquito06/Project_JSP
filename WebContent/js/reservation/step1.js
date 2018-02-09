@@ -2,11 +2,9 @@ $(function(){
 	
 		// 로딩화면 
 		$("#searchBtn").click(function(){
-			location.href = "step2.do";
-			
-			/*$("section").addClass("backSetting");
+			$("section").addClass("backSetting");
 			var $parent = $("div#container");
-			startLoading($parent, "이용가능한 객실을 검색하는 중입니다.");*/
+			startLoading($parent, "이용가능한 객실을 검색하는 중입니다.");
 			
 		})
 		

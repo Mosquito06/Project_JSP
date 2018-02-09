@@ -7,7 +7,7 @@
 <title>STEP1 날짜&인원 선택</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
-<link rel="stylesheet" type="text/css" href="css/reservation/step1.css?a=ddd">
+<link rel="stylesheet" type="text/css" href="css/reservation/step1.css?a=dd">
 <link rel="stylesheet" type="text/css" href="css/reservation/Loading.css?a=df">
 <link rel="stylesheet" type="text/css" href="css/reservation/jsCalendar.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -135,6 +135,67 @@
 							</div>
 						</td>
 					</tr>
+					
+					<tr class="selectViewAndBedTr">
+						<td colspan="3"><input type="radio" name="selectViewAndBed">Mountain/Twin</td>
+						<td rowspan="4"><img src="/Project_JSP/img/reservation/selectBtn.gif"></td>
+					</tr>
+					<tr class="selectViewAndBedTr">
+						<td colspan="3"><input type="radio" name="selectViewAndBed">Mountain/Double</td>
+						
+					</tr>
+					<tr class="selectViewAndBedTr">
+						<td colspan="3"><input type="radio" name="selectViewAndBed">Mountain/Family Twin</td>
+						
+					</tr>
+					<tr class="selectViewAndBedTr" id="selectViewAndBedLastTr">
+						<td colspan="3"><input type="radio" name="selectViewAndBed">Ocean/Family Twin</td>
+						
+					</tr>
+					
+					<tr class="emptyTr">
+						<td colspan="4"></td>
+					</tr>	
+				
+					<tr class="roomInfo">
+						<td>
+							<img src="/Project_JSP/img/reservation/room/(Standard)Standard.jpg">							
+						</td>
+						<td colspan="2">
+							<div>
+								<span class="roomGrade">[Standard] </span><span class="roomName">Standard</span><br>
+								<span class="roomSize">크기: 39m</span><br>
+								<span class="roomView">전망: 산, 정원</span>
+							</div>
+						</td>
+						<td>
+							<div>
+								<span class="roomPrice">220,000~</span><br>
+								<span class="perDay">원/1박</span>
+								<img src="/Project_JSP/img/reservation/reservationBtn.jpg">
+							</div>
+						</td>
+					</tr>
+					
+					<tr class="selectViewAndBedTr">
+						<td colspan="3"><input type="radio" name="selectViewAndBed">Mountain/Twin</td>
+						<td rowspan="3"><img src="/Project_JSP/img/reservation/selectBtn.gif"></td>
+					</tr>
+					<tr class="selectViewAndBedTr">
+						<td colspan="3"><input type="radio" name="selectViewAndBed">Mountain/Double</td>
+						
+					</tr>
+					<tr class="selectViewAndBedTr">
+						<td colspan="3"><input type="radio" name="selectViewAndBed">Mountain/Family Twin</td>
+						
+					</tr>
+					
+					<tr class="emptyTr">
+						<td colspan="4"></td>
+					</tr>	
+					
+						
+	
 				</table>
 				
 				<div id="start-calendar"></div>
