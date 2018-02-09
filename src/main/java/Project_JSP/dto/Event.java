@@ -11,7 +11,19 @@ public class Event {
 	private String eventImgPath;
 
 	public Event() {}
+	public Event(int eventNum) {
+		this.eventNum = eventNum;
+	}
 
+	public Event(int eventNum, String eventTitle, String eventIntroduce, Date eventStartDay, Date eventEndDay,
+			String eventImgPath) {
+		this.eventNum = eventNum;
+		this.eventTitle = eventTitle;
+		this.eventIntroduce = eventIntroduce;
+		this.eventStartDay = eventStartDay;
+		this.eventEndDay = eventEndDay;
+		this.eventImgPath = eventImgPath;
+	}
 	public int getEventNum() {
 		return eventNum;
 	}

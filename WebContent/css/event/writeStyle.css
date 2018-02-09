@@ -136,3 +136,94 @@
 		text-align: center;
 		color:#444;
 	}
+	
+	/*이벤트 상세보기 style */
+	
+	.eventContent{
+		width: 100%;
+		overflow: hidden;
+	}
+	
+	.btnWrap{
+		width: 100%;
+		overflow: hidden;
+	}
+	.btnWrap a{
+		display: block;
+		width:86px;
+		height:27px;
+		font-size: 14px;
+		color:#fff;
+		background-color: #685845;
+		float: right;
+		text-align: center;
+		line-height: 27px;
+		margin-bottom: 10px;
+		margin-left:10px;
+	}
+	
+	.contentWrap{
+		width: 100%;
+	}
+	
+	.btnWrap:last-child{
+		margin-top: 40px;
+		border-top: 3px solid #a1886f;
+		padding-top: 20px;
+	}
+	
+	/*이벤트 상세페이지 아래 이벤트 슬라이드*/
+	.otherEventWrap{
+		margin-top: 60px;
+	}
+	.eventSlide{
+		position:relative;
+		overflow: hidden;
+	}
+	.slideWrap{
+		width: 270px;
+	}	
+
+	.imgBox img{
+		width: 270px;
+		height:160px;
+	}
+	
+	.sTit a{
+		display:block;
+		margin: 10px 0 12px;
+		color: #856f56;
+		font-weight: 700;
+		white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	}
+	
+	.sTit a:HOVER ,.imgBox:HOVER+div.infoBox a{
+		text-decoration: underline;
+	}
+	
+	.sDate{
+    	color: #444;
+    	font-size:12px;
+	}
+	
+	.sBtn{
+		display:block;
+		width: 35px;
+		height:70px;
+		text-indent: -9999px;
+		background:url("/Project_JSP/img/event/offerSlideNav.png");
+		position: absolute;
+		top:45px;
+	}
+	
+	.prev{
+		left:0;
+	}
+	
+	.next{
+		right: 0;
+		background-position-x:35px; 
+	}
+	
