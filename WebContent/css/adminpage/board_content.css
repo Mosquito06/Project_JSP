@@ -11,7 +11,7 @@
 	margin-top:10px;
 	height: 34px;
 	border-bottom:1px solid #432c10;
-	
+	position: relative;
 }
 #b_title{
 	font-weight: bold;
@@ -22,7 +22,7 @@
 #wrap_div ul{
 	float: left;
 	overflow: hidden;
-	display: inline-block;
+	
 }
 #wrap_div ul li{
 	float: left;
@@ -35,12 +35,18 @@
     font-size: 13px;
     color: #666;
 }
-.wrap_date{
-
+#wrap_name{
+	position: absolute;
+	left: 5px;
+}
+#wrap_date{
+	position: absolute;
+	right: 100px;
 	
 }
-.wrap_no{
-
+#wrap_no{
+	position: absolute;
+	right: 5px;
 }
 #content_wrap{
 	border-bottom:2px solid #432c10;

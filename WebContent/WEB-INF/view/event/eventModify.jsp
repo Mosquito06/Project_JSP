@@ -41,7 +41,7 @@
 		<div id="contentWrap">
 			<%@ include file="leftMenu.jsp"%>
 				
-				<form action="${pageContext.request.contextPath}/event/eventWrite.do" id="addEventForm" method="post" enctype="multipart/form-data" >
+				<form action="${pageContext.request.contextPath}/event/eventModify.do" id="addEventForm" method="post" enctype="multipart/form-data" >
 					<table id="editerTd">
 						<tr>
 							<td>

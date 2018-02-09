@@ -19,7 +19,11 @@ public class BoardContentHandler implements CommandHandler{
 		Board board = new Board();
 		board.setNum(num);
 		board=boardService.findByNumBoard(board);
-		if(req.getParameter("set").equals("1")){
+		if(req.getParameter("set").equals("0")){
+			int check=board.getCheck();
+			board.setCheck(check+1);
+			boardService.updateBoard(board);
+		}else if(req.getParameter("set").equals("1")){
 			
 			return "/WEB-INF/view/adminpage/boardContent.jsp";
 		}else if(req.getParameter("set").equals("2")){

@@ -7,11 +7,11 @@
     	<result property="content" column="board_content"/>
     </resultMap>
    
-   <!-- <insert id="insert" parameterType="BoardContent">
+ 	<insert id="insert" parameterType="BoardContent">
    		insert into board_content(board_num,board_content)
-   		values(#{num},#{content})
+   		values(#{num.num},#{content})
    </insert>
-    -->
+   
    <select id="findByNum" parameterType="int" resultMap="BoardContentResult">
    		select * from board_content where board_num = #{num.num}
    </select>

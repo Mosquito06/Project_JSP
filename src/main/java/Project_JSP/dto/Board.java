@@ -15,6 +15,16 @@ public class Board {
 	public int getCheck() {
 		return check;
 	}
+	
+
+	public Board(String name, String title, Date date, int check) {
+		super();
+		this.name = name;
+		this.title = title;
+		this.date = date;
+		this.check = check;
+	}
+
 
 	public void setCheck(int check) {
 		this.check = check;

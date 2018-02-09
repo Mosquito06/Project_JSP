@@ -1,0 +1,88 @@
+@CHARSET "UTF-8";
+
+#wrap_form{
+	width:100%;
+	border-top:1px solid #c0c0c0;
+	border-bottom:1px solid #c0c0c0;
+}
+#wrap_form th{
+	width:100px;
+	text-align: left;
+	padding:6px 14px;
+	background: rgb(250, 249, 244);
+	border-bottom:1px solid #e7e7e7;
+	font-size: 14px;
+	font-weight: bold;
+	color: #666;
+}
+.dot{
+	color: red;
+}
+select{
+	
+	height:23px;
+}
+#wrap_form td{
+	padding:6px 14px;
+	border-bottom:1px solid #e7e7e7;
+}
+#wrap_form #content th{
+	vertical-align:middle;
+}
+input{
+	height:23px;
+	
+	
+}
+textarea{
+	width:100%;
+	resize:none;
+}
+.h_dot{
+	visibility: hidden;
+}
+#email_{
+	font-size: 14px;
+}
+h3{
+	margin-top:20px;
+	font-size: 13px;
+	font-weight: bolder;	
+	margin-bottom:5px;
+}
+
+#wrap_agree{
+	padding:10px;
+}
+#wrap_check{
+	height:20px;
+	position: relative;
+}
+#check_btn{
+	width: 15px;
+}
+#check{
+	font-size: 13px;
+	position: absolute;
+	top:7px;
+}
+
+#submit{
+	width:99px;
+	height:44px;
+	background: #393124;
+	border:none;
+	font-size: 16px;
+	font-weight: bolder;
+	color:#ffffe6;
+	
+}
+#wrap_sub_btn{
+	margin-top:40px;
+	width: 100%;
+	text-align: center;
+}
+
+
+
+

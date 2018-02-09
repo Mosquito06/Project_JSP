@@ -16,4 +16,5 @@ public interface BoardDao {
 	public List<Board> findByTitleLimitBoard(HashMap<String, Object> map);
 	public int deletByNumBoard(Board board);
 	public int updateBoard(Board board);
+	public int lastId();
 }

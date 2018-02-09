@@ -30,7 +30,7 @@ public class TestBoardService {
 	}
 	
 	
-	//@Test
+/*	//@Test
 	public void testInertBoard() {
 		BoardService serivce = BoardService.getInstance();
 		Board board = new Board();
@@ -42,7 +42,7 @@ public class TestBoardService {
 		board.setType(0);
 		
 		serivce.insertBoard(board);
-	}
+	}*/
 /*	
 	@Test
 	public void testSelectAll() {

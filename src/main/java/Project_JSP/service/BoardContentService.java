@@ -15,18 +15,22 @@ public class BoardContentService {
 	
 	private BoardContentService() {}
 
-	public int insert(BoardContent content){
-		try (SqlSession session = MySqlSessionFactory.openSession()) {
+	/*public int insert(BoardContent content){
+		SqlSession session = MySqlSessionFactory.openSession();
+		try {
 			BoardContentDao dao = session.getMapper(BoardContentDao.class);
 			dao.insert(content);
 			session.commit();
 			return 0;
 		} catch (Exception e) {
+			session.rollback();
 			e.printStackTrace();
+		}finally {
+			session.close();
 		}
 		
 		return -1;		
-	};
+	};*/
 	public BoardContent findByNum(int boardNum){
 		try(SqlSession session = MySqlSessionFactory.openSession()){
 			BoardContentDao dao = session.getMapper(BoardContentDao.class);

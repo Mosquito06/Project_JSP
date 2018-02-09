@@ -12,7 +12,7 @@
 	href="../css/common/common.css?ver=1">
 
 <link rel="stylesheet" type="text/css"
-	href="../css/adminpage/board_content.css?v=2">
+	href="../css/adminpage/board_content.css?v=3">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="../js/common/common.js"></script>
 
