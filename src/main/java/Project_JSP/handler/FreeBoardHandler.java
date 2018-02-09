@@ -32,14 +32,25 @@ public class FreeBoardHandler implements CommandHandler {
 			}else{
 				pageNum = 0;
 			}
-			
+
 
 			map.put("num1",pageNum*15 );
 			map.put("num2",15);
-			System.out.println(map.get("num1"));
-			System.out.println(map.get("num2"));
+			
 			
 			list = service.selcetAllLimitBoard(map);
+			/*
+			String json = "";
+			for(int i=0;i<list.size();i++){
+				json += "{"
+						+ "'list'"
+						+ ""
+						+ "}";
+				
+			}
+			
+			*/
+			
 			if (list.size() == 0) {
 				req.setAttribute("error", "123");
 			}
