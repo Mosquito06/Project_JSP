@@ -86,7 +86,7 @@ public class TestEventContentDaoService {
 			e.printStackTrace();
 		}
 
-	}*/
+	}
 
 	@Test
 	public void deleteEvent() {
