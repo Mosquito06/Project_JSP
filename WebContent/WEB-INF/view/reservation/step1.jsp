@@ -13,7 +13,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
 <script type="text/javascript" src="js/reservation/Loading.js"></script>
-<script type="text/javascript" src="js/reservation/step1.js?a=fdddf"></script>
+<script type="text/javascript" src="js/reservation/step1.js?a=f"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.js"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.lang.de.js"></script>
 </head>
@@ -107,7 +107,7 @@
 							<img src="/Project_JSP/img/reservation/searchBtn.jpg">
 						</td>
 					</tr>
-					<tr>
+					<tr class="deleteTr">
 						<td colspan="4" id="tdText">
 							예약을 원하시면 호텔, 날짜, 인원을 선택 후 검색 버튼을 눌러주세요.
 						</td>
@@ -194,6 +194,31 @@
 						<td colspan="4"></td>
 					</tr>	
 					
+					<tr class="roomInfo">
+						<td>
+							<img src="/Project_JSP/img/reservation/room/(Standard)Standard.jpg">							
+						</td>
+						<td colspan="2">
+							<div>
+								<span class="roomGrade">[Standard] </span><span class="roomName">Standard</span><br>
+								<span class="roomSize">크기: 39m</span><br>
+								<span class="roomView">전망: 산, 정원</span>
+							</div>
+						</td>
+						<td>
+							<div>
+								<span class="roomPrice">220,000~</span><br>
+								<span class="perDay">원/1박</span>
+								<img src="/Project_JSP/img/reservation/reservationBtn.jpg">
+							</div>
+						</td>
+					</tr>
+					
+				
+					
+					<tr class="emptyTr">
+						<td colspan="4"></td>
+					</tr>
 						
 	
 				</table>

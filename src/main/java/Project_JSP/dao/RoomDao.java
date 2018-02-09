@@ -10,4 +10,5 @@ public interface RoomDao {
 	public void insertRoom(Room room);
 	public void updateRoom(Room room);
 	public void deleteRoom(Room room);
+	public List<Room> selectAvailabilityRoom();
 }

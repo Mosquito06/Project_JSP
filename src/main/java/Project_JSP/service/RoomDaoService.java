@@ -80,4 +80,17 @@ public class RoomDaoService implements RoomDao {
 
 	}
 
+	@Override
+	public List<Room> selectAvailabilityRoom() {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			RoomDao dao = session.getMapper(RoomDao.class);
+			return dao.selectAvailabilityRoom();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
 }

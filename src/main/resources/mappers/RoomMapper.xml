@@ -6,11 +6,16 @@
         <id property="roomNum" column="room_num"/>
         <result property="roomInfoNum.roomInfoNum" column="room_info_num"/>
         <result property="roomPrice" column="room_price"/>
-		<result property="roomAvailability" column="room_availability"/>
     </resultMap>
+    
+    <resultMap type="Room" id="RoomJoinRoomInfoResult">
+        <id property="roomNum" column="room_num"/>
+       	<result property="roomPrice" column="room_price"/>
+   		<association property="roomInfoNum" resultMap="Project_JSP.dao.RoomInfoDao.RoomInfoResult"/>
+     </resultMap>
    
     <sql id="selectSql">
-        select room_num, room_info_num, room_price, room_availability from room
+        select room_num, room_info_num, room_price from room
     </sql>
     
     <sql id="whereSql">
@@ -30,13 +35,18 @@
 	    <include refid="whereSql"/>	    
 	</select>
 	
+	<select id="selectAvailabilityRoom" resultMap="RoomJoinRoomInfoResult">
+	   select * from room join room_info on room.room_info_num = room_info.room_info_num 
+		where room_num not in (select room_num from reservation);  
+	</select>
+	
 	<insert id="insertRoom" parameterType="Room">
 	   insert into room(room_info_num, room_price, room_availability) 
-	   values(#{roomInfoNum.roomInfoNum}, #{roomPrice}, #{roomAvailability})
+	   values(#{roomInfoNum.roomInfoNum}, #{roomPrice})
 	</insert>
 	
 	<update id="updateRoom" parameterType="Room">
-	    update room set room_info_num = #{roomInfoNum.roomInfoNum}, room_price = #{roomPrice}, room_availability = #{roomAvailability}
+	    update room set room_info_num = #{roomInfoNum.roomInfoNum}, room_price = #{roomPrice}
 	    <include refid="whereSql"/>
 	</update>
 	

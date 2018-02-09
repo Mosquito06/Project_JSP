@@ -1,19 +1,25 @@
 $(function(){
+	var $parent = null;
 	
-		// 로딩화면 
+		// 로딩화면 및 검색 ajax
 		$("#searchBtn").click(function(){
 			$("section").addClass("backSetting");
-			var $parent = $("div#container");
+			$parent = $("div#container");
 			startLoading($parent, "이용가능한 객실을 검색하는 중입니다.");
 			
+			$.ajax({
+				url: "/Project_JSP/search.do",
+				type : "get",
+				dataType : "json",
+				success : function(data){
+					/*stopLoading($parent);
+					$("section").removeClass("backSetting");*/
+					
+					console.log(data);
+
+				}
+			})
 		})
-		
-		$(".importantImg").click(function(){
-			var $parent = $("div#container");
-			stopLoading($parent);
-			$("section").removeClass("backSetting");
-		})
-	
 		
 		// 인원선택 버튼 이벤트
 		$(".selectBtn .selectPlus img").click(function(){
