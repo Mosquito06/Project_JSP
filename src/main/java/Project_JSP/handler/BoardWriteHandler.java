@@ -21,7 +21,10 @@ public class BoardWriteHandler implements CommandHandler{
 			String title = req.getParameter("title");
 			String content = req.getParameter("content");
 			String name = req.getParameter("name");
-			Board board = new Board(name, title, new Date(), 0);
+			String email = req.getParameter("email1")+"@"+req.getParameter("email2");
+			String tell = req.getParameter("tell");
+			Board board = new Board(name,  email,  tell,  title,new Date());
+					
 			BoardContent content2 =new BoardContent(board, content);
 			BoardService service = BoardService.getInstance();
 			service.insertBoard(board, content2);
