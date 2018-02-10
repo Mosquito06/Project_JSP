@@ -11,4 +11,5 @@ public interface RoomDao {
 	public void updateRoom(Room room);
 	public void deleteRoom(Room room);
 	public List<Room> selectAvailabilityRoom(String sDate, String eDate);
+	public List<Room> selectAvailabilityRoomByRoomName(String roomName);
 }

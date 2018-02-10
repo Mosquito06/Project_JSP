@@ -7,13 +7,13 @@
 <title>STEP1 날짜&인원 선택</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
-<link rel="stylesheet" type="text/css" href="css/reservation/step1.css?a=dd">
+<link rel="stylesheet" type="text/css" href="css/reservation/step1.css?a=dddd">
 <link rel="stylesheet" type="text/css" href="css/reservation/Loading.css?a=df">
 <link rel="stylesheet" type="text/css" href="css/reservation/jsCalendar.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
 <script type="text/javascript" src="js/reservation/Loading.js"></script>
-<script type="text/javascript" src="js/reservation/step1.js?a=df"></script>
+<script type="text/javascript" src="js/reservation/step1.js?a=dddf"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.js"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.lang.de.js"></script>
 </head>

@@ -36,8 +36,15 @@
 	</select>
 	
 	<select id="selectAvailabilityRoom" resultMap="RoomJoinRoomInfoResult">
-	   select * from room join room_info on room.room_info_num = room_info.room_info_num 
-		where room_num not in (select room_num from reservation where check_in <![CDATA[>=]]> #{param1} and check_out <![CDATA[<=]]> #{param2});  
+	    select room_grade, room_info_name, min(room_price) as room_price, room_size, reservation_img
+		from room r join room_info ri on r.room_info_num = ri.room_info_num 
+		where room_num not in (select room_num from reservation where check_in <![CDATA[>=]]> #{param1} and check_out <![CDATA[<=]]> #{param2}) 
+		group by room_info_name order by room_size 
+	</select>
+	
+	<select id="selectAvailabilityRoomByRoomName" resultMap="RoomJoinRoomInfoResult">
+	    select ri.view_type, ri.bed_type, room_price from room r join room_info ri 
+		on r.room_info_num = ri.room_info_num where room_info_name = #{param1}
 	</select>
 	
 	<insert id="insertRoom" parameterType="Room">

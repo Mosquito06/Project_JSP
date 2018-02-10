@@ -22,7 +22,7 @@ $(function(){
 					stopLoading($parent);
 					$("section").removeClass("backSetting");
 					
-					console.log(data);
+					// console.log(data);
 
 					$(".deleteTr").remove();
 					
@@ -54,6 +54,9 @@ $(function(){
 								"		<img class='reservationBtn' src='/Project_JSP/img/reservation/reservationBtn.jpg'>" +
 								"	</div>" +
 								"</td>" +
+								"<td class='hideInfo'>" +
+									"<span>"+ i +"</span>" +
+								"</td>" +
 							"</tr>" +
 							"<tr class='emptyTr'>" +
 								"<td colspan='4'></td>" +
@@ -71,15 +74,45 @@ $(function(){
 			$("section").addClass("backSetting");
 			startLoading($parent, "객실 정보를 가져오는 중입니다.");
 			
+			$(".selectViewAndBedTr").remove();
+			
+			var roomName = $(this).parents(".roomInfo").find(".roomName").text();
+			var index = $(this).parents(".roomInfo").find(".hideInfo").text();
+						
 			$.ajax({
-				url: "",
+				url: "/Project_JSP/search2.do?name=" + roomName + "&index=" + index,
 				type : "get",
 				dataType : "json",
-				sucess : function(data){
+				success : function(data){
 					stopLoading($parent);
 					$("section").removeClass("backSetting");
 					
 					console.log(data);
+					
+					$(data.roomInfo).each(function(i, room){
+						if(i == data.roomInfo.length - 1){
+							$(".roomInfo").eq(data.index).after(
+								"<tr class='selectViewAndBedTr'>" +
+								"	<td colspan='3'><input type='radio' name='selectViewAndBed'> " + room.roomInfoNum.viewType + " / " + room.roomInfoNum.bedType + "</td>" +
+								"	<td rowspan='"+ data.roomInfo.length +"'>" +
+										"<img src='/Project_JSP/img/reservation/selectBtn.gif'>" +
+									"</td>" +
+								"</tr>"					
+							);
+						}else{
+							$(".roomInfo").eq(data.index).after(
+								"<tr class='selectViewAndBedTr'>" +
+								"	<td colspan='3'><input type='radio' name='selectViewAndBed'> " + room.roomInfoNum.viewType + " / " + room.roomInfoNum.bedType + "</td>" +
+								"</tr>"					
+							);
+						}
+						
+						
+						
+					})
+					
+					
+					
 				}
 			})
 		})
