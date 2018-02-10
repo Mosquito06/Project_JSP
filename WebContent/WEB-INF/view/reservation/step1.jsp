@@ -24,7 +24,7 @@
 		</header>
 		<section> 
 			<div id="main">
-				<table>
+				<table id="resultTable">
 					<tr>
 						<th>STEP1 날짜/인원/객실 선택 <img src="/Project_JSP/img/reservation/BtnNext.gif"></th>
 						<th class="noSelect">STEP1 옵션 선택 <img src="/Project_JSP/img/reservation/BtnNext(no).png"></th>
@@ -112,115 +112,6 @@
 							예약을 원하시면 호텔, 날짜, 인원을 선택 후 검색 버튼을 눌러주세요.
 						</td>
 					</tr>
-					<tr class="roomText">
-						<td colspan="2">객실</td>
-						<td colspan="2">현재 예약 가능한 객실입니다.</td>
-					</tr>
-					<tr class="roomInfo">
-						<td>
-							<img src="/Project_JSP/img/reservation/room/(Standard)Standard.jpg">
-						</td>
-						<td colspan="2">
-							<div>
-								<span class="roomGrade">[Standard] </span><span class="roomName">Standard</span><br>
-								<span class="roomSize">크기: 39m</span><br>
-								<span class="roomView">전망: 산, 정원</span>
-							</div>
-						</td>
-						<td>
-							<div>
-								<span class="roomPrice">220,000~</span><br>
-								<span class="perDay">원/1박</span>
-								<img src="/Project_JSP/img/reservation/reservationBtn.jpg">
-							</div>
-						</td>
-					</tr>
-					
-					<tr class="selectViewAndBedTr">
-						<td colspan="3"><input type="radio" name="selectViewAndBed">Mountain/Twin</td>
-						<td rowspan="4"><img src="/Project_JSP/img/reservation/selectBtn.gif"></td>
-					</tr>
-					<tr class="selectViewAndBedTr">
-						<td colspan="3"><input type="radio" name="selectViewAndBed">Mountain/Double</td>
-						
-					</tr>
-					<tr class="selectViewAndBedTr">
-						<td colspan="3"><input type="radio" name="selectViewAndBed">Mountain/Family Twin</td>
-						
-					</tr>
-					<tr class="selectViewAndBedTr" id="selectViewAndBedLastTr">
-						<td colspan="3"><input type="radio" name="selectViewAndBed">Ocean/Family Twin</td>
-						
-					</tr>
-					
-					<tr class="emptyTr">
-						<td colspan="4"></td>
-					</tr>	
-				
-					<tr class="roomInfo">
-						<td>
-							<img src="/Project_JSP/img/reservation/room/(Standard)Standard.jpg">							
-						</td>
-						<td colspan="2">
-							<div>
-								<span class="roomGrade">[Standard] </span><span class="roomName">Standard</span><br>
-								<span class="roomSize">크기: 39m</span><br>
-								<span class="roomView">전망: 산, 정원</span>
-							</div>
-						</td>
-						<td>
-							<div>
-								<span class="roomPrice">220,000~</span><br>
-								<span class="perDay">원/1박</span>
-								<img src="/Project_JSP/img/reservation/reservationBtn.jpg">
-							</div>
-						</td>
-					</tr>
-					
-					<tr class="selectViewAndBedTr">
-						<td colspan="3"><input type="radio" name="selectViewAndBed">Mountain/Twin</td>
-						<td rowspan="3"><img src="/Project_JSP/img/reservation/selectBtn.gif"></td>
-					</tr>
-					<tr class="selectViewAndBedTr">
-						<td colspan="3"><input type="radio" name="selectViewAndBed">Mountain/Double</td>
-						
-					</tr>
-					<tr class="selectViewAndBedTr">
-						<td colspan="3"><input type="radio" name="selectViewAndBed">Mountain/Family Twin</td>
-						
-					</tr>
-					
-					<tr class="emptyTr">
-						<td colspan="4"></td>
-					</tr>	
-					
-					<tr class="roomInfo">
-						<td>
-							<img src="/Project_JSP/img/reservation/room/(Standard)Standard.jpg">							
-						</td>
-						<td colspan="2">
-							<div>
-								<span class="roomGrade">[Standard] </span><span class="roomName">Standard</span><br>
-								<span class="roomSize">크기: 39m</span><br>
-								<span class="roomView">전망: 산, 정원</span>
-							</div>
-						</td>
-						<td>
-							<div>
-								<span class="roomPrice">220,000~</span><br>
-								<span class="perDay">원/1박</span>
-								<img src="/Project_JSP/img/reservation/reservationBtn.jpg">
-							</div>
-						</td>
-					</tr>
-					
-				
-					
-					<tr class="emptyTr">
-						<td colspan="4"></td>
-					</tr>
-						
-	
 				</table>
 				
 				<div id="start-calendar"></div>

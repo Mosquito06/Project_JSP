@@ -1,25 +1,102 @@
 $(function(){
 	var $parent = null;
 	
-		// 로딩화면 및 검색 ajax
+		// 검색하기 버튼 
 		$("#searchBtn").click(function(){
 			$("section").addClass("backSetting");
 			$parent = $("div#container");
 			startLoading($parent, "이용가능한 객실을 검색하는 중입니다.");
 			
+			$(".roomText").remove();
+			$(".roomInfo").remove();
+			$(".emptyTr").remove();
+			
+			var sDate = $("#sYear").text() + $("#sMonth").text() + $("#sDay").text();
+			var eDate = $("#eYear").text() + $("#eMonth").text() + $("#eDay").text();
+			
 			$.ajax({
-				url: "/Project_JSP/search.do",
+				url: "/Project_JSP/search.do?sDate="+ sDate + "&eDate=" + eDate,
 				type : "get",
 				dataType : "json",
 				success : function(data){
-					/*stopLoading($parent);
-					$("section").removeClass("backSetting");*/
+					stopLoading($parent);
+					$("section").removeClass("backSetting");
 					
 					console.log(data);
 
+					$(".deleteTr").remove();
+					
+					$("#resultTable").append(
+						"<tr class='roomText'>" +
+							"<td colspan='2'>객실</td> +" +
+							"<td colspan='2'>현재 예약 가능한 객실입니다.</td>+" +
+						"</tr>");
+							
+					
+					$(data).each(function(i, room){
+						$("#resultTable").append(
+							"<tr class='roomInfo'>" +
+								"<td>" +
+									"<img src='/Project_JSP/img/reservation/room/"+ room.roomInfoNum.reservationImg +"'>" +
+								"</td>" +
+								"<td colspan='2'>" + 
+									"<div>" +
+									"	<span class='roomGrade'>["+ room.roomInfoNum.roomGrade +"]</span>" +
+									"	<span class='roomName'>"+ room.roomInfoNum.roomInfoName +"</span><br>" +
+									"	<span class='roomSize'>크기: "+ room.roomInfoNum.roomSize +"</span><br>" +
+									"	<span class='roomView'>전망: "+ room.roomInfoNum.gradeView +"</span>" +
+									"</div>" +
+								"</td>" +
+								"<td>" +
+								"	<div>" +
+								"		<span class='roomPrice'>"+ room.roomPrice +"~</span><br>" +
+								"		<span class='perDay'>원/1박</span>" +
+								"		<img class='reservationBtn' src='/Project_JSP/img/reservation/reservationBtn.jpg'>" +
+								"	</div>" +
+								"</td>" +
+							"</tr>" +
+							"<tr class='emptyTr'>" +
+								"<td colspan='4'></td>" +
+							"</tr>"
+						);
+					})
+				}
+			})
+
+		})
+		
+					
+		// 예약하기 버튼
+		$(document).on("click", ".reservationBtn", function(){
+			$("section").addClass("backSetting");
+			startLoading($parent, "객실 정보를 가져오는 중입니다.");
+			
+			$.ajax({
+				url: "",
+				type : "get",
+				dataType : "json",
+				sucess : function(data){
+					stopLoading($parent);
+					$("section").removeClass("backSetting");
+					
+					console.log(data);
 				}
 			})
 		})
+		
+		
+		/*<tr class="selectViewAndBedTr">
+						<td colspan="3"><input type="radio" name="selectViewAndBed">Mountain/Twin</td>
+						<td rowspan="3"><img src="/Project_JSP/img/reservation/selectBtn.gif"></td>
+					</tr>
+					<tr class="selectViewAndBedTr">
+						<td colspan="3"><input type="radio" name="selectViewAndBed">Mountain/Double</td>
+						
+					</tr>
+					<tr class="selectViewAndBedTr">
+						<td colspan="3"><input type="radio" name="selectViewAndBed">Mountain/Family Twin</td>
+						
+					</tr>*/
 		
 		// 인원선택 버튼 이벤트
 		$(".selectBtn .selectPlus img").click(function(){

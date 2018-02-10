@@ -244,6 +244,7 @@ div#main tr.roomInfo td:NTH-CHILD(3) div img{
 	position: absolute;
 	top: 0;
 	right: -40px;
+	cursor: pointer;
 }
 
 div#main tr.roomInfo td:NTH-CHILD(3) div span.roomPrice{

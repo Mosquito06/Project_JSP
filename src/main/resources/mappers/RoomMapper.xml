@@ -37,7 +37,7 @@
 	
 	<select id="selectAvailabilityRoom" resultMap="RoomJoinRoomInfoResult">
 	   select * from room join room_info on room.room_info_num = room_info.room_info_num 
-		where room_num not in (select room_num from reservation);  
+		where room_num not in (select room_num from reservation where check_in <![CDATA[>=]]> #{param1} and check_out <![CDATA[<=]]> #{param2});  
 	</select>
 	
 	<insert id="insertRoom" parameterType="Room">

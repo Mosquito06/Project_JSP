@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import Project_JSP.dao.EventContentDao;
 import Project_JSP.dao.RoomInfoDao;
+import Project_JSP.dto.RoomGrade;
 import Project_JSP.dto.RoomInfo;
 import Project_JSP.mvc.util.MySqlSessionFactory;
 
@@ -81,6 +82,19 @@ public class RoomInfoDaoService implements RoomInfoDao {
 			e.printStackTrace();
 		}
 
+	}
+
+	@Override
+	public List<RoomInfo> selectViewTypeByRoomGrade(RoomGrade roomGrade) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			RoomInfoDao dao = session.getMapper(RoomInfoDao.class);
+			return dao.selectViewTypeByRoomGrade(roomGrade);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
 	}
 
 }

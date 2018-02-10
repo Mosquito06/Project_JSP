@@ -16,14 +16,17 @@ public class ReservationSearchHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
+		String startDate = req.getParameter("sDate");
+		String endDate = req.getParameter("eDate");
+		
 		ObjectMapper om = new ObjectMapper();
-		
 		RoomDaoService service = RoomDaoService.getInstance();
-		
-		List<Room> room = service.selectAvailabilityRoom(); 
+		List<Room> room = service.selectAvailabilityRoom(startDate, endDate); 
 		
 		if(room != null){
+
 			String data = om.writeValueAsString(room);
+			
 			res.setContentType("application/json;charset=utf-8");
 			PrintWriter pw = res.getWriter();
 			pw.print(data);

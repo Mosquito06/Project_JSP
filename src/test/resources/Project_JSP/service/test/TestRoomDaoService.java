@@ -15,7 +15,7 @@ public class TestRoomDaoService {
 	public void TestSelectAvailabilityRoom() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			RoomDao dao = session.getMapper(RoomDao.class);
-			List<Room> list  =dao.selectAvailabilityRoom();
+			List<Room> list  =dao.selectAvailabilityRoom("20180209", "20180210");
 			
 			for(Room r : list){
 				System.out.println(r.toString() + "\n");

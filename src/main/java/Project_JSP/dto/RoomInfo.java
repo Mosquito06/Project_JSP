@@ -4,22 +4,20 @@ public class RoomInfo {
 	private int roomInfoNum;
 	private String roomInfoName;
 	private RoomGrade roomGrade;
+	private String gradeView;
 	private ViewType viewType;
 	private BedType bedType;
+	private String roomSize;
 	private String roomImg;
 	private String reservationImg;
 
 	public RoomInfo() {
 		super();
-
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getRoomInfoNum() {
 		return roomInfoNum;
-	}
-
-	public void setRoomInfoNum(int roomInfoNum) {
-		this.roomInfoNum = roomInfoNum;
 	}
 
 	public String getRoomInfoName() {
@@ -38,6 +36,14 @@ public class RoomInfo {
 		this.roomGrade = roomGrade;
 	}
 
+	public String getGradeView() {
+		return gradeView;
+	}
+
+	public void setGradeView(String gradeView) {
+		this.gradeView = gradeView;
+	}
+
 	public ViewType getViewType() {
 		return viewType;
 	}
@@ -52,6 +58,14 @@ public class RoomInfo {
 
 	public void setBedType(BedType bedType) {
 		this.bedType = bedType;
+	}
+
+	public String getRoomSize() {
+		return roomSize;
+	}
+
+	public void setRoomSize(String roomSize) {
+		this.roomSize = roomSize;
 	}
 
 	public String getRoomImg() {
@@ -70,11 +84,15 @@ public class RoomInfo {
 		this.reservationImg = reservationImg;
 	}
 
+	public void setRoomInfoNum(int roomInfoNum) {
+		this.roomInfoNum = roomInfoNum;
+	}
+
 	@Override
 	public String toString() {
 		return "RoomInfo [roomInfoNum=" + roomInfoNum + ", roomInfoName=" + roomInfoName + ", roomGrade=" + roomGrade
-				+ ", viewType=" + viewType + ", bedType=" + bedType + ", roomImg=" + roomImg + ", reservationImg="
-				+ reservationImg + "]";
+				+ ", gradeView=" + gradeView + ", viewType=" + viewType + ", bedType=" + bedType + ", roomSize="
+				+ roomSize + ", roomImg=" + roomImg + ", reservationImg=" + reservationImg + "]";
 	}
 
 }
