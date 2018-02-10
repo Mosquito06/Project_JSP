@@ -73,7 +73,7 @@ $(function(){
 		$(document).on("click", ".reservationBtn", function(){
 			$("section").addClass("backSetting");
 			startLoading($parent, "객실 정보를 가져오는 중입니다.");
-			
+
 			$(".selectViewAndBedTr").remove();
 			
 			var roomName = $(this).parents(".roomInfo").find(".roomName").text();
@@ -84,6 +84,7 @@ $(function(){
 				type : "get",
 				dataType : "json",
 				success : function(data){
+										
 					stopLoading($parent);
 					$("section").removeClass("backSetting");
 					
@@ -93,43 +94,51 @@ $(function(){
 						if(i == data.roomInfo.length - 1){
 							$(".roomInfo").eq(data.index).after(
 								"<tr class='selectViewAndBedTr'>" +
-								"	<td colspan='3'><input type='radio' name='selectViewAndBed'> " + room.roomInfoNum.viewType + " / " + room.roomInfoNum.bedType + "</td>" +
+								"	<td colspan='3'><input type='radio' name='selectViewAndBed'> " + room.roomInfoNum.viewType + " / " + room.roomInfoNum.bedType + 
+								"		<span class='secondPrice'>"+ room.roomPrice+" 원 ~</span>" +
+								"		<span class='hideRoomNum'>"+ room.roomNum+"</span>" +
+								"	</td>" +
 								"	<td rowspan='"+ data.roomInfo.length +"'>" +
-										"<img src='/Project_JSP/img/reservation/selectBtn.gif'>" +
+										"<img class='finalBtn' src='/Project_JSP/img/reservation/selectBtn.gif'>" +
 									"</td>" +
 								"</tr>"					
 							);
 						}else{
 							$(".roomInfo").eq(data.index).after(
 								"<tr class='selectViewAndBedTr'>" +
-								"	<td colspan='3'><input type='radio' name='selectViewAndBed'> " + room.roomInfoNum.viewType + " / " + room.roomInfoNum.bedType + "</td>" +
+								"	<td colspan='3'><input type='radio' name='selectViewAndBed'> " + room.roomInfoNum.viewType + " / " + room.roomInfoNum.bedType +
+								"		<span class='secondPrice'>"+ room.roomPrice+" 원 ~</span>" +
+								"		<span class='hideRoomNum'>"+ room.roomNum+"</span>" +
+								"	</td>" +
 								"</tr>"					
 							);
 						}
-						
-						
-						
+
 					})
-					
-					
-					
 				}
 			})
 		})
 		
+		// 선택 버튼
 		
-		/*<tr class="selectViewAndBedTr">
-						<td colspan="3"><input type="radio" name="selectViewAndBed">Mountain/Twin</td>
-						<td rowspan="3"><img src="/Project_JSP/img/reservation/selectBtn.gif"></td>
-					</tr>
-					<tr class="selectViewAndBedTr">
-						<td colspan="3"><input type="radio" name="selectViewAndBed">Mountain/Double</td>
-						
-					</tr>
-					<tr class="selectViewAndBedTr">
-						<td colspan="3"><input type="radio" name="selectViewAndBed">Mountain/Family Twin</td>
-						
-					</tr>*/
+		$(document).on("click", ".finalBtn", function(){
+			var radio = $("input[type='radio']");
+			var checked = false;
+
+			for(var i = 0; i < radio.length; i++){
+				if(radio[i].checked == true){
+					checked = true;
+					break;
+				}
+			}
+			
+			if(checked == false){
+				alert("객실 타입을 먼저 선택해주세요.");
+			}else{
+				location.href="step2.do";
+			}
+				
+		})
 		
 		// 인원선택 버튼 이벤트
 		$(".selectBtn .selectPlus img").click(function(){

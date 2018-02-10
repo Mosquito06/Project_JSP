@@ -262,6 +262,11 @@ div#main tr.roomInfo td:NTH-CHILD(3) div span.perDay{
 
 
 /* 객실 뷰 및 침대 선택  */
+
+div#main span.hideRoomNum{
+	display: none;
+} 
+
 div#main tr.selectViewAndBedTr{
 	border: 1px solid #cacbc3; /* 2. 예약하기 버튼 누른 뒤 나타나는 옵션의 선 */
 	text-align: left;
@@ -273,6 +278,11 @@ div#main tr.selectViewAndBedTr td{
 	border-bottom: 1px solid #cacbc3;
 	border-right: 1px solid #cacbc3;
 	vertical-align: middle;
+}
+
+div#main tr.selectViewAndBedTr span.secondPrice{
+	float: right;
+	font-size: 20px;
 }
 
 div#main tr.selectViewAndBedTr td:NTH-CHILD(2){

@@ -12,9 +12,7 @@ public class ReservationStep2Handler implements CommandHandler {
 		
 		if(req.getMethod().equalsIgnoreCase("get")){
 			
-			req.getRealPath("img/reservation/room");
-			
-			return "step1.do";
+			return "/WEB-INF/view/reservation/step2.jsp";
 		}else if(req.getMethod().equalsIgnoreCase("post")){
 			
 			return null;

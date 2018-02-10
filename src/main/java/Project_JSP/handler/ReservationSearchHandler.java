@@ -35,7 +35,7 @@ public class ReservationSearchHandler implements CommandHandler {
 		HashMap<String, Object> map = new HashMap<>();
 		
 		for(Room r: room){
-			result.add(infoService.selectViewTypeByRoomGrade(r.getRoomInfoNum().getRoomGrade()));
+			result.add(infoService.selectViewTypeByRoomGrade(r.getRoomInfoNum().getRoomInfoName()));
 		};
 		
 		for(List<RoomInfo> i : result){

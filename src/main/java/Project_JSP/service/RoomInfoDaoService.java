@@ -85,10 +85,10 @@ public class RoomInfoDaoService implements RoomInfoDao {
 	}
 
 	@Override
-	public List<RoomInfo> selectViewTypeByRoomGrade(RoomGrade roomGrade) {
+	public List<RoomInfo> selectViewTypeByRoomGrade(String roomName) {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			RoomInfoDao dao = session.getMapper(RoomInfoDao.class);
-			return dao.selectViewTypeByRoomGrade(roomGrade);
+			return dao.selectViewTypeByRoomGrade(roomName);
 
 		} catch (Exception e) {
 			e.printStackTrace();

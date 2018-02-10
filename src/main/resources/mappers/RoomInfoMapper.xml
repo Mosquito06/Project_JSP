@@ -36,7 +36,7 @@
 	</select>
 	
 	<select id="selectViewTypeByRoomGrade" resultMap="RoomInfoResult">
-		select view_type from room_info where room_grade = #{param1} group by view_type;   
+		select view_type from room_info where room_info_name = #{param1} group by view_type;   
 	</select>
 	
 	

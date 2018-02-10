@@ -1,0 +1,53 @@
+@CHARSET "UTF-8";
+div#main{
+	width: 1200px;
+	margin: 0 auto;
+	min-height: 800px;
+	
+}
+
+div#main > table{
+	width: 100%;	
+	margin-top: 3%;
+	text-align: center;
+}
+
+div#main > table th{
+	border-bottom: 4px solid #a0886e;
+	width: 25%;
+	padding: 15px;
+	color: #a0886e;
+	font-weight: bold;
+	font-size: 16px;
+	position: relative;
+}
+
+div#main > table th img{
+	position: absolute;
+	right: 10px;
+	bottom: 8px;
+}
+
+
+div#main > table th.noSelect{
+	border-bottom: 4px solid #cacbc3;
+	padding: 5px;
+	color: #cacbc3;
+}
+
+div#main div#leftDiv{
+	border: 1px solid black;
+	height: 500px;
+	width: 75%;
+	float: left;
+	margin-top: 5%;	
+}
+
+div#main div#RightDiv{
+	border: 1px solid black;
+	height: 500px;
+	width: 22%;
+	float: right;
+	margin-top: 5%;
+	
+}
