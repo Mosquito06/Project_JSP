@@ -6,7 +6,6 @@
         <id property="roomInfoNum" column="room_info_num"/>
         <result property="roomInfoName" column="room_info_name"/>
         <result property="roomGrade" column="room_grade"/>
-       <result property="gradeView" column="grade_view"/>
         <result property="viewType" column="view_type"/>
         <result property="bedType" column="bed_type"/>
         <result property="bedType" column="bed_type"/>
@@ -16,7 +15,7 @@
     </resultMap>
    
     <sql id="selectSql">
-        select room_info_num, room_info_name, room_grade, grade_view, view_type, bed_type, room_img, room_size, reservation_img from room_info
+        select room_info_num, room_info_name, room_grade, view_type, bed_type, room_img, room_size, reservation_img from room_info
     </sql>
     
     <sql id="whereSql">
@@ -42,13 +41,13 @@
 	
 	
 	<insert id="insertRoomInfo" parameterType="RoomInfo">
-	   insert into room_info(room_info_name, room_grade, grade_view, view_type, bed_type, room_size, room_img, reservation_img) 
-	   values(#{roomInfoName}, #{roomGrade}, #{gradeView}, #{viewType}, #{bedType}, #{roomSize}, #{roomImg}, ${reservationImg})
+	   insert into room_info(room_info_name, room_grade, view_type, bed_type, room_size, room_img, reservation_img) 
+	   values(#{roomInfoName}, #{roomGrade}, #{viewType}, #{bedType}, #{roomSize}, #{roomImg}, ${reservationImg})
 	</insert>
 	
 	<update id="updateRoomInfo" parameterType="RoomInfo">
 	    update room_info set room_info_name = #{roomInfoName}, room_grade = #{roomGrade}, 
-	    grade_view = #{gradeView}, view_type = #{viewType}, bed_type = #{bedType}, room_size = #{roomSize}, 
+		view_type = #{viewType}, bed_type = #{bedType}, room_size = #{roomSize}, 
 	    room_img = #{roomImg}, reservation_img = ${reservationImg}
 	  	<include refid="whereSql"/>
 	</update>

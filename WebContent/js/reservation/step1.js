@@ -33,7 +33,7 @@ $(function(){
 						"</tr>");
 							
 					
-					$(data).each(function(i, room){
+					$(data.resultRoom).each(function(i, room){
 						$("#resultTable").append(
 							"<tr class='roomInfo'>" +
 								"<td>" +
@@ -43,8 +43,8 @@ $(function(){
 									"<div>" +
 									"	<span class='roomGrade'>["+ room.roomInfoNum.roomGrade +"]</span>" +
 									"	<span class='roomName'>"+ room.roomInfoNum.roomInfoName +"</span><br>" +
-									"	<span class='roomSize'>크기: "+ room.roomInfoNum.roomSize +"</span><br>" +
-									"	<span class='roomView'>전망: "+ room.roomInfoNum.gradeView +"</span>" +
+									"	<span class='roomSize'>크기 : "+ room.roomInfoNum.roomSize +"</span><br>" +
+									"	<span class='roomView'>전망 : "+ data.resultViewType[i]+ "</span>" +
 									"</div>" +
 								"</td>" +
 								"<td>" +
