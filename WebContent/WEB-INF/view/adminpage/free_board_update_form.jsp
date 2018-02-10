@@ -20,9 +20,12 @@
 			}else{
 				$("#com").val("");
 			}
-			
-		
 		})
+		
+		
+
+		
+		
 		
 		
 	})
@@ -49,25 +52,25 @@
 
 					</div>
 
-					<form action="write_board.do" method="post">
-						
+					<form action="content.do" method="post">
+						<input type="hidden" name="no" value="${board.num }">
 						<table id="wrap_form">
 							<tr>
 								<th><span class="dot">*</span>제목</th>
-								<td><input type="text" name="title"></td>
+								<td><input type="text" name="title" value="${board.title}"></td>
 							</tr>
 							<tr id="content">
 								<th><span class="dot">*</span>내용</th>
-								<td><textarea rows="7" cols="" name="content"></textarea></td>
+								<td><textarea rows="7" cols="" name="content">${content.content}</textarea></td>
 							</tr>
 							<tr>
 								<th><span class="dot">*</span>성명</th>
-								<td><input type="text" name="name"></td>
+								<td><input type="text" name="name" value="${board.name}"></td>
 							</tr>
 							<tr>
 								<th><span class="dot">*</span>이메일</th>
-								<td><input type="text" name="email1">
-								<span id="email_">@ </span><input type="text" name="email2" id="com">
+								<td><input type="text" name="email1"value="${email1}">
+								<span id="email_">@ </span><input type="text" name="email2" id="com" value="${email2}">
 								<select name="email3" id="select_email">
 									<option>직접입력</option>
 									<option>naver.com</option>
@@ -81,26 +84,15 @@
 							</tr>
 							<tr>
 								<th><span class="dot">*</span>휴대전화</th>
-								<td><input type="tel" name="tell"></td>
+								<td><input type="tel" name="tell" value="${board.tel}"></td>
 							</tr>
 							
 						</table>
-						<div id="wrap_agree">
-							<h3>필수적 개인정보 수집 및 이용에 대한 동의</h3>
-							<textarea rows="4" cols="">신라호텔 고객의 문의 및 의견과 관련하여 귀사가 아래와 같이 본인의 개인정보를 수집 및 이용하는데 동의합니다.
 
-1. 필수적인 개인정보의 수집 ㆍ이용에 관한 사항
-① 수집ㆍ이용 항목 | 성명,  이메일, 휴대전화번호, 유선 전화번호(자택 또는 직장)
-② 수집ㆍ이용 목적 | 문의에 대한 안내 및 서비스 제공
-③ 보유ㆍ이용 기간 | 수집ㆍ이용 동의일로부터 5년간
-※위 사항에 대한 동의를 거부할 수 있으나, 이에 대한 동의가 없을 경우 문의에 대한 안내 및 서비스 제공과 관련된 제반 절차 진행이 불가능 할 수 있음을 알려드립니다.</textarea>
-							<div id="wrap_check">
-								<input type="checkbox" name="check" id="check_btn"><span id="check">동의함</span>
-							</div>
 							
-						</div>
+						
 						<div id="wrap_sub_btn">
-							<input type="submit" value="등록" id="submit">
+							<input type="submit" value="수정" id="submit">
 						</div>
 						
 					</form>
