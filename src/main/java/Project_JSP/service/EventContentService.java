@@ -8,7 +8,7 @@ import Project_JSP.dao.EventContentDao;
 import Project_JSP.dto.EventContent;
 import Project_JSP.mvc.util.MySqlSessionFactory;
 
-public class EventContentService implements EventContentDao {
+public class EventContentService {
 	private static final EventContentService INSTANCE = new EventContentService();
 
 	public static EventContentService getInstance() {
@@ -17,7 +17,6 @@ public class EventContentService implements EventContentDao {
 
 	private EventContentService() {}
 
-	@Override
 	public List<EventContent> selectEventContent() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			EventContentDao dao = session.getMapper(EventContentDao.class);
@@ -30,7 +29,6 @@ public class EventContentService implements EventContentDao {
 		return null;
 	}
 
-	@Override
 	public EventContent selectEventContentByNum(EventContent eventContent) {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			EventContentDao dao = session.getMapper(EventContentDao.class);
@@ -43,7 +41,6 @@ public class EventContentService implements EventContentDao {
 		return null;
 	}
 
-	@Override
 	public int insertEventContent(EventContent eventContent) {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			EventContentDao dao = session.getMapper(EventContentDao.class);
@@ -56,7 +53,6 @@ public class EventContentService implements EventContentDao {
 		
 	}
 
-	@Override
 	public void updateEventContent(EventContent eventContent) {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			EventContentDao dao = session.getMapper(EventContentDao.class);
@@ -68,7 +64,6 @@ public class EventContentService implements EventContentDao {
 		
 	}
 
-	@Override
 	public void deleteEventContent(EventContent eventContent) {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			EventContentDao dao = session.getMapper(EventContentDao.class);
