@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath }/css/common/common.css?v=1">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath }/css/event/writeStyle.css?v=16">
+	href="${pageContext.request.contextPath }/css/event/writeStyle.css?v=18">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"  
 	integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
 	crossorigin="anonymous"></script>
@@ -30,11 +30,11 @@
 					<div class="btnWrap">
 						<!-- ▽ 관리자 전용 버튼 -->
 						<div>
-							<a href="#" class="mod">수정하기</a> 
-							<a href="#" class="del">삭제하기</a> 
+							<a href="${pageContext.request.contextPath }/event/eventModify.do?no=${item.eventNum}" class="mod btn">수정하기</a> 
+							<a href="#" class="del btn">삭제하기</a> 
 						</div>
 						<!-- △ 관리자 전용 버튼 -->
-						<a href="${pageContext.request.contextPath }/event/eventlist.do">목록보기</a>
+						<a href="${pageContext.request.contextPath }/event/eventlist.do" class="btn">목록보기</a>
 					</div>
 					<div class="contentWrap">${content.eventContent }</div>
 					
@@ -42,11 +42,11 @@
 					<div class="btnWrap">
 						<!-- ▽ 관리자 전용 버튼 -->
 						<div>
-							<a href="#" class="mod">수정하기</a> 
-							<a href="#" class="del">삭제하기</a>  
+							<a href="${pageContext.request.contextPath }/event/eventModify.do?no=${item.eventNum}" class="mod btn">수정하기</a> 
+							<a href="#" class="del btn">삭제하기</a>  
 						</div>
 						<!-- △ 관리자 전용 버튼 -->
-						<a href="${pageContext.request.contextPath }/event/eventlist.do">목록보기</a>
+						<a href="${pageContext.request.contextPath }/event/eventlist.do" class="btn">목록보기</a>
 					</div>
 				</div>
 			
@@ -79,8 +79,8 @@
 									</p>
 								</div>
 							</div>
-						</div>
 					</c:forEach> 
+					</div>
 				</div>
 			</c:if>
 			</div>

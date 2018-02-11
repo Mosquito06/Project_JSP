@@ -2,10 +2,10 @@
 /*이벤트 작성 style*/
 	
 	#addEventForm{ 
-		background: #f8f8f8;
+	/* 	background: #f8f8f8;
 		padding:20px;
 		border:1px solid #d1d1d1;
-		border-radius:5px;
+		border-radius:5px; */
 	}
 	
 	#editerTd{
@@ -68,6 +68,7 @@
 	#hiddenContent{
 		display: none;
 	}
+	
 	
 	/*이벤트 list */
 	
@@ -148,8 +149,9 @@
 		width: 100%;
 		overflow: hidden;
 	}
-	.btnWrap a{
+	.btn{
 		display: block;
+		border: none;
 		width:86px;
 		height:27px;
 		font-size: 14px;
@@ -182,6 +184,8 @@
 	}
 	.slideWrap{
 		width: 270px;
+		float: left;
+		margin-right: 28px;
 	}	
 
 	.imgBox img{
@@ -226,4 +230,8 @@
 		right: 0;
 		background-position-x:35px; 
 	}
+	
+	
+	
+	
 	
