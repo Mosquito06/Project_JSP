@@ -36,5 +36,10 @@ CKEDITOR.editorConfig = function( config ) {
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 	
+	//소스 보기에서 &nbsp; 기능 끄기
+	config.basicEntities = false;
+	config.fillEmptyBlocks = false;
+	
+	//파일 업로드시 업로드를 위한 jsp 경로
 	config.filebrowserUploadUrl = '/Project_JSP/fileUpload.do'; 
 };

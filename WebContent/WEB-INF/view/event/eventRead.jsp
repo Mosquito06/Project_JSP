@@ -30,8 +30,8 @@
 					<div class="btnWrap">
 						<!-- ▽ 관리자 전용 버튼 -->
 						<div>
-							<a href="${pageContext.request.contextPath }/event/eventModify.do?no=${item.eventNum}" class="mod btn">수정하기</a> 
-							<a href="#" class="del btn">삭제하기</a> 
+							<a href="${pageContext.request.contextPath }/event/eventModify.do?no=${content.eventNum}" class="mod btn">수정하기</a> 
+							<a href="${pageContext.request.contextPath }/event/eventDelete.do?no=${content.eventNum}" class="del btn">삭제하기</a> 
 						</div>
 						<!-- △ 관리자 전용 버튼 -->
 						<a href="${pageContext.request.contextPath }/event/eventlist.do" class="btn">목록보기</a>
@@ -42,8 +42,8 @@
 					<div class="btnWrap">
 						<!-- ▽ 관리자 전용 버튼 -->
 						<div>
-							<a href="${pageContext.request.contextPath }/event/eventModify.do?no=${item.eventNum}" class="mod btn">수정하기</a> 
-							<a href="#" class="del btn">삭제하기</a>  
+							<a href="${pageContext.request.contextPath }/event/eventModify.do?no=${content.eventNum}" class="mod btn">수정하기</a> 
+							<a href="${pageContext.request.contextPath }/event/eventDelete.do?no=${content.eventNum}" class="del btn">삭제하기</a>  
 						</div>
 						<!-- △ 관리자 전용 버튼 -->
 						<a href="${pageContext.request.contextPath }/event/eventlist.do" class="btn">목록보기</a>
@@ -63,14 +63,14 @@
 					<c:forEach var="item" items="${list}">
 						<div class="slideWrap">
 							<div class="imgBox">
-								<a href="${pageContext.request.contextPath}/event/eventread.do?no=${item.eventNum}"	class="smTitle">
+								<a href="${pageContext.request.contextPath}/event/eventread.do?no=${content.eventNum}"	class="smTitle">
 									<img src="${item.eventImgPath}">
 								</a>
 							</div>
 							
 							<div class="infoBox">
 									<h3 class="sTit">
-										<a href="${pageContext.request.contextPath}/event/eventread.do?no=${item.eventNum}"	class="smTitle">${item.eventTitle }</a>
+										<a href="${pageContext.request.contextPath}/event/eventread.do?no=${content.eventNum}"	class="smTitle">${item.eventTitle }</a>
 									</h3>
 									<p class='sDate'>
 										<fmt:formatDate value="${item.eventStartDay }" pattern="yyyy-MM-dd" />

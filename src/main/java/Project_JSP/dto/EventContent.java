@@ -4,7 +4,6 @@ public class EventContent {
 	private int eventNum;
 	private String eventContent;
 
-
 	public EventContent() {}
 	
 	public EventContent(int eventNum) {

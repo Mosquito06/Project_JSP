@@ -19,7 +19,7 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath }/js/event/formCheck.js"></script>
+	src="${pageContext.request.contextPath }/js/event/formCheck.js?a=1"></script>
 </head>
 <body>
 	<%@ include file="../../common/header.jsp"%>

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Project_JSP.mvc.controller.CommandHandler;
-import Project_JSP.mvc.util.FileManagementUtil;
+import Project_JSP.mvc.util.FileUtils;
 
 public class EventFileDeleteHandler implements CommandHandler {
 
@@ -22,7 +22,7 @@ public class EventFileDeleteHandler implements CommandHandler {
 			System.out.println("파일 리스트 존재");
 			for(String img : fileList){		
 				System.out.println("이미지 파일 없음"+img);
-				FileManagementUtil.deleteFile(img,uploadPath);
+				FileUtils.deleteFile(img,uploadPath);
 			}
 			session.setAttribute("fileList", null);
 		}
