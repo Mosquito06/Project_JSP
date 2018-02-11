@@ -29,7 +29,7 @@
 				<div class="cntEvent">
 					<!-- 관리자 전용 버튼 -->
 					<div class="btnWrap">
-						<a href="${pageContext.request.contextPath }/event/eventWrite.do">이벤트 등록 하기</a>
+						<a href="${pageContext.request.contextPath }/event/eventWrite.do" class="btn">이벤트 등록 하기</a>
 					</div>
 					
 					<div class="eventTitle">
@@ -64,6 +64,7 @@
 										</div>
 									</div>   
 								</li>
+								
 							</c:forEach>
 						</c:if>
 					</ul>

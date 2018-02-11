@@ -2,7 +2,6 @@ package Project_JSP.handler;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -15,6 +14,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import Project_JSP.dto.Event;
 import Project_JSP.mvc.controller.CommandHandler;
+import Project_JSP.mvc.util.FileManagementUtil;
 import Project_JSP.service.EventService;
 
 public class EventWriteHandler implements CommandHandler {
@@ -73,10 +73,10 @@ public class EventWriteHandler implements CommandHandler {
 				for(String img : fileList){
 					if(!content.contains(img)){
 						System.out.println("이미지 파일 없음"+img);
-						deleteFile(img,uploadPath);
+						FileManagementUtil.deleteFile(img,uploadPath);
 					}
 				}
-				fileList = null;
+				session.setAttribute("fileList", null);
 			}
 			
 			EventService service = EventService.getInstance();
@@ -106,15 +106,4 @@ public class EventWriteHandler implements CommandHandler {
 		}
 
 	}
-
-	private void deleteFile(String img, String uploadPath) {
-		String deleteFileName = uploadPath + "/" + img; 
-		File deletefile = new File (deleteFileName);
-		System.out.println("파일 삭제 진입" + deleteFileName);
-		if(deletefile.exists() && deletefile.isFile()){
-			System.out.println("파일 삭제" + deleteFileName);
-			deletefile.delete();
-		}
-	}
-
 }
