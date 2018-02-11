@@ -71,6 +71,17 @@ $(function(){
 					
 		// 예약하기 버튼
 		$(document).on("click", ".reservationBtn", function(){
+			var imgPath = $(this).attr("src");
+			
+			if(imgPath.indexOf("reservationBtn") > 0){
+				$(".reservationBtn").attr("src", "/Project_JSP/img/reservation/reservationBtn.jpg");
+			}else if(imgPath.indexOf("closeBtn") > 0){
+				$(this).attr("src", "/Project_JSP/img/reservation/reservationBtn.jpg");
+				$(".selectViewAndBedTr").remove();
+				return;
+			}
+			
+			
 			$("section").addClass("backSetting");
 			startLoading($parent, "객실 정보를 가져오는 중입니다.");
 
@@ -115,8 +126,11 @@ $(function(){
 						}
 
 					})
+
 				}
 			})
+			
+			$(this).attr("src", "/Project_JSP/img/reservation/closeBtn.jpg");
 		})
 		
 		// 선택 버튼

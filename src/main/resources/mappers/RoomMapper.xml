@@ -43,8 +43,9 @@
 	</select>
 	
 	<select id="selectAvailabilityRoomByRoomName" resultMap="RoomJoinRoomInfoResult">
-	    select r.room_num, ri.view_type, ri.bed_type, room_price from room r join room_info ri 
-		on r.room_info_num = ri.room_info_num where room_info_name = #{param1} order by room_price desc
+	    select r.room_num, ri.view_type, ri.bed_type, min(room_price) as room_price from room r join room_info ri 
+		on r.room_info_num = ri.room_info_num where room_info_name = #{param1} 
+		group by view_type, bed_type order by room_price desc
 	</select>
 	
 	<insert id="insertRoom" parameterType="Room">
