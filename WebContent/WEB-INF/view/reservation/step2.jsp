@@ -9,8 +9,9 @@
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
 <link rel="stylesheet" type="text/css" href="css/reservation/Loading.css">
-<link rel="stylesheet" type="text/css" href="css/reservation/step2.css?b=ddd">
+<link rel="stylesheet" type="text/css" href="css/reservation/step2.css?b=dddd">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="js/reservation/step2.js?a=f"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
 <script type="text/javascript" src="js/reservation/Loading.js"></script>
 </head>
@@ -35,51 +36,26 @@
 					</div>
 					<div id="optionDiv">
 						<ul class="optionUl">
-							<li class="optionLi">
-								<div class="optionLiLeftDiv">
-									<input type="checkbox">
-									<span class="optionName">DailyExtra Bed</span><br>
-									<span class="optionPrice">40,000원</span>
-								</div>
-								<div class="optionLiRightDiv">
-									<select class="optionSelect">
-										<option>0</option>
-										<option>1</option>
-										<option>2</option>
-									</select>
-									<span class="optionFinalPrice">40,000원</span>
-								</div>
-							</li>
-							<li class="optionLi">
-								<div class="optionLiLeftDiv">
-									<input type="checkbox">
-									<span class="optionName">Daily Breakfast for Adult</span><br>
-									<span class="optionPrice">32,000원</span>
-								</div>
-								<div class="optionLiRightDiv">
-									<select class="optionSelect">
-										<option>0</option>
-										<option>1</option>
-										<option>2</option>
-									</select>
-								<span class="optionFinalPrice">32,000원</span>
-								</div>
-							</li>
-							<li class="optionLi">
-								<div class="optionLiLeftDiv">
-									<input type="checkbox">
-									<span class="optionName">Daily Breakfast for Adult</span><br>
-									<span class="optionPrice">32,000원</span>
-								</div>
-								<div class="optionLiRightDiv">
-									<select class="optionSelect">
-									<option>0</option>
-									<option>1</option>
-									<option>2</option>
-								</select>
-								<span class="optionFinalPrice">32,000원</span>
-								</div>
-							</li>
+							<c:if test="${option != 'false' }">
+								<c:forEach var="item" items="${option }">
+									<li class="optionLi">
+										<div class="optionLiLeftDiv">
+											<input type="checkbox">
+											<span class="optionName">${item.optionContent}</span><br>
+											<span class="optionPrice">${item.optionPrice} 원</span>
+										</div>
+										<div class="optionLiRightDiv">
+										<c:if test="${item.selectOption == 'YES'}">
+											<select class="optionSelect">
+
+											</select>
+										</c:if>
+											<span class="optionFinalPrice">${item.optionPrice} 원</span>
+										</div>
+									</li>
+								</c:forEach>
+							</c:if>
+										
 							<li class="optionAlertText">
 								※ 37개월 미만의 유아 동반 시 조식에 대한 요금은 무료입니다.
 							</li>

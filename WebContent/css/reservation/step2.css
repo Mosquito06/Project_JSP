@@ -93,6 +93,7 @@ div#optionDiv ul.optionUl li.optionLi div.optionLiRightDiv select.optionSelect{
 	margin-right: 30px;
 	padding: 10px;
 	width: 70px;
+	display: none;
 }
 
 div#optionDiv ul.optionUl li.optionLi div.optionLiRightDiv span.optionFinalPrice{
@@ -122,6 +123,7 @@ div.additionForm div.formTop span.formText{
 div.additionForm div.formTop span.arrowSpan{
 	float: right;
 	margin-right: 30px;
+	cursor: pointer;
 }
 
 div.additionForm div.formBottom{
