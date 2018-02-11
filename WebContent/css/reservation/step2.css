@@ -35,19 +35,258 @@ div#main > table th.noSelect{
 	color: #cacbc3;
 }
 
+/* 옵션 왼쪽 DIV */
+
 div#main div#leftDiv{
-	border: 1px solid black;
-	height: 500px;
-	width: 75%;
+	width: 73%;
 	float: left;
-	margin-top: 5%;	
+	margin-top: 3%;	
 }
 
-div#main div#RightDiv{
-	border: 1px solid black;
-	height: 500px;
-	width: 22%;
+div#main div#optionTextDiv{
+	background-color: #f4eee3;
+	padding: 10px 0;
+	padding-left: 20px;
+}
+
+div#main div#optionTextDiv span#optionSpan1{
+	font-weight: bold;
+	font-size: 15px;
+}
+
+div#main div#optionTextDiv span#optionSpan2{
+	font-size: 12px;
+	padding-right: 20px;
 	float: right;
-	margin-top: 5%;
+}
+
+div#optionDiv ul.optionUl{
+	margin: 0 auto;
+	width: 95%;
+}
+
+div#optionDiv ul.optionUl li.optionLi{
+	border-bottom: 1px solid #f1f1f1;
+	padding: 20px 0px 50px 10px;
+	vertical-align: middle;
+}
+
+div#optionDiv ul.optionUl li.optionLi div.optionLiLeftDiv{
+	width: 45%;
+	float: left;
+}
+
+div#optionDiv ul.optionUl li.optionLi div.optionLiLeftDiv span.optionPrice{
+	font-size: 13px;
+	margin: 15px 0 0 25px;
+}
+
+div#optionDiv ul.optionUl li.optionLi div.optionLiRightDiv{
+	width: 45%;
+	float: right;
+	height: 50px;
+	text-align: right;
+	vertical-align: middle;
+}
+
+div#optionDiv ul.optionUl li.optionLi div.optionLiRightDiv select.optionSelect{
+	margin-right: 30px;
+	padding: 10px;
+	width: 70px;
+}
+
+div#optionDiv ul.optionUl li.optionLi div.optionLiRightDiv span.optionFinalPrice{
+	font-size: 18px;	
+	margin-right: 20px;
+}
+
+
+div#optionDiv ul.optionUl li.optionAlertText{
+	background-color: #f1f1f1;
+	padding: 30px;
+	font-size: 13px;
+}
+
+div.additionForm div.formTop{
+	margin-top: 20px;
+	padding: 10px 0;
+	padding-left: 20px;	
+	border: 1px solid #A6A6A6;
+}
+
+div.additionForm div.formTop span.formText{
+	font-weight: bold;
+	font-size: 15px;
+}
+
+div.additionForm div.formTop span.arrowSpan{
+	float: right;
+	margin-right: 30px;
+}
+
+div.additionForm div.formBottom{
+	padding: 30px;
+	font-size: 13px;
+	border: 1px solid #A6A6A6;
+}
+
+div.additionForm div.formBottom input{
+	width: 100%;
+	height: 50px;	
+	text-align: left;
+}
+
+div.additionForm div.formBottom ul.formUl{
+	list-style: disc; 
+	margin-top: 20px;
+}
+
+div.additionForm div.formBottom ul.formUl li{
+	margin-left: 15px;
+	margin-bottom: 5px;
+}
+
+span.importantText{
+	font-weight: bold;
+}
+
+div#btnDiv{
+	margin-top: 20px;
+	margin-bottom: 200px;
+}
+
+div#btnDiv img{
+	cursor: pointer;
+}
+
+div#btnDiv div#leftBtn{
+	float: left;
+	width: 50%;
+}
+
+div#btnDiv div#rightBtns{
+	float: right;
+	text-align: right;
+}
+
+/* 옵션 오른쪽 DIV */
+div#main div#RightDiv{
+	border: 1px solid #a0886e;
+	border-top: 4px solid #a0886e;
+	width: 18%;
+	float: right;
+	margin-top: 3%;
+	padding: 30px;
 	
 }
+
+div#RightDiv div#firstDiv{
+	margin-bottom: 50px;
+}
+
+div#RightDiv div#firstDiv span.importantText{
+	float: left;
+}
+
+div#RightDiv div#firstDiv span#resetSpan{
+	float: right;
+	cursor: pointer;
+}
+
+div#RightDiv div#firstDiv span#resetSpan img{
+	width: 13px;
+	margin-right: 5px;
+}
+
+div#RightDiv span.rightTextColor{
+	font-size: 13px;
+	color: #a0886e;
+}
+
+div#RightDiv span.rightText{
+	font-size: 13px;
+}
+
+div#RightDiv div#secondDiv{
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px dotted black;
+}
+
+div#RightDiv div#secondDiv span.importantText{
+	float: right;
+}
+
+div#RightDiv div#thirdDiv{
+	border-bottom: 1px dotted black;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+div#RightDiv div#thirdDiv span.rightText{
+	float: right;
+}
+
+div#RightDiv div#fourthDiv{
+	border-bottom: 1px dotted black;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+div#RightDiv div#fourthDiv span.rightPrice {
+	font-size: 13px;
+	float: right;
+}
+
+div#RightDiv div#fourthDiv span.rightPriceBold{
+	font-size: 15px;
+	float: right;
+	font-weight: bold;
+	margin: 10px 0;
+}
+
+div#RightDiv div#fiveDiv{
+	border-bottom: 1px dotted black;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+div#RightDiv div#fiveDiv span.rightText{
+	float: right;
+}
+
+
+div#RightDiv div#sixDiv{
+	border-bottom: 2px solid #a0886e;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+div#RightDiv div#sixDiv span.rightText{
+	float: right;
+}
+
+div#RightDiv div#sevenDiv span.finalPrice{
+	float: right;
+	font-weight: bold;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
