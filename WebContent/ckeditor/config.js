@@ -40,6 +40,9 @@ CKEDITOR.editorConfig = function( config ) {
 	config.basicEntities = false;
 	config.fillEmptyBlocks = false;
 	
+	//엔터시  P태그로 처리
+	config.enterMode = CKEDITOR.ENTER_BR;
+	
 	//파일 업로드시 업로드를 위한 jsp 경로
 	config.filebrowserUploadUrl = '/Project_JSP/fileUpload.do'; 
 };

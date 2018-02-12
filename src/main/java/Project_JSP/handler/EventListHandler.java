@@ -16,9 +16,10 @@ public class EventListHandler implements CommandHandler {
 		EventService service = EventService.getInstance();
 		
 		List<Event> list = service.selectListEvent();
+		 
 		
-		if(list.size() < 0){
-			req.setAttribute("existEvent","현재 진행중인 이벤트가 없습니다.");
+		if(list.size() == 0){
+			req.setAttribute("exist","현재 진행중인 이벤트가 없습니다.");
 			return "/WEB-INF/view/event/eventList.jsp";
 		}
 		
