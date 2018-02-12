@@ -17,24 +17,24 @@
 <script>
 	$(function(){
 		$(document).ready(function(){
-		    $('.slider').bxSlider({
+			var mySlider =  $('.slider').bxSlider({
 		    	pager : false,
 		    	controls : false,
-		    	minSlides: 4,
-		    	maxSlides: 4,
+		    	minSlides: 3,
+		    	maxSlides: 3,
 		    	auto : true,
 		    	pause : 3000
 		    });
 		    
 		    $(".prev").click(function(e){
-		    	 e.preventdefault();
-		    	 alert("클릭");
-		    	 $('.slider').goToPrevSlide();
-		    	 return false;
+		    	 e.preventDefault();
+		    	 mySlider.goToPrevSlide();
+		    	 return false; x
 		    })
+		    
 		    $(".next").click(function(e){
-		    	e.preventdefault();
-		    	 $('.slider').goToNextSlide();
+		    	 e.preventDefault();
+		    	 mySlider.goToNextSlide();
 		    	 return false;
 		    })
 		  });
@@ -86,14 +86,14 @@
 					<c:forEach var="item" items="${list}">
 						<div class="slideWrap">
 							<div class="imgBox">
-								<a href="${pageContext.request.contextPath}/event/eventread.do?no=${content.eventNum}"	class="smTitle">
+								<a href="${pageContext.request.contextPath}/event/eventread.do?no=${item.eventNum}"	class="smTitle">
 									<img src="${item.eventImgPath}">
 								</a>
 							</div>
 							
 							<div class="infoBox">
 									<h3 class="sTit">
-										<a href="${pageContext.request.contextPath}/event/eventread.do?no=${content.eventNum}"	class="smTitle">${item.eventTitle }</a>
+										<a href="${pageContext.request.contextPath}/event/eventread.do?no=${item.eventNum}"	class="smTitle">${item.eventTitle }</a>
 									</h3>
 									<p class='sDate'>
 										<fmt:formatDate value="${item.eventStartDay }" pattern="yyyy-MM-dd" />
