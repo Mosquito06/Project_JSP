@@ -196,8 +196,15 @@ div#main tr.roomText td:NTH-CHILD(2){
 
 }
 
+div#main td.hideInfo{
+	display: none;
+} 
+
+div#main tr.roomInfo{
+	position: relative;
+}
+
 div#main tr.roomInfo td {
-	border-bottom: 1px solid #f1e3c4;
 	padding: 50px;
 }
 
@@ -241,6 +248,7 @@ div#main tr.roomInfo td:NTH-CHILD(3) div img{
 	position: absolute;
 	top: 0;
 	right: -40px;
+	cursor: pointer;
 }
 
 div#main tr.roomInfo td:NTH-CHILD(3) div span.roomPrice{
@@ -252,6 +260,51 @@ div#main tr.roomInfo td:NTH-CHILD(3) div span.perDay{
 	margin-left: 90px;
 }
 
+
+/* 객실 뷰 및 침대 선택  */
+
+div#main span.hideRoomNum{
+	display: none;
+} 
+
+div#main tr.selectViewAndBedTr{
+	border: 1px solid #cacbc3; /* 2. 예약하기 버튼 누른 뒤 나타나는 옵션의 선 */
+	text-align: left;
+	
+}
+
+div#main tr.selectViewAndBedTr td{
+	padding: 20px;
+	border-bottom: 1px solid #cacbc3;
+	border-right: 1px solid #cacbc3;
+	vertical-align: middle;
+}
+
+div#main tr.selectViewAndBedTr span.secondPrice{
+	float: right;
+	font-size: 20px;
+}
+
+div#main tr.selectViewAndBedTr td:NTH-CHILD(2){
+	text-align: center;
+	vertical-align: middle;
+}
+
+div#main tr.selectViewAndBedTr td:NTH-CHILD(2) img{
+	margin-bottom: 0;
+}
+
+div#main tr#selectViewAndBedLastTr {
+	border-bottom: 1px solid #f1e3c4; /* 3. 예약하기 버튼을 누른 후 다른 방과 구분하기 위한 아래 선 */
+}
+
+div#main tr.emptyTr{
+	border-bottom: 1px solid #f1e3c4;
+}
+
+div#main tr.emptyTr td{
+	padding-top: 50px;	
+}
 
 
 

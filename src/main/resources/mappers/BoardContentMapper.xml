@@ -20,9 +20,9 @@
    		delete from board_content where board_num = #{num.num}
    </delete>
    
-   <!-- <select id="update" parameterType="BoardContent">
+    <update id="update" parameterType="BoardContent">
    		update board_content set 
    		board_content =#{content}
-   		where board_num = #{num}
-   </select>  -->
+   		where board_num = #{num.num}
+   </update>  
 </mapper>

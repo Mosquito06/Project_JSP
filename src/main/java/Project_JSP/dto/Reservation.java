@@ -13,20 +13,7 @@ public class Reservation {
 	private Client clientNum;
 	private int optionPrice;
 	private Date payDate;
-
-	public Reservation(Room roomNum, int total_price, Date checkIn, Date checkOut, int personnel,
-			ReservationState state, Client clientNum, int optionPrice, Date payDate) {
-		super();
-		this.roomNum = roomNum;
-		this.totalPrice = total_price;
-		this.checkIn = checkIn;
-		this.checkOut = checkOut;
-		this.personnel = personnel;
-		this.state = state;
-		this.clientNum = clientNum;
-		this.optionPrice = optionPrice;
-		this.payDate = payDate;
-	}
+	private String clientReq;
 
 	public Reservation() {
 		// TODO Auto-generated constructor stub
@@ -48,11 +35,11 @@ public class Reservation {
 		this.roomNum = roomNum;
 	}
 
-	public int getTotal_price() {
+	public int getTotalPrice() {
 		return totalPrice;
 	}
 
-	public void setTotal_price(int totalPrice) {
+	public void setTotalPrice(int totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 
@@ -110,6 +97,22 @@ public class Reservation {
 
 	public void setPayDate(Date payDate) {
 		this.payDate = payDate;
+	}
+
+	public String getClientReq() {
+		return clientReq;
+	}
+
+	public void setClientReq(String clientReq) {
+		this.clientReq = clientReq;
+	}
+
+	@Override
+	public String toString() {
+		return "Reservation [reservationNum=" + reservationNum + ", roomNum=" + roomNum + ", totalPrice=" + totalPrice
+				+ ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", personnel=" + personnel + ", state=" + state
+				+ ", clientNum=" + clientNum + ", optionPrice=" + optionPrice + ", payDate=" + payDate + ", clientReq="
+				+ clientReq + "]";
 	}
 
 }

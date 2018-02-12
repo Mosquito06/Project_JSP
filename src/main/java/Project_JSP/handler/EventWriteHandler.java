@@ -2,7 +2,6 @@ package Project_JSP.handler;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -15,6 +14,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import Project_JSP.dto.Event;
 import Project_JSP.mvc.controller.CommandHandler;
+import Project_JSP.mvc.util.FileUtils;
 import Project_JSP.service.EventService;
 
 public class EventWriteHandler implements CommandHandler {
@@ -25,13 +25,13 @@ public class EventWriteHandler implements CommandHandler {
 		if (req.getMethod().equalsIgnoreCase("get")) {
 			return filePath + "eventWrite.jsp";
 		} else if (req.getMethod().equalsIgnoreCase("post")) {
-			return postProcess(req, res);
+			return postProcess(req, res,"/img/event/upload");
 		}
 		return null;
 	}
 
-	private String postProcess(HttpServletRequest req, HttpServletResponse res) {
-		String uploadPath = req.getRealPath("/img/event");
+	private String postProcess(HttpServletRequest req, HttpServletResponse res,String fileUploadPath) {
+		String uploadPath = req.getRealPath(fileUploadPath);
 		String contextPath = "";
 
 		File dir = new File(uploadPath);
@@ -51,7 +51,7 @@ public class EventWriteHandler implements CommandHandler {
 
 			HashMap<String, String> map = new HashMap<>();
 			
-			contextPath = req.getContextPath() + "/img/event";
+			contextPath = req.getContextPath() + fileUploadPath;
 			
 			fileName = multi.getFilesystemName("imgpath");
 			originFileName = multi.getOriginalFileName("imgpath");
@@ -73,10 +73,10 @@ public class EventWriteHandler implements CommandHandler {
 				for(String img : fileList){
 					if(!content.contains(img)){
 						System.out.println("이미지 파일 없음"+img);
-						deleteFile(img,uploadPath);
+						FileUtils.deleteFile(img,uploadPath);
 					}
 				}
-				fileList = null;
+				session.setAttribute("fileList", null);
 			}
 			
 			EventService service = EventService.getInstance();
@@ -106,15 +106,4 @@ public class EventWriteHandler implements CommandHandler {
 		}
 
 	}
-
-	private void deleteFile(String img, String uploadPath) {
-		String deleteFileName = uploadPath + "/" + img; 
-		File deletefile = new File (deleteFileName);
-		System.out.println("파일 삭제 진입" + deleteFileName);
-		if(deletefile.exists() && deletefile.isFile()){
-			System.out.println("파일 삭제" + deleteFileName);
-			deletefile.delete();
-		}
-	}
-
 }

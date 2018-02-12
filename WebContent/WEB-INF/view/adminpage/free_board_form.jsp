@@ -12,6 +12,21 @@
 	href="../css/adminpage/write_board.css?v=2">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="../js/common/common.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#select_email").change(function(){
+			if($(this).val() != '직접입력'){
+				$("#com").val($(this).val());
+			}else{
+				$("#com").val("");
+			}
+			
+		
+		})
+		
+		
+	})
+</script>
 </head>
 <body>
 	<div>
@@ -35,6 +50,7 @@
 					</div>
 
 					<form action="write_board.do" method="post">
+						
 						<table id="wrap_form">
 							<tr>
 								<th><span class="dot">*</span>제목</th>
@@ -51,8 +67,8 @@
 							<tr>
 								<th><span class="dot">*</span>이메일</th>
 								<td><input type="text" name="email1">
-								<span id="email_">@ </span><input type="text" name="email2">
-								<select name="email3">
+								<span id="email_">@ </span><input type="text" name="email2" id="com">
+								<select name="email3" id="select_email">
 									<option>직접입력</option>
 									<option>naver.com</option>
 									<option>hanmail.net</option>
@@ -65,12 +81,9 @@
 							</tr>
 							<tr>
 								<th><span class="dot">*</span>휴대전화</th>
-								<td><input type="tel" name="tel1"></td>
+								<td><input type="tel" name="tell"></td>
 							</tr>
-							<tr>
-								<th><span class="h_dot">*</span>자택전화</th>
-								<td><input type="tel" name="tel2"></td>
-							</tr>
+							
 						</table>
 						<div id="wrap_agree">
 							<h3>필수적 개인정보 수집 및 이용에 대한 동의</h3>

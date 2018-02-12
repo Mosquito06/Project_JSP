@@ -6,11 +6,11 @@
         <result property="optionNum" column="option_num"/>
         <result property="optionContent" column="option_content"/>
         <result property="optionPrice" column="option_price"/>
-        
+        <result property="selectOption" column="select_option"/>
     </resultMap>
    
     <sql id="selectOptionSql">
-        select * from option
+        select * from shilla_option
     </sql>
     
     <sql id="whereSql">
@@ -31,15 +31,17 @@
 	</select>
 	
 	<insert id="insertOption" parameterType="Option">
-	   insert into Option(option_content,option_price) values(#{optionContent},#{optionPrice})
+	   insert into shilla_option(option_content, option_price, select_option) 
+	   values(#{optionContent}, #{optionPrice}, #{selectOption})
 	</insert>
 	
 	<update id="updateOption" parameterType="Option">
-	    update Option set option_content=#{optionContent},option_price=#{optionPrice} where option_num = #{optionNum}
+	    update shilla_option set option_content = #{optionContent}, option_price = #{optionPrice}, 
+	    select_option = #{selectOption} where option_num = #{optionNum}
 	</update>
 	
 	<delete id="deleteOption" parameterType="Option">
-	    delete from Option where option_num = #{optionNum}
+	    delete from shilla_option where option_num = #{optionNum}
 	</delete> 
     
 </mapper>

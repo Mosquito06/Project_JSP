@@ -21,6 +21,22 @@ public class TestRoomInfoDaoService {
 	public void selectEvent() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			RoomInfoDao dao = session.getMapper(RoomInfoDao.class);
+			List<RoomInfo> list  =dao.selectViewTypeByRoomGrade(RoomGrade.STANDARD);
+			
+			for(RoomInfo r : list){
+				System.out.println(r.getViewType());
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}*/
+	
+	
+	@Test
+	public void selectEvent() {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			RoomInfoDao dao = session.getMapper(RoomInfoDao.class);
 			List<RoomInfo> list  =dao.selectRoomInfo();
 			
 			for(RoomInfo r : list){
@@ -32,7 +48,7 @@ public class TestRoomInfoDaoService {
 		}
 	}
 
-	@Test
+	/*@Test
 	public void selectEventByNum() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			RoomInfoDao dao = session.getMapper(RoomInfoDao.class);
@@ -91,7 +107,7 @@ public class TestRoomInfoDaoService {
 		}
 	}*/
 
-	@Test
+	/*@Test
 	public void deleteEvent() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			RoomInfoDao dao = session.getMapper(RoomInfoDao.class);
@@ -105,5 +121,5 @@ public class TestRoomInfoDaoService {
 			e.printStackTrace();
 		}
 
-	}
+	}*/
 }

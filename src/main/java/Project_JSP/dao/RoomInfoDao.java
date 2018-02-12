@@ -2,6 +2,7 @@ package Project_JSP.dao;
 
 import java.util.List;
 
+import Project_JSP.dto.RoomGrade;
 import Project_JSP.dto.RoomInfo;
 
 public interface RoomInfoDao {
@@ -10,4 +11,5 @@ public interface RoomInfoDao {
 	public void insertRoomInfo(RoomInfo roomInfo);
 	public void updateRoomInfo(RoomInfo roomInfo);
 	public void deleteRoomInfo(RoomInfo roomInfo);
+	public List<RoomInfo> selectViewTypeByRoomGrade(String roomName);
 }

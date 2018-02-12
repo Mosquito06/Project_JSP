@@ -10,4 +10,6 @@ public interface RoomDao {
 	public void insertRoom(Room room);
 	public void updateRoom(Room room);
 	public void deleteRoom(Room room);
+	public List<Room> selectAvailabilityRoom(String sDate, String eDate);
+	public List<Room> selectAvailabilityRoomByRoomName(String roomName);
 }

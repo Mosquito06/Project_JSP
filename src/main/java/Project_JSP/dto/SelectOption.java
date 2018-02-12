@@ -1,5 +1,5 @@
 package Project_JSP.dto;
 
-public enum RoomAvailability {
+public enum SelectOption {
 	YES, NO;
 }

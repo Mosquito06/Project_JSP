@@ -6,12 +6,13 @@ public class RoomInfo {
 	private RoomGrade roomGrade;
 	private ViewType viewType;
 	private BedType bedType;
+	private String roomSize;
 	private String roomImg;
 	private String reservationImg;
 
 	public RoomInfo() {
 		super();
-
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getRoomInfoNum() {
@@ -54,6 +55,14 @@ public class RoomInfo {
 		this.bedType = bedType;
 	}
 
+	public String getRoomSize() {
+		return roomSize;
+	}
+
+	public void setRoomSize(String roomSize) {
+		this.roomSize = roomSize;
+	}
+
 	public String getRoomImg() {
 		return roomImg;
 	}
@@ -73,8 +82,8 @@ public class RoomInfo {
 	@Override
 	public String toString() {
 		return "RoomInfo [roomInfoNum=" + roomInfoNum + ", roomInfoName=" + roomInfoName + ", roomGrade=" + roomGrade
-				+ ", viewType=" + viewType + ", bedType=" + bedType + ", roomImg=" + roomImg + ", reservationImg="
-				+ reservationImg + "]";
+				+ ", viewType=" + viewType + ", bedType=" + bedType + ", roomSize=" + roomSize + ", roomImg=" + roomImg
+				+ ", reservationImg=" + reservationImg + "]";
 	}
 
 }

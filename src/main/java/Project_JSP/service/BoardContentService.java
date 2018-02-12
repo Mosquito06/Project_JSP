@@ -3,6 +3,8 @@ package Project_JSP.service;
 import org.apache.ibatis.session.SqlSession;
 
 import Project_JSP.dao.BoardContentDao;
+import Project_JSP.dao.BoardDao;
+import Project_JSP.dto.Board;
 import Project_JSP.dto.BoardContent;
 import Project_JSP.mvc.util.MySqlSessionFactory;
 
@@ -63,12 +65,13 @@ public class BoardContentService {
 			session.close();
 		}
 	};*/
-	public int update(BoardContent content){
+	public int update(Board board,BoardContent content){
 		SqlSession session = MySqlSessionFactory.openSession();
 		try{
-			BoardContentDao dao = session.getMapper(BoardContentDao.class);
-
-			dao.update(content);
+			BoardContentDao contentDao = session.getMapper(BoardContentDao.class);
+			BoardDao dao = session.getMapper(BoardDao.class);
+			dao.updateBoard(board);
+			contentDao.update(content);
 			session.commit();
 			return 0;
 		}catch (Exception e) {

@@ -1,15 +1,32 @@
 package Project_JSP.service.test;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
 import Project_JSP.dao.RoomDao;
 import Project_JSP.dto.Room;
-import Project_JSP.dto.RoomInfo;
 import Project_JSP.mvc.util.MySqlSessionFactory;
 
 public class TestRoomDaoService {
-
+	
+	@Test
+	public void TestSelectAvailabilityRoom() {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			RoomDao dao = session.getMapper(RoomDao.class);
+			List<Room> list  =dao.selectAvailabilityRoom("20180209", "20180210");
+			
+			for(Room r : list){
+				System.out.println(r.toString() + "\n");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 	/*@Test
 	public void selectEvent() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
@@ -43,7 +60,7 @@ public class TestRoomDaoService {
 
 	}*/
 
-	@Test
+	/*@Test
 	public void insertEvent() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			RoomDao dao = session.getMapper(RoomDao.class);
@@ -62,7 +79,7 @@ public class TestRoomDaoService {
 			e.printStackTrace();
 		}
 
-	}
+	}*/
 
 	/*@Test
 	public void updateEvent() {

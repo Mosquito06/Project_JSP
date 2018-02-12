@@ -24,6 +24,18 @@ public class Board {
 		this.date = date;
 		this.check = check;
 	}
+	
+	
+
+
+	public Board(String name, String email, String tel, String title, Date date) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.tel = tel;
+		this.title = title;
+		this.date = date;
+	}
 
 
 	public void setCheck(int check) {

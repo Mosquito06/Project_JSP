@@ -90,12 +90,38 @@
 	background:rgb(93, 73, 48);
 }
 
+#textarea{
+	width:90%;
+	resize:none;
+	height:50px;
+}
+#wrap_comment{
+	margin-top:20px;
+	padding:10px;
+	position: relative;
+	
+}
+#wrap_comment a{
+	position: absolute;
+	height:40px;
+	line-height: 36px;
+	margin:0;
+}
+#comment_name{
+	margin:8px 0;
+	width:100px;
+}
 
-
-
-
-
-
+#wrap_comment p{ 
+	color: #595959;
+	font-size: 15px;
+	font-weight: bold;
+}
+#wrap_comment label{
+	color: #666;
+	font-size: 14px;
+	font-weight: bold;
+}
 
 
 

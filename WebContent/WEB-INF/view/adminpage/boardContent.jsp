@@ -12,7 +12,7 @@
 	href="../css/common/common.css?ver=1">
 
 <link rel="stylesheet" type="text/css"
-	href="../css/adminpage/board_content.css?v=3">
+	href="../css/adminpage/board_content.css?v=2">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="../js/common/common.js"></script>
 
@@ -73,10 +73,13 @@
 							<a href="content.do?no=${board.num}&set=1" class="btn_style" id="btn_update">글수정</a>
 							<a href="#" class="btn_style" id="btn_del">삭제</a>
 						</div>
-						<div>
+						<div id="wrap_comment">
 							<p>댓글달기</p>
-							<textarea >
+							<label>이름</label>
+							<input type="text" name="name" id="comment_name">
+							<textarea id="textarea" >
 							</textarea>
+							<a href="#" class="btn_style">보내기</a>
 						</div>
 					</div>
 					
