@@ -3,8 +3,6 @@ package Project_JSP.handler;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sun.xml.internal.bind.CycleRecoverable.Context;
-
 import Project_JSP.dto.Board;
 import Project_JSP.dto.BoardContent;
 import Project_JSP.mvc.controller.CommandHandler;

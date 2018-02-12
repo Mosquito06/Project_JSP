@@ -58,6 +58,7 @@ div#main div#optionTextDiv span#optionSpan2{
 	font-size: 12px;
 	padding-right: 20px;
 	float: right;
+	color: #747474;
 }
 
 div#optionDiv ul.optionUl{
@@ -254,10 +255,17 @@ div#RightDiv div#fiveDiv{
 	margin-bottom: 20px;
 }
 
-div#RightDiv div#fiveDiv span.rightText{
-	float: right;
+div#RightDiv span[id*='optionRightTextColor']{
+	font-size: 13px;
+	color: #a0886e;
+	display: none;
 }
 
+div#RightDiv span[id*='optionRightPrice']{
+	font-size: 13px;
+	float: right;
+	display: none;
+}
 
 div#RightDiv div#sixDiv{
 	border-bottom: 2px solid #a0886e;
