@@ -48,7 +48,9 @@
 	<select id="selectClientName" parameterType="Client" resultMap="ClientResult">
 		select * from Client where korean_name = #{nameKo} or english_name=#{nameEn}
 	</select>
-	
+	<select id="selectClientEmail" parameterType="Client" resultMap="ClientResult">
+		select * from Client where email =#{email} and client_grade = #{clientGrade}
+	</select>
 	<insert id="insertClient" parameterType="Client">
 	   insert into client(id,password,korean_name,english_name,birth,email,phone,home,address,client_grade) values(#{id}, password(#{pw}),#{nameKo}, #{nameEn},#{birth}, #{email},#{phone}, #{home},#{address}, #{clientGrade})
 	</insert>

@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="../css/common/reset.css">
 <link rel="stylesheet" type="text/css"
-	href="../css/common/common.css?ver=1">
+	href="../css/common/common.css">
 
 <link rel="stylesheet" type="text/css"
 	href="../css/adminpage/board_content.css?v=1">

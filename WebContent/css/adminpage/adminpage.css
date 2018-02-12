@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+
+#wrap_admin_btn{
+	width:100%;
+	
+}
+.admin{
+	display:inline-block;
+	width:19%;
+	height:150px;
+	text-align: center;
+	line-height: 150px;
+	font-weight: bolder;
+	font-size: 20px;
+	color:rgb(104, 88, 69);
+	background:rgb(241, 227, 196);
+	border: 1px solid rgb(104, 88, 69);
+}
+.admin:hover{
+	background:rgb(104, 88, 69);
+	color:rgb(241, 227, 196);
+}

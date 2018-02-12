@@ -1,4 +1,8 @@
-$(function(){
+
+
+	$(function(){
+		var id_check=-1;	
+		var no_pw = -1;
 		
 	for(var i=1999;i>1899;i--){
 		$("select[name='birth_y']").append("<option value='"+i+"'>"+i+"</option>");
@@ -37,10 +41,7 @@ $(function(){
 					}
 					
 				}
-			
-			
-				
-
+		
 			}			
 			
 		})
@@ -52,7 +53,10 @@ $(function(){
 		
 	})
 	
-	
+		$(document).on("mouseout","#addr_content ul", function(){
+			$(this).css({"background-color":"white","opacity":"1"});
+		});
+		
 	
 	/*input에 focus가 가면 테두리 색으로 변경을 해준다*/
 		$("input").each(function(i, obj) {
@@ -90,15 +94,155 @@ $(function(){
 			$("input[name='email2'").val($(this).val());
 		});	
 		
-		$(document).on("keydown","input[name='p2'],input[name='p3'],input[name='t2'],input[name='t3']",function(e){
+		$(document).on("keyup","input[name='p2'],input[name='t2']",function(e){
 			
 			if($(this).val().length==4){
-				e.preventDefault();
+				$(this).nextAll("input").focus();
 			}
 	})
+
+			
+	$("input[name='pw']").keyup(function(){
+		/*최소 대문자 하나와 소문자 하나, 숫자, 특수문자를 하나이상 포함해야한다.*/
+		var reg =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,20}$/;
+		var password = $("input[name='pw']").val();
+		var noNum = true;
+	
+		if(/(\w)\1\1/.test(password)){
+			noNum=false;
+		}
 		
+		if(reg.test(password)&&noNum){
+			$("#pw_reg").css("display","inline");
+			$("#pw_reg_error").css("display","none");
+			$("#id_check_btn").attr("disable",true);
+			no_pw=1;
+		}else{
+			$("#pw_reg").css("display","none");
+			$("#pw_reg_error").css("display","inline");
+		}
 		
 	})
+	/*아이디 정규표현 검사*/
+	$("input[name='id']").keyup(function(){
+		
+		var reg =/^(?=.*[A-Za-z])[A-Za-z0-9]{5,12}$/;
+		var reg2 = /^[A-Za-z]{5,12}$/
+		var id = $("input[name='id']").val();
+		$(this).nextAll(".error, #id_error,#id_error2,#click").css("display","none");
+		if(reg.test(id)||reg2.test(id)){
+			$("#click").css("display","inline");
+			$("#id_rule_error").css("display","none");
+			idOk();
+		}else{
+			$("#id_rule_error").css("display","inline");
+			$("#click").css("display","none");
+			$("#id_check_btn").click(function(e){
+				  e.preventDefault();
+			})
+		}
+		
+	})
+		
 	
+	
+	/*회원가입버튼을 눌렀을때 처리되는 예외사항과 기타 비밀번호 처리 */
+		pwOk();		
+	$("#join").submit(function(){
+		$("#click,#pw_reg_error").css("display","none");
+		var empty = emptyOk();
+		var select =selectempty();
 
+		if($("input[name='pw']").val()!= $("#pw_ok").val()){
+			$("#okPw").css("display","none");
+			$("#noPw").css("display","inline");	
+			return false;
+		}
+		if(id_check==-1){
+			$("#click").css("display","inline");
+			return false;
+		}
+		if(no_pw==-1){
+			$("#pw_reg_error").css("display","inline");
+			return false;
+		}
+		if(empty&&select){
+			return true;
+		}else{
+			return false;
+		}
+	
+	})	
+
+	})
+	
+function emptyOk(){
+		var error = false;
+		$(".import").each(function(i,obj){
+		
+			if($(this).val()==""){
+				$(this).nextAll(".error").css("display","inline");
+				error =  false;
+			}else{
+				$(this).nextAll(".error").css("display","none");
+				error =  true;
+			}
+		})	
+		
+		return error;
+
+}
+function idOk(){
+	$("#id_check_btn").click(function(){
+		
+		$.ajax({
+			url:"duplicateId.do",
+			type:"get",
+			data:{"id":$("input[name='id']").val()},
+			dataType:"json",
+			success:function(data){
+				
+				if(data.id ==null){
+					$("#click").css("display","none");
+					$("#id_error").css("display","inline");
+					$("#id_error2").css("display","none");
+					id_check=1;
+				}
+				else{
+					$("#click").css("display","none");
+					$("#id_error").css("display","none");
+					$("#id_error2").css("display","inline");
+				}
+				console.log(data);
+			}
+		})
+	})	
+}
+function selectempty(){
+	var error = false;
+	$(".import2").each(function(i,obj){
+		if($(this).val()==""){
+			$(this).parent().nextAll(".error").css("display","inline");
+			error =false;
+		}else{
+			$(this).parent().nextAll(".error").css("display","none");
+			error =true;
+		}
+	})
+	
+	return error;
+}
+function pwOk(){
+
+	$("#pw_ok").keyup(function(){
+		if($("input[name='pw']").val()== $("#pw_ok").val()){
+			$("#noPw").css("display","none");
+			$("#okPw").css("display","inline");
+		}else{
+			$("#okPw").css("display","none");
+			$("#noPw").css("display","inline");	
+		}
+	})
+	
+}
 

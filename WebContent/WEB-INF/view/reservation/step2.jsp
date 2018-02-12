@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
 <link rel="stylesheet" type="text/css" href="css/reservation/Loading.css">
-<link rel="stylesheet" type="text/css" href="css/reservation/step2.css?b=ds">
+<link rel="stylesheet" type="text/css" href="css/reservation/step2.css?b=dds">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript" src="js/reservation/step2.js?a=ddd"></script>
+<script type="text/javascript" src="js/reservation/step2.js?a=dddd"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
 <script type="text/javascript" src="js/reservation/Loading.js"></script>
 </head>
@@ -171,7 +171,7 @@
 						<span class="importantText">객실/패키지</span><br><br>
 						<span class="rightText">${result.roomGrade } ${result.roomName } / ${result.view } / ${result.bed }</span><br><br>
 						<span class="rightText">${result.sDate }</span>
-						<span class="rightPrice">${result.roomPrice } 원</span><br>
+						<span class="rightPrice"><span id="basicPrice">${result.roomPrice }</span> 원</span><br>
 						<span class="rightPriceBold">${result.roomPrice } 원(${result.stayDay }박)</span>
 						<img src="/Project_JSP/img/reservation/room${result.roomImg }">
 					</div>
@@ -182,9 +182,9 @@
 								<div>
 									<span id="optionRightTextColor${item.optionNum }">${item.optionContent }</span>
 									<c:if test="${item.selectOption == 'NO'}">
-										<span id="optionRightPrice${item.optionNum }">${item.optionPrice } 원</span>
+										<span id="optionRightPrice${item.optionNum }"><span class="sumPrice">${item.optionPrice }</span> 원</span>
 									</c:if>
-									<span id="optionRightPrice${item.optionNum }">0  원</span>
+									<span id="optionRightPrice${item.optionNum }"><span class="sumPrice">0</span>  원</span>
 								</div>
 							</c:forEach>
 						</c:if>
@@ -192,11 +192,11 @@
 					<div id="sixDiv">
 						<div>
 							<span class="rightTextColor">봉사료</span>
-							<span class="rightText" id="ServiceCharge">72000 원</span>
+							<span class="rightText" id="ServiceCharge"><span class="sumPrice">72000</span> 원</span>
 						</div>
 						<div>
 							<span class="rightTextColor">세금</span>
-							<span class="rightText" id="Tax">79200 원</span>
+							<span class="rightText" id="Tax"><span class="sumPrice">79200</span> 원</span>
 						</div>
 					</div>
 					<div id="sevenDiv">
