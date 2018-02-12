@@ -16,9 +16,104 @@
 		$(document).on("mouseover","#addr_content ul", function(){
 			$(this).css({"background-color":"black","opacity":"0.5"});
 		});
-
+		$("#addr_img > img").click(function(){
+			$("#addr_box").css("display","none");
+			$("#addr_bg").css("display","none");
+		})
 	})
+
 </script>
+<style>
+#addr_box{
+	z-index: 10000;
+	width:600px;
+	height:300px;
+	border:4px solid #9B7F5B;
+	overflow-y:auto; 
+	position: absolute;
+	left:30%;
+	top:40%;
+	display:none;
+	background-color: white;
+}
+#addr_title{
+	height:40px;
+	line-height:40px;
+	background-color:#9B7F5B;
+	color:white;
+	position: relative;
+	padding:0 5px;
+}
+#addr_title h1{
+	float: left;
+	width:120px;
+	margin-left:5px;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+#addr_img{
+	position: absolute;
+	top:0px;
+	right:35px;
+}
+#addr_img > img{
+	display:block;
+	width:26px;
+	height:26px;
+	margin: 4px;
+	cursor: pointer;
+}
+
+
+#addr_title input{
+	height:30px;
+	line-height: 30px;
+	width:280px;
+}
+#search_addr{
+	background-color:#3e2b2c;
+	width:90px;
+	border:1px solid #F1EBD6;
+	color: #F1EBD6;
+	height:40px;
+	line-height: 40px;
+}
+#addr_title+div{
+	width:100%;
+
+	overflow: hidden;
+}
+#addr_title+div ul{
+	width:100%;
+	list-style: none;
+		height:30px;
+	line-height: 30px;
+}
+#addr_title+div ul li{
+	float:left;
+}
+
+#addr_title+div ul li:FIRST-CHILD {
+	border-right:1px solid black;
+	width:30%;
+}
+#addr_title+div ul li:LAST-CHILD{
+	width:69%;
+}
+#addr_content ul{
+	list-style: none;
+	height:30px;
+	line-height: 30px;
+	overflow: hidden;
+}
+#addr_content ul li{
+	float: left;
+}
+#addr_content ul li:FIRST-CHILD{
+	width:30%;
+}
+
+</style>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/common/header.jsp"/>
@@ -211,8 +306,14 @@
 		</div>
 		
 			<div id="addr_box">
-				<div id="addr_title">
-					<h1>주소 검색</h1>
+			<div id="addr_title">
+				<h1>주소 찾기</h1>
+				<div id='addr_img'>
+					<img src="/Project_JSP/img/join/x-button.png">
+				</div>
+			</div>
+				
+				<div id="addr_input">
 					<input type="text" id="doro" placeholder="도로명 입력">
 					<button id="search_addr">검색</button>
 				</div>
