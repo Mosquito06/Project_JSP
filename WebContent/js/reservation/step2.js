@@ -99,7 +99,11 @@ $(function(){
 	})
 	
 	$("#rightBtns img:eq(1)").click(function(){
-		alert("회원");
+		$("#login").css("display", "block");
+	})
+	
+	$("#closeLogin img").click(function(){
+		$("#login").css("display", "none");
 	})
 	
 	// 예약 초기화 버튼

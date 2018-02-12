@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
 <link rel="stylesheet" type="text/css" href="css/reservation/Loading.css">
-<link rel="stylesheet" type="text/css" href="css/reservation/step2.css?b=dds">
+<link rel="stylesheet" type="text/css" href="css/reservation/step2.css?b=dsd">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript" src="js/reservation/step2.js?a=dddd"></script>
+<script type="text/javascript" src="js/reservation/step2.js?a=d"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
 <script type="text/javascript" src="js/reservation/Loading.js"></script>
 </head>
@@ -21,7 +21,7 @@
 		<header>
 			<jsp:include page="/WEB-INF/common/header.jsp" />
 		</header>
-		<section>
+		<section>			
 			<div id="main">
 				<table id="resultTable">
 					<tr>
@@ -203,6 +203,22 @@
 						<span class="importantText">요금합계</span>
 						<span class="finalPrice" id="finalPrice">${result.roomPrice } 원</span>
 					</div>
+				</div>
+				
+				<div id="login">
+					<form accept="" method="post">
+						<div id="loginTextDiv">
+							<span id="loginText">로그인</span>
+							<span id="closeLogin"><img src="/Project_JSP/img/reservation/close.gif"></span>
+						</div>
+						<div id="loginDiv">
+							<input type="radio" checked="checked"> 회원  <br>
+							<input type="text" name="id" placeholder="아이디를 입력하세요."><br>
+							<input type="text" name="pw" placeholder="비밀번호를 입력하세요."><br><br>
+							<img src="/Project_JSP/img/reservation/login.gif"><br><br>
+							<input type="checkbox">아이디 저장
+						</div>
+					</form>
 				</div>
 			</div>
 		</section>
