@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+table{
+	
+	width:800px;
+	margin:0 auto;
+	border-top:2px solid #432c10;
+	
+}
+th{
+	border-bottom: 1px solid #432c10;
+	padding:10px;
+	font-weight: bold;
+	font-size: 13px;
+	background: #faf9f4;
+	color:#666;
+}
+td{
+	
+	border-bottom:1px solid #ddd;
+	padding:4px 5px;
+	text-align: center;
+	font-size: 13px;
+	
+}
