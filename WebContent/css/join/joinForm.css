@@ -145,6 +145,7 @@ select{
 	width:120px;
 	height:30px;
 	line-height: 30px;
+	cursor: pointer;
 }
 
 #info_basic_input p:LAST-CHILD  label{
@@ -161,6 +162,7 @@ input[name='addr2'],input[name='addr3']{
 	height:30px;
 	margin:5px;
 	line-height: 30px;
+	cursor: pointer;
 }
 
 /*아이디, 비밀번호 입력란*/
@@ -206,6 +208,7 @@ input[name='addr2'],input[name='addr3']{
     border: 1px solid #7C6347;
     height:30px;
     line-height: 30px;
+    cursor: pointer;
 }
 
 /*회원가입 submit 버튼*/
@@ -219,6 +222,7 @@ input[type='submit']{
     width:120px;
     font-size: 1.1em;
     margin-top: 30px;
+    cursor: pointer;
 }
 
 /*주소록 가져오기*/
@@ -296,7 +300,6 @@ input[type='submit']{
 #addr_title+div ul li:LAST-CHILD{
 	width:69%;
 }
-
 #addr_content ul{
 	list-style: none;
 	height:30px;
@@ -308,4 +311,21 @@ input[type='submit']{
 }
 #addr_content ul li:FIRST-CHILD{
 	width:30%;
+}
+#id_box{
+	display: none;
+ 	z-index: 10000; 
+	overflow-y:auto; 
+	position: absolute;
+	left:30%;
+	top:40%;
+	width:600px;
+	background-color: white;
+}
+#use_btn{
+	display:none;
+}
+.error{
+	font-size: 10px;
+	color:red;
 }

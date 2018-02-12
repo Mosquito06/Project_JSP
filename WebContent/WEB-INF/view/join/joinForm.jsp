@@ -17,12 +17,26 @@
 			$(this).css({"background-color":"black","opacity":"0.5"});
 		});
 		
-		$(document).on("mouseout","#addr_content ul", function(){
-			$(this).css({"background-color":"white","opacity":"1"});
-		});
-		
 	})
 </script>
+<style>
+.error,#id_error2,#click,#pw_reg_error,#id_rule_error{
+	display:none;
+	font-size: 12px;
+	color:red;
+}
+#okPw,#id_error,#pw_reg{
+	display:none;
+	font-size: 12px;
+	color:green;
+}
+#pw_import{
+	cursor:pointer;
+	margin-top:13px;
+	line-height:30px;
+	display: inline;
+}
+</style>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/common/header.jsp"/>
@@ -42,7 +56,7 @@
 			
 			<div id="info_insert">
 				<h1>회원정보 입력</h1>
-				<form action="join.do" method="post">
+				<form action="join.do" method="post" id="join">
 					<div id="info_basic">
 						<div id="info_basic_title">
 							<h1>기본 입력</h1>
@@ -51,38 +65,41 @@
 						<div id="info_basic_input">
 							<p>
 								<label><span class="star">*</span>성명(한글)</label>
-								<input type="text" name="nameKo" style="ime-mode:active;" onkeyup="this.value=this.value.replace(/[^가-힣]/g,'');">
+								<input type="text" name="nameKo" style="ime-mode:active;" onkeyup="this.value=this.value.replace(/[^가-힣]/g,'');" class="import">
 								<img src="img/join/x.png">
+								<span class="error">성명(이름)을 입력하세요(*필수)</span>
 							</p>
 							<p>
 								<label><span class="star">*</span>성명(영문)</label>
 								<span class="ename">First name(이름)</span>
-								<input type="text" name="nameEn1" style="ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');">
+								<input type="text" name="nameEn1" style="ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');" class="import">
 								<img src="img/join/x.png">
 								<span class="ename">Last name(성)</span>
-								<input type="text" name="nameEn2" style="ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');">
+								<input type="text" name="nameEn2" style="ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');" class="import">
 								<img src="img/join/x.png">
+								<span class="error">성명(영문) 입력(*필수)</span>
 							</p>
 							<p>
 								<label><span class="star">*</span>생년월일</label>
 								<span id="birth_select">
-									<select name="birth_y">
+									<select name="birth_y" class="import2">
 										<option value="">년도 선택</option>
 									</select> 년 
-									<select name="birth_m">
+									<select name="birth_m" class="import2">
 										<option value="">월 선택</option>
 									</select> 월 
-									<select name="birth_d">
+									<select name="birth_d" class="import2">
 										<option value="">일 선택</option>
 									</select> 일
 								</span>
+								<span class="error">생년월일을 입력하세요(*필수)</span>
 							</p>
 							
 								<p>
 								<label><span class="star">*</span>이메일</label>
-								<input type="text" name="email1"><img src="img/join/x.png">
+								<input type="text" name="email1" class="import"><img src="img/join/x.png">
 								@
-								<input type="text" name="email2"><img src="img/join/x.png">
+								<input type="text" name="email2" class="import"><img src="img/join/x.png">
 								<span id="email_select">
 									<select id="sel_email">
 										<option value="">직접입력</option>
@@ -102,6 +119,7 @@
 									</select>
 								</span>
 								<button type="button" id="email_btn">이메일 중복확인</button>
+									<span class="error">이메일 입력</span>
 							</p>
 							<p>
 								<label><span class="star">*</span>휴대전화</label>
@@ -116,9 +134,10 @@
 								</select>
 								</span>
 								
-								<input type="tel" name="p2" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"><img src="img/join/x.png" >
+								<input type="tel" name="p2" class="import" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"><img src="img/join/x.png" >
 								-
-								<input type="tel" name="p3" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"><img src="img/join/x.png" >
+								<input type="tel" name="p3"  class="import" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"><img src="img/join/x.png" >
+								<span class="error">휴대전화를 입력하세요(*필수)</span>
 							</p>
 							<p>
 								<label>자택전화</label>
@@ -161,9 +180,9 @@
 							</p>
 							<p>
 								<label>주소</label>
-								<input type="text" name="addr1"><button type="button" id="addr_btn">주소찾기</button><br>
-								<input type="text" name="addr2"><br>
-								<input type="text" name="addr3">
+								<input type="text" name="addr1" disabled="disabled"><button type="button" id="addr_btn">주소찾기</button><br>
+								<input type="text" name="addr2" disabled="disabled"><br>
+								<input type="text" name="addr3" disabled="disabled">
 							</p>
 							
 						</div>
@@ -175,22 +194,34 @@
 					<div id="web_join_info_input">
 						<p>
 								<label><span class="star">*</span>아이디</label>
-								<input type="text" name="id"><img src="img/join/x.png">
-								<button id="id_check_btn">아이디 중복 확인</button>
+								<input type="text" name="id" class="import"><img src="img/join/x.png">
+								<button id="id_check_btn" type="button">아이디 중복 확인</button>
 								<span id="id_info">5~12 이내 영문 또는 영문/숫자 조합</span>
+									<span class="error">아이디를 확인하세요(*필수)</span>
+									<span id="id_error">사용가능한 아이디입니다.</span>
+									<span id="id_error2">중복 아이디입니다(사용불가)</span>
+									<span id="click">중복체크를 해주세요</span>
+									<span id="id_rule_error">영문 또는 영문/숫자만 가능</span>
+												
 						</p>
 						<p>
 								<label><span class="star">*</span>비밀번호</label>
-								<input type="password" name="pw"><img src="img/join/x.png">
+								<input type="password" name="pw" class="import"><img src="img/join/x.png">
 								<span id="pw_info">8~20자 이내 영문/숫자 조합</span>
+									<img src="/Project_JSP/img/join/important.gif" id="pw_import">
+								<span class="error">비밀번호를 입력하세요(*필수)</span>
+								<span id="pw_reg">사용가능한 비밀번호입니다</span>
+								<span id="pw_reg_error">사용불가한 비밀번호입니다</span>
 						</p>
 						<p>
 								<label><span class="star">*</span>비밀번호 확인</label>
-								<input type="password" name="pw2"><img src="img/join/x.png">
+								<input type="password" name="pw2" class="import" id="pw_ok"><img src="img/join/x.png">
+									<span class="error" id="noPw">비밀번호를 확인해주세요(*필수)</span>
+									<span id="okPw">비밀번호가 일치합니다.</span>
 						</p>
 					</div>
 				</div>
-				<input type="submit" value="가입 신청">
+				<input type="submit" value="가입 신청" id="join_btn">
 				</form>
 			</div>
 		</div>
@@ -210,7 +241,6 @@
 				<div id="addr_content">
 				</div>
 			</div>
-		
 	</section>
 
 	<jsp:include page="/WEB-INF/common/footer.jsp"/>

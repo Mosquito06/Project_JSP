@@ -15,4 +15,5 @@ public interface ClientDao {
 	public Client selectClientId(Client client);
 	public Client selectClientPw(Client client);
 	public Client selectClientName(Client client);
+	public Client selectClientEmail(Client client);
 }
