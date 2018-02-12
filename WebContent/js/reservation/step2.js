@@ -6,22 +6,42 @@ $(function(){
 	
 	$("#finalPrice").text((ServiceCharge + Tax + finalPrice) + " 원" );
 	
+	
+	// 가격 계산 함수
+	function priceCal(){
+		var basicPrice = Number($("#basicPrice").text());
+		var priceArray = $(".sumPrice");
+		var totalPrice = 0;
+		
+		for(var i = 0; i < priceArray.size(); i++){
+			
+			var css = $(priceArray[i]).parent().css("display");
+			if(css == "block" || css == "inline"){
+				totalPrice += Number($(priceArray[i]).text());
+			}
+		}
+		
+		totalPrice += basicPrice;
+		$("#finalPrice").text(totalPrice + " 원");
+		
+	}
+	
+	
 	// 옵션  select 
 	$(document).on("click", ".optionCheckBox", function(){
 		if($(this).prop("checked") == true){
 			$(this).parents(".optionLi").find(".optionSelect").css("display", "inline");
 			var optionName = $(this).next().text();
 			var targetOption = $("span[id*='optionRightTextColor']");
-
+			
 			for(var i = 0; i <= targetOption.length; i++){
 				
 				if(optionName == $(targetOption[i]).text()){
 					$("#optionRightTextColor" + (i+1)).css("display", "inline");
 					$("#optionRightPrice"+(i+1)).css("display", "inline");
-					$("#finalPrice").text(Number($("#finalPrice").text().split(" 원")[0]) + 
-							Number($("#optionRightPrice"+(i+1)).text().split(" 원")[0]) + " 원");
 				}
 			}
+			
 		}else if($(this).prop("checked") == false){
 			$(this).parents(".optionLi").find(".optionSelect").css("display", "none");
 			var optionName = $(this).next().text();
@@ -32,30 +52,29 @@ $(function(){
 				if(optionName == $(targetOption[i]).text()){
 					$("#optionRightTextColor" + (i+1)).css("display", "none");
 					$("#optionRightPrice"+(i+1)).css("display", "none");
-					$("#finalPrice").text(Number($("#finalPrice").text().split(" 원")[0]) - 
-							Number($("#optionRightPrice"+(i+1)).text().split(" 원")[0]) + " 원");
 				}
 			}
 		}
+		
+		priceCal();
 	})
 	
 	// 옵션  change
 	$(".optionSelect").change(function(){
 		var optionPrice = Number($(this).parents(".optionLi").find(".optionFinalPrice").text().split(" 원")[0]);
 		var optionNum = Number($(this).val());
-		
+
 		var optionName = $(this).parents(".optionLi").find(".optionName").text().split(" 원")[0];
 		var targetOption = $("span[id*='optionRightTextColor']");
 		
 		for(var i = 0; i <= targetOption.length; i++){
 			if(optionName == $(targetOption[i]).text()){
-				$("#optionRightPrice"+(i+1)).text((optionPrice * optionNum) + " 원");
+				$("#optionRightPrice"+(i+1)).html("<span class='sumPrice'>" + (optionPrice * optionNum) + "</span> 원");
 			}
 		}
-
-		$("#finalPrice").text(Number($("#finalPrice").text().split(" 원")[0]) + 
-				(optionPrice * optionNum) + " 원");
 		
+		priceCal();
+	
 	})
 		
 	// 요청사항 및 유의사항 접기
