@@ -101,6 +101,7 @@ fieldset form .login #member #join{
 }
 button{
 	outline:none;
+	cursor: pointer;
 }
 #join{
 	background-color:  #3e2b2c;
@@ -146,3 +147,10 @@ fieldset form #no_member .login  input[name='name1']{
 	color:red;
 	margin-left:100px;
 }
+
+/*관리자 로그인  form  */
+fieldset form #admin{
+ 	display:none; 
+	margin-top: 20px;
+}
+

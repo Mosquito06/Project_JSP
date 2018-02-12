@@ -40,4 +40,11 @@ var onOff = true;
 				onOff = true;
 			}
 		})
+		
+		$("#logout").click(function(){
+			var ok = confirm("로그아웃 하시겠습니까?");
+			if(!ok){
+				return false;
+			}
+		})
 	})

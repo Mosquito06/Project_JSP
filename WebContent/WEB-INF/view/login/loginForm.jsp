@@ -30,7 +30,7 @@
 		<fieldset>
 		
 			<form action="login.do" method="post">
-				<c:if test="${noMember ==null }">
+				<c:if test="${noMember ==null && admin==null}">
 					<input type="radio" name="clientGrade" value="MEMBER" id="mem" checked="checked">회원
 				<input type="radio" name="clientGrade" value="NONMEMBER" id="no">비회원(예약번호)
 				<input type="radio" name="clientGrade" value="ADMIN" id="admin">관리자
@@ -38,6 +38,12 @@
 				<c:if test="${noMember !=null }">
 					<input type="radio" name="clientGrade" value="MEMBER" id="mem" >회원
 				<input type="radio" name="clientGrade" value="NONMEMBER" id="no" checked="checked">비회원(예약번호)
+				<input type="radio" name="clientGrade" value="ADMIN" id="admin">관리자
+				</c:if>
+				<c:if test="${admin !=null }">
+				<input type="radio" name="clientGrade" value="MEMBER" id="mem" >회원
+				<input type="radio" name="clientGrade" value="NONMEMBER" id="no">비회원(예약번호)
+				<input type="radio" name="clientGrade" value="ADMIN" id="admin"  checked="checked">관리자
 				</c:if>
 				<br><br>
 			
@@ -79,8 +85,8 @@
 								</p>
 								<p>	
 									<label>성명</label>
-									<input type="text" placeholder="FIRST NAME(이름)" name="name2">
-									<input type="text" placeholder="LAST NAME(성)" name="name1">
+									<input type="text" placeholder="FIRST NAME(이름)" name="name2" style="text-transform:uppercase; ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');">
+									<input type="text" placeholder="LAST NAME(성)" name="name1" style="text-transform:uppercase; ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');">
 									<c:if test="${error4 !=null }">
 										<br><span class="error1">${error4 }</span>
 									</c:if>
@@ -92,6 +98,22 @@
 								<span class="error">${error2 }</span>	
 							</c:if>
 					</div> 
+			</form>
+			
+			<form action="login.do" method="post">
+				<div id="admin">
+					<div class="login">
+						<p>
+							<label>관리자아이디</label>
+							<input type="text" placeholder="관리자 아이디" name="id">
+						</p>
+						<p>
+							<label>비밀번호</label>
+							<input type="password" placeholder="관리자 비밀번호" name="pw">
+						</p>
+						<input type="submit" value="관리자">
+					</div>
+				</div>
 			</form>
 		</fieldset>
 		<div id="info2">

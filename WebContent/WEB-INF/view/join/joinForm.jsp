@@ -19,24 +19,6 @@
 		
 	})
 </script>
-<style>
-.error,#id_error2,#click,#pw_reg_error,#id_rule_error,#email_check_error,#email_duplicate_error{
-	display:none;
-	font-size: 12px;
-	color:red;
-}
-#okPw,#id_error,#pw_reg,#email_duplicate{
-	display:none;
-	font-size: 12px;
-	color:green;
-}
-#pw_import{
-	cursor:pointer;
-	margin-top:13px;
-	line-height:30px;
-	display: inline;
-}
-</style>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/common/header.jsp"/>
@@ -72,10 +54,10 @@
 							<p>
 								<label><span class="star">*</span>성명(영문)</label>
 								<span class="ename">First name(이름)</span>
-								<input type="text" name="nameEn1" style="ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');" class="import">
+								<input type="text" name="nameEn1" style="text-transform:uppercase; ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');" class="import">
 								<img src="img/join/x.png">
 								<span class="ename">Last name(성)</span>
-								<input type="text" name="nameEn2" style="ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');" class="import">
+								<input type="text" name="nameEn2" style="text-transform:uppercase; ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');" class="import">
 								<img src="img/join/x.png">
 								<span class="error">성명(영문) 입력(*필수)</span>
 							</p>
@@ -209,7 +191,7 @@
 						<p>
 								<label><span class="star">*</span>비밀번호</label>
 								<input type="password" name="pw" class="import"><img src="img/join/x.png">
-								<span id="pw_info">8~20자 이내 영문/숫자 조합</span>
+								<!-- <span id="pw_info">8~20자 이내 영문/숫자 조합</span> -->
 									<img src="/Project_JSP/img/join/important.gif" id="pw_import">
 								<span class="error">비밀번호를 입력하세요(*필수)</span>
 								<span id="pw_reg">사용가능한 비밀번호입니다</span>
