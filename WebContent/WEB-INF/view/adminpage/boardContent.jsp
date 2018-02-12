@@ -12,7 +12,7 @@
 	href="../css/common/common.css?ver=1">
 
 <link rel="stylesheet" type="text/css"
-	href="../css/adminpage/board_content.css?v=2">
+	href="../css/adminpage/board_content.css?v=1">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="../js/common/common.js"></script>
 
@@ -25,6 +25,15 @@
 			}
 			return false;
 		});
+		
+		$(".update_btn").click(function(){
+			$(".hide").hide();
+			$(this).parent().parent().next().show();
+			return false;
+		});
+		
+		
+		
 	})
 
 </script>
@@ -49,6 +58,7 @@
 
 
 					<div id="wrap_content">
+					
 						<h1 id="b_title">${board.title}</h1>
 						<div id="wrap_div">
 							<ul id="wrap_name">
@@ -73,13 +83,55 @@
 							<a href="content.do?no=${board.num}&set=1" class="btn_style" id="btn_update">글수정</a>
 							<a href="#" class="btn_style" id="btn_del">삭제</a>
 						</div>
-						<div id="wrap_comment">
+						<div> 
+						
+							<c:if test="${comment.size() !=0}">
+							<p id="comment_">댓글목록</p>
+								<table id="comment_table">
+									<c:forEach items="${comment}" var="item">
+										<tr>
+											<td class="t1">${item.content}</td>
+											<td class="t2"><span class="t_title">${item.writer}</span>님</td>
+											<td class="t3">작성일 : <fmt:formatDate value="${item.time}"
+										pattern="yyyy-MM-dd HH:mm:ss" /></td>
+											
+											<td class="t4"><a href="" class="update_btn btn_style2">수정</a></td>
+											<td class="t5"><a href="commentSet.do?num=${item.num}&no=${board.num}&set=1" class="btn_style2">X</a></td>
+										</tr>
+										<tr class="hide">
+											<td colspan="5">
+												<div class="wrap_comment">
+													<form method="get" action="commentSet.do">
+														<p>댓글수정</p>
+														<label>이름</label>
+														<input type="text" name="up_name" class="name" value="${item.writer}">
+														<input type="text" name="up_content" class="textarea" value="${item.content}">
+														<input type="hidden" name="no" value="${board.num}">
+														<input type="hidden" name="set" value="2">
+														<input type="hidden" name="num" value="${item.num}">
+														<input type="submit" class="btn_style" value="수정">
+													</form>
+												</div>
+											</td>
+										</tr>
+									</c:forEach>
+								</table>
+							</c:if>
+							
+						</div>
+						<div class="wrap_comment">
+							
 							<p>댓글달기</p>
-							<label>이름</label>
-							<input type="text" name="name" id="comment_name">
-							<textarea id="textarea" >
-							</textarea>
-							<a href="#" class="btn_style">보내기</a>
+								
+							<form method="get" action="comment.do">
+								<label>이름</label>
+								<input type="text" name="name" class="name">
+								<input type="text" name="content" class="textarea">
+								
+								<input type="hidden" name="no" value="${board.num}">
+								
+								<input type="submit" class="btn_style" value="보내기">
+							</form>
 						</div>
 					</div>
 					

@@ -1,15 +1,17 @@
 package Project_JSP.handler;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sun.xml.internal.bind.CycleRecoverable.Context;
-
 import Project_JSP.dto.Board;
 import Project_JSP.dto.BoardContent;
+import Project_JSP.dto.Comment;
 import Project_JSP.mvc.controller.CommandHandler;
 import Project_JSP.service.BoardContentService;
 import Project_JSP.service.BoardService;
+import Project_JSP.service.CommentService;
 
 public class BoardContentHandler implements CommandHandler{
 
@@ -45,8 +47,15 @@ public class BoardContentHandler implements CommandHandler{
 
 				return "free_board.do";
 			}
+			CommentService commentService = CommentService.getInstance();
+			Comment comment = new Comment();
+			comment.setBoardNum(board);
+			List<Comment> comments =commentService.findByNumComment(comment);
+			req.setAttribute("comment", comments);
 			
 			BoardContent content= service.findByNum(num);
+			String con = content.getContent().replace("\r\n", "<br>");
+			content.setContent(con);
 			req.setAttribute("content", content);
 			req.setAttribute("board", board);
 			return "/WEB-INF/view/adminpage/boardContent.jsp";
@@ -64,7 +73,10 @@ public class BoardContentHandler implements CommandHandler{
 			board.setTel(tell);
 			boardContent.setContent(content);
 			service.update(board, boardContent);
-			return "free_board.do";
+			
+			res.sendRedirect(req.getContextPath()+"/board/content.do?set=4&no="+num);
+			
+			return null;
 		}
 		
 		return null;
