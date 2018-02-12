@@ -38,7 +38,7 @@
 					<ul class="eventList">
 						
 						<c:if test="${exist != null }">
-							<li class="noEvent">
+							<li class="noEvent outBox">
 								<div class="innerBox">
 									진행중인 이벤트가 없습니다.
 								</div>

@@ -1,6 +1,11 @@
 @CHARSET "UTF-8";
 /*이벤트 작성 style*/
-	
+	#rightArea{
+		position: relative;
+	}
+	#wrap_title{
+		margin-bottom: 20px;
+	}
 	#addEventForm{ 
 	/* 	background: #f8f8f8;
 		padding:20px;
@@ -19,45 +24,53 @@
 		padding-bottom: 0px;
 	}  
 	.inputTxt{
-		border:1px solid #ddd;
+	
+		width:81%;
+		border: none;
+		border-top:1px solid #ddd;
+		border-bottom:1px solid #ddd;
 		height:18px;
-		width:754px; 
-		border-left: none;
-		border-radius:0 5px 5px 0;
 		padding:5px;
 		float: left;
 	}
 	.titleTxt{  
+		border-top:1px solid #432c10;
 		display:inline-block;
+		border-bottom:1px solid #ddd;
+		width:15%;
 		height:18px;
-		background:#fff;
 		line-height:18px;
-		border:1px solid #ddd;
-		border-radius:5px 0 0 5px;
+		background-color: rgb(250, 249, 244);
+		color:#666;
 		padding:5px 10px 5px 10px;
 		font-size:14px;
 		float: left;
 	}
 	
-	.date{
-		width:120px;
-		padding:5px;
+	.date{ 
+		display: none;
 	}
-	 
-	.intro{
-		width: 708px;
+	.dateBox{
+		line-height:18px;
+		float:left;
+		display: inline-block;
+		color:#666; 
 	}
 	
-	.banner{
-		width: 300px;
+	.dateBox div{
+		font-size:14px;
+		display:inline-block;
+		padding:5px;
+		border: 1px solid #ddd;
 	}
+	
 	
 	i.bar{	
 		display:inline-block;
 		height:30px;
 		line-height:30px;
 		text-transform:none; 
-		color:#ddd; 
+		color:#666; 
 		float: left;
 		margin-left: 10px;
 		margin-right: 10px;
@@ -69,6 +82,18 @@
 		display: none;
 	}
 	
+	/*달력 */
+	.calendar{
+		position: absolute;
+		top:140px !important;
+		left:160px !important;
+	}
+	#start-calendar{
+		left:160px !important;
+	}
+	#end-calendar{
+		left:320px !important;
+	}
 	
 	/*이벤트 list */
 	
@@ -179,11 +204,12 @@
 		margin-top: 60px;
 	}
 	.eventSlide{
+		width:100%;
 		position:relative;
 		overflow: hidden;
 	}
 	.slideWrap{
-		width: 270px;
+		width: 270px !important; 
 		float: left;
 		margin-right: 28px;
 	}	
@@ -219,18 +245,18 @@
 		text-indent: -9999px;
 		background:url("/Project_JSP/img/event/offerSlideNav.png");
 		position: absolute;
+		z-index:9999;
 		top:45px;
 	}
 	
 	.prev{
 		left:0;
-	}
+	} 
 	
 	.next{
 		right: 0;
 		background-position-x:35px; 
 	}
-	
 	
 	
 	

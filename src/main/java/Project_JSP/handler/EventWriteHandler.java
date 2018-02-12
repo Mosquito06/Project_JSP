@@ -65,6 +65,7 @@ public class EventWriteHandler implements CommandHandler {
 			String content = multi.getParameter("hiddenContent");
 			String introduce = multi.getParameter("introduce");
 			
+			
 			HttpSession session = req.getSession();
 			List<String> fileList =  (List<String>) session.getAttribute("fileList");
 			
