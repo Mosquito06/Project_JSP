@@ -23,6 +23,7 @@
 			
 		
 		})
+	
 		
 		
 	})
@@ -49,7 +50,7 @@
 
 					</div>
 
-					<form action="write_board.do" method="post">
+					<form action="write_board.do" method="post" id="f">
 						
 						<table id="wrap_form">
 							<tr>
@@ -58,7 +59,7 @@
 							</tr>
 							<tr id="content">
 								<th><span class="dot">*</span>내용</th>
-								<td><textarea rows="7" cols="" name="content"></textarea></td>
+								<td><textarea rows="7" cols="" name="content" id="textarea"></textarea></td>
 							</tr>
 							<tr>
 								<th><span class="dot">*</span>성명</th>

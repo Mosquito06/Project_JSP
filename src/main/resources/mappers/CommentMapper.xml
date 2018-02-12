@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Project_JSP.dao.CommentDao">
+    
+    <resultMap type="Comment" id="CommentResult">
+    	<id property="num" column="comment_num"/>
+    	<result property="boardNum.num" column="board_num"/>
+    	<result property="content" column="comment_content"/>
+    	<result property="time" column="comment_time"/>
+    	<result property="writer" column="comment_writer"/>
+    	<result property="order" column="comment_order"/>
+    	<result property="depth" column="comment_depth"/>
+    	<result property="group" column="comment_group"/>
+    </resultMap>
+    
+     <select id="selcetAllComment" resultMap="CommentResult">
+   		select * from comment
+  	 </select>
+   
+      <select id="findByNumComment" parameterType="Comment" resultMap="CommentResult">
+   		select * from comment where board_num = #{boardNum.num}
+  	  </select>
+  	  
+  	  <insert id="insertComment" parameterType="Comment">
+   		insert into comment(board_num,comment_content,comment_time,comment_writer)
+   		values(#{boardNum.num},#{content},#{time},#{writer})
+      </insert>
+      
+      <delete id="deletByNumComment" parameterType="Comment">
+   		delete from comment where comment_num = #{num}
+   	</delete>
+   
+	<update id="updateComment" parameterType="Comment">
+   		update comment set 
+   		comment_content = #{content},comment_time =#{time},
+   		comment_writer = #{writer}
+   		where comment_num = #{num}
+   </update>
+</mapper>
