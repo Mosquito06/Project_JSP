@@ -13,7 +13,7 @@ public class EventFileDeleteHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		String uploadPath = req.getRealPath("/img/event");
+		String uploadPath = req.getRealPath("/img/event/upload");
 		
 		HttpSession session = req.getSession();
 		List<String> fileList =  (List<String>) session.getAttribute("fileList");
