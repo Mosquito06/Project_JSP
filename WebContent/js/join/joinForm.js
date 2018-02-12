@@ -198,6 +198,16 @@
 		}
 	
 	})	
+	
+	
+	/*비밀번호 안내문*/
+	$("#pw_import").hover(function() {
+		var left = $(this).offset().left+30;
+		var top = $(this).offset().top+3;
+		$("#pw_info").css({"display":"block","left":left,"top":top});
+	}, function() {
+	 	$("#pw_info").css("display","none"); 
+	}) 
 
 	})
 	

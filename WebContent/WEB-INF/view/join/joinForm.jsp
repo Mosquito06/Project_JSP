@@ -16,7 +16,7 @@
 		$(document).on("mouseover","#addr_content ul", function(){
 			$(this).css({"background-color":"black","opacity":"0.5"});
 		});
-		
+
 	})
 </script>
 </head>
@@ -192,7 +192,7 @@
 								<label><span class="star">*</span>비밀번호</label>
 								<input type="password" name="pw" class="import"><img src="img/join/x.png">
 								<!-- <span id="pw_info">8~20자 이내 영문/숫자 조합</span> -->
-									<img src="/Project_JSP/img/join/important.gif" id="pw_import">
+									<img src="/Project_JSP/img/join/important.gif" id="pw_import">		
 								<span class="error">비밀번호를 입력하세요(*필수)</span>
 								<span id="pw_reg">사용가능한 비밀번호입니다</span>
 								<span id="pw_reg_error">사용불가한 비밀번호입니다</span>
@@ -226,7 +226,12 @@
 				</div>
 			</div>
 	</section>
-
+	<div id="pw_info">
+		<p>비밀번호는 8~20자 이내여야 합니다</p>
+		<p>최소한 한번의 대,소문자,숫자,특수기호가 모두 들어가야합니다</p>
+		<p>특수기호는 '@!%*?&'만 허용됩니다</p>
+		<p>동일한 숫자를 4번 이상 사용할 수 없습니다</p>
+	</div>
 	<jsp:include page="/WEB-INF/common/footer.jsp"/>
 
 </body>

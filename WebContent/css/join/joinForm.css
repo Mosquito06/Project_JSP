@@ -322,9 +322,22 @@ input[type='submit']{
 	font-size: 12px;
 	color:green;
 }
+/*비밀번호 안내*/
+#pw_info{
+	display:none; 
+	position: absolute;
+	width:430px;
+	height:100px;
+	background-color: white;
+	border:1px solid #a0886e;
+}
+#pw_info p{
+	font-size: 14px;
+	padding:5px;
+}
 #pw_import{
 	cursor:pointer;
-	margin:13px 5px;
+	margin:15px 3px;
 	line-height:30px;
-	display: inline;
+	 display: inline; 
 }
