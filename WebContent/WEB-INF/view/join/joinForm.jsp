@@ -20,12 +20,12 @@
 	})
 </script>
 <style>
-.error,#id_error2,#click,#pw_reg_error,#id_rule_error{
+.error,#id_error2,#click,#pw_reg_error,#id_rule_error,#email_check_error,#email_duplicate_error{
 	display:none;
 	font-size: 12px;
 	color:red;
 }
-#okPw,#id_error,#pw_reg{
+#okPw,#id_error,#pw_reg,#email_duplicate{
 	display:none;
 	font-size: 12px;
 	color:green;
@@ -97,9 +97,9 @@
 							
 								<p>
 								<label><span class="star">*</span>이메일</label>
-								<input type="text" name="email1" class="import"><img src="img/join/x.png">
+								<input type="text" name="email1" id="email1" class="import"><img src="img/join/x.png">
 								@
-								<input type="text" name="email2" class="import"><img src="img/join/x.png">
+								<input type="text" name="email2" id="email2" class="import"><img src="img/join/x.png">
 								<span id="email_select">
 									<select id="sel_email">
 										<option value="">직접입력</option>
@@ -120,6 +120,8 @@
 								</span>
 								<button type="button" id="email_btn">이메일 중복확인</button>
 									<span class="error">이메일 입력</span>
+									<span id="email_duplicate">사용가능</span>
+									<span id="email_duplicate_error">사용불가(중복)</span>
 							</p>
 							<p>
 								<label><span class="star">*</span>휴대전화</label>
@@ -182,7 +184,7 @@
 								<label>주소</label>
 								<input type="text" name="addr1" disabled="disabled"><button type="button" id="addr_btn">주소찾기</button><br>
 								<input type="text" name="addr2" disabled="disabled"><br>
-								<input type="text" name="addr3" disabled="disabled">
+								<input type="text" name="addr3" disabled="disabled" placeholder="상세주소">
 							</p>
 							
 						</div>

@@ -33,6 +33,7 @@
 				<c:if test="${noMember ==null }">
 					<input type="radio" name="clientGrade" value="MEMBER" id="mem" checked="checked">회원
 				<input type="radio" name="clientGrade" value="NONMEMBER" id="no">비회원(예약번호)
+				<input type="radio" name="clientGrade" value="ADMIN" id="admin">관리자
 				</c:if>
 				<c:if test="${noMember !=null }">
 					<input type="radio" name="clientGrade" value="MEMBER" id="mem" >회원

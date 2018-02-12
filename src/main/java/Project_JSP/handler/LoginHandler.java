@@ -49,7 +49,8 @@ public class LoginHandler implements CommandHandler {
 						req.setAttribute("error3", "*비밀번호를 확인해주세요");
 						return LOGIN_VIEW;
 					}
-					 
+					 req.getSession().setAttribute("MEMBER", cId);
+					 req.getSession().removeAttribute("NONMEMBER");
 					 res.sendRedirect("index.jsp");
 					 return null;
 					 
@@ -71,27 +72,15 @@ public class LoginHandler implements CommandHandler {
 						req.setAttribute("error4", "*이름을 확인해주세요");
 						return LOGIN_VIEW;
 					}
-					
+					req.getSession().setAttribute("NONMEMBER", cId);
+					req.getSession().removeAttribute("MEMBER");
 					 res.sendRedirect("index.jsp");
 					 return null;
 				}
 					
 				
 			}
-			/*if(cId==null&&clientGrade.equals("NONMEMBER")){
-				System.out.println("id없음");
-				req.setAttribute("noMember", "checked");
-				req.setAttribute("error2","*예약한 기록이 없습니다.");
-				return LOGIN_VIEW;
-			}else{
-				Client cName = service.selectClientName(client);
-				System.out.println(cName);
-				if(cName ==null&&clientGrade.equals("NONMEMBER")){
-					req.setAttribute("noMember", "checked");
-					req.setAttribute("error4", "*이름을 확인해주세요");
-					return LOGIN_VIEW;
-				}
-			}*/
+		
 			return LOGIN_VIEW;
 	
 		}
