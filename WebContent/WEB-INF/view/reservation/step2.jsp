@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
 <link rel="stylesheet" type="text/css" href="css/reservation/Loading.css">
-<link rel="stylesheet" type="text/css" href="css/reservation/step2.css?b=dddd">
+<link rel="stylesheet" type="text/css" href="css/reservation/step2.css?b=ds">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript" src="js/reservation/step2.js?a=f"></script>
+<script type="text/javascript" src="js/reservation/step2.js?a=ddd"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
 <script type="text/javascript" src="js/reservation/Loading.js"></script>
 </head>
@@ -36,18 +37,35 @@
 					</div>
 					<div id="optionDiv">
 						<ul class="optionUl">
-							<c:if test="${option != 'false' }">
-								<c:forEach var="item" items="${option }">
+							<c:if test="${result.option != 'false' }">
+								<c:forEach var="item" items="${result.option }">
 									<li class="optionLi">
 										<div class="optionLiLeftDiv">
-											<input type="checkbox">
+											<input type="checkbox" class="optionCheckBox">
 											<span class="optionName">${item.optionContent}</span><br>
 											<span class="optionPrice">${item.optionPrice} 원</span>
 										</div>
 										<div class="optionLiRightDiv">
 										<c:if test="${item.selectOption == 'YES'}">
 											<select class="optionSelect">
-
+												<c:choose>
+													<c:when test="${item.optionContent == 'Daily Breakfast for Adult' && result.adultNum > 0}">
+														<c:forEach var="adult" begin="0" end="${result.adultNum }">
+															<option>${adult }</option>
+														</c:forEach>
+													</c:when>
+													<c:when test="${item.optionContent == 'Daily Breakfast for Adult' && result.adultNum == 0}">
+														<option>0</option>
+													</c:when>
+													<c:when test="${item.optionContent == 'Daily Breakfast for Child' && result.kidNum > 0}">
+														<c:forEach var="kid" begin="0" end="${result.kidNum }">
+															<option>${kid }</option>
+														</c:forEach>
+													</c:when>
+													<c:when test="${item.optionContent == 'Daily Breakfast for Child' && result.kidNum == 0}">
+														<option>0</option>
+													</c:when>
+												</c:choose>
 											</select>
 										</c:if>
 											<span class="optionFinalPrice">${item.optionPrice} 원</span>
@@ -130,51 +148,60 @@
 					<div id="thirdDiv">
 						<div>
 							<span class="rightTextColor">체크인</span>
-							<span class="rightText">2018.02.12</span>
+							<span class="rightText">${result.sDate }</span>
 						</div>
 						<div>
 							<span class="rightTextColor">체크아웃</span>
-							<span class="rightText">2018.02.13</span>
+							<span class="rightText">${result.eDate }</span>
 						</div>
 						<div>
 							<span class="rightTextColor">숙박일수</span>
-							<span class="rightText">1박</span>
+							<span class="rightText">${result.stayDay }박</span>
 						</div>
 						<div>
 							<span class="rightTextColor">투숙인원</span>
-							<span class="rightText">성인: 1 어린이: 0 유아: 0</span>
+							<span class="rightText">성인: ${result.adultNum} 어린이: ${result.kidNum } 유아: ${result.babyNum }</span>
 						</div>
 						<div>
 							<span class="rightTextColor">객실타입</span>
-							<span class="rightText">Double</span>
+							<span class="rightText">${result.bed }</span>
 						</div>
 					</div>
 					<div id="fourthDiv">
 						<span class="importantText">객실/패키지</span><br><br>
-						<span class="rightText">[Suite] Corner Suite / Mountain / Double</span><br><br>
-						<span class="rightText">2018.02.12</span>
-						<span class="rightPrice">720,000원</span><br>
-						<span class="rightPriceBold">720,000 원(1박)</span>
-						<img src="/Project_JSP/img/reservation/room/(Suite)Corner Suites.jpg">
+						<span class="rightText">${result.roomGrade } ${result.roomName } / ${result.view } / ${result.bed }</span><br><br>
+						<span class="rightText">${result.sDate }</span>
+						<span class="rightPrice">${result.roomPrice } 원</span><br>
+						<span class="rightPriceBold">${result.roomPrice } 원(${result.stayDay }박)</span>
+						<img src="/Project_JSP/img/reservation/room${result.roomImg }">
 					</div>
 					<div id="fiveDiv">
 						<span class="importantText">옵션</span><br><br>
-						<span class="rightTextColor">DailyExtra Bed</span>
-							<span class="rightText">40,000</span>
+						<c:if test="${result.option != 'false' }">
+							<c:forEach var="item" items="${result.option }">
+								<div>
+									<span id="optionRightTextColor${item.optionNum }">${item.optionContent }</span>
+									<c:if test="${item.selectOption == 'NO'}">
+										<span id="optionRightPrice${item.optionNum }">${item.optionPrice } 원</span>
+									</c:if>
+									<span id="optionRightPrice${item.optionNum }">0  원</span>
+								</div>
+							</c:forEach>
+						</c:if>
 					</div>
 					<div id="sixDiv">
 						<div>
 							<span class="rightTextColor">봉사료</span>
-							<span class="rightText">72,000</span>
+							<span class="rightText" id="ServiceCharge">72000 원</span>
 						</div>
 						<div>
 							<span class="rightTextColor">세금</span>
-							<span class="rightText">79,200</span>
+							<span class="rightText" id="Tax">79200 원</span>
 						</div>
 					</div>
 					<div id="sevenDiv">
 						<span class="importantText">요금합계</span>
-						<span class="finalPrice">919,600 원</span>
+						<span class="finalPrice" id="finalPrice">${result.roomPrice } 원</span>
 					</div>
 				</div>
 			</div>

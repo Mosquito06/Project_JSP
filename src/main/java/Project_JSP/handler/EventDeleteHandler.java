@@ -6,8 +6,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sun.xml.internal.ws.wsdl.writer.document.Service;
-
 import Project_JSP.dto.Event;
 import Project_JSP.dto.EventContent;
 import Project_JSP.mvc.controller.CommandHandler;
