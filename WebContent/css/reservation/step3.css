@@ -66,10 +66,120 @@ div#main div#optionTextDiv span#optionSpan2{
 	color: #747474;
 }
 
+div#optionDiv div#clientInfoDiv{
+	border: 1px solid #A6A6A6;
+	
+}
+
+div#optionDiv div#clientInfoDiv{
+	padding: 15px;
+	height: 245px;
+	margin-bottom: 20px;
+}
+
+
+div#optionDiv div#clientInfoDiv #clientLeft{
+	border-right: 1px solid #A6A6A6;
+	width: 48%;
+	float: left;
+}
+
+div#optionDiv div#clientInfoDiv #clientRight{
+	width: 48%;
+	float: right;
+}
+
+div#optionDiv div#clientInfoDiv span.clientInfoBold{
+	font-weight: bold;
+	font-size: 15px;
+	margin-bottom: 5px;
+
+}
+
+div#optionDiv div#clientInfoDiv label{
+	width: 20%;
+	float: left; 
+	font-weight: bold;
+	font-size: 13px;
+	margin-top: 20px;
+}
+
+div#optionDiv div#clientInfoDiv input{
+	height: 30px;
+	margin: 10px 0 10px 0;
+	
+}
+
+div#optionDiv div#clientInfoDiv input[id='name(kor)'], div#optionDiv div#clientInfoDiv input[id='email']{
+	width: 300px;
+}
+
+div#optionDiv div#clientInfoDiv input[name='lastName']{
+	width: 120px;
+}
+
+div#optionDiv div#clientInfoDiv input[id='tel']{
+	width: 215px;
+}
+
+div#optionDiv div#clientInfoDiv select{
+	height: 35px;
+}
+
+div#optionDiv div#clientInfoDiv input[id='cardNum']{
+	width: 62px;
+}
+
+div#optionDiv div#clientInfoDiv div#clientRight select{
+	margin-top: 10px;
+}
+
+div#optionDiv div#clientInfoDiv div#clientRight div#clientRightText{
+	font-size: 13px;
+	line-height: 20px;
+	margin-top: 10px;
+}
+
+div#optionDiv div#clientInfoDiv div#clientRight div#clientRightText span{
+	width: 20px;
+	position: absolute;
+	left: 785px;		
+}
+
+div.Step3additionForm{
+	font-size: 13px;
+	line-height: 25px;
+}
+
+div.Step3additionForm .importantText{
+	font-weight: bold;
+	
+}
+
+div.Step3additionForm .textUnderline{
+	text-decoration: underline;
+}
+
+div.Step3additionForm li{
+	list-style: circle;
+	margin-left: 20px;
+}
+
+div.Step3additionForm {
+	border: 6px solid #f4eee3;
+	padding: 20px;
+	
+}
+
+div.additionForm{
+	margin-bottom: 20px;
+}
+
 div.additionForm div.formTop{
 	margin-top: 20px;
 	padding: 10px 0;
 	padding-left: 20px;	
+	clear: both;
 	border: 1px solid #A6A6A6;
 }
 
@@ -106,6 +216,45 @@ div.additionForm div.formBottom ul.formUl li{
 	margin-bottom: 5px;
 }
 
+div#agreeDiv{
+	border: 1px solid #A6A6A6;
+	padding: 20px;
+	height: 200px;
+	font-size: 13px;
+	background-color: #f4eee3;
+}
+
+div#agreeDiv div#agreeText{
+	font-weight: bold;
+	font-size: 15px;
+	margin-bottom: 20px;
+}
+
+div#agreeDiv div#agreeLeft{
+	float: left;
+	width: 48%;
+	height: 100px;
+}
+
+div#agreeDiv div#agreeRight{
+	float: right;
+	width: 48%;
+	height: 100px;
+}
+
+div#agreeDiv .agreeContent{
+	line-height: 20px;
+	border: 1px solid #A6A6A6;
+	height: 100px;
+	overflow: scroll;
+	overflow-x:hidden;
+	background-color: white;
+}
+
+div#agreeDiv .agreeRadio{
+	padding-top: 20px;
+}
+
 div#btnDiv{
 	margin-top: 20px;
 	margin-bottom: 200px;
@@ -135,6 +284,11 @@ div#main div#RightDiv{
 	padding: 30px;
 	
 }
+
+span.importantText{
+	font-weight: bold;
+}
+
 
 div#RightDiv div#firstDiv{
 	margin-bottom: 50px;
@@ -211,13 +365,11 @@ div#RightDiv div#fiveDiv{
 div#RightDiv span[id*='optionRightTextColor']{
 	font-size: 13px;
 	color: #a0886e;
-	display: none;
 }
 
 div#RightDiv span[id*='optionRightPrice']{
 	font-size: 13px;
 	float: right;
-	display: none;
 }
 
 div#RightDiv div#sixDiv{

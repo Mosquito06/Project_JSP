@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="css/reservation/Loading.css">
 <link rel="stylesheet" type="text/css" href="css/reservation/step2.css?b=dsd">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript" src="js/reservation/step2.js?a=d"></script>
+<script type="text/javascript" src="js/reservation/step2.js?a=dd"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
 <script type="text/javascript" src="js/reservation/Loading.js"></script>
 </head>
