@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath }/css/common/common.css?ver=1">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/adminpage/adminUser.css">
+	href="${pageContext.request.contextPath}/css/adminpage/adminUser.css?v=1">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
 </head>
@@ -31,9 +31,17 @@
 								id="board">관리자</span> > <span id="board">회원관리</span>
 						</div>
 					</div>
+					<div id="wrap_admin_btn">
+						<a href="" class="btn_admin">관리자추가</a>
+						
+						<a href="" class="btn_admin">블랙리스트추가</a>
+						<a href="" class="btn_admin">삭제</a>
+					</div>
 					<div>
-						<table>
+
+						<table id="t1">
 							<tr>
+								<th></th>
 								<th>고객번호</th>
 								<th>아이디</th>
 								<th>성명</th>
@@ -47,6 +55,7 @@
 							</tr>
 							<c:forEach items="${client}" var="item">
 								<tr>
+									<td><input type="checkbox"></td>
 									<td>${item.clientNum}</td>
 									<td>${item.id}</td>
 									<td>${item.nameKo}</td>

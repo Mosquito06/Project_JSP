@@ -3,6 +3,9 @@ package Project_JSP.dao;
 import java.util.List;
 
 import Project_JSP.dto.Reservation;
+import Project_JSP.dto.ReservationState;
+
+
 
 public interface ReservationDao {
 	public List<Reservation> selectReservation();
@@ -10,4 +13,7 @@ public interface ReservationDao {
 	public void insertReservation(Reservation reservation);
 	public void updateReservation(Reservation reservation);
 	public void deleteReservation(Reservation reservation);
+	public List<Reservation> selectReservationDate(Reservation reservation);
+	public List<Reservation> selectReservationUser(int clientNum);
+	public List<Reservation> selectReservationState(ReservationState state);
 }

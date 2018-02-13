@@ -36,6 +36,18 @@
 	    <include refid="selectReservationSql"/>
 	    <include refid="whereSql"/>	    
 	</select>
+	
+	<select id="selectReservationDate" parameterType="Reservation" resultMap="ReservationResult">
+		select * from reservation where check_in &lt;= #{checkOut} and check_out >= #{checkIn}
+	</select>
+	
+	<select id="selectReservationUser" parameterType="int" resultMap="ReservationResult">
+		select * from reservation where client_num = #{clientNum}
+	</select>
+	
+	<select id="selectReservationState" parameterType="ReservationState" resultMap="ReservationResult">
+		select * from reservation where reservation_state = #{state}
+	</select>
 
 	<insert id="insertReservation" parameterType="Reservation">
 	   insert into reservation(room_num,total_price,check_in,check_out,personnel,

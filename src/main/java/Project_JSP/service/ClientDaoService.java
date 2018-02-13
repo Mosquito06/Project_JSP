@@ -129,6 +129,18 @@ public class ClientDaoService implements ClientDao {
 		return null;
 	}
 
+	@Override
+	public Client findClientId(Client client) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			ClientDao dao = session.getMapper(ClientDao.class);
+			return dao.findClientId(client);
+	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 
 
 

@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import Project_JSP.dao.ReservationDao;
 import Project_JSP.dto.Reservation;
+import Project_JSP.dto.ReservationState;
 import Project_JSP.mvc.util.MySqlSessionFactory;
 
 public class ReservationDaoService implements ReservationDao {
@@ -77,6 +78,40 @@ public class ReservationDaoService implements ReservationDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public List<Reservation> selectReservationDate(Reservation reservation) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			ReservationDao dao = session.getMapper(ReservationDao.class);
+			return dao.selectReservationDate(reservation);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+		
+	}
+
+	@Override
+	public List<Reservation> selectReservationUser(int clientNum) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			ReservationDao dao = session.getMapper(ReservationDao.class);
+			return dao.selectReservationUser(clientNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public List<Reservation> selectReservationState(ReservationState state) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			ReservationDao dao = session.getMapper(ReservationDao.class);
+			return dao.selectReservationState(state);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }
