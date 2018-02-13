@@ -27,7 +27,7 @@
 								<dt>고객문의</dt>
 								<dd><a href="#">연락처</a></dd>
 								<dd><a href="#">FAQ</a></dd>
-								<dd><a href="#">문의하기</a></dd>
+								<dd><a href="${pageContext.request.contextPath }/qna.do">문의하기</a></dd>
 								<dd><a href="${pageContext.request.contextPath }/board/free_board.do">후기게시판</a></dd>
 							</dl>
 						</div>
