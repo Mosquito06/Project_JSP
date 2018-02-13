@@ -9,11 +9,11 @@
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
 <link rel="stylesheet" type="text/css" href="css/reservation/Loading.css">
-<link rel="stylesheet" type="text/css" href="css/reservation/step3.css?b=ddd">
+<link rel="stylesheet" type="text/css" href="css/reservation/step3.css?b=d">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="js/reservation/Loading.js"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
-<script type="text/javascript" src="js/reservation/step3.js?a=d"></script>
+<script type="text/javascript" src="js/reservation/step3.js?a=dd"></script>
 </head>
 <body>
 	<div id="container">
@@ -214,32 +214,32 @@
 					<div id="thirdDiv">
 						<div>
 							<span class="rightTextColor">체크인</span>
-							<span class="rightText">${result.sDate }</span>
+							<span class="rightText">${result.checkIn }</span>
 						</div>
 						<div>
 							<span class="rightTextColor">체크아웃</span>
-							<span class="rightText">${result.eDate }</span>
+							<span class="rightText">${result.checkOut }</span>
 						</div>
 						<div>
 							<span class="rightTextColor">숙박일수</span>
-							<span class="rightText">${result.stayDay }박</span>
+							<span class="rightText">${result.stay }</span>
 						</div>
 						<div>
 							<span class="rightTextColor">투숙인원</span>
-							<span class="rightText">성인: ${result.adultNum} 어린이: ${result.kidNum } 유아: ${result.babyNum }</span>
+							<span class="rightText">${result.stayNum }</span>
 						</div>
 						<div>
 							<span class="rightTextColor">객실타입</span>
-							<span class="rightText">${result.bed }</span>
+							<span class="rightText">${result.bedType }</span>
 						</div>
 					</div>
 					<div id="fourthDiv">
 						<span class="importantText">객실/패키지</span><br><br>
-						<span class="rightText">${result.roomGrade } ${result.roomName } / ${result.view } / ${result.bed }</span><br><br>
-						<span class="rightText">${result.sDate }</span>
-						<span class="rightPrice"><span id="basicPrice">${result.roomPrice }</span> 원</span><br>
-						<span class="rightPriceBold">${result.roomPrice } 원(${result.stayDay }박)</span>
-						<img src="<%-- /Project_JSP/img/reservation/room${result.roomImg } --%>">
+						<span class="rightText">${result.roomInfo}</span><br><br>
+						<span class="rightText">${result.checkIn }</span>
+						<span class="rightPrice"><span id="basicPrice">${result.basicPrice }</span> 원</span><br>
+						<span class="rightPriceBold">${result.basicPrice } 원(${result.stay })</span>
+						<img src="${result.roomImg }">
 					</div>
 					<div id="fiveDiv">
 						<span class="importantText">옵션</span><br><br>
@@ -247,10 +247,7 @@
 							<c:forEach var="item" items="${result.option }">
 								<div>
 									<span id="optionRightTextColor${item.optionNum }">${item.optionContent }</span>
-									<c:if test="${item.selectOption == 'NO'}">
-										<span id="optionRightPrice${item.optionNum }"><span class="sumPrice">${item.optionPrice }</span> 원</span>
-									</c:if>
-									<span id="optionRightPrice${item.optionNum }"><span class="sumPrice">0</span>  원</span>
+									<span id="optionRightPrice${item.optionNum }"><span class="sumPrice">${item.optionPrice }</span>  원</span>
 								</div>
 							</c:forEach>
 						</c:if>
@@ -267,7 +264,7 @@
 					</div>
 					<div id="sevenDiv">
 						<span class="importantText">요금합계</span>
-						<span class="finalPrice" id="finalPrice">${result.roomPrice } 원</span>
+						<span class="finalPrice" id="finalPrice">${result.finalPrice } 원</span>
 					</div>
 				</div>
 			</div>

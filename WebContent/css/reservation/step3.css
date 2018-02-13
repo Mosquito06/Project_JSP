@@ -285,6 +285,11 @@ div#main div#RightDiv{
 	
 }
 
+span.importantText{
+	font-weight: bold;
+}
+
+
 div#RightDiv div#firstDiv{
 	margin-bottom: 50px;
 }
@@ -360,13 +365,11 @@ div#RightDiv div#fiveDiv{
 div#RightDiv span[id*='optionRightTextColor']{
 	font-size: 13px;
 	color: #a0886e;
-	display: none;
 }
 
 div#RightDiv span[id*='optionRightPrice']{
 	font-size: 13px;
 	float: right;
-	display: none;
 }
 
 div#RightDiv div#sixDiv{
