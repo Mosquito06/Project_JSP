@@ -128,6 +128,11 @@ $(function(){
 		$("#login").css("display", "none");
 	})
 	
+	// 로그인 버튼
+	$("#loginDiv img").click(function(){
+		$("#login form").submit();
+	})	
+	
 	// 예약 초기화 버튼
 	$("#resetSpan").click(function(){
 		location.replace("step1.do");

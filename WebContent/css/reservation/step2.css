@@ -317,7 +317,7 @@ div#login div#loginDiv input[type='radio']{
 }
 
 
-div#login div#loginDiv input[type='text']{
+div#login div#loginDiv input[type='text'], div#login div#loginDiv input[type='password']{
 	float: left;
 	width: 350px;
 	height: 18px;
