@@ -40,15 +40,91 @@
 						
 						<div id="clientInfoDiv">
 							<div id="clientLeft">
-								
+								<span class="clientInfoBold">투숙자 정보 입력</span>							
+								<form>
+									<label for="name(kor)"><span class="redText">*</span>성명(한글)</label>
+									<input type="text" id="name(kor)" name="name"><br>
+									<label for="name(eng)"><span class="redText">*</span>성명(영문)</label>
+									<input type="text" id="name(eng)" name="firstName" placeholder="FIRST NAME(이름)">
+									<input type="text" name="lastName" placeholder="LAST NAME(성)"><br>
+									<label for="email"><span class="redText">*</span>이메일</label>
+									<input type="text" id="email" name="email"><br>
+									<label for="tel"><span class="redText">*</span>연락처</label>
+									<select>
+										<option>휴대전화</option>
+										<option>자택</option>
+									</select>
+									<input type="text" id="tel" name="tel">
+								</form>
 							</div>
 							<div id="clientRight">
-							
+								<span class="clientInfoBold">카드 정보 입력</span><br>
+								<label for="cardType"><span class="redText">*</span>카드종류</label>
+								<select>
+									<option>BC CARD</option>
+									<option>LOTTE CARD</option>
+									<option>SAMSUNG CARD</option>
+									<option>SHINHAN CARD</option>
+									<option>HYUBDAI CARD</option>
+									<option>CITTYBANK CARD</option>
+								</select><br>
+								
+								<label for="cardNum"><span class="redText">*</span>카드번호</label>
+								<input type="text" id="cardNum"> - <input type="text" id="cardNum"> 
+								- <input type="text" id="cardNum"> - <input type="text" id="cardNum"><br> 
+								<label for="cardNum"><span class="redText">*</span>만기일</label>
+								<select>
+									<option>월</option>
+									<option>01</option>
+									<option>02</option>
+									<option>03</option>
+									<option>04</option>
+									<option>05</option>
+									<option>06</option>
+									<option>07</option>
+									<option>08</option>
+									<option>09</option>
+									<option>10</option>
+									<option>11</option>
+									<option>12</option>
+								</select>
+								<select>
+									<option>년</option>
+									<option>2028</option>
+									<option>2027</option>
+									<option>2026</option>
+									<option>2025</option>
+									<option>2024</option>
+									<option>2023</option>
+									<option>2022</option>
+									<option>2021</option>
+									<option>2020</option>
+									<option>2019</option>
+									<option>2018</option>
+								</select>
+								<div id="clientRightText">
+									<span>※</span>
+									 신용카드 정보는 고객님의 투숙에 의한 개런티 외에는 어떤 목적으로도 사용되지 않습니다.<br>
+									본 정보는 온라인 예약 시 직접 결제가 이루어지지 않으며, 최종 결제는 체크인 시 프런트 데스크에서 해주시기 바랍니다.
+								</div>
 							</div>
 						</div>
-						
-						
-						
+									
+						<div class="Step3additionForm">
+							<span class="importantText">예약 취소/변경 및 No-Show 안내</span><br>
+							<span class="textUnderline">성수기(5월 ~ 10월, 12월 24일 ~ 31일)</span>
+							<ul>
+								<li>숙박 예정일 7일 전까지는 위약금 없이 취소 및 변경됩니다.</li>
+								<li>숙박 예정일 6일 전 ~ 1일 전 18시까지 취소 및 변경 시, 최초 1박 요금의 20%가 위약금으로 부과됩니다.</li>
+								<li>숙박 예정일 1일 전 18시 이후 취소/변경하거나 노쇼(No-Show) 시, 최초 1박 요금의 80%가 위약금으로 부과됩니다.</li>
+							</ul>
+							<span class="textUnderline">비수기(성수기 외 기간)</span>
+							<ul>
+								<li>숙박 예정일 1일 전 18시까지는 위약금 없이 취소 및 변경됩니다.</li>
+								<li>숙박 예정일 1일 전 18시 이후 취소/변경하거나 노쇼(No-Show) 시, 최초 1박 요금의 10%가 위약금으로 부과됩니다.</li>
+							</ul>
+						</div>
+																		
 						<div class="additionForm">
 							<div class="formTop">
 								<span class="formText">유의사항</span>
@@ -75,6 +151,42 @@
 							</div>
 						</div>
 						
+						<div id="agreeDiv">
+							<div id="agreeText">
+								필수정보 개인정보 수집이용에 동의하십니까?
+							</div>
+							<div id="agreeLeft">
+								<div class="agreeContent">
+									신라호텔 객실예약과 관련하여 귀사가 아래와 같이 본인의 개인정보를 수집 및 이용하는데 동의합니다.<br><br>
+									<필수적인 개인정보의 수집 ㆍ이용에 관한 사항><br>
+									① 수집 이용 항목 | 성명, 국적, 생년월일, 이메일 주소, 연락처, 예약정보, 결제정보<br>
+									② 수집 이용 목적 | 호텔 예약 및 고객 응대<br>
+									③ 보유 이용 기간 | 예약일 후 1년<br><br>
+
+									※위 사항에 대한 동의를 거부할 수 있으나, 이에 대한 동의가 없을 경우 예약 서비스 제공과 관련된 제반 절차 진행이 불가능 할 수 있음을 알려드립니다.	
+								</div>
+								<div class="agreeRadio">
+									<input type="radio" name="leftAgree"> 동의함
+									<input type="radio" name="leftAgree" checked="checked"> 동의하지 않음
+								</div>
+							</div>
+							<div id="agreeRight">
+								<div class="agreeContent">
+									<개인정보 제3자 제공에 대한 동의><br>
+									① 제공받는 자 | (주)신라스테이<br>
+									② 제공 목적 | 호텔 예약 및 고객 응대<br>
+									③ 제공하는 항목 | 성명, 국적, 생년월일, 이메일 주소, 연락처, 예약정보, 결제정보<br>
+									④ 제공 기간 | 예약일 후 1년간<br><br>
+									
+									※위 사항에 대한 동의를 거부할 수 있으나, 이에 대한 동의가 없을 경우 신라 리워즈 회원가입 및 서비스 제공이 불가능함을 알려드립니다.
+								</div>
+								<div class="agreeRadio">
+									<input type="radio" name="rightAgree"> 동의함
+									<input type="radio" name="rightAgree" checked="checked"> 동의하지 않음
+								</div>
+							</div>
+						</div>
+												
 						<div id="btnDiv">
 							<div id="leftBtn">
 								<img src="/Project_JSP/img/reservation/backStep2.gif">
