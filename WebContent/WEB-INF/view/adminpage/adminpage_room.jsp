@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath }/css/common/common.css?ver=1">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/adminpage/adminUser.css">
+	href="${pageContext.request.contextPath}/css/adminpage/adminUser.css?ver=1">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
 </head>
@@ -32,8 +32,9 @@
 						</div>
 					</div>
 					<div>
-						<table>
+						<table id="t1">
 							<tr>
+								<th></th>
 								<th>객실정보번호</th>
 								<th>룸이름</th>
 								<th>등급</th>
@@ -43,17 +44,17 @@
 								<th>이미지경로</th>
 								<th>예약이미지경로</th>
 							</tr>
-							<c:forEach items="${client}" var="item">
+							<c:forEach items="${roomInfo}" var="item">
 								<tr>
-									<td>${item.clientNum}</td>
-									<td>${item.id}</td>
-									<td>${item.nameKo}</td>
-									<td>${item.nameEn}</td>
-									<td>${item.birth}</td>
-									<td>${item.email}</td>
-									<td>${item.phone}</td>
-									<td>${item.home}</td>
-		
+									<td><input type="checkbox"></td>
+									<td>${item.roomInfoNum}</td>
+									<td>${item.roomInfoName}</td>
+									<td>${item.roomGrade}</td>
+									<td>${item.viewType}</td>
+									<td>${item.bedType}</td>
+									<td>${item.roomSize}</td>
+									<td>${item.roomImg}</td>
+									<td>${item.reservationImg}</td>
 								</tr>
 							</c:forEach>
 						</table>

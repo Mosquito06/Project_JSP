@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript">
  var contextPath = "${pageContext.request.contextPath }";
 </script>
@@ -33,8 +34,15 @@
 			<h1 id="head_logo"><a href="${pageContext.request.contextPath }/index.jsp"><img src="${pageContext.request.contextPath }/img/common/logo.jpg"></a></h1>
 			<div id="headNav"> 
 				<ul>  
-					<li><a href="${pageContext.request.contextPath }/login.do">로그인</a></li>
-					<li><a href="#">신라리워즈 가입</a></li>
+					<c:if test="${MEMBER !=null }">
+						<li><a href="${pageContext.request.contextPath }/logOut.do" id="logout">로그아웃</a></li>
+											<li><a href="${pageContext.request.contextPath }/mypage.do">마이페이지</a></li>
+					</c:if>
+					<li><a href="${pageContext.request.contextPath }/mypage.do">마이페이지</a></li>
+					<c:if test="${MEMBER==null }">
+						<li><a href="${pageContext.request.contextPath }/login.do">로그인</a></li>
+						<li><a href="${pageContext.request.contextPath }/join.do">신라리워즈 가입</a></li>
+					</c:if>
 					<li><a href="#">예약확인</a></li>
 					<li><a href="${pageContext.request.contextPath }/admin.do">관리자</a></li>
 				</ul>

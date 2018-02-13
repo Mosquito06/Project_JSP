@@ -1,12 +1,12 @@
 @CHARSET "UTF-8";
- input{
+input{
   outline: none;
   border:1px solid #ccc;
-	padding:2px;
+padding:2px;
 } 
 #loginForm_wrap{
-	 	width: 870px;
-	 	margin:60px auto;	
+	 	width: 800px;
+	 	margin:20px auto;	
 }
 #loginForm_title{
 	width:100%;
@@ -24,12 +24,13 @@
 /* 안내사항 */
 #info{
 	text-align: center;
-	width: 870px;
+	width: 600px;
 	height: 150px;
 	padding-top: 30px;
+	margin:0 auto;
 }
 #info h2{
-	font-size: 1.8em;
+	font-size: 1.5em;
 	color:#865009;
 	margin:30px 0px 20px 0px;
 }
@@ -43,13 +44,14 @@
 	color:#A6A6A6;
 	font-size: 13px;
 }
+
 #info2{
 	border:1px solid #DCDCDC;
-	width:720px;
+	width:560px;
 	height:30px;
 	line-height:30px;
 	background-color:#EEEEEE;
-	font-size:15px;
+	font-size:12px;
 	margin: 0 auto;
 	text-align: center;
 	margin-top: 20px;
@@ -57,92 +59,91 @@
 /* 정보입력 form */
 fieldset{
 	background-color: #F1EBD6;
-	width:600px;
-	height:250px;
+	width:510px;
+	height:170px;
 	margin:20px auto;
 	border-top: 3px solid #9F876B;
-	padding:50px 60px;
+	padding:25px 30px;
+	font-size: 13px;
+}
+fieldset form{
+	width:400px;
+	margin:10px auto;
 }
 
 /*회원 로그인 form  */
 fieldset .login{
 	position: relative;
-	margin-bottom: 20px;
-}
-fieldset .login > input[type='submit']{
-	position:absolute;
-	right:0px;
-	top:0px;
-	width:150px;
-	height:82px;
-	font-size: 1.2em;
-	background-color: #3e2b2c;
-	border:none;
-	color:#F1EBD6;
-}
-fieldset form label{
-	width:100px;
-	float: left;
-	line-height: 35px;
 }
 fieldset form #member{
-	margin-top: 20px;
+	margin-top: 10px;
 }
-fieldset form .login  p:FIRST-CHILD {
-	margin-bottom: 10px;
+fieldset form .login p{
+	margin-bottom: 5px;
 }
-
 fieldset form .login p input{
-	width:300px;
-	height:30px;
+	width:280px;
+	height:24px;
+	padding:0px 0px 0px 2px !important;
+}
+fieldset form .login a{
+	position: absolute;
+	top:0px;
+	right:0px;
 }
 fieldset form .login #member #join{
 	background-color:  #3e2b2c;
 }
 button{
 	outline:none;
+	cursor: pointer;
 }
 #join{
 	background-color:  #3e2b2c;
 	border:1px solid #3e2b2c;
 	color:white;
-	width:110px;
+	width:130px;
 }
 #searchId{
 	background-color: #9F876B;
 	border:1px solid #9F876B;
-	width:130px;
+	width:120px;
 	color:#F1EBD6;
 }
 #searchPw{
 	background-color: #9F876B;
 	border:1px solid #9F876B;
-	width:150px;
+	width:140px;
 	color:#F1EBD6;
 }
 
 /*비회원 로그인 form  */
 fieldset form #no_member{
 	display:none;
-	margin-top: 20px;
+	margin-top: 10px;
 }
 fieldset form #no_member .login  input[name='name2']{
-	width:170px;
-	height:30px;
-	margin-right: 5px;
+	width:150px;
+	height:24px;
+	margin-right: 3px;
+	padding:0px 0px 0px 2px !important;
 	}
 fieldset form #no_member .login  input[name='name1']{
-	width:115px;
-	height:30px;
+	width:118px;
+	height:24px;
+	padding:0px 0px 0px 2px !important;
 	}
 
 /*로그인 실패시   */
-.error{
+.error,.error1{
 	font-size: 13px;
 	color:red;
 }
-.error1{
-	font-size: 13px;
-	color:red;
-	margin-left:100px;
+
+/*관리자 로그인  form  */
+fieldset form #admin{
+display:none;
+ margin-top: 10px;
 }
+
+	

@@ -1,8 +1,8 @@
-
-
+	var id_check=-1;	
+	var no_pw = -1;
+	var not_email = -1;
 	$(function(){
-		var id_check=-1;	
-		var no_pw = -1;
+	
 		
 	for(var i=1999;i>1899;i--){
 		$("select[name='birth_y']").append("<option value='"+i+"'>"+i+"</option>");
@@ -53,7 +53,8 @@
 		
 	})
 	
-		$(document).on("mouseout","#addr_content ul", function(){
+
+	$(document).on("mouseout","#addr_content ul", function(){
 			$(this).css({"background-color":"white","opacity":"1"});
 		});
 		
@@ -94,6 +95,26 @@
 			$("input[name='email2'").val($(this).val());
 		});	
 		
+		$("#email_btn").click(function(){
+			$(this).next(".error").css("display","none");
+			$.ajax({
+				url:"duplicateEmail.do",
+				type:"get",
+				data:{"email1":$("#email1").val(),
+						"email2":$("#email2").val()},
+						dataType:"json",
+						success:function(data){
+							if(data.email ==null){
+								$("#email_duplicate").css("display","inline");
+								$("#email_duplicate_error").css("display","none");
+								not_email=1;
+							}else{
+								$("#email_duplicate").css("display","none");
+								$("#email_duplicate_error").css("display","inline");
+							}
+						}
+			})
+		})
 		$(document).on("keyup","input[name='p2'],input[name='t2']",function(e){
 			
 			if($(this).val().length==4){
@@ -125,7 +146,7 @@
 	})
 	/*아이디 정규표현 검사*/
 	$("input[name='id']").keyup(function(){
-		
+		$("#id_rule_error").prevAll(".error");
 		var reg =/^(?=.*[A-Za-z])[A-Za-z0-9]{5,12}$/;
 		var reg2 = /^[A-Za-z]{5,12}$/
 		var id = $("input[name='id']").val();
@@ -152,14 +173,17 @@
 		$("#click,#pw_reg_error").css("display","none");
 		var empty = emptyOk();
 		var select =selectempty();
-
 		if($("input[name='pw']").val()!= $("#pw_ok").val()){
 			$("#okPw").css("display","none");
 			$("#noPw").css("display","inline");	
 			return false;
 		}
 		if(id_check==-1){
-			$("#click").css("display","inline");
+			alert("아이디 중복을 확인해주세요");
+			return false;
+		}
+		if(not_email==-1){
+			alert("이메일 중복을 확인해주세요");
 			return false;
 		}
 		if(no_pw==-1){
@@ -173,6 +197,16 @@
 		}
 	
 	})	
+	
+	
+	/*비밀번호 안내문*/
+	$("#pw_import").hover(function() {
+		var left = $(this).offset().left+30;
+		var top = $(this).offset().top+3;
+		$("#pw_info").css({"display":"block","left":left,"top":top});
+	}, function() {
+	 	$("#pw_info").css("display","none"); 
+	}) 
 
 	})
 	

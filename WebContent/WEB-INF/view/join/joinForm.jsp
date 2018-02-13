@@ -16,26 +16,103 @@
 		$(document).on("mouseover","#addr_content ul", function(){
 			$(this).css({"background-color":"black","opacity":"0.5"});
 		});
-		
+		$("#addr_img > img").click(function(){
+			$("#addr_box").css("display","none");
+			$("#addr_bg").css("display","none");
+		})
 	})
+
 </script>
 <style>
-.error,#id_error2,#click,#pw_reg_error,#id_rule_error{
+#addr_box{
+	z-index: 10000;
+	width:600px;
+	height:300px;
+	border:4px solid #9B7F5B;
+	overflow-y:auto; 
+	position: absolute;
+	left:30%;
+	top:40%;
 	display:none;
-	font-size: 12px;
-	color:red;
+	background-color: white;
 }
-#okPw,#id_error,#pw_reg{
-	display:none;
-	font-size: 12px;
-	color:green;
+#addr_title{
+	height:40px;
+	line-height:40px;
+	background-color:#9B7F5B;
+	color:white;
+	position: relative;
+	padding:0 5px;
 }
-#pw_import{
-	cursor:pointer;
-	margin-top:13px;
-	line-height:30px;
-	display: inline;
+#addr_title h1{
+	float: left;
+	width:120px;
+	margin-left:5px;
+	font-size: 1.2em;
+	font-weight: bold;
 }
+#addr_img{
+	position: absolute;
+	top:0px;
+	right:35px;
+}
+#addr_img > img{
+	display:block;
+	width:26px;
+	height:26px;
+	margin: 4px;
+	cursor: pointer;
+}
+
+
+#addr_title input{
+	height:30px;
+	line-height: 30px;
+	width:280px;
+}
+#search_addr{
+	background-color:#3e2b2c;
+	width:90px;
+	border:1px solid #F1EBD6;
+	color: #F1EBD6;
+	height:40px;
+	line-height: 40px;
+}
+#addr_title+div{
+	width:100%;
+
+	overflow: hidden;
+}
+#addr_title+div ul{
+	width:100%;
+	list-style: none;
+		height:30px;
+	line-height: 30px;
+}
+#addr_title+div ul li{
+	float:left;
+}
+
+#addr_title+div ul li:FIRST-CHILD {
+	border-right:1px solid black;
+	width:30%;
+}
+#addr_title+div ul li:LAST-CHILD{
+	width:69%;
+}
+#addr_content ul{
+	list-style: none;
+	height:30px;
+	line-height: 30px;
+	overflow: hidden;
+}
+#addr_content ul li{
+	float: left;
+}
+#addr_content ul li:FIRST-CHILD{
+	width:30%;
+}
+
 </style>
 </head>
 <body>
@@ -72,10 +149,10 @@
 							<p>
 								<label><span class="star">*</span>성명(영문)</label>
 								<span class="ename">First name(이름)</span>
-								<input type="text" name="nameEn1" style="ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');" class="import">
+								<input type="text" name="nameEn1" style="text-transform:uppercase; ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');" class="import">
 								<img src="img/join/x.png">
 								<span class="ename">Last name(성)</span>
-								<input type="text" name="nameEn2" style="ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');" class="import">
+								<input type="text" name="nameEn2" style="text-transform:uppercase; ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');" class="import">
 								<img src="img/join/x.png">
 								<span class="error">성명(영문) 입력(*필수)</span>
 							</p>
@@ -97,9 +174,9 @@
 							
 								<p>
 								<label><span class="star">*</span>이메일</label>
-								<input type="text" name="email1" class="import"><img src="img/join/x.png">
+								<input type="text" name="email1" id="email1" class="import"><img src="img/join/x.png">
 								@
-								<input type="text" name="email2" class="import"><img src="img/join/x.png">
+								<input type="text" name="email2" id="email2" class="import"><img src="img/join/x.png">
 								<span id="email_select">
 									<select id="sel_email">
 										<option value="">직접입력</option>
@@ -120,6 +197,8 @@
 								</span>
 								<button type="button" id="email_btn">이메일 중복확인</button>
 									<span class="error">이메일 입력</span>
+									<span id="email_duplicate">사용가능</span>
+									<span id="email_duplicate_error">사용불가(중복)</span>
 							</p>
 							<p>
 								<label><span class="star">*</span>휴대전화</label>
@@ -182,7 +261,7 @@
 								<label>주소</label>
 								<input type="text" name="addr1" disabled="disabled"><button type="button" id="addr_btn">주소찾기</button><br>
 								<input type="text" name="addr2" disabled="disabled"><br>
-								<input type="text" name="addr3" disabled="disabled">
+								<input type="text" name="addr3" disabled="disabled" placeholder="상세주소">
 							</p>
 							
 						</div>
@@ -207,8 +286,8 @@
 						<p>
 								<label><span class="star">*</span>비밀번호</label>
 								<input type="password" name="pw" class="import"><img src="img/join/x.png">
-								<span id="pw_info">8~20자 이내 영문/숫자 조합</span>
-									<img src="/Project_JSP/img/join/important.gif" id="pw_import">
+								<!-- <span id="pw_info">8~20자 이내 영문/숫자 조합</span> -->
+									<img src="/Project_JSP/img/join/important.gif" id="pw_import">		
 								<span class="error">비밀번호를 입력하세요(*필수)</span>
 								<span id="pw_reg">사용가능한 비밀번호입니다</span>
 								<span id="pw_reg_error">사용불가한 비밀번호입니다</span>
@@ -227,8 +306,14 @@
 		</div>
 		
 			<div id="addr_box">
-				<div id="addr_title">
-					<h1>주소 검색</h1>
+			<div id="addr_title">
+				<h1>주소 찾기</h1>
+				<div id='addr_img'>
+					<img src="/Project_JSP/img/join/x-button.png">
+				</div>
+			</div>
+				
+				<div id="addr_input">
 					<input type="text" id="doro" placeholder="도로명 입력">
 					<button id="search_addr">검색</button>
 				</div>
@@ -242,7 +327,12 @@
 				</div>
 			</div>
 	</section>
-
+	<div id="pw_info">
+		<p>비밀번호는 8~20자 이내여야 합니다</p>
+		<p>최소한 한번의 대,소문자,숫자,특수기호가 모두 들어가야합니다</p>
+		<p>특수기호는 '@!%*?&'만 허용됩니다</p>
+		<p>동일한 숫자를 4번 이상 사용할 수 없습니다</p>
+	</div>
 	<jsp:include page="/WEB-INF/common/footer.jsp"/>
 
 </body>

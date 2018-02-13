@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+#member_info{
+	font-size: 13px;
+	margin-top: 10px;
+}
+#member_info li{
+	line-height: 20px;
+	color:#C2AA85;
+}
+#question{
+	border: none !important;
+}

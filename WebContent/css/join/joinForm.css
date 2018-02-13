@@ -238,94 +238,33 @@ input[type='submit']{
 	opacity:0.5; 
 	
 }
-#addr_box{
-	z-index: 10000;
-	width:600px;
-	height:300px;
-	border:1px solid #3e2b2c;
-	overflow-y:auto; 
-	position: absolute;
-	left:30%;
-	top:40%;
-	display:none;
-	background-color: white;
-	
-	
-}
-#addr_title{
-	overflow: hidden;
-	height:80px;
-	line-height:80px;
-	padding:0px 20px;
-	background-color:#FAF9F4;
-}
-#addr_title h1{
-	float: left;
-	width:120px;
-	margin-left:20px;
-	font-size: 1.2em;
-}
-#addr_title input{
-	height:30px;
-	line-height: 30px;
-	width:280px;
-}
-#search_addr{
-	background-color:#3e2b2c;
-	width:90px;
-	border:1px solid #F1EBD6;
-	color: #F1EBD6;
-	height:40px;
-	line-height: 40px;
-}
-#addr_title+div{
-	width:100%;
 
-	overflow: hidden;
-}
-#addr_title+div ul{
-	width:100%;
-	list-style: none;
-		height:30px;
-	line-height: 30px;
-}
-#addr_title+div ul li{
-	float:left;
-}
-
-#addr_title+div ul li:FIRST-CHILD {
-	border-right:1px solid black;
-	width:30%;
-}
-#addr_title+div ul li:LAST-CHILD{
-	width:69%;
-}
-#addr_content ul{
-	list-style: none;
-	height:30px;
-	line-height: 30px;
-	overflow: hidden;
-}
-#addr_content ul li{
-	float: left;
-}
-#addr_content ul li:FIRST-CHILD{
-	width:30%;
-}
-#id_box{
-	display: none;
- 	z-index: 10000; 
-	overflow-y:auto; 
-	position: absolute;
-	left:30%;
-	top:40%;
-	width:600px;
-	background-color: white;
-}
-#use_btn{
+.error,#id_error2,#click,#pw_reg_error,#id_rule_error,#email_check_error,#email_duplicate_error{
 	display:none;
-}
-.error{
-	font-size: 10px;
+	font-size: 12px;
 	color:red;
+}
+#okPw,#id_error,#pw_reg,#email_duplicate{
+	display:none;
+	font-size: 12px;
+	color:green;
+}
+/*비밀번호 안내*/
+#pw_info{
+	display:none; 
+	position: absolute;
+	width:430px;
+	height:100px;
+	background-color: white;
+	border:1px solid #a0886e;
+}
+#pw_info p{
+	font-size: 14px;
+	padding:5px;
+}
+#pw_import{
+	cursor:pointer;
+	margin:15px 3px;
+	line-height:30px;
+	 display: inline; 
 }

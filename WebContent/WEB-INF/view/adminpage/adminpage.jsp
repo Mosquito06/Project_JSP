@@ -33,7 +33,7 @@
 						
 					<div id="wrap_admin_btn">
 						<a href="${pageContext.request.contextPath}/adminUser.do" class="admin">회원관리</a>
-						<a href="${pageContext.request.contextPath}/adminReservation.do" class="admin">예약관리</a>
+						<a href="${pageContext.request.contextPath}/adminReservation.do?set=0" class="admin">예약관리</a>
 						<a href="${pageContext.request.contextPath}/adminRoom.do" class="admin">객실관리</a>
 						<a href="${pageContext.request.contextPath}/adminQnA.do" class="admin">문의관리</a>
 						<a href="#" class="admin">이벤트관리</a>
