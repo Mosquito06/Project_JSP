@@ -95,7 +95,7 @@ $(function(){
 	})
 	
 	$("#rightBtns img:eq(0)").click(function(){
-		alert("비회원");
+		location.href = "step3.do";
 	})
 	
 	$("#rightBtns img:eq(1)").click(function(){

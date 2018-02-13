@@ -43,17 +43,16 @@
 								<th>이미지경로</th>
 								<th>예약이미지경로</th>
 							</tr>
-							<c:forEach items="${client}" var="item">
+							<c:forEach items="${roomInfo}" var="item">
 								<tr>
-									<td>${item.clientNum}</td>
-									<td>${item.id}</td>
-									<td>${item.nameKo}</td>
-									<td>${item.nameEn}</td>
-									<td>${item.birth}</td>
-									<td>${item.email}</td>
-									<td>${item.phone}</td>
-									<td>${item.home}</td>
-		
+									<td>${item.roomInfoNum}</td>
+									<td>${item.roomInfoName}</td>
+									<td>${item.roomGrade}</td>
+									<td>${item.viewType}</td>
+									<td>${item.bedType}</td>
+									<td>${item.roomSize}</td>
+									<td>${item.roomImg}</td>
+									<td>${item.reservationImg}</td>
 								</tr>
 							</c:forEach>
 						</table>
