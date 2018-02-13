@@ -173,7 +173,6 @@
 		$("#click,#pw_reg_error").css("display","none");
 		var empty = emptyOk();
 		var select =selectempty();
-		alert(id_check);
 		if($("input[name='pw']").val()!= $("#pw_ok").val()){
 			$("#okPw").css("display","none");
 			$("#noPw").css("display","inline");	

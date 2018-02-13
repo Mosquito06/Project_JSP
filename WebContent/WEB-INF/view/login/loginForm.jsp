@@ -21,7 +21,7 @@
 			<h2 >로그인</h2>
 		</div>
 		<div id="info">
-			<h2>신라호텔에 오신 것을 환영합니다.</h2>
+			<h2>신라리워즈에 오신 것을 환영합니다.</h2>
 			<h3>아이디와 비밀번호를 입력해주시기 바랍니다.</h3>
 			<h4>※신라호텔의 회원이되시면 회원만을 위한 다양한 서비스와 혜택을 받으실 수 있습니다.</h4>
 		</div>
@@ -29,38 +29,36 @@
 		
 		<fieldset>
 		
-			<form action="login.do" method="post">
+			<form action="login.do" method="post" id="member_form">
 				<c:if test="${noMember ==null && admin==null}">
 					<input type="radio" name="clientGrade" value="MEMBER" id="mem" checked="checked">회원
 				<input type="radio" name="clientGrade" value="NONMEMBER" id="no">비회원(예약번호)
-				<input type="radio" name="clientGrade" value="ADMIN" id="admin">관리자
+				<input type="radio" name="clientGrade" value="ADMIN" id="ad">관리자
 				</c:if>
 				<c:if test="${noMember !=null }">
 					<input type="radio" name="clientGrade" value="MEMBER" id="mem" >회원
 				<input type="radio" name="clientGrade" value="NONMEMBER" id="no" checked="checked">비회원(예약번호)
-				<input type="radio" name="clientGrade" value="ADMIN" id="admin">관리자
+				<input type="radio" name="clientGrade" value="ADMIN" id="ad">관리자
 				</c:if>
 				<c:if test="${admin !=null }">
 				<input type="radio" name="clientGrade" value="MEMBER" id="mem" >회원
 				<input type="radio" name="clientGrade" value="NONMEMBER" id="no">비회원(예약번호)
-				<input type="radio" name="clientGrade" value="ADMIN" id="admin"  checked="checked">관리자
+				<input type="radio" name="clientGrade" value="ADMIN" id="ad"  checked="checked">관리자
 				</c:if>
 				<br><br>
 			
 				<div id="member">
 						<div class="login">
 							<p>
-								<label>아이디 </label>
 								<input type="text" placeholder="아이디 " name="id">
 							</p>
 							<p>	
-								<label>비밀번호</label>
 								<input type="password" placeholder="비밀번호" name="pw">
 								<c:if test="${error3 !=null }">
 								<br><span class="error1">${error3 }</span>	
 							</c:if>
 							</p>
-								<input type="submit" value="로그인">
+								<a href="#" id="member_btn"><img src="/Project_JSP/img/login/login.gif"></a>
 							</div>	
 							<c:if test="${error1 !=null }">
 								<span class="error">${error1 }</span><br>
@@ -69,22 +67,20 @@
 						<br>
 						
 							<input type="hidden" name="clientGrade" value="MEMBER">
-							<a href="join.do"><button type="button" id="join">회원가입</button></a>
+							<a href="join.do"><button type="button" id="join">신라리워즈 가입</button></a>
 							<a href=""><button type="button" id="searchId">아이디 찾기</button></a>
 							<a href=""><button type="button" id="searchPw">비밀번호 찾기</button></a>
 					</div>
 					 
 			</form>
 				
-			<form action="login.do" method="post">
+			<form action="login.do" method="post" id="no_member_form">
 				<div id="no_member">
 							<div class="login">
 								<p>
-									<label>예약번호</label>
 									<input type="text" placeholder="예약번호" name="id">
 								</p>
 								<p>	
-									<label>성명</label>
 									<input type="text" placeholder="FIRST NAME(이름)" name="name2" style="text-transform:uppercase; ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');">
 									<input type="text" placeholder="LAST NAME(성)" name="name1" style="text-transform:uppercase; ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');">
 									<c:if test="${error4 !=null }">
@@ -92,7 +88,7 @@
 									</c:if>
 								</p>
 									<input type="hidden" value="NONMEMBER" name="clientGrade">
-									<input type="submit" value="로그인">
+									<a href="#"  id="nomember_btn"><img src="/Project_JSP/img/login/login.gif"></a>
 							</div>	
 							<c:if test="${error2 !=null }">
 								<span class="error">${error2 }</span>	
@@ -100,24 +96,29 @@
 					</div> 
 			</form>
 			
-			<form action="login.do" method="post">
+			<form id="admin_form" action="login.do" method="post">
 				<div id="admin">
 					<div class="login">
 						<p>
-							<label>관리자아이디</label>
 							<input type="text" placeholder="관리자 아이디" name="id">
 						</p>
 						<p>
-							<label>비밀번호</label>
 							<input type="password" placeholder="관리자 비밀번호" name="pw">
+							<c:if test="${error6 !=null }">
+										<br><span class="error1">${error6 }</span>
+									</c:if>
 						</p>
-						<input type="submit" value="관리자">
+						<input type="hidden" value="ADMIN" name="clientGrade">
+						<a href="#" id="admin_btn"><img src="/Project_JSP/img/login/login.gif"></a>
+						<c:if test="${error5 !=null }">
+										<br><span class="error">${error5 }</span>
+									</c:if>
 					</div>
 				</div>
 			</form>
 		</fieldset>
 		<div id="info2">
-			이메일, 연락처 등의 정보가 변경되면 웹 사이트(마이페이지)에서 회원정보를 수정해주시기 바랍니다.
+			이메일, 연락처 등의 정보가 변경되면 웹 사이트(마이페이지)에서 회원정보를 수정해주시기 바랍니다
 		</div>
 	</div>
 	</section>

@@ -14,24 +14,28 @@ public class LoginHandler implements CommandHandler {
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		if(req.getMethod().equalsIgnoreCase("get")){
 			req.removeAttribute("noMember");
+			req.removeAttribute("admin");
 			return LOGIN_VIEW;
 		}else if(req.getMethod().equalsIgnoreCase("post")){
-		
 			String id = req.getParameter("id");
-			String pw = req.getParameter("pw");
 			String clientGrade = req.getParameter("clientGrade");
+
 			/*String name = req.getParameter("name1").toUpperCase() + req.getParameter("name2").toUpperCase();*/
+
 			
 			Client client = new Client();
 			client.setId(id);
 		
 			if(clientGrade.equals("MEMBER")){
+				String pw = req.getParameter("pw");
 				client.setClientGrade(ClientGrade.MEMBER);
 				client.setPw(pw);
 			}else if(clientGrade.equals("NONMEMBER")){
+				String name = req.getParameter("name2").toUpperCase()+" "+req.getParameter("name1").toUpperCase();
 				client.setClientGrade(ClientGrade.NONMEMBER);
 				/*client.setNameEn(name);*/
 			}else if(clientGrade.equals("ADMIN")){
+				String pw = req.getParameter("pw");
 				client.setClientGrade(ClientGrade.ADMIN);
 				client.setPw(pw);
 			}
@@ -54,6 +58,7 @@ public class LoginHandler implements CommandHandler {
 						req.setAttribute("error3", "*비밀번호를 확인해주세요");
 						return LOGIN_VIEW;
 					}
+				
 					 req.getSession().setAttribute("MEMBER", cPw);
 					 req.getSession().removeAttribute("NONMEMBER");
 					 req.getSession().removeAttribute("ADMIN");
@@ -80,6 +85,7 @@ public class LoginHandler implements CommandHandler {
 						req.setAttribute("error4", "*이름을 확인해주세요");
 						return LOGIN_VIEW;
 					}
+					
 					req.getSession().setAttribute("NONMEMBER", cName);
 					req.getSession().removeAttribute("MEMBER");
 					req.getSession().removeAttribute("ADMIN");
@@ -95,12 +101,12 @@ public class LoginHandler implements CommandHandler {
 				
 				Client cId = service.selectClientId(client);
 				if(cId==null){
-					req.setAttribute("error2", "*관리자가 아닙니다");
+					req.setAttribute("error5", "*관리자가 아닙니다");
 					return LOGIN_VIEW;
 				}else{
 					Client aPw = service.selectClientPw(client);
 					if(aPw==null){
-						req.setAttribute("error4", "*비밀번호를 확인해주세요");
+						req.setAttribute("error6", "*비밀번호를 확인해주세요");
 						return LOGIN_VIEW;
 					}
 					

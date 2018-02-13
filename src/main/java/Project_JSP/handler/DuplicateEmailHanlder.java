@@ -23,7 +23,6 @@ public class DuplicateEmailHanlder implements CommandHandler {
 		String email1 = req.getParameter("email1");
 		String email2 = req.getParameter("email2");
 		String email = email1+"@"+email2;
-		System.out.println(email);
 		client.setEmail(email);
 		client.setClientGrade(ClientGrade.MEMBER);
 		Client c = service.selectClientEmail(client);

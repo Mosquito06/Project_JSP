@@ -10,9 +10,9 @@
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
 <link rel="stylesheet" type="text/css" href="css/reservation/Loading.css">
-<link rel="stylesheet" type="text/css" href="css/reservation/step2.css?b=dsd">
+<link rel="stylesheet" type="text/css" href="css/reservation/step2.css?b=ddsd">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript" src="js/reservation/step2.js?a=d"></script>
+<script type="text/javascript" src="js/reservation/step2.js?a=ddd"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
 <script type="text/javascript" src="js/reservation/Loading.js"></script>
 </head>
@@ -127,7 +127,9 @@
 							</div>
 							<div id="rightBtns">
 								<img src="/Project_JSP/img/reservation/nonUserReserv.gif">
-								<img src="/Project_JSP/img/reservation/userReserv.gif">
+								<c:if test="${sessionScope.MEMBER == null }">
+									<img src="/Project_JSP/img/reservation/userReserv.gif">
+								</c:if>
 							</div>
 						</div>
 						
@@ -206,15 +208,15 @@
 				</div>
 				
 				<div id="login">
-					<form accept="" method="post">
+					<form action="/Project_JSP/login.do" method="post">
 						<div id="loginTextDiv">
 							<span id="loginText">로그인</span>
 							<span id="closeLogin"><img src="/Project_JSP/img/reservation/close.gif"></span>
 						</div>
 						<div id="loginDiv">
-							<input type="radio" checked="checked"> 회원  <br>
+							<input type="radio" name="clientGrade" checked="checked"> 회원  <br>
 							<input type="text" name="id" placeholder="아이디를 입력하세요."><br>
-							<input type="text" name="pw" placeholder="비밀번호를 입력하세요."><br><br>
+							<input type="password" name="pw" placeholder="비밀번호를 입력하세요."><br><br>
 							<img src="/Project_JSP/img/reservation/login.gif"><br><br>
 							<input type="checkbox">아이디 저장
 						</div>
