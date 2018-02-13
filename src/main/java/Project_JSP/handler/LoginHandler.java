@@ -18,20 +18,21 @@ public class LoginHandler implements CommandHandler {
 			return LOGIN_VIEW;
 		}else if(req.getMethod().equalsIgnoreCase("post")){
 			String id = req.getParameter("id");
-			String pw = req.getParameter("pw");
 			String clientGrade = req.getParameter("clientGrade");
-			String name = req.getParameter("name2").toUpperCase()+" "+req.getParameter("name1").toUpperCase();
-		
+			
 			Client client = new Client();
 			client.setId(id);
 		
 			if(clientGrade.equals("MEMBER")){
+				String pw = req.getParameter("pw");
 				client.setClientGrade(ClientGrade.MEMBER);
 				client.setPw(pw);
 			}else if(clientGrade.equals("NONMEMBER")){
+				String name = req.getParameter("name2").toUpperCase()+" "+req.getParameter("name1").toUpperCase();
 				client.setClientGrade(ClientGrade.NONMEMBER);
 				client.setNameEn(name);
 			}else if(clientGrade.equals("ADMIN")){
+				String pw = req.getParameter("pw");
 				client.setClientGrade(ClientGrade.ADMIN);
 				client.setPw(pw);
 			}
