@@ -5,6 +5,9 @@
 			 		<h2 class="title">마이페이지</h2>
 			 		<ul class="leftMenu">
 			 			<li class="bMenu">
+			 				<a href="#" class="noBorder"><span>신라리워즈 등급</span></a>  
+			 			</li>
+			 			<li class="bMenu">
 			 				<a href="#" class="noBorder"><span>예약 확인/취소</span></a>  
 			 			</li>
 			 			<li class="bMenu">
@@ -16,7 +19,11 @@
 			 				</ul>  
 			 			</li>
 			 			<li class="bMenu" id="question">
-			 				<a href="#"><span>문의내역</span></a>  
+			 				<a href="#"><span>문의내역</span></a>
+			 				<ul id="member_info">
+			 					<li><a href="qna.do">문의하기</a></li>
+			 					<li><a href="#">문의내역 확인</a></li>
+			 				</ul>  
 			 			</li>
 			 			<li class="bMenu">
 			 				<a href="${pageContext.request.contextPath }/board/free_board.do" class="noBorder"><span>후기게시판</span></a>  

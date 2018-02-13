@@ -10,11 +10,15 @@ import Project_JSP.dto.ClientGrade;
 import Project_JSP.mvc.controller.CommandHandler;
 
 public class QnAHandler implements CommandHandler{
-
+	private static final String QNA_VIEW = "/WEB-INF/view/qna/qna_form.jsp";
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-	
-		return "/WEB-INF/view/qna/qna_form.jsp";
+		if(req.getMethod().equalsIgnoreCase("get")){
+			return QNA_VIEW;
+		}else if(req.getMethod().equalsIgnoreCase("post")){
+			return "index.jsp";
+		}
+		return null;
 	}
 
 }

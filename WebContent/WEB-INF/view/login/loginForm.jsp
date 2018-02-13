@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그인 | 신라호텔</title>
+<title>로그인 | The Shilla Hotel</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
 <link rel="stylesheet" type="text/css" href="css/login/loginForm.css">
@@ -19,6 +19,10 @@
 		<div id="loginForm_wrap">
 		<div id="loginForm_title">
 			<h2 >로그인</h2>
+					<div id="wrap_home">
+							<img src="${pageContext.request.contextPath}/img/common/locaton.gif" id="home"> > <span
+								id="board">로그인</span>
+						</div>
 		</div>
 		<div id="info">
 			<h2>신라리워즈에 오신 것을 환영합니다.</h2>

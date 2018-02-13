@@ -5,12 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>고객의견접수 | The Shilla Hotel</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/common/reset.css">
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/common/common.css?ver=1">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/adminpage/write_board.css?v=2">
+	href="${pageContext.request.contextPath}/css/qna/qnaboard.css?v=2">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common/common.js"></script>
 <script type="text/javascript">
@@ -21,14 +21,23 @@
 			}else{
 				$("#com").val("");
 			}
-			
-		
 		})
-	
 		
-		
+		$("#submit").click(function(){
+			$("input").each(function(j,obj){
+				if($(this).val()==""){
+					alert("필수항목을 작성해주세요");
+					return false;
+				}else{
+					("#f").submit();
+				}
+			})
+		})
 	})
 </script>
+<style>
+	
+</style>
 </head>
 <body>
 	<div>
@@ -50,7 +59,7 @@
 
 					</div>
 
-					<form action="write_board.do" method="post" id="f">
+					<form action="qna.do" method="post" id="f">
 						
 						<table id="wrap_form">
 							<tr>
@@ -91,18 +100,33 @@
 									<script>
 										var email ="${MEMBER.email}";
 										var email1 = email.substring(0, email.indexOf("@"));
-										alert(email1);
+										var email2 = email.substring(email.indexOf("@")+1);
 											$("input[name='email1']").val(email1);
+											$("input[name='email2']").val(email2);
+											$("select[name='email3']").attr("disabled","disabled");
 									</script>
 								</c:if>
 							</tr>
 							<tr>
 								<th><span class="dot">*</span>휴대전화</th>
 								<td><input type="tel" name="tell"></td>
+								<c:if test="${MEMBER !=null }">
+									<script>
+										$("input[name='tell']").val("${MEMBER.phone}");
+									</script>
+								</c:if>
 							</tr>
-							
+							<tr>
+								<th>첨부이미지</th>
+								<td>
+								<input type="file" name="filePath"><br>
+									<span>*추가적으로 첨부할 이미지가 있으면 첨부해주세요</span>
+								</td>
+							</tr>
 						</table>
-						<div id="wrap_agree">
+						
+						<c:if test="${MEMBER == null }">
+										<div id="wrap_agree">
 							<h3>필수적 개인정보 수집 및 이용에 대한 동의</h3>
 							<textarea rows="4" cols="">신라호텔 고객의 문의 및 의견과 관련하여 귀사가 아래와 같이 본인의 개인정보를 수집 및 이용하는데 동의합니다.
 
@@ -116,6 +140,8 @@
 							</div>
 							
 						</div>
+						</c:if>
+			
 						<div id="wrap_sub_btn">
 							<input type="submit" value="등록" id="submit">
 						</div>

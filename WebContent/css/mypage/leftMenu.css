@@ -4,9 +4,12 @@
 	margin-top: 10px;
 }
 #member_info li{
-	line-height: 20px;
-	color:#C2AA85;
+	line-height: 24px;
 }
+#member_info li a{
+	color:#816440;
+}
+
 #question{
 	border: none !important;
 }
