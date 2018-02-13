@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE>
 <html>
 <head>
@@ -46,18 +47,27 @@
 								<th>대여상태</th>
 								<th>고객요청</th>
 							</tr>
-							<c:forEach items="${client}" var="item">
+							<c:forEach items="${reserve}" var="item">
 								<tr>
-									<td>${item.clientNum}</td>
-									<td>${item.id}</td>
-									<td>${item.nameKo}</td>
-									<td>${item.nameEn}</td>
-									<td>${item.birth}</td>
-									<td>${item.email}</td>
-									<td>${item.phone}</td>
-									<td>${item.home}</td>
-									<td>${item.address}</td>
-									<td>${item.clientGrade}</td>
+									<td>${item.reservationNum}</td>
+									<td>${item.clientNum.clientNum}</td>
+									<td>${item.roomNum.roomNum}</td>
+									<td><fmt:formatDate value="${item.checkIn}" pattern="yyyy.MM.dd"/></td>
+									<td><fmt:formatDate value="${item.checkOut}" pattern="yyyy.MM.dd"/></td>
+									<td>${item.totalPrice}</td>
+									<td>${item.personnel}</td>
+									<td>${item.optionPrice}</td>
+									<td><fmt:formatDate value="${item.payDate}" pattern="yyyy.MM.dd"/></td>
+									<td>${item.state}</td>
+									<td>
+										<c:if test="${item.clientReq !=null}">
+											O
+										</c:if>
+										<c:if test="${item.clientReq ==''}">
+											X
+										</c:if>
+									
+									</td>
 								</tr>
 							</c:forEach>
 						</table>
