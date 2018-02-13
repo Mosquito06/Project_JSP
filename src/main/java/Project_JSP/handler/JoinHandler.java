@@ -24,7 +24,7 @@ public class JoinHandler implements CommandHandler {
 			
 			
 			String nameKo = req.getParameter("nameKo");
-			String nameEn = req.getParameter("nameEn2").toUpperCase()+req.getParameter("nameEn1").toUpperCase();
+			String nameEn = req.getParameter("nameEn2").toUpperCase()+" "+req.getParameter("nameEn1").toUpperCase();
 			Date  birth= new Date(year,month,date);
 			String email = req.getParameter("email1")+"@"+req.getParameter("email2");
 			String phone = req.getParameter("p1")+"-"+req.getParameter("p2")+"-"+req.getParameter("p3");
