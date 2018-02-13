@@ -1,0 +1,186 @@
+@CHARSET "UTF-8";
+section{
+	padding: 0;
+}
+/*메인 비쥬얼*/
+#visualWrap{
+	width: 100%;
+	height: 600px;
+	position: relative;
+}
+
+.mainVisual{
+	width: 100%;
+	height: 600px;
+}
+
+
+.visContent{
+	width: 1200px;
+	height: 600px;
+	position: absolute;
+	top:0px;
+	left:50%;
+	margin-left:-600px;
+	z-index: 9998;
+}
+.mVisBtn{
+	display:block;
+	text-indent:-9999px; 
+	width:23px;
+	height:37px;
+	background:url("/Project_JSP/img/main/icoSlideNav.png");
+	position:absolute;
+	top:50%;
+	margin-top: -18.5px; 
+}
+
+.next{
+	right: 0px;
+	background-position-x:23px;
+}
+
+/*메인 예약검색*/
+.reserveWrap{
+	position: absolute;
+	background: #ececec;
+	padding:13px 30px;
+	bottom:30px;
+	left:0px;
+}
+
+ul.selList{
+	margin-top:3.5px;
+	float: left;
+}
+ul.selList>li{
+	color:#444444;
+	font-weight:bold;
+	font-size:17px;
+	float: left;
+	position: relative;
+	border-left: 1px solid #a9a9a9;	
+}
+
+.selectAll{
+	display: none;
+}
+/* 셀렉트 스타일 */
+ul.rsSelect{
+	position: absolute;
+	width: 120.98px;
+	min-height: 100px;
+	top:-148px; 
+	background: #fff;
+	padding: 5.505px;
+	display: none;
+}  
+ul.rsSelect>li:HOVER{
+	background-color: #f1ebd6;
+}
+ul.rsSelect>li{ 
+	padding-left: 11px;
+}
+ul.rsSelect>li>a{
+	display:block;
+	width: 114px;
+	height: 30px; 
+	line-height:30px;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.arr{
+	display:inline-block;
+	width:15px;
+	height: 18px;
+	float:right;
+	background: url("/Project_JSP/img/main/bg_jsSelect.gif");
+}
+
+.hotelLi{
+	width: 185px;
+	height: 18px;
+	padding: 10px 10px 9px 14px;
+	
+}
+
+#ckin,#ckout,.rsBox{
+	width: 96.989px;
+	height: 18px;
+	padding: 10px 10px 9px 14px;
+	background: rgba(0,0,0,0);
+	border: none;
+	cursor: pointer;
+}
+.rsBox{
+	margin-right: 10px;
+}
+
+ul.selList>li:last-child .rsBox{
+	margin-right: 0px;
+}
+#ckin::placeholder,#ckout::placeholder {
+	color:#444444;
+	font-weight:bold;
+	font-size:17px;
+}
+.btnCal{
+	display:inline-block;
+	width:23.991px;
+	height: 20px;
+	margin-top:8.5px;
+	margin-right:20px;
+	float:right;
+	background: url("/Project_JSP/img/main/icoCal.png");
+}
+.wranMsg{
+	float: left;
+	
+}
+.wranMsgInner{
+	display: none;	
+}
+
+.wranIcon{
+	display:inline-block;
+	width:16px;
+	height: 16px;
+	margin-top:14px; 
+	margin-right:46.1px;
+	float:right;
+	background: url("/Project_JSP/img/main/icoWarn.png");
+}
+
+.resBtn{
+	text-indent:-9999px;
+	display:block;
+	width:150px;
+	height:44px;
+	float:left;
+	background: url("/Project_JSP/img/main/btnSrch.gif");
+}
+
+#start-calendar,#end-calendar{
+	width:298px;
+	display: none;
+	position: absolute;	
+	top: -336px;
+	left: -7px;
+}
+ 
+.resActive{ 
+	position: absolute;
+	bottom: 0px;
+	height: 5px;
+	width: 150px;
+	background: #81725f;	
+	display: none;
+}
+
+#start-calendar table,#end-calendar table{
+	box-shadow:none;
+}
+
+
+

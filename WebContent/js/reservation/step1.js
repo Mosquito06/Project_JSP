@@ -20,7 +20,7 @@ $(function(){
 				dataType : "json",
 				success : function(data){
 					stopLoading($parent);
-					$("section").removeClass("backSetting");
+					$("section").removeClass("backSetting"); 
 					
 					// console.log(data);
 
@@ -146,8 +146,8 @@ $(function(){
 					break;
 				}
 			}
-			
-			if(checked == false){
+			 
+			if(checked == false){ 
 				alert("객실 타입을 먼저 선택해주세요.");
 			}else{
 				var adultNum = $("#adultNum").text();
@@ -179,7 +179,7 @@ $(function(){
 			var selectText = $(this).parents(".selectType").find(".selectText").text();
 			var adultNum = Number($("#adultNum").text());
 			var KidNum = Number($("#kidNum").text());
-			var babyNum = Number($("#babyNum").text());
+			var babyNum = Number($("#babyNum").text()); 
 			
 			if(imgPath.indexOf("selectPlus") > 0 && selectText == "성인"){
 				adultNum++;
@@ -316,9 +316,9 @@ $(function(){
 			
 			if(date.getFullYear() < sYear || Number(month[date.getMonth()]) < sMonth || date.getDate() < sDay){
 				alert("체크인 날짜보다 이전 날짜를 선택할 수 없습니다.");
-				return;
-			}
-						
+				return; 
+			} 
+			
 			$("#eYear").text(date.getFullYear());
 			$("#eMonth").text(month[date.getMonth()]);
 			var date = date.getDate();

@@ -20,10 +20,10 @@
 			var mySlider =  $('.slider').bxSlider({
 		    	pager : false,
 		    	controls : false,
-		    	minSlides: 3,
 		    	maxSlides: 3,
+		    	moveSlides: 1,
 		    	auto : true,
-		    	pause : 3000
+		    	pause : 3000 
 		    });
 		    
 		    $(".prev").click(function(e){
@@ -84,6 +84,9 @@
 					<a href="#" class="next sBtn">></a>
 					<div class="slider">
 					<c:forEach var="item" items="${list}">
+						<script>
+							console.log("${item}");
+						</script>
 						<div class="slideWrap">
 							<div class="imgBox">
 								<a href="${pageContext.request.contextPath}/event/eventread.do?no=${item.eventNum}"	class="smTitle">
