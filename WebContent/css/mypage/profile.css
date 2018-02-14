@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+#wrap_title{
+		margin-bottom: 20px;
+	}
+#profile{
+	background:#D3C09A url("../../img/mypage/BtnNext.png") no-repeat right;
+}

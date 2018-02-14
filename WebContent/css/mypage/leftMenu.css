@@ -8,8 +8,6 @@
 }
 #member_info li a{
 	color:#816440;
-}
-
-#question{
-	border: none !important;
+	display: block;
+	width:100%;
 }
