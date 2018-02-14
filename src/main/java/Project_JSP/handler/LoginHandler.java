@@ -20,9 +20,6 @@ public class LoginHandler implements CommandHandler {
 			String id = req.getParameter("id");
 			String clientGrade = req.getParameter("clientGrade");
 
-			/*String name = req.getParameter("name1").toUpperCase() + req.getParameter("name2").toUpperCase();*/
-
-			
 			Client client = new Client();
 			client.setId(id);
 		
@@ -31,9 +28,9 @@ public class LoginHandler implements CommandHandler {
 				client.setClientGrade(ClientGrade.MEMBER);
 				client.setPw(pw);
 			}else if(clientGrade.equals("NONMEMBER")){
-				String name = req.getParameter("name2").toUpperCase()+" "+req.getParameter("name1").toUpperCase();
+				String name = req.getParameter("name2")+" "+req.getParameter("name1");
 				client.setClientGrade(ClientGrade.NONMEMBER);
-				/*client.setNameEn(name);*/
+				client.setNameEn(name);
 			}else if(clientGrade.equals("ADMIN")){
 				String pw = req.getParameter("pw");
 				client.setClientGrade(ClientGrade.ADMIN);
