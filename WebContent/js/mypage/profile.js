@@ -5,7 +5,7 @@
 $(function(){
 	/*input에 포커스가 갔을때 border에 효과를 줌 */
 	$("input[type='password']").focusin(function() {
-		$(this).css("border","1px solid #b9b9b9");
+		$(this).css("border","1px solid #727272");
 	})
 	
 	$("input[type='password']").focusout(function() {

@@ -1,5 +1,6 @@
 package Project_JSP.handler;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,14 +19,18 @@ public class JoinHandler implements CommandHandler {
 			return JOIN_VIEW;
 		}else if(req.getMethod().equalsIgnoreCase("post")){
 			
-			int year = Integer.parseInt(req.getParameter("birth_y"));
-			int month =  Integer.parseInt(req.getParameter("birth_m"))-1;
-			int date = Integer.parseInt(req.getParameter("birth_d"));
+			String year = req.getParameter("birth_y");
+			String month =  req.getParameter("birth_m");
+			String date = req.getParameter("birth_d");
+			
+			String newDate = year+"-"+month+"-"+date;
+			
+			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 			
 			
 			String nameKo = req.getParameter("nameKo");
 			String nameEn = req.getParameter("nameEn2").toUpperCase()+" "+req.getParameter("nameEn1").toUpperCase();
-			Date  birth= new Date(year,month,date);
+			 Date birth = df.parse(newDate);
 			String email = req.getParameter("email1")+"@"+req.getParameter("email2");
 			String phone = req.getParameter("p1")+req.getParameter("p2")+req.getParameter("p3");
 			String home = req.getParameter("t1")+req.getParameter("t2")+req.getParameter("t3");
