@@ -17,4 +17,5 @@ public interface ClientDao {
 	public Client selectClientName(Client client);
 	public Client selectClientEmail(Client client);
 	public Client findClientId(Client client);
+	public void updateProfile(Client client);
 }

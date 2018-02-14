@@ -141,6 +141,17 @@ public class ClientDaoService implements ClientDao {
 		return null;
 	}
 
+	@Override
+	public void updateProfile(Client client) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			ClientDao dao = session.getMapper(ClientDao.class);
+			dao.updateProfile(client);
+			session.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 
 
 

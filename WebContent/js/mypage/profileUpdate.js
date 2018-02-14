@@ -41,7 +41,7 @@ $(function(){
 							}
 							
 						}
-						console.log(data);
+					
 					}
 		})
 	})
@@ -61,7 +61,23 @@ $(function(){
 			}else{
 				phone = phoneNum();
 				if(phone){
-					$("#update").submit();
+					$.ajax({
+						url:"profileUpdate.do",
+						type:"post",
+						data:{"id":$("#id").val(),
+							"email1":$("#email1").val(),
+							"email2":$("#email2").val(),
+							"phone":$("#phone").val(),
+							"home":$("#tel").val(),
+							"addr1":$("#addr1").val(),
+							"addr2":$("#addr2").val(),
+							"addr3":$("#addr3").val()
+						},
+						dataType:"json",
+						success:function(data){
+							console.log(data);
+						}
+					})
 					return false;
 				}else{
 					return false;

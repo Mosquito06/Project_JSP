@@ -88,22 +88,22 @@
 									</tr>
 									<tr class="bar">
 										<th>휴대전화</th>
-										<td><input type="text" name="phone" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');" class="import">
+										<td><input type="text" name="phone" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');" class="import" id="phone">
 											<p class="err">*휴대전화를 입력해주세요(필수항목)</p>
 										</td>
 									</tr>
 									<tr class="bar">
 										<th>자택번호</th>
 										<td>
-											<input type="text" name="home" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+											<input type="text" name="home" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');" id="tel">
 										</td>
 									</tr>
 									<tr>
 										<th>주소</th>
 										<td>
-											<input type="text" name="addr1"><a href="#" id="addressBtn"><img src="${pageContext.request.contextPath}/img/join/btnSchAddress.gif"></a><br>
-											<input type="text" name="addr2"><br>
-											<input type="text" name="addr3">
+											<input type="text" name="addr1" id="addr1"><a href="#" id="addressBtn"><img src="${pageContext.request.contextPath}/img/join/btnSchAddress.gif"></a><br>
+											<input type="text" name="addr2" id="addr2"><br>
+											<input type="text" name="addr3" id="addr3">
 										</td>
 									</tr>
 									
@@ -119,8 +119,8 @@
 										$("input[name='email2']").val(email2);
 									var address="${MEMBER.address}";
 									var zipcode = address.substring(0, address.indexOf("/"));
-									var address1 = address.substring(address.indexOf("/")-1,address.lastIndexOf("/"));
-									var address2 = address.substring(address.lastIndexOf("/")-1);
+									var address1 = address.substring(address.indexOf("/")+1,address.lastIndexOf("/"));
+									var address2 = address.substring(address.lastIndexOf("/")+1);
 									
 									$("input[name='addr1']").val(zipcode);
 									$("input[name='addr2']").val(address1);
