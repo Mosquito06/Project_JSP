@@ -14,7 +14,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="js/reservation/Loading.js"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
-<script type="text/javascript" src="js/reservation/step3.js?a=dd"></script>
+<script type="text/javascript" src="js/reservation/step3.js?a=ddd"></script>
 </head>
 <body>
 	<div id="container">
@@ -57,7 +57,7 @@
 										<option>휴대전화</option>
 										<option>자택</option>
 									</select>
-									<input type="text" id="tel" name="tel" value="${sessionScope.MEMBER.phone }">
+									<input type="number" id="tel" name="tel" value="${sessionScope.MEMBER.phone }">
 								</form>
 							</div>
 							<div id="clientRight">
@@ -73,8 +73,8 @@
 								</select><br>
 								
 								<label for="cardNum"><span class="redText">*</span>카드번호</label>
-								<input type="text" id="cardNum"> - <input type="text" id="cardNum"> 
-								- <input type="text" id="cardNum"> - <input type="text" id="cardNum"><br> 
+								<input type="number" id="cardNum"> - <input type="number" id="cardNum"> 
+								- <input type="number" id="cardNum"> - <input type="number" id="cardNum"><br> 
 								<label for="cardNum"><span class="redText">*</span>만기일</label>
 								<select>
 									<option>월</option>
@@ -225,7 +225,7 @@
 						</div>
 						<div>
 							<span class="rightTextColor">숙박일수</span>
-							<span class="rightText">${result.stay }</span>
+							<span class="rightText">${result.stay }박</span>
 						</div>
 						<div>
 							<span class="rightTextColor">투숙인원</span>
@@ -241,7 +241,7 @@
 						<span class="rightText">${result.roomInfo}</span><br><br>
 						<span class="rightText">${result.checkIn }</span>
 						<span class="rightPrice"><span id="basicPrice">${result.basicPrice }</span> 원</span><br>
-						<span class="rightPriceBold">${result.basicPrice } 원(${result.stay })</span>
+						<span class="rightPriceBold">${result.basicPrice*result.stay } 원(${result.stay }박)</span>
 						<img src="${result.roomImg }">
 					</div>
 					<div id="fiveDiv">
