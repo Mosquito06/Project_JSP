@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>STEP2 객실&패키지 선택</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
 <link rel="stylesheet" type="text/css" href="css/reservation/Loading.css">
@@ -126,10 +126,10 @@
 								<img src="/Project_JSP/img/reservation/backStep1.gif">
 							</div>
 							<div id="rightBtns">
+							<c:if test="${sessionScope.MEMBER == null }">
 								<img src="/Project_JSP/img/reservation/nonUserReserv.gif">
-								<c:if test="${sessionScope.MEMBER == null }">
-									<img src="/Project_JSP/img/reservation/userReserv.gif">
-								</c:if>
+							</c:if>
+								<img src="/Project_JSP/img/reservation/userReserv.gif">
 							</div>
 						</div>
 						
@@ -174,7 +174,7 @@
 						<span class="rightText">${result.roomGrade } ${result.roomName } / ${result.view } / ${result.bed }</span><br><br>
 						<span class="rightText">${result.sDate }</span>
 						<span class="rightPrice"><span id="basicPrice">${result.roomPrice }</span> 원</span><br>
-						<span class="rightPriceBold">${result.roomPrice } 원(${result.stayDay }박)</span>
+						<span class="rightPriceBold">${result.roomPrice*result.stayDay } 원(${result.stayDay }박)</span>
 						<img src="/Project_JSP/img/reservation/room${result.roomImg }">
 					</div>
 					<div id="fiveDiv">
@@ -208,7 +208,7 @@
 				</div>
 				
 				<div id="login">
-					<form action="/Project_JSP/login.do" method="post">
+					<form action="/Project_JSP/reservLogin.do" method="post">
 						<div id="loginTextDiv">
 							<span id="loginText">로그인</span>
 							<span id="closeLogin"><img src="/Project_JSP/img/reservation/close.gif"></span>

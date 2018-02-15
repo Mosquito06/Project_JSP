@@ -11,5 +11,14 @@ $(function(){
 		}
 	})
 	
+	// 예약 초기화 버튼
+	$("#resetSpan").click(function(){
+		location.replace("step1.do");
+
+	})
+	
+	// 필수입력 사항 입력여부 확인
+	
+	
 	
 })
