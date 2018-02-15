@@ -153,6 +153,9 @@ $(function(){
 					locationStep3();
 				}
 				
+				$("input[name='id']").val("");
+				$("input[name='pw']").val("");
+				
 			}
 		})
 	})	
@@ -181,7 +184,7 @@ $(function(){
 			}
 		}
 
-		var basicPrice = $(".rightPriceBold").text().split(" 원")[0];
+		var basicPrice = $("#basicPrice").text();
 		var finalPrice = $("#finalPrice").text().split(" 원")[0];
 		
 		location.href = "step3.do?checkIn=" + checkIn + "&checkOut=" +checkOut + "&stay=" +stay + "&stayNum=" +stayNum + "&roomInfo=" +roomInfo + "&Option=" +Option + 
