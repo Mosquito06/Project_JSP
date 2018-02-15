@@ -20,7 +20,7 @@ public class ReservationStep3Handler implements CommandHandler {
 		
 		String checkIn = req.getParameter("checkIn");
 		String checkOut = req.getParameter("checkOut");
-		String stay = req.getParameter("stay");
+		int stay = Integer.parseInt(req.getParameter("stay").split("박")[0]);
 		String stayNum = req.getParameter("stayNum");
 		String roomInfo = req.getParameter("roomInfo");
 		String bedType = roomInfo.split("/")[2];
