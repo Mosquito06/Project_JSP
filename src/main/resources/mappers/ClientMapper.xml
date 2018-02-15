@@ -46,11 +46,11 @@
 	</select>
 	
 	<select id="selectClientPw" parameterType="Client" resultMap="ClientResult">
-		select * from Client where password =password(#{pw})
+		select * from Client where password =password(#{pw}) and id=#{id} and client_grade =#{clientGrade}
 	</select>
 	
 	<select id="selectClientName" parameterType="Client" resultMap="ClientResult">
-		select * from Client where korean_name = #{nameKo} or english_name=#{nameEn}
+		select * from Client where english_name=#{nameEn} and id=#{id} and client_grade =#{clientGrade}
 	</select>
 	<select id="selectClientEmail" parameterType="Client" resultMap="ClientResult">
 		select * from Client where email =#{email} and client_grade = #{clientGrade}
@@ -61,6 +61,10 @@
 	
 	<update id="updateClient" parameterType="Client">
 	    update client set id=#{id},password=#{pw},korean_name=#{nameKo},english_name=#{nameEn},birth=#{birth},email=#{email},phone=#{phone},home=#{home},address=#{address},client_grade=#{clientGrade} where client_num = #{clientNum}
+	</update>
+	
+	<update id="updateProfile"  parameterType="Client">
+		update client set email=#{email},phone=#{phone},home=#{home},address=#{address} where id = #{id} and client_grade=#{clientGrade}
 	</update>
 	 
 	<delete id="deleteClient" parameterType="Client">

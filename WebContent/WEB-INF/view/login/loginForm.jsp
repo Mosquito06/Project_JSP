@@ -54,7 +54,7 @@
 				<div id="member">
 						<div class="login">
 							<p>
-								<input type="text" placeholder="아이디 " name="id">
+								<input type="text" placeholder="아이디 " name="id" style="ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'');">
 							</p>
 							<p>	
 								<input type="password" placeholder="비밀번호" name="pw">

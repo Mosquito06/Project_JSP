@@ -68,7 +68,7 @@
 					
 				$(obj).focus(function(){
 					$(this).css("border","1px solid #3e2b2c");
-					$("img").hide();
+					$("img").not("#pw_import").hide();
 					left = $(this).position().left;
 					top = $(this).position().top+5;
 					width =$(this).outerWidth()-25;

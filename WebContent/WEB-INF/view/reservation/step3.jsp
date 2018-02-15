@@ -1,3 +1,4 @@
+<%@page import="Project_JSP.dto.Client"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -5,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>STEP3 고객 정보 입력</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
 <link rel="stylesheet" type="text/css" href="css/reservation/Loading.css">
@@ -43,18 +44,20 @@
 								<span class="clientInfoBold">투숙자 정보 입력</span>							
 								<form>
 									<label for="name(kor)"><span class="redText">*</span>성명(한글)</label>
-									<input type="text" id="name(kor)" name="name"><br>
+									<input type="text" id="name(kor)" name="name" value="${sessionScope.MEMBER.nameKo }"><br>
 									<label for="name(eng)"><span class="redText">*</span>성명(영문)</label>
-									<input type="text" id="name(eng)" name="firstName" placeholder="FIRST NAME(이름)">
-									<input type="text" name="lastName" placeholder="LAST NAME(성)"><br>
+									<input type="text" id="name(eng)" name="firstName" placeholder="FIRST NAME(이름)"
+									 value="${sessionScope.MEMBER.nameEn.split(' ')[0] }">
+									<input type="text" name="lastName" placeholder="LAST NAME(성)"
+									 value="${sessionScope.MEMBER.nameEn.split(' ')[1] }"><br>
 									<label for="email"><span class="redText">*</span>이메일</label>
-									<input type="text" id="email" name="email"><br>
+									<input type="text" id="email" name="email" value="${sessionScope.MEMBER.email }"><br>
 									<label for="tel"><span class="redText">*</span>연락처</label>
 									<select>
 										<option>휴대전화</option>
 										<option>자택</option>
 									</select>
-									<input type="text" id="tel" name="tel">
+									<input type="text" id="tel" name="tel" value="${sessionScope.MEMBER.phone }">
 								</form>
 							</div>
 							<div id="clientRight">

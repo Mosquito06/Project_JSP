@@ -82,8 +82,8 @@
 							</tr>
 							<tr>
 								<th><span class="dot">*</span>이메일</th>
-								<td><input type="text" name="email1">
-								<span id="email_">@ </span><input type="text" name="email2" id="com">
+								<td><input type="text" name="email1" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'');">
+								<span id="email_">@ </span><input type="text" name="email2" id="com" onkeyup="this.value=this.value.replace(/[^a-zA-Z.]/g,'');">
 								<select name="email3" id="select_email">
 									<option>직접입력</option>
 									<option>naver.com</option>

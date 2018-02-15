@@ -1,16 +1,15 @@
 package Project_JSP.handler;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Project_JSP.dto.Client;
 import Project_JSP.dto.Option;
 import Project_JSP.mvc.controller.CommandHandler;
-import Project_JSP.service.OptionDaoService;
 
 public class ReservationStep3Handler implements CommandHandler {
 
@@ -44,7 +43,7 @@ public class ReservationStep3Handler implements CommandHandler {
 				selectOption.add(o);
 			}
 
-		}		
+		}
 		
 		result.put("checkIn", checkIn);
 		result.put("checkOut", checkOut);
