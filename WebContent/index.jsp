@@ -7,14 +7,14 @@
 <title>누구나 한번쯤 꿈꾸는 일상으로부터의 탈출 |대구신라호텔</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
-<link rel="stylesheet" type="text/css" href="css/main.css?v=23"> 
+<link rel="stylesheet" type="text/css" href="css/main.css?v=25"> 
 <link rel="stylesheet" type="text/css" href="css/reservation/jsCalendar.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.js"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.lang.de.js"></script>
-<script type="text/javascript" src="js/main.js?v=15"></script>  
+<script type="text/javascript" src="js/main.js?v=16"></script>  
 </head>   
 <body>  
 	<%@ include file="WEB-INF/common/header.jsp" %>   
@@ -51,7 +51,7 @@
 									<option value="1">성인  1</option>  
 									<option value="2">성인  2</option>   
 									<option value="3">성인  3</option>
-									<option value="3">성인  4</option>
+									<option value="4">성인  4</option> 
 								</select>
 								<div class="rsBox"> 
 									성인 
@@ -105,10 +105,11 @@
 								어린이 : 37개월 이상~만 12세 이하
 								<br>
 								유아 : 36개월 이하
-							</span>
-						</span>  
+								<i class="wranArr"></i>
+							</span>							
+						</span>   
 						<a href="#" class="resBtn"> 
-							검색
+							검색 
 						</a>
 						
 						

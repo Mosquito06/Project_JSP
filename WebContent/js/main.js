@@ -107,48 +107,106 @@ $(function(){
 		resActive(index-1);
 	}) 
 	
+	//최대 인원수 
+	var maxPeople = 4;
 	
 	/*성인 인원 선택*/ 
-	$(".rsSel_ad>li").click(function(){
+	$(".rsSel_ad>li").click(function(e){
+		e.preventDefault();  
 		var idx = $(this).index();
-		$(".adSelect option").removeAttr("selected");
-		$(".adSelect option").eq(idx).attr("selected","selected");
-		$(".rsSel_ad").siblings(".rsBox").html($(this).text() + "<i class='arr'></i> "); 
+	
+		$(".chdSelect option").removeAttr("selected");
+		$(".sChdSelect option").removeAttr("selected");
+		$(".adSelect option").removeAttr("selected"); 
 		
+		$(".chdSelect option").eq(0).attr("selected","selected");
+		$(".sChdSelect option").eq(0).attr("selected","selected");
+		$(".adSelect option").eq(idx).attr("selected","selected"); 
+  
+		console.log("선택한 li >" + idx);		
+		console.log("선택한 성인인원수 >" + $(".adSelect option").eq(idx).val()); 
+		console.log("선택한 성인인원수 >" + $(".adSelect option:selected").val());
+		
+		$(".rsSel_ad").siblings(".rsBox").html($(this).text() + "<i class='arr'></i> "); 
 		$(".rsSel_ch").siblings(".rsBox").html($(".rsSel_ch li:eq(0)").text() + "<i class='arr'></i> "); 
 		$(".rsSel_lch").siblings(".rsBox").html($(".rsSel_lch li:eq(0)").text() + "<i class='arr'></i> "); 
+
+		
 		$('.rsSel_ad').css("display","none");
 		
-		var chIndex = $(".chdSelect option:selected").index();
-		var sChIndex = $(".sChdSelect option:selected").index();
+		$(".rsSel_ch li").css("display","none");
+		$(".rsSel_lch li").css("display","none");   
 		
-		
-	})
+		var index = 0;
+		for(var i = idx; i<maxPeople; i++){
+			$(".rsSel_ch li").eq(index).css("display","block");
+			$(".rsSel_lch li").eq(index).css("display","block"); 
+			index++;
+		}
+	})    
 	
 	$(".rsSel_ch>li").click(function(){
+		e.preventDefault();
 		var idx = $(this).index();
 		
 		$(".chdSelect option").removeAttr("selected");
 		$(".chdSelect option").eq(idx).attr("selected","selected");  
 		$(".rsSel_ch").siblings(".rsBox").html($(this).text() + "<i class='arr'></i> "); 
-	
-		$('.rsSel_ch').css("display","none");		 
-	})
+		
+		$('.rsSel_ch').css("display","none");		
+		
+		var selCh = idx ; 
+		var adIndex = $(".adSelect option:selected").index()+1;
+		var remainingNum = (maxPeople-(adIndex+selCh));
+		
+		console.log("성인 인원수"+adIndex); 
+		console.log("남은 인원수"+remainingNum);
+		if(remainingNum > 4){
+			alert("객실 1실 당 성인과 소인 동반 시 최대 4인까지만 투숙 가능합니다.");
+		} 
+		
+		$(".rsSel_lch li").css("display","none");   
+		
+		var index = 0;    
+		for(var i = 0; i<remainingNum+1; i++){
+			$(".rsSel_lch li").eq(index).css("display","block"); 
+			index++;  
+		}
+	})  
 	
 	$(".rsSel_lch>li").click(function(){ 
-		var idx = $(this).index();
-		
+		e.preventDefault();
+		var idx = $(this).index();  
 		
 		$(".sChdSelect option").removeAttr("selected");
 		$(".sChdSelect option").eq(idx).attr("selected","selected"); 
 		$(".rsSel_lch").siblings(".rsBox").html($(this).text() + "<i class='arr'></i> "); 
 	
 		$('.rsSel_lch').css("display","none");
+		
+		var selSch = idx ;
+		var adIndex = $(".adSelect option:selected").index()+1;
+		
+		
+		var remainingNum = (maxPeople-(adIndex+selSch));
+		console.log("성인 인원수"+adIndex); 
+		console.log("남은 인원수"+remainingNum);
+		if(remainingNum > 4){
+			alert("객실 1실 당 성인과 소인 동반 시 최대 4인까지만 투숙 가능합니다."); 
+		}
+		 
+		$(".rsSel_ch li").css("display","none");   
+		
+		var index = 0;  
+		for(var i = 0; i<remainingNum+1; i++){
+			$(".rsSel_ch li").eq(index).css("display","block"); 
+			index++;    
+		}
 	})
 	
 }) 
 
-function resActive(position){
+function resActive(position){  
 	var startPos = [165.97,165.97,131.98,131.98,131.98];
 	var pos = 240;
 	for(var i=0; i<position; i++){

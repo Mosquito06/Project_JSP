@@ -64,13 +64,13 @@ ul.selList>li{
 
 .selectAll{
 	display: none;
-}
+}  
 /* 셀렉트 스타일 */
 ul.rsSelect{
 	position: absolute;
 	width: 120.98px;
-	min-height: 100px;
-	top:-148px; 
+	min-height: 131px;
+	top:-148px;  
 	background: #fff;
 	padding: 5.505px;
 	display: none;
@@ -136,22 +136,42 @@ ul.selList>li:last-child .rsBox{
 }
 .wranMsg{
 	float: left;
-	
+	position: relative;
 }
 .wranMsgInner{
-	display: none;	
+	display: block;
+	position: absolute;
+	min-width: 195px;
+	border:1px solid #89745d;
+	background: #fff;
+	bottom:25px; 
+	left:-179px;
+	color:#444;
+	line-height: 24px;	    
+	font-size: 12px;
+	padding: 13px 15px;
+	display: none;
 }
-
+.wranArr{
+	position:absolute;
+	width:9px;
+	height:7px;  
+	right:34px;
+	bottom:-7px;
+	background:url("/Project_JSP/img/main/icoBalloonArrow.gif") no-repeat;  
+}
 .wranIcon{
 	display:inline-block;
-	width:16px;
+	width:16px; 
 	height: 16px;
 	margin-top:14px; 
 	margin-right:46.1px;
 	float:right;
 	background: url("/Project_JSP/img/main/icoWarn.png");
 }
-
+.wranIcon:HOVER +.wranMsgInner{
+	display: block;
+}
 .resBtn{
 	text-indent:-9999px;
 	display:block;
@@ -177,7 +197,7 @@ ul.selList>li:last-child .rsBox{
 	background: #81725f;	
 	display: none;
 }
-
+ 
 #start-calendar table,#end-calendar table{
 	box-shadow:none;
 }
