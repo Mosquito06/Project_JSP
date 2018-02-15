@@ -120,7 +120,7 @@ $(function(){
 		$(".adSelect option").removeAttr("selected"); 
 		
 		$(".chdSelect option").eq(0).attr("selected","selected");
-		$(".sChdSelect option").eq(0).attr("selected","selected");
+		$(".sChdSelect option").eq(0).attr("selected","selected"); 
 		$(".adSelect option").eq(idx).attr("selected","selected"); 
   
 		console.log("선택한 li >" + idx);		
@@ -131,7 +131,7 @@ $(function(){
 		$(".rsSel_ch").siblings(".rsBox").html($(".rsSel_ch li:eq(0)").text() + "<i class='arr'></i> "); 
 		$(".rsSel_lch").siblings(".rsBox").html($(".rsSel_lch li:eq(0)").text() + "<i class='arr'></i> "); 
 
-		
+		 
 		$('.rsSel_ad').css("display","none");
 		
 		$(".rsSel_ch li").css("display","none");
@@ -145,7 +145,7 @@ $(function(){
 		}
 	})    
 	
-	$(".rsSel_ch>li").click(function(){
+	$(".rsSel_ch>li").click(function(e){
 		e.preventDefault();
 		var idx = $(this).index();
 		
@@ -174,7 +174,7 @@ $(function(){
 		}
 	})  
 	
-	$(".rsSel_lch>li").click(function(){ 
+	$(".rsSel_lch>li").click(function(e){ 
 		e.preventDefault();
 		var idx = $(this).index();  
 		

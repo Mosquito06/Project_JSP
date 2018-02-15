@@ -38,11 +38,11 @@
 								<th>링크경로</th>
 								<th>이미지경로</th>
 							</tr>
-							<c:forEach items="${client}" var="item">
+							<c:forEach items="${list}" var="item">
 								<tr> 
-									<td>${item.clientNum}</td>
-									<td>${item.id}</td>
-									<td>${item.nameKo}</td>
+									<td>${item.no}</td>
+									<td>${item.linkPath}</td>
+									<td>${item.imgPath}</td>
 								</tr>
 							</c:forEach>
 						</table>

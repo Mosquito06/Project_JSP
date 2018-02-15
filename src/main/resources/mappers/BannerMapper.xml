@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Project_JSP.dao.BannerDao">
+    
+    <resultMap type="Banner" id="BannerResult">
+        <id property="no" column="banner_no"/>
+        <result property="linkPath" column="link_path"/>
+        <result property="imgPath" column="img_path"/> 
+    </resultMap>
+   
+    <sql id="selectSql">
+        select banner_no, link_path,img_path from mainBanner
+    </sql>
+    
+    <sql id="whereSql">
+        <where>
+            <if test="no != null">
+                banner_no = #{no}
+            </if>            
+        </where>        
+    </sql>
+    
+	<select id="select" resultMap="BannerResult">
+	    <include refid="selectSql"/>	    
+	</select>
+	
+	<select id="selectByNo" parameterType="Banner" resultMap="BannerResult">
+	    <include refid="selectSql"/>
+	    <include refid="whereSql"/>	    
+	</select>
+	
+	<insert id="insert" parameterType="Banner">
+	   insert into mainBanner(banner_no, link_path,img_path)
+	   values( #{no}, #{linkPath},#{img_path})
+	</insert>
+	
+	<update id="update" parameterType="Banner">
+	    update event 
+	    set banner_no = #{no}, link_path = #{linkPath},img_path = #{img_path}
+	  	<include refid="whereSql"/>
+	</update>
+	 
+	<delete id="delete" parameterType="Banner">
+	    delete from mainBanner 
+	    <include refid="whereSql"/>
+	</delete>
+    
+</mapper>

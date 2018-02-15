@@ -48,5 +48,6 @@
 	  <mapper resource="mappers/BoardContentMapper.xml" />
 	  <mapper resource="mappers/PostMapper.xml" />
 	  <mapper resource="mappers/CommentMapper.xml" />
+	  <mapper resource="mappers/BannerMapper.xml" />
   </mappers>
 </configuration>
