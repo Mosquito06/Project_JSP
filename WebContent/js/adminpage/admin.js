@@ -105,6 +105,10 @@ $(function(){
 	
 	})
 	
+	$("#t1 tr td").not(".check").click(function(){
+		var num=$(this).parent().find(".reserve_num").html();
+		location.href="adminReservation_read.do?num="+num;
+	});
 	
 	
 	

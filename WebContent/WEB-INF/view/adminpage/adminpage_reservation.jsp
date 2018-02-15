@@ -15,7 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="css/reservation/jsCalendar.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/adminpage/admin.js?v=12"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/adminpage/admin.js?v=1"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.js"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.lang.de.js"></script>
 
@@ -97,7 +97,7 @@
 							<a href="adminReservation.do?set=1" class="btn_admin">예약현황보기</a>
 							<a href="adminReservation.do?set=2" class="btn_admin">예약완료보기</a>
 							<a href="adminReservation.do?set=3" class="btn_admin">예약취소보기</a>
-							<a href="" class="btn_admin">작년 현황 삭제</a>
+						
 							<a href="" class="btn_admin" id="del_btn">삭제</a>
 						</div>
 						
@@ -118,8 +118,8 @@
 							</tr>
 							<c:forEach items="${reserve}" var="item">
 								<tr>
-									<td><input type="checkbox"></td>
-									<td>${item.reservationNum}</td>
+									<td class="check"><input type="checkbox"></td>
+									<td class="reserve_num">${item.reservationNum}</td>
 									<td>${item.clientNum.clientNum}</td>
 									<td>${item.roomNum.roomNum}</td>
 									<td><fmt:formatDate value="${item.checkIn}" pattern="yyyy.MM.dd"/></td>
@@ -138,6 +138,7 @@
 										<c:if test="${item.state == 'RESERVE'}">
 											예약
 										</c:if>
+									
 									</td>
 									<td>
 										<c:if test="${item.clientReq !=null}">

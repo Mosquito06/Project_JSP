@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE>
 <html>
 <head>
@@ -13,6 +14,7 @@
 	href="${pageContext.request.contextPath}/css/adminpage/adminUser.css?v=1">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/adminpage/admin_user.js"></script>
 </head>
 <body>
 	<div> 
@@ -55,12 +57,12 @@
 							</tr>
 							<c:forEach items="${client}" var="item">
 								<tr>
-									<td><input type="checkbox"></td>
-									<td>${item.clientNum}</td>
+									<td class="check"><input type="checkbox"></td>
+									<td class="client_num">${item.clientNum}</td>
 									<td>${item.id}</td>
 									<td>${item.nameKo}</td>
 									<td>${item.nameEn}</td>
-									<td>${item.birth}</td>
+									<td><fmt:formatDate value="${item.birth}" pattern="yyyy.MM.dd"/></td>
 									<td>${item.email}</td>
 									<td>${item.phone}</td>
 									<td>${item.home}</td>
