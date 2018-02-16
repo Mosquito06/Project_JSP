@@ -145,7 +145,7 @@
 					</div>
 					<div id="secondDiv">
 						<span class="rightTextColor">호텔</span>
-						<span class="importantText">제주신라호텔</span>
+						<span class="importantText">대구신라호텔</span>
 					</div>
 					<div id="thirdDiv">
 						<div>

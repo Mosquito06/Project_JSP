@@ -72,7 +72,11 @@
 	<update id="updateProfile"  parameterType="Client">
 		update client set email=#{email},phone=#{phone},home=#{home},address=#{address} where id = #{id} and client_grade=#{clientGrade}
 	</update>
-	 
+	
+	<update id="updatePassword" parameterType="Client">
+		update client set password=password(#{pw}) where id=#{id} and client_grade =#{clientGrade}
+	</update>
+	
 	<delete id="deleteClient" parameterType="Client">
 	    delete from client where client_num = #{clientNum}
 	</delete> 

@@ -13,7 +13,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
 <script type="text/javascript" src="js/reservation/Loading.js"></script>
-<script type="text/javascript" src="js/reservation/step1.js?a=fdd"></script>
+<script type="text/javascript" src="js/reservation/step1.js?a=dd"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.js"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.lang.de.js"></script>
 </head>
@@ -33,7 +33,7 @@
 					</tr>
 					<tr>
 						<td colspan="3">
-							<div class="selectText">제주신라호텔</div>
+							<div class="selectText">대구신라호텔</div>
 							<div>
 								<div class="selectText">체크인</div>
 								<div class="selectDay">
