@@ -19,7 +19,11 @@
             </if>            
         </where>        
     </sql>
-    
+
+    <select id="getLastInsert" resultType="int">
+          select MAX(banner_no) from mainBanner
+    </select>
+    	
 	<select id="select" resultMap="BannerResult">
 	    <include refid="selectSql"/>	    
 	</select>
@@ -28,10 +32,10 @@
 	    <include refid="selectSql"/>
 	    <include refid="whereSql"/>	    
 	</select>
-	
+	 
 	<insert id="insert" parameterType="Banner">
-	   insert into mainBanner(banner_no, link_path,img_path)
-	   values( #{no}, #{linkPath},#{img_path})
+	   insert into mainBanner(link_path,img_path)
+	   values(#{linkPath},#{imgPath})
 	</insert>
 	
 	<update id="update" parameterType="Banner">

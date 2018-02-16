@@ -42,7 +42,14 @@ public class BannerService {
 		try(SqlSession session = MySqlSessionFactory.openSession()){
 			BannerDao dao = session.getMapper(BannerDao.class);
 			
-			return dao.insert(banner);
+			int res =  dao.insert(banner);
+			if(res < 0){
+				session.rollback();
+				return res;
+			}
+
+			session.commit();
+			return res;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -52,7 +59,14 @@ public class BannerService {
 		try(SqlSession session = MySqlSessionFactory.openSession()){
 			BannerDao dao = session.getMapper(BannerDao.class);
 			
-			return dao.update(banner);
+			int res = dao.update(banner);
+			if(res < 0){
+				session.rollback();
+				return res;
+			}
+
+			session.commit();
+			return res;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -63,10 +77,29 @@ public class BannerService {
 		try(SqlSession session = MySqlSessionFactory.openSession()){
 			BannerDao dao = session.getMapper(BannerDao.class);
 			
-			return dao.delete(banner);
+			int res = dao.delete(banner);
+			if(res < 0){
+				session.rollback();
+				return res;
+			}
+
+			session.commit();
+			return res;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return -1;
+	}
+
+	public int getLastInsert() {
+		try(SqlSession session = MySqlSessionFactory.openSession()){
+			BannerDao dao = session.getMapper(BannerDao.class);
+			
+			return dao.getLastInsert();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return 0;		
 	};
 }
