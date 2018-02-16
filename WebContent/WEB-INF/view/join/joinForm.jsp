@@ -7,113 +7,19 @@
 <title>회원가입 ㅣ신라호텔</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
-<link rel="stylesheet" type="text/css" href="css/join/joinForm.css">
+<link rel="stylesheet" type="text/css" href="css/join/joinForm.css?v=2">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> 
 <script src="js/common/common.js"></script>
-<script src="js/join/joinForm.js"></script>
+<script src="js/join/joinForm.js?v=4"></script>
 <script>
 	$(function(){
 		$(document).on("mouseover","#addr_content ul", function(){
 			$(this).css({"background-color":"black","opacity":"0.5"});
 		});
-		$("#addr_img > img").click(function(){
-			$("#addr_box").css("display","none");
-			$("#addr_bg").css("display","none");
-		})
+		
 	})
 
 </script>
-<style>
-#addr_box{
-	z-index: 10000;
-	width:600px;
-	height:300px;
-	border:4px solid #9B7F5B;
-	overflow-y:auto; 
-	position: absolute;
-	left:30%;
-	top:40%;
-	display:none;
-	background-color: white;
-}
-#addr_title{
-	height:40px;
-	line-height:40px;
-	background-color:#9B7F5B;
-	color:white;
-	position: relative;
-	padding:0 5px;
-}
-#addr_title h1{
-	float: left;
-	width:120px;
-	margin-left:5px;
-	font-size: 1.2em;
-	font-weight: bold;
-}
-#addr_img{
-	position: absolute;
-	top:0px;
-	right:35px;
-}
-#addr_img > img{
-	display:block;
-	width:26px;
-	height:26px;
-	margin: 4px;
-	cursor: pointer;
-}
-
-
-#addr_title input{
-	height:30px;
-	line-height: 30px;
-	width:280px;
-}
-#search_addr{
-	background-color:#3e2b2c;
-	width:90px;
-	border:1px solid #F1EBD6;
-	color: #F1EBD6;
-	height:40px;
-	line-height: 40px;
-}
-#addr_title+div{
-	width:100%;
-
-	overflow: hidden;
-}
-#addr_title+div ul{
-	width:100%;
-	list-style: none;
-		height:30px;
-	line-height: 30px;
-}
-#addr_title+div ul li{
-	float:left;
-}
-
-#addr_title+div ul li:FIRST-CHILD {
-	border-right:1px solid black;
-	width:30%;
-}
-#addr_title+div ul li:LAST-CHILD{
-	width:69%;
-}
-#addr_content ul{
-	list-style: none;
-	height:30px;
-	line-height: 30px;
-	overflow: hidden;
-}
-#addr_content ul li{
-	float: left;
-}
-#addr_content ul li:FIRST-CHILD{
-	width:30%;
-}
-
-</style>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/common/header.jsp"/>
@@ -143,17 +49,17 @@
 							<p>
 								<label><span class="star">*</span>성명(한글)</label>
 								<input type="text" name="nameKo" style="ime-mode:active;" onkeyup="this.value=this.value.replace(/[^가-힣]/g,'');" class="import">
-								<img src="img/join/x.png">
+								<img src="img/join/x.png" class="x-btn">
 								<span class="error">성명(이름)을 입력하세요(*필수)</span>
 							</p>
 							<p>
 								<label><span class="star">*</span>성명(영문)</label>
 								<span class="ename">First name(이름)</span>
 								<input type="text" name="nameEn1" style="text-transform:uppercase; ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');" class="import">
-								<img src="img/join/x.png">
+								<img src="img/join/x.png" class="x-btn">
 								<span class="ename">Last name(성)</span>
 								<input type="text" name="nameEn2" style="text-transform:uppercase; ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');" class="import">
-								<img src="img/join/x.png">
+								<img src="img/join/x.png" class="x-btn">
 								<span class="error">성명(영문) 입력(*필수)</span>
 							</p>
 							<p>
@@ -174,9 +80,9 @@
 							
 								<p>
 								<label><span class="star">*</span>이메일</label>
-								<input type="text" name="email1" id="email1" class="import"><img src="img/join/x.png">
+								<input type="text" name="email1" id="email1" class="import"><img src="img/join/x.png" class="x-btn">
 								@
-								<input type="text" name="email2" id="email2" class="import"><img src="img/join/x.png">
+								<input type="text" name="email2" id="email2" class="import"><img src="img/join/x.png" class="x-btn">
 								<span id="email_select">
 									<select id="sel_email">
 										<option value="">직접입력</option>
@@ -195,10 +101,10 @@
 										<option value="paran.com">paran.com</option>
 									</select>
 								</span>
-								<button type="button" id="email_btn">이메일 중복확인</button>
-									<span class="error">이메일 입력</span>
-									<span id="email_duplicate">사용가능</span>
-									<span id="email_duplicate_error">사용불가(중복)</span>
+									<a href="#" id="email_btn"><img src="${pageContext.request.contextPath}/img/join/emailConfirm.gif"></a>
+									<span class="error email_err">이메일 입력</span>
+									<span id="email_duplicate" class="email_err">사용가능</span>
+									<span id="email_duplicate_error" class="email_err">사용불가(중복)</span>
 							</p>
 							<p>
 								<label><span class="star">*</span>휴대전화</label>
@@ -213,9 +119,9 @@
 								</select>
 								</span>
 								
-								<input type="tel" name="p2" class="import" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"><img src="img/join/x.png" >
+								<input type="tel" name="p2" class="import" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"><img src="img/join/x.png" class="x-btn">
 								-
-								<input type="tel" name="p3"  class="import" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"><img src="img/join/x.png" >
+								<input type="tel" name="p3"  class="import" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"><img src="img/join/x.png" class="x-btn">
 								<span class="error">휴대전화를 입력하세요(*필수)</span>
 							</p>
 							<p>
@@ -253,13 +159,13 @@
 								</select>
 								</span>
 							
-								<input type="tel" name="t2" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"><img src="img/join/x.png" >
+								<input type="tel" name="t2" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"><img src="img/join/x.png" class="x-btn">
 								-
-								<input type="tel" name="t3" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"><img src="img/join/x.png" >
+								<input type="tel" name="t3" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"><img src="img/join/x.png" class="x-btn">
 							</p>
 							<p>
 								<label>주소</label>
-								<input type="text" name="addr1" disabled="disabled"><button type="button" id="addr_btn">주소찾기</button><br>
+								<input type="text" name="addr1" disabled="disabled"><a href="#" id="addr_btn"><img src="${pageContext.request.contextPath}/img/join/btnSchAddress.gif"></a><br>
 								<input type="text" name="addr2" disabled="disabled"><br>
 								<input type="text" name="addr3" disabled="disabled" placeholder="상세주소">
 							</p>
@@ -273,20 +179,19 @@
 					<div id="web_join_info_input">
 						<p>
 								<label><span class="star">*</span>아이디</label>
-								<input type="text" name="id" class="import"><img src="img/join/x.png">
-								<button id="id_check_btn" type="button">아이디 중복 확인</button>
+								<input type="text" name="id" class="import"><img src="img/join/x.png" class="x-btn">
+								<a href="#" id="id_check_btn"><img src="${pageContext.request.contextPath}/img/join/idConfirm.gif"></a>
 								<span id="id_info">5~12 이내 영문 또는 영문/숫자 조합</span>
-									<span class="error">아이디를 확인하세요(*필수)</span>
-									<span id="id_error">사용가능한 아이디입니다.</span>
-									<span id="id_error2">중복 아이디입니다(사용불가)</span>
-									<span id="click">중복체크를 해주세요</span>
-									<span id="id_rule_error">영문 또는 영문/숫자만 가능</span>
+									<span class="error id_errs">아이디를 확인하세요(*필수)</span>
+									<span id="id_error" class="id_errs">사용가능한 아이디입니다.</span>
+									<span id="id_error2" class="id_errs">중복 아이디입니다(사용불가)</span>
+									<span id="click" class="id_errs">중복체크를 해주세요</span>
+									<span id="id_rule_error" class="id_errs">영문 또는 영문/숫자만 가능</span>
 												
 						</p>
 						<p>
 								<label><span class="star">*</span>비밀번호</label>
-								<input type="password" name="pw" class="import"><img src="img/join/x.png">
-								<!-- <span id="pw_info">8~20자 이내 영문/숫자 조합</span> -->
+								<input type="password" name="pw" class="import"><img src="img/join/x.png" class="x-btn">
 									<img src="/Project_JSP/img/join/important.gif" id="pw_import">		
 								<span class="error">비밀번호를 입력하세요(*필수)</span>
 								<span id="pw_reg">사용가능한 비밀번호입니다</span>
@@ -294,34 +199,31 @@
 						</p>
 						<p>
 								<label><span class="star">*</span>비밀번호 확인</label>
-								<input type="password" name="pw2" class="import" id="pw_ok"><img src="img/join/x.png">
+								<input type="password" name="pw2" class="import" id="pw_ok"><img src="img/join/x.png" class="x-btn">
 									<span class="error" id="noPw">비밀번호를 확인해주세요(*필수)</span>
 									<span id="okPw">비밀번호가 일치합니다.</span>
 						</p>
 					</div>
 				</div>
-				<input type="submit" value="가입 신청" id="join_btn">
 				</form>
+				
 			</div>
+			<div id="sendBtn">
+					<a href="#" id="join_btn"><img src="${pageContext.request.contextPath}/img/join/btnJoinSend.gif"></a>
+				</div>
 		</div>
 		
 			<div id="addr_box">
 			<div id="addr_title">
 				<h1>주소 찾기</h1>
 				<div id='addr_img'>
-					<img src="/Project_JSP/img/join/x-button.png">
+					<img src="/Project_JSP/img/join/popLayerBtnClose.gif">
 				</div>
 			</div>
-				
 				<div id="addr_input">
+					<label>도로명 검색</label>
 					<input type="text" id="doro" placeholder="도로명 입력">
-					<button id="search_addr">검색</button>
-				</div>
-				<div>
-					<ul>
-						<li>우편번호</li>
-						<li>도로명</li>
-					</ul>
+					<a href="#" id="search_addr"><img src="${pageContext.request.contextPath}/img/join/popAdressSchAddSchBtn.gif"></a>
 				</div>
 				<div id="addr_content">
 				</div>

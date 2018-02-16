@@ -21,30 +21,32 @@
 			data:{"doro":$("#doro").val()},
 			dataType:"json",
 			success:function(json){
-				$("#addr_content").empty();
-				var data="";
 				console.log(json);
 				
+				$("#addr_content").empty();
+				
+				var data = "";
+				
 				if(json.length==0){
-					data="<ul>";
-					data +="<li>검색 결과가 없습니다.</li>";
-					data+="</ul>";
+					data="검색내역이 없습니다. 도로명을 다시 입력해주세요";
+					$("#addr_content").append(data);
 				}else{
 					for(var i=0;i<json.length;i++){
-						data="<ul>";
-						data+="<li>"+json[i].zipCode+"</li>";
-						data+="<li>"+json[i].sido+" "+json[i].sigungu+" "+json[i].doro+" "+json[i].building1+"</li>";
+						data = "<table border='1' id='addr_data'>";
+						data+="<tr><th>"+json[i].zipCode+"</th>";
+						data+="<td>"+json[i].sido+" "+json[i].sigungu+" "+json[i].doro+" "+json[i].building1+"</td></tr>";
 
-						data+="</ul>";
+						data+="</table>";
 
-						$("#addr_content").append(data);
 					}
-					
+					$("#addr_content").append(data);
 				}
+				
 		
 			}			
 			
 		})
+		return false;
 	})
 	
 	$("#addr_btn").click(function(){
@@ -52,7 +54,10 @@
 		$("#addr_box").css("display","block");
 		
 	})
-	
+	$("#addr_img > img").click(function(){
+			$("#addr_box").css("display","none");
+			$("#addr_bg").css("display","none");
+		})
 
 	$(document).on("mouseout","#addr_content ul", function(){
 			$(this).css({"background-color":"white","opacity":"1"});
@@ -68,7 +73,7 @@
 					
 				$(obj).focus(function(){
 					$(this).css("border","1px solid #3e2b2c");
-					$("img").not("#pw_import").hide();
+					$(".x-btn").hide();
 					left = $(this).position().left;
 					top = $(this).position().top+5;
 					width =$(this).outerWidth()-25;
@@ -114,6 +119,7 @@
 							}
 						}
 			})
+			return false;
 		})
 		$(document).on("keyup","input[name='p2'],input[name='t2']",function(e){
 			
@@ -169,7 +175,7 @@
 	
 	/*회원가입버튼을 눌렀을때 처리되는 예외사항과 기타 비밀번호 처리 */
 		pwOk();		
-	$("#join").submit(function(){
+	$("#join_btn").click(function(){
 		$("#click,#pw_reg_error").css("display","none");
 		var empty = emptyOk();
 		var select =selectempty();
@@ -191,6 +197,7 @@
 			return false;
 		}
 		if(empty&&select){
+			$("#join").submit();
 			return true;
 		}else{
 			return false;
@@ -250,6 +257,7 @@ function idOk(){
 				console.log(data);
 			}
 		})
+		return false;
 	})	
 }
 function selectempty(){
