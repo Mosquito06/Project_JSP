@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+#addForm{
+	width: 800px;
+	margin: 0 auto;
+}
+#addForm #f1{
+	width: 100%; 
+}
+#addForm table{
+	width: 100%;
+}
+#addForm tr:FIRST-CHILD th{
+	border-top:1px solid #432c10;
+	text-align: center;
+} 
+#addForm th{
+	background: rgb(250, 249, 244);
+	border-bottom: 1px solid #e7e7e7;
+	color: #666;
+	text-align: left;
+	padding:10px;	
+}
+#addForm td{
+	padding:10px;	
+	border-bottom: 1px solid #e7e7e7;
+} 
+#addForm input[type="submit"]{
+	width:150px;
+	margin: 0 auto; 
+} 

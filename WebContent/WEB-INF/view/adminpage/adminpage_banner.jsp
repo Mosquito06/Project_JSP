@@ -7,32 +7,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/common/reset.css">
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath }/css/common/common.css?ver=1">
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/adminpage/adminUser.css">
+<link rel="stylesheet" type="text/css"	href="${pageContext.request.contextPath }/css/common/common.css?ver=1">
+<link rel="stylesheet" type="text/css"	href="${pageContext.request.contextPath}/css/adminpage/adminUser.css">
+<link rel="stylesheet" type="text/css"	href="${pageContext.request.contextPath}/css/adminpage/admin_banner.css">
+	
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
 <script>
-	$(function(){
-		$("#f1").submit(function(){
-				var imgPath = $("input[name='file']").val();
-				var linkPath = $("input[name='link']").val(); 
-				
-				console.log("test");
-				$.ajax({ 
-			        url: contextPath + "/adminBanner.do?set=insert",	
-			        type:"post",
-			        data:{"imgPath":imgPath,"linkPath":linkPath},
-			        dataType : "json",  
-			        success: function(json){
-			        	console.log(json);
-			        }
-			    })  
-			    return false; 
-		});
-		
-	})
 	function delBtn(){	
 			if (!confirm("삭제하시겠습니까?")) {
 		        return;
@@ -72,17 +53,32 @@
 				<jsp:include page="admin_leftMenu.jsp" />
 				<div id="rightArea">
 					<div id="wrap_title">
-						<h1 id="title">문의관리</h1>
+						<h1 id="title">메인 관리</h1>
 						<div id="wrap_home">
 							<img src="${pageContext.request.contextPath}/img/common/locaton.gif" id="home"> > <span
-								id="board">관리자</span> > <span id="board">문의관리</span>
+								id="board">관리자</span> > <span id="board">메인 관리</span>
 						</div>
 					</div>
 					<div id="addForm"> 
-						<form method="post" id="f1">
-							<p>이미지 업로드 : <input type="file" name="file"></p>
-							<p>링크 주소 : <input type="text" name="link"> </p>
-							<input type="submit" class="btn_admin" value="추가">
+						<form method="post" id="f1" enctype="multipart/form-data" action="adminBanner.do?set=insert">
+							<table>
+								<tr>
+									<th colspan="2">배너 업로드</th>
+								</tr>
+								<tr>
+									<th>이미지 파일</th>
+									<td><input type="file" name="imgPath"></td>
+								</tr>
+								<tr>
+									<th>링크 업로드</th>
+									<td><input type="text" name="linkPath"></td> 
+								</tr>
+								<tr>
+									<td colspan="2">
+										<input type="submit" class="btn_admin" value="추가">
+									</td>
+								</tr>
+							</table> 
 						</form> 
 					</div>
 					<div id="wrap_admin_btn">

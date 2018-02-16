@@ -22,13 +22,16 @@ public class ReservationSpecificSearchHandler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		String roomName = req.getParameter("name");
+		String startDate = req.getParameter("sDate");
+		String endDate = req.getParameter("eDate");
+			String roomName = req.getParameter("name");
 		int index = Integer.parseInt(req.getParameter("index"));
 
 		
 		ObjectMapper om =new ObjectMapper();
 		RoomDaoService service = RoomDaoService.getInstance();
-		List<Room> result = service.selectAvailabilityRoomByRoomName(roomName);
+		List<Room> result = service.selectAvailabilityRoomByRoomNameAndDate(roomName, startDate, endDate);
+		
 		HashMap<String, Object> map = new HashMap<>();
 		
 		if(result != null){

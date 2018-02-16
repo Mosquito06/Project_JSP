@@ -1,5 +1,6 @@
 package Project_JSP.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -94,16 +95,29 @@ public class RoomDaoService implements RoomDao {
 	}
 
 	@Override
-	public List<Room> selectAvailabilityRoomByRoomName(String roomName) {
+	public List<Room> selectAvailabilityRoomByRoomNameAndDate(String roomName, String sDate, String eDate) {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			RoomDao dao = session.getMapper(RoomDao.class);
-			return dao.selectAvailabilityRoomByRoomName(roomName);
+			return dao.selectAvailabilityRoomByRoomNameAndDate(roomName, sDate, eDate);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		return null;
+	}
+
+	@Override
+	public List<Room> selectRoomToReservation(Date sDate, Date eDate, String roomGrade, String roomName, String  viewType, String bedType){
+			try (SqlSession session = MySqlSessionFactory.openSession()) {
+				RoomDao dao = session.getMapper(RoomDao.class);
+				return dao.selectRoomToReservation(sDate, eDate, roomGrade, roomName, viewType, bedType);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			return null;
 	}
 
 }

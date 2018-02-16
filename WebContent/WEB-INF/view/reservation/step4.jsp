@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,11 +9,11 @@
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
 <link rel="stylesheet" type="text/css" href="css/reservation/Loading.css">
-<link rel="stylesheet" type="text/css" href="css/reservation/step4.css?b=dd">
+<link rel="stylesheet" type="text/css" href="css/reservation/step4.css?b=ddd">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="js/reservation/Loading.js"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
-<script type="text/javascript" src="js/reservation/step4.js?a=d"></script>
+<script type="text/javascript" src="js/reservation/step4.js?a=dd"></script>
 </head>
 <body>
 	<div id="container">
@@ -41,51 +42,63 @@
 					</div>
 					<div id="completeRight">
 						<span class="complteBoldTextColor">예약번호</span>
-						<span>54654654</span>
+						<span>${result.reservation.reservationNum }</span>
 					</div>
 					<div id="completeBottom">
 						<div class="completeBottomDiv">
 							<span class="complteBoldTextColor">고객명</span>
-							<span>홍길동</span>
+							<span>${result.reservation.clientNum.nameKo }</span>
 						</div>
 						<div class="completeBottomDiv">
 							<span class="complteBoldTextColor">연락처</span>
-							<span>010</span>
+							<span>${result.reservation.clientNum.phone }</span>
 						</div>
 						<div class="completeBottomDiv">
 							<span class="complteBoldTextColor">이메일</span>
-							<span>skykim10908</span>
+							<span>${result.reservation.clientNum.email }</span>
 						</div>
 					</div>
 				</div>
 				<div id="completeMiddleDiv">
 					<div class="complteMiddle">
 						<span class="complteBoldText">호텔</span>
-						<span class="complteBoldText">제주신라호텔</span><br><br>
+						<span class="complteBoldText">대구신라호텔</span><br><br>
 						<span class="complteBoldText">날짜/투숙인원</span>
 						<ul>
-							<li><span class="complteTextColor">체크인</span><span class="completeTextTextSmall">234</span></li>
-							<li><span class="complteTextColor">체크아웃</span><span class="completeTextTextSmall">234</span></li>
-							<li><span class="complteTextColor">숙박일수</span><span class="completeTextTextSmall">234</span></li>
-							<li><span class="complteTextColor">투숙인원</span><span class="completeTextTextSmall">234</span></li>
+							<li><span class="complteTextColor">체크인
+								</span><span class="completeTextTextSmall">
+									<fmt:formatDate value="${result.reservation.checkIn }" pattern="yyyy.MM.dd"/>
+								</span>
+							</li>
+							<li><span class="complteTextColor">체크아웃</span>
+								<span class="completeTextTextSmall">
+									<fmt:formatDate value="${result.reservation.checkOut }" pattern="yyyy.MM.dd"/>
+								</span>
+							</li>
+							<li><span class="complteTextColor">숙박일수</span><span class="completeTextTextSmall">${result.stay }박</span></li>
+							<li><span class="complteTextColor">투숙인원</span><span class="completeTextTextSmall">${result.reservation.personnel }</span></li>
 						</ul>
 					</div>
 					<div class="complteMiddle">
 						<span class="complteBoldText">객실/패키지</span>
 						<ul>
-							<li><span class="complteTextColor">객실</span><span class="completeTextTextSmall">Double</span></li>
-							<li><span class="complteTextColor">침대타입</span><span class="completeTextTextSmall">Double</span></li>
-							<li><span class="complteTextColor">객실요금</span><span class="completeTextTextSmall">Double</span></li>
+							<li><span class="complteTextColor">객실</span><span class="completeTextTextSmall">${result.roomName }</span></li>
+							<li><span class="complteTextColor">침대타입</span><span class="completeTextTextSmall">${result.bedType }</span></li>
+							<li><span class="complteTextColor">객실요금</span><span class="completeTextTextSmall">
+							<fmt:formatNumber value="${result.basicPrice }" pattern="00,000"/> 원</span></li>
 						</ul>
 					</div>
 					<div class="complteMiddle">
 						<ul>
-							<li><span class="complteTextColor">봉사료</span><span class="completeTextTextSmall">Double</span></li>
-							<li><span class="complteTextColor">세금</span><span class="completeTextTextSmall">Double</span></li>
+							<li><span class="complteTextColor">봉사료</span><span class="completeTextTextSmall">
+								<fmt:formatNumber value="${result.ServiceCharge }" pattern="00,000"/> 원</span></li>
+							<li><span class="complteTextColor">세금</span><span class="completeTextTextSmall">
+								<fmt:formatNumber value="${result.Tax }" pattern="00,000"/>
+							 원</span></li>
 						</ul>
 						<div id="finalPrice">
 							<span class="complteBoldText">요금합계</span>
-							<span>200000</span>
+							<span><fmt:formatNumber value="${result.reservation.totalPrice }" pattern="00,000"/> 원</span>
 						</div>
 					</div>
 					<div id="completeAlertDiv">
