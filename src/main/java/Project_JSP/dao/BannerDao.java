@@ -10,5 +10,6 @@ public interface BannerDao {
 	public int insert(Banner banner);
 	public int update(Banner banner);
 	public int delete(Banner banner);
+	public int getLastInsert();
 }
  
