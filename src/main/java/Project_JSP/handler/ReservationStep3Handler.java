@@ -28,13 +28,14 @@ public class ReservationStep3Handler implements CommandHandler {
 		String roomImg = req.getParameter("roomImg");
 		String OptionName = req.getParameter("Option");
 		String basicPrice = req.getParameter("basicPrice");
+		String ServiceCharge = req.getParameter("ServiceCharge");
+		String Tax = req.getParameter("Tax");
 		String finalPrice = req.getParameter("finalPrice");
 		
-		if(OptionName.indexOf("봉") == 0){
+		if(OptionName == ""){
 			result.put("option", "false"); 
 		}else{
-			String subOption = OptionName.substring(0, OptionName.indexOf("봉")); 
-			String[] OptionString = subOption.split("/");
+			String[] OptionString = OptionName.split("/");
 			
 			for(int i = 0; i < OptionString.length; i++){
 				Option o = new Option();
@@ -42,7 +43,6 @@ public class ReservationStep3Handler implements CommandHandler {
 				o.setOptionPrice(Integer.parseInt(OptionString[i].split(",")[1]));
 				selectOption.add(o);
 			}
-
 		}
 		
 		result.put("checkIn", checkIn);
@@ -53,6 +53,8 @@ public class ReservationStep3Handler implements CommandHandler {
 		result.put("bedType", bedType);
 		result.put("clientReq", clientReq);
 		result.put("roomImg", roomImg);
+		result.put("ServiceCharge", ServiceCharge);
+		result.put("Tax", Tax);
 		result.put("basicPrice", basicPrice);
 		result.put("finalPrice", finalPrice);
 		result.put("option", selectOption);	

@@ -11,7 +11,7 @@
         <result property="personnel" column="personnel"/>
         <result property="state" column="reservation_state"/>
         <result property="clientNum.clientNum" column="client_num"/>
-        <result property="optionPrice" column="option_total_price"/>
+        <result property="option" column="option_content"/>
         <result property="payDate" column="pay_date"/>
       	<result property="clientReq" column="client_req"/>
     </resultMap>
@@ -51,15 +51,15 @@
 
 	<insert id="insertReservation" parameterType="Reservation">
 	   insert into reservation(room_num,total_price,check_in,check_out,personnel,
-	   reservation_state,client_num,option_total_price,pay_date, client_req)
+	   reservation_state,client_num,option_content,pay_date, client_req)
 	   values(#{roomNum.roomNum},#{totalPrice},#{checkIn},
-	   #{checkOut},#{personnel},#{state},#{clientNum.clientNum},#{optionPrice},#{payDate},#{clientReq})
+	   #{checkOut},#{personnel},#{state},#{clientNum.clientNum},#{option},#{payDate},#{clientReq})
 	</insert>
 	
 	<update id="updateReservation" parameterType="Reservation">
 	    update reservation set room_num=#{roomNum.roomNum},total_price=#{totalPrice},check_in=#{checkIn},
 	    check_out=#{checkOut},personnel=#{personnel},reservation_state=#{state},client_num=#{clientNum.clientNum},
-	    option_total_price=#{optionPrice},pay_date=#{payDate},client_req=#{clientReq} where reservation_num = #{reservationNum}
+	    option_content=#{option},pay_date=#{payDate},client_req=#{clientReq} where reservation_num = #{reservationNum}
 	</update>
 	 	
 	<delete id="deleteReservation" parameterType="Reservation">

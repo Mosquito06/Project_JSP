@@ -82,8 +82,8 @@
 								</td>
 							</tr>
 							<tr>
-								<th>옵션가격</th>
-								<td>${reservation.optionPrice}</td>
+								<th>옵션내용</th>
+								<td>${reservation.option}</td>
 							</tr>
 							<tr>
 								<th>총 가격</th>

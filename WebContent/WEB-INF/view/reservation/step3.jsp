@@ -14,7 +14,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="js/reservation/Loading.js"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
-<script type="text/javascript" src="js/reservation/step3.js?a=ddd"></script>
+<script type="text/javascript" src="js/reservation/step3.js?a=dd"></script>
 </head>
 <body>
 	<div id="container">
@@ -42,7 +42,10 @@
 						<div id="clientInfoDiv">
 							<div id="clientLeft">
 								<span class="clientInfoBold">투숙자 정보 입력</span>							
-								<form>
+								<form action="/Project_JSP/step4.do?checkIn=${result.checkIn }&checkOut=${result.checkOut }
+								&stay=${result.stay}&stayNum=${result.stayNum}&roomInfo=${result.roomInfo}&clientReq=${result.clientReq}
+								&ServiceCharge=${result.ServiceCharge}&Tax=${result.Tax}&basicPrice=${result.basicPrice}
+								&finalPrice=${result.finalPrice}&option=${result.option}" method="post">
 									<label for="name(kor)"><span class="redText">*</span>성명(한글)</label>
 									<input type="text" id="name(kor)" name="name" value="${sessionScope.MEMBER.nameKo }"><br>
 									<label for="name(eng)"><span class="redText">*</span>성명(영문)</label>
@@ -57,7 +60,7 @@
 										<option>휴대전화</option>
 										<option>자택</option>
 									</select>
-									<input type="number" id="tel" name="tel" value="${sessionScope.MEMBER.phone }">
+									<input type="text" id="tel" name="tel" value="${sessionScope.MEMBER.phone }">
 								</form>
 							</div>
 							<div id="clientRight">
@@ -73,8 +76,8 @@
 								</select><br>
 								
 								<label for="cardNum"><span class="redText">*</span>카드번호</label>
-								<input type="number" id="cardNum"> - <input type="number" id="cardNum"> 
-								- <input type="number" id="cardNum"> - <input type="number" id="cardNum"><br> 
+								<input type="number" maxlength="4" id="cardNum"> - <input type="number" maxlength="4" id="cardNum"> 
+								- <input type="number" maxlength="4" id="cardNum"> - <input type="number" maxlength="4" id="cardNum"><br> 
 								<label for="cardNum"><span class="redText">*</span>만기일</label>
 								<select>
 									<option>월</option>
@@ -258,11 +261,11 @@
 					<div id="sixDiv">
 						<div>
 							<span class="rightTextColor">봉사료</span>
-							<span class="rightText" id="ServiceCharge"><span class="sumPrice">72000</span> 원</span>
+							<span class="rightText" id="ServiceCharge"><span>${result.ServiceCharge }</span></span>
 						</div>
 						<div>
 							<span class="rightTextColor">세금</span>
-							<span class="rightText" id="Tax"><span class="sumPrice">79200</span> 원</span>
+							<span class="rightText" id="Tax"><span>${result.Tax }</span></span>
 						</div>
 					</div>
 					<div id="sevenDiv">

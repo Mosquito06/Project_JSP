@@ -1,0 +1,183 @@
+@CHARSET "UTF-8";
+
+div#main{
+	width: 1200px;
+	margin: 0 auto;
+	min-height: 800px;
+	
+}
+
+div#main > table{
+	width: 100%;	
+	margin-top: 3%;
+	text-align: center;
+}
+
+div#main > table th{
+	border-bottom: 4px solid #a0886e;
+	width: 25%;
+	padding: 15px;
+	color: #a0886e;
+	font-weight: bold;
+	font-size: 16px;
+	position: relative;
+}
+
+div#main > table th img{
+	position: absolute;
+	right: 10px;
+	bottom: 8px;
+}
+
+
+div#main > table th.noSelect{
+	border-bottom: 4px solid #cacbc3;
+	padding: 5px;
+	color: #cacbc3;
+}
+
+/* 예약 완료 */
+div#completeFirstDiv{
+	border: 10px solid #f4eee3;
+	height: 250px;
+	padding: 40px;
+	margin-top: 5%;
+}
+
+div#completeFirstDiv div#completeLeft{
+	float: left;
+	width: 55%;
+	line-height: 17px;
+}
+
+div#completeFirstDiv div#completeLeft span:FIRST-CHILD{
+	font-weight: bold;
+	font-size: 17px;
+}
+
+div#completeFirstDiv div#completeLeft span.complteBoldTextColor{
+	font-weight: bold;
+	color: #a0886e;
+	font-size: 30px;
+}
+
+div#completeFirstDiv div#completeLeft span:LAST-CHILD{
+	font-size: 14px;
+}
+
+div#completeFirstDiv div#completeRight{
+	float: right;
+	width: 30%;
+	margin-right: 50px;
+}
+
+div#completeFirstDiv div#completeBottom{
+	clear: both;
+}
+
+div#completeFirstDiv div#completeBottom div{
+	float: left;
+	border-top: 1px dotted black;
+	margin-top: 5%;
+	width: 31%;
+	padding: 10px;
+}
+
+div#completeFirstDiv span.complteBoldTextColor{
+	color: #a0886e;
+	font-weight: bold;
+	font-size: 17px;
+}
+
+div#completeFirstDiv span.completeText{
+	font-size: 30px;
+	color: #a0886e;
+}
+
+
+div#completeFirstDiv span.completeTextTextSmall{
+	font-size: 13px;
+}
+
+#completeRight span:LAST-CHILD{
+	float: right;
+	margin-right: 90px;
+}
+
+div#completeBottom div.completeBottomDiv span:LAST-CHILD{
+	float: right;
+	margin-right: 120px;
+}
+
+div#completeMiddleDiv{
+	padding: 20px;
+	border: 1px solid #A6A6A6;
+	margin-top: 3%;
+	line-height: 25px;
+}
+
+div.complteMiddle span:NTH-CHILD(2){
+	float: right;
+	margin-right: 30px;
+}
+
+div#completeMiddleDiv span.complteBoldText{
+	font-weight: bold;
+	font-size: 15px;
+}
+
+div#completeMiddleDiv span.complteTextColor{
+	font-size: 13px;
+	color: #a0886e;
+}
+
+div#completeMiddleDiv div.complteMiddle{
+	float: left;
+	border-bottom: 7px solid #a0886e;
+	height: 250px;
+	width: 31.6%;
+	padding: 10px;
+	
+}
+
+div#completeMiddleDiv div#finalPrice{
+	background-color: #f4eee3;
+	padding: 20px;
+	margin-top: 30%;
+	
+}
+
+div#completeMiddleDiv div#completeAlertDiv{
+	clear: both;
+	padding: 20px;
+	background-color: #f4eee3;
+	font-size: 13px;
+	line-height: 20px;
+	
+}
+
+div#completeBtn{
+	text-align: center;
+	margin: 3%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

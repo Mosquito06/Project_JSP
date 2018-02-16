@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="css/reservation/Loading.css">
 <link rel="stylesheet" type="text/css" href="css/reservation/step2.css?b=ddsd">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript" src="js/reservation/step2.js?a=ddd"></script>
+<script type="text/javascript" src="js/reservation/step2.js?a=d"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
 <script type="text/javascript" src="js/reservation/Loading.js"></script>
 </head>
@@ -194,11 +194,11 @@
 					<div id="sixDiv">
 						<div>
 							<span class="rightTextColor">봉사료</span>
-							<span class="rightText" id="ServiceCharge"><span class="sumPrice">72000</span> 원</span>
+							<span class="rightText" id="ServiceCharge"><span></span> 원</span>
 						</div>
 						<div>
 							<span class="rightTextColor">세금</span>
-							<span class="rightText" id="Tax"><span class="sumPrice">79200</span> 원</span>
+							<span class="rightText" id="Tax"><span></span> 원</span>
 						</div>
 					</div>
 					<div id="sevenDiv">
