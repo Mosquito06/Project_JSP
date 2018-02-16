@@ -7,7 +7,7 @@ input{
 p{
 	position: relative;
 }
-img{
+.x-btn{
 	width:20px;
 	display:none;
 	position:absolute;
@@ -137,17 +137,23 @@ select{
 
 #email_select select{
 	width:120px;
+	position: absolute;
+	top:9px;
+	margin-left: 5px;
 }
 #email_btn{
-	background-color: #7C6347;
-	color:#F1EBD6;
-	border:1px solid #7C6347;
-	width:120px;
-	height:30px;
-	line-height: 30px;
+	display:inline-block;
 	cursor: pointer;
+	height:30px;
+	line-height:30px;
+	position: absolute;
+	top:10px;
+	right:120px;
 }
-
+.email_err{
+	position: absolute;
+	left:755px;
+}
 #info_basic_input p:LAST-CHILD  label{
 	height:135px;
 	line-height: 130px;
@@ -156,13 +162,12 @@ input[name='addr2'],input[name='addr3']{
 	width:650px;
 }
 #addr_btn{
-	background-color: #727272;
-	border:1px solid #727272;
-	color:white;
-	height:30px;
-	margin:5px;
-	line-height: 30px;
+	display:inline-block;
 	cursor: pointer;
+	height:30px;
+	position: absolute;
+	top:10px;
+	margin-left: 5px;
 }
 
 /*아이디, 비밀번호 입력란*/
@@ -183,6 +188,7 @@ input[name='addr2'],input[name='addr3']{
 		overflow: hidden;
 	border-bottom: 1px solid #ECEAE1;
 	line-height: 45px;
+	position: relative;
 	
 }
 #web_join_info_input p:LAST-CHILD{
@@ -203,14 +209,22 @@ input[name='addr2'],input[name='addr3']{
 			height:24px;
 }
 #id_check_btn{
-	 background-color: #7C6347;
-    color: #F1EBD6;
-    border: 1px solid #7C6347;
-    height:30px;
-    line-height: 30px;
+	display:inline-block;
     cursor: pointer;
+  	position: absolute;
+  	top:10px;
+  	height:27px;
+  	line-height:30px;
+  	margin-left: 5px;
 }
-
+#id_info{
+	position: absolute;
+	right:195px;
+}
+.id_errs{
+	position: absolute;
+	left:673px;
+}
 /*회원가입 submit 버튼*/
 input[type='submit']{
 	 background-color: #3e2b2c;
@@ -264,7 +278,79 @@ input[type='submit']{
 }
 #pw_import{
 	cursor:pointer;
-	margin:15px 3px;
 	line-height:30px;
 	 display: inline; 
+}
+#sendBtn{
+	margin-top: 40px;
+	text-align: center;
+}
+#join_btn{
+	display: inline-block;
+}
+
+/*주소찾기  */
+#addr_box{
+	z-index: 10000;
+	width:500px;
+	height:300px;
+	border:4px solid #9B7F5B;
+	overflow-y:auto; 
+	position: absolute;
+	left:30%;
+	top:40%;
+	display:none;
+	background-color: white;
+}
+#addr_title{
+	height:35px;
+	line-height:35px;
+	background-color:#9B7F5B;
+	color:white;
+	position: relative;
+	padding:0 5px;
+	margin-bottom: 10px;
+}
+#addr_title h1{
+	float: left;
+	width:120px;
+	margin-left:5px;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+#addr_img{
+	float: right;
+}
+#addr_img > img{
+	display:block;
+	width:26px;
+	height:26px;
+	margin: 4px;
+	cursor: pointer;
+}
+#addr_input{
+	height:30px;
+	width:96%;
+	border:#e9e9e9 solid 1px;
+	margin:0 auto;
+	background-color: #fbfbfb;
+	padding:10px 5px;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+#addr_input label{
+	float: left;
+	width:100px;
+	margin-left:30px;
+	font-size: 15px;
+	line-height: 25px;
+}
+#addr_input input{
+	float:left;
+	width:200px;
+	height:20px;
+	margin-right: 10px;
+}
+#search_addr{
+	display:inline-block;
 }
