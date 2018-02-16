@@ -59,8 +59,7 @@
 									$(".search_type").eq(1).attr("checked","checked");
 									$("#id").val("${id}");
 									$("#set_type").val("2");
-								})
-								
+								})								
 							</script>
 						</c:if>
 						

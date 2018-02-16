@@ -14,7 +14,7 @@
 	href="${pageContext.request.contextPath}/css/mypage/newPassword.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common/common.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/mypage/newPassword.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/mypage/newPassword.js?v=1"></script>
 </head>
 <body>
 	<div>
@@ -42,7 +42,7 @@
 							<table border="1">
 								<tr class="bar">
 									<th>현재 비밀번호</th>
-									<td><input type="password" name="oldPw"></td>
+									<td><input type="password" name="oldPw" id="oldPassword"></td>
 								</tr>
 								<tr class="bar">
 									<th>새 비밀번호</th>
@@ -60,11 +60,14 @@
 							</table>
 						</div>
 						<div id="btn">
-							<a href="#"><img src="${pageContext.request.contextPath}/img/mypage/btnChange2.gif"></a>
+							<input type="hidden" name="id" value="${MEMBER.id }" id="clientId">
+							<a href="#" id="changeBtn"><img src="${pageContext.request.contextPath}/img/mypage/btnChange2.gif"></a>
 							<a href="#" id="cancel"><img src="${pageContext.request.contextPath}/img/mypage/btnCancel.gif"></a>
 						</div>
 					</div>
-				
+					<form method="get" action="mypage.do" id="f">
+						<input type="hidden" value="submit">
+					</form>
 				</div>
 			</div>
 		</section>

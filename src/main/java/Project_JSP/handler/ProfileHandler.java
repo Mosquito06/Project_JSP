@@ -33,6 +33,7 @@ public class ProfileHandler implements CommandHandler{
 				res.sendRedirect("profileUpdate.do");
 				return null;
 			}
+			
 		}
 		return null;
 	}

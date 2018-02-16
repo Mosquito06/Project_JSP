@@ -19,4 +19,5 @@ public interface ClientDao {
 	public Client findClientId(Client client);
 	public void updateProfile(Client client);
 	public Client selectNonClientByNameAndEmil(Client client);
+	public void updatePassword(Client client);
 }
