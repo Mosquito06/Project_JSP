@@ -8,59 +8,69 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Project_JSP.dto.Client;
+import Project_JSP.dto.ClientGrade;
 import Project_JSP.dto.Option;
 import Project_JSP.mvc.controller.CommandHandler;
+import Project_JSP.service.ClientDaoService;
 
 public class ReservationStep4Handler implements CommandHandler {
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		/*List<Option> selectOption = new ArrayList<>();
-		HashMap<String, Object> result = new HashMap<>();
+		req.setCharacterEncoding("UTF-8");
+		Client client = (Client) req.getSession().getAttribute("MEMBER");
+		Client nonClient = null;
 		
+		if(client == null){
+			String name = req.getParameter("name");
+			String firstName = req.getParameter("firstName");
+			String lastName = req.getParameter("lastName");
+			String email = req.getParameter("email");
+			String tel = req.getParameter("tel");
+			nonClient = new Client();
+			
+			nonClient.setNameKo(name);
+			nonClient.setNameEn(firstName + " " + lastName);
+			nonClient.setEmail(email);
+			nonClient.setPhone(tel);
+			nonClient.setClientGrade(ClientGrade.NONMEMBER);
+			
+			ClientDaoService.getInstance().insertClient(nonClient);
+			
+		}else{
+			setParameter(req, res); 
+		}
+		
+		return null;
+		// return "/WEB-INF/view/reservation/step4.jsp";
+			
+	}
+	
+	public void setParameter(HttpServletRequest req, HttpServletResponse res){
 		String checkIn = req.getParameter("checkIn");
 		String checkOut = req.getParameter("checkOut");
 		int stay = Integer.parseInt(req.getParameter("stay").split("박")[0]);
 		String stayNum = req.getParameter("stayNum");
 		String roomInfo = req.getParameter("roomInfo");
-		String bedType = roomInfo.split("/")[2];
 		String clientReq = req.getParameter("clientReq");
-		String roomImg = req.getParameter("roomImg");
-		String OptionName = req.getParameter("Option");
+		String OptionName = req.getParameter("option");
 		String basicPrice = req.getParameter("basicPrice");
+		String ServiceCharge = req.getParameter("ServiceCharge").split(" 원")[0];
+		String Tax = req.getParameter("Tax").split(" 원")[0];
 		String finalPrice = req.getParameter("finalPrice");
 		
-		if(OptionName.indexOf("봉") == 0){
-			result.put("option", "false"); 
-		}else{
-			String subOption = OptionName.substring(0, OptionName.indexOf("봉")); 
-			String[] OptionString = subOption.split("/");
-			
-			for(int i = 0; i < OptionString.length; i++){
-				Option o = new Option();
-				o.setOptionContent(OptionString[i].split(",")[0]);
-				o.setOptionPrice(Integer.parseInt(OptionString[i].split(",")[1]));
-				selectOption.add(o);
-			}
-
-		}
+		System.out.println(checkIn);
+		System.out.println(checkOut);
+		System.out.println(stay);
+		System.out.println(stayNum);
+		System.out.println(roomInfo);
+		System.out.println(clientReq);
+		System.out.println(OptionName); 
+		System.out.println(basicPrice);
+		System.out.println(ServiceCharge);
+		System.out.println(Tax);
+		System.out.println(finalPrice);
 		
-		result.put("checkIn", checkIn);
-		result.put("checkOut", checkOut);
-		result.put("stay", stay);
-		result.put("stayNum", stayNum);
-		result.put("roomInfo", roomInfo);
-		result.put("bedType", bedType);
-		result.put("clientReq", clientReq);
-		result.put("roomImg", roomImg);
-		result.put("basicPrice", basicPrice);
-		result.put("finalPrice", finalPrice);
-		result.put("option", selectOption);	
-		
-		req.setAttribute("result", result);*/
-		
-		return "/WEB-INF/view/reservation/step4.jsp";
-			
 	}
 
 }

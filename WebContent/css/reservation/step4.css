@@ -39,7 +39,7 @@ div#main > table th.noSelect{
 /* 예약 완료 */
 div#completeFirstDiv{
 	border: 10px solid #f4eee3;
-	height: 200px;
+	height: 250px;
 	padding: 40px;
 	margin-top: 5%;
 }
@@ -88,6 +88,12 @@ div#completeFirstDiv span.complteBoldTextColor{
 	font-weight: bold;
 	font-size: 17px;
 }
+
+div#completeFirstDiv span.completeText{
+	font-size: 30px;
+	color: #a0886e;
+}
+
 
 div#completeFirstDiv span.completeTextTextSmall{
 	font-size: 13px;

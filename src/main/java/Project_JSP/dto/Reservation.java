@@ -8,10 +8,10 @@ public class Reservation {
 	private int totalPrice;
 	private Date checkIn;
 	private Date checkOut;
-	private int personnel;
+	private String personnel;
 	private ReservationState state;
 	private Client clientNum;
-	private int optionPrice;
+	private String option;
 	private Date payDate;
 	private String clientReq;
 
@@ -59,11 +59,11 @@ public class Reservation {
 		this.checkOut = checkOut;
 	}
 
-	public int getPersonnel() {
+	public String getPersonnel() {
 		return personnel;
 	}
 
-	public void setPersonnel(int personnel) {
+	public void setPersonnel(String personnel) {
 		this.personnel = personnel;
 	}
 
@@ -83,12 +83,12 @@ public class Reservation {
 		this.clientNum = clientNum;
 	}
 
-	public int getOptionPrice() {
-		return optionPrice;
+	public String getOption() {
+		return option;
 	}
 
-	public void setOptionPrice(int optionPrice) {
-		this.optionPrice = optionPrice;
+	public void setOption(String option) {
+		this.option = option;
 	}
 
 	public Date getPayDate() {
@@ -111,7 +111,7 @@ public class Reservation {
 	public String toString() {
 		return "Reservation [reservationNum=" + reservationNum + ", roomNum=" + roomNum + ", totalPrice=" + totalPrice
 				+ ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", personnel=" + personnel + ", state=" + state
-				+ ", clientNum=" + clientNum + ", optionPrice=" + optionPrice + ", payDate=" + payDate + ", clientReq="
+				+ ", clientNum=" + clientNum + ", option=" + option + ", payDate=" + payDate + ", clientReq="
 				+ clientReq + "]";
 	}
 

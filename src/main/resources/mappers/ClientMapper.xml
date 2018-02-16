@@ -52,9 +52,15 @@
 	<select id="selectClientName" parameterType="Client" resultMap="ClientResult">
 		select * from Client where english_name=#{nameEn} and id=#{id} and client_grade =#{clientGrade}
 	</select>
+	
 	<select id="selectClientEmail" parameterType="Client" resultMap="ClientResult">
 		select * from Client where email =#{email} and client_grade = #{clientGrade}
 	</select>
+	
+	<select id="selectNonClientByNameAndEmil" parameterType="Client" resultMap="ClientResult">
+		select * from Client where english_name=#{nameEn} and email =#{email} and client_grade = #{clientGrade}
+	</select>
+	
 	<insert id="insertClient" parameterType="Client">
 	   insert into client(id,password,korean_name,english_name,birth,email,phone,home,address,client_grade) values(#{id}, password(#{pw}),#{nameKo}, #{nameEn},#{birth}, #{email},#{phone}, #{home},#{address}, #{clientGrade})
 	</insert>

@@ -194,11 +194,11 @@
 					<div id="sixDiv">
 						<div>
 							<span class="rightTextColor">봉사료</span>
-							<span class="rightText" id="ServiceCharge"><span class="sumPrice">72000</span> 원</span>
+							<span class="rightText" id="ServiceCharge"><span></span> 원</span>
 						</div>
 						<div>
 							<span class="rightTextColor">세금</span>
-							<span class="rightText" id="Tax"><span class="sumPrice">79200</span> 원</span>
+							<span class="rightText" id="Tax"><span></span> 원</span>
 						</div>
 					</div>
 					<div id="sevenDiv">

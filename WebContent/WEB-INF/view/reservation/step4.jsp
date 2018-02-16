@@ -32,8 +32,8 @@
 				
 				<div id="completeFirstDiv">
 					<div id="completeLeft">
-						<span>고객님 감사합니다.</span><br><br>
-						<span class="completeText">예약이 완료되었습니다.</span><br><br>
+						<span>고객님 감사합니다.</span><br><br><br>
+						<span class="completeText">예약이 완료되었습니다.</span><br><br><br>
 						<span>예약하신 내용이 예약 시 입력하신 이메일로 발송되었습니다.<br>
 							예약 번호를 메모해두시면 빠르고 편리하게 예약을 확인하실 수 있습니다.<br>
 							현재 미결제 상태이며, 체크인시 결제가 진행됩니다.<br>
@@ -67,7 +67,6 @@
 							<li><span class="complteTextColor">체크인</span><span class="completeTextTextSmall">234</span></li>
 							<li><span class="complteTextColor">체크아웃</span><span class="completeTextTextSmall">234</span></li>
 							<li><span class="complteTextColor">숙박일수</span><span class="completeTextTextSmall">234</span></li>
-							<li><span class="complteTextColor">객실수</span><span class="completeTextTextSmall">234</span></li>
 							<li><span class="complteTextColor">투숙인원</span><span class="completeTextTextSmall">234</span></li>
 						</ul>
 					</div>

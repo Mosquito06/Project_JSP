@@ -111,7 +111,7 @@
 								<th>체크아웃</th>
 								<th>최종가격</th>
 								<th>투숙인원</th>
-								<th>옵션가격</th>
+								<th>옵션내용</th>
 								<th>결제날짜</th>
 								<th>대여상태</th>
 								<th>고객요청</th>
@@ -126,7 +126,7 @@
 									<td><fmt:formatDate value="${item.checkOut}" pattern="yyyy.MM.dd"/></td>
 									<td>${item.totalPrice}</td>
 									<td>${item.personnel}</td>
-									<td>${item.optionPrice}</td>
+									<td>${item.option}</td>
 									<td><fmt:formatDate value="${item.payDate}" pattern="yyyy.MM.dd"/></td>
 									<td>
 										<c:if test="${item.state == 'COMPLETE'}">

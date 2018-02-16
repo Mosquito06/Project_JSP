@@ -42,7 +42,10 @@
 						<div id="clientInfoDiv">
 							<div id="clientLeft">
 								<span class="clientInfoBold">투숙자 정보 입력</span>							
-								<form action="/Project_JSP/step4.do" method="post">
+								<form action="/Project_JSP/step4.do?checkIn=${result.checkIn }&checkOut=${result.checkOut }
+								&stay=${result.stay}&stayNum=${result.stayNum}&roomInfo=${result.roomInfo}&clientReq=${result.clientReq}
+								&ServiceCharge=${result.ServiceCharge}&Tax=${result.Tax}&basicPrice=${result.basicPrice}
+								&finalPrice=${result.finalPrice}&option=${result.option}" method="post">
 									<label for="name(kor)"><span class="redText">*</span>성명(한글)</label>
 									<input type="text" id="name(kor)" name="name" value="${sessionScope.MEMBER.nameKo }"><br>
 									<label for="name(eng)"><span class="redText">*</span>성명(영문)</label>
@@ -258,11 +261,11 @@
 					<div id="sixDiv">
 						<div>
 							<span class="rightTextColor">봉사료</span>
-							<span class="rightText" id="ServiceCharge"><span class="sumPrice">72000</span> 원</span>
+							<span class="rightText" id="ServiceCharge"><span>${result.ServiceCharge }</span></span>
 						</div>
 						<div>
 							<span class="rightTextColor">세금</span>
-							<span class="rightText" id="Tax"><span class="sumPrice">79200</span> 원</span>
+							<span class="rightText" id="Tax"><span>${result.Tax }</span></span>
 						</div>
 					</div>
 					<div id="sevenDiv">

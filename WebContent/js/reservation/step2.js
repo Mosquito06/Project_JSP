@@ -1,5 +1,8 @@
 $(function(){
-	// 화면 진입 시 초기 최종가격 합계 설정
+	// 화면 진입 시 초기 세금 및 최종가격 합계 설정
+	$("#ServiceCharge span").text(Math.floor(Number($("#basicPrice").text())*0.10));
+	$("#Tax span").text(Math.floor(Number($("#basicPrice").text())*0.11));
+		
 	var ServiceCharge = Number($("#ServiceCharge").text().split(" 원")[0]);
 	var Tax = Number($("#Tax").text().split(" 원")[0]);
 	var finalPrice = Number($(".rightPriceBold").text().split(" 원")[0]);
@@ -22,6 +25,16 @@ $(function(){
 		}
 		
 		totalPrice += basicPrice;
+		
+		var ServiceCharge = Math.floor(totalPrice*0.10);
+		var Tax = Math.floor(totalPrice*0.11);
+		
+		totalPrice += ServiceCharge;
+		totalPrice += Tax;
+		
+		$("#ServiceCharge span").text(ServiceCharge);
+		$("#Tax span").text(Tax);
+				
 		$("#finalPrice").text(totalPrice + " 원");
 		
 	}
@@ -174,6 +187,8 @@ $(function(){
 		var roomInfo = $("#fourthDiv").find(".rightText").eq(0).text();
 		var clientReq = $(".formBottom").eq(0).find("input").val();
 		var roomImg = $("#fourthDiv img").attr("src");
+		var ServiceCharge = $("#ServiceCharge").text();
+		var Tax = $("#Tax").text();
 		var priceArray = $(".sumPrice");
 		var Option = "";
 
@@ -189,7 +204,7 @@ $(function(){
 		var finalPrice = $("#finalPrice").text().split(" 원")[0];
 		
 		location.href = "step3.do?checkIn=" + checkIn + "&checkOut=" +checkOut + "&stay=" +stay + "&stayNum=" +stayNum + "&roomInfo=" +roomInfo + "&Option=" +Option + 
-		"&finalPrice=" +finalPrice + "&clientReq=" +clientReq + "&roomImg=" + roomImg + "&basicPrice=" + basicPrice;
+		"&finalPrice=" +finalPrice + "&clientReq=" +clientReq + "&roomImg=" + roomImg + "&basicPrice=" + basicPrice + "&ServiceCharge=" + ServiceCharge + "&Tax=" + Tax;
 	}
 	
 })
