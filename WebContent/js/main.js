@@ -1,29 +1,44 @@
 
 $(function(){
+	var mainVis;
+	$.ajax({
+		url:"index.do",
+		type:"get",
+		data:{"no":3},
+		dataType:"json",  
+		success:function(json){  
+			console.log(json);
+			$.each(json.banner,function(i,obj){
+				var img = "<div><a href='" + obj.linkPath
+				+ "'><img src='" + obj.imgPath
+		        + "'></a></div>"; 
+
+			   $(".mainVisual").append(img);  
+			});				
+			
+			mainVis =  $('.mainVisual').bxSlider({
+				mode: 'fade',
+		    	pager : false,
+		    	controls : false,
+		    	auto : true,
+		    	pause : 5000
+		    });
+		    
+		}			 
+	}) 
 	
 	//메인 비주얼 	
-	$(document).ready(function(){
-		var mainVis =  $('.mainVisual').bxSlider({
-			mode: 'fade',
-	    	pager : false,
-	    	controls : false,
-	    	auto : true,
-	    	pause : 5000
-	    });
-	    
-	    $(".prev").click(function(e){
-	    	 e.preventDefault();
-	    	 mainVis.goToPrevSlide();
-	    	 return false; 
-	    })
-	    
-	    $(".next").click(function(e){
-	    	 e.preventDefault();
-	    	 mainVis.goToNextSlide();
-	    	 return false;
-	    })
-	  });
-	
+	$(".prev").click(function(e){
+		    	 e.preventDefault();
+		    	 mainVis.goToPrevSlide();
+		    	 return false; 
+		    })
+		    
+		    $(".next").click(function(e){
+		    	 e.preventDefault();
+		    	 mainVis.goToNextSlide();
+		    	 return false;
+		    })
 	//달력
 	var month = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
 	var sElement = document.getElementById("start-calendar");

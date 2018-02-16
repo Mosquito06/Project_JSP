@@ -20,6 +20,9 @@
 			 				<a href="${pageContext.request.contextPath}/adminQnA.do" class="noBorder"><span>후기관리</span></a>  
 			 			</li>
 			 			<li class="bMenu">
+			 				<a href="${pageContext.request.contextPath}/adminBanner.do" class="noBorder"><span>메인 관리</span></a>  
+			 			</li>
+			 			<li class="bMenu"> 
 			 				<a href="#" class="noBorder"><span>이벤트관리</span></a>  
 			 			</li>
 

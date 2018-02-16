@@ -8,13 +8,23 @@ section{
 	height: 600px;
 	position: relative;
 }
-
 .mainVisual{
-	width: 100%;
+	width: 100%; 
 	height: 600px;
 }
-
-
+.mainVisual div{
+	width: 100%; 
+	height: 600px;
+}
+.mainVisual a {
+	display:block;
+	width: 100%;
+	height: 100%;
+}
+.mainVisual img{
+	width: 100%;
+	height: 100%;	
+}
 .visContent{
 	width: 1200px;
 	height: 600px;

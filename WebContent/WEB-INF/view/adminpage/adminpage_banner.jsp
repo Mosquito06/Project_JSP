@@ -18,10 +18,12 @@
 			if (!confirm("삭제하시겠습니까?")) {
 		        return;
 		    }
-			  
-			$(".checkbox").each(function(i,obj){
-				if($(this).prop("checked")){ 
-					var no = $(".banNo").eq(i).text(); 
+			 
+			var leng = $(".checkbox").size();
+			
+			for(var i=leng-1; i>-1; i--){
+				if($(".checkbox").eq(i).prop("checked")){ 
+					var no = $(".banNo").eq(i).text();  
 					
 					$.ajax({ 
 				        url: contextPath + "/adminBanner.do?set=delete&no="+no,
@@ -36,13 +38,13 @@
 				        		console.log("삭제실패");
 				        	}
 				        }
-				    }) 
+				    })  
 				}
-			})    
+			}
 		}
 </script>
 </head>
-<body>
+<body> 
 	<div> 
 		<header>
 			<jsp:include page="/WEB-INF/common/header.jsp" />
