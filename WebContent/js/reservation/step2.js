@@ -104,6 +104,7 @@ $(function(){
 	$("#rightBtns img:eq(1)").click(function(){
 		var loginText = $("#headNav > ul > li:eq(0)").text();
 		if(loginText == "로그인"){
+			$(window).scrollTop(0);
 			$("#login").css("display", "block");
 		}else{
 			locationStep3();

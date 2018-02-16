@@ -19,7 +19,7 @@ $(function(){
 		$("input[id='email']").attr("disabled", "disabled");
 		$("input[name='firstName']").attr("disabled", "disabled");
 		$("input[name='lastName']").attr("disabled", "disabled");
-		$("#clientInfoDiv select").attr("disabled", "disabled");
+		$("#clientLeft select").attr("disabled", "disabled");
 		$("input[id='tel']").attr("disabled", "disabled");
 	}
 	
@@ -27,7 +27,7 @@ $(function(){
 	// 예약 초기화 버튼
 	$("#resetSpan").click(function(){
 		location.replace("step1.do");
-
+ 
 	})
 	
 	// 필수입력 사항 입력여부 확인
@@ -90,6 +90,8 @@ $(function(){
 			return;
 		}
 		
+		
+		$("#clientLeft form").submit();
 		
 	})
 	
