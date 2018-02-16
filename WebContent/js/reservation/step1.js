@@ -89,9 +89,12 @@ $(function(){
 			
 			var roomName = $(this).parents(".roomInfo").find(".roomName").text();
 			var index = $(this).parents(".roomInfo").find(".hideInfo").text();
-						
+			var sDate = $("#sYear").text() + $("#sMonth").text() + $("#sDay").text();
+			var eDate = $("#eYear").text() + $("#eMonth").text() + $("#eDay").text();
+			
+			
 			$.ajax({
-				url: "/Project_JSP/search2.do?name=" + roomName + "&index=" + index,
+				url: "/Project_JSP/search2.do?name=" + roomName + "&index=" + index + "&sDate="+ sDate + "&eDate=" + eDate,
 				type : "get",
 				dataType : "json",
 				success : function(data){
@@ -118,7 +121,8 @@ $(function(){
 						}else{
 							$(".roomInfo").eq(data.index).after(
 								"<tr class='selectViewAndBedTr'>" +
-								"	<td colspan='3'><input type='radio' name='selectViewAndBed'> " + room.roomInfoNum.viewType + " / " + room.roomInfoNum.bedType +
+								"	<td colspan='3'><input type='radio' name='selectViewAndBed'> " + 
+								" 		<span class='viewAndBed'>" + room.roomInfoNum.viewType + " / " + room.roomInfoNum.bedType + "</span>" +
 								"		<span class='secondPrice'>"+ room.roomPrice+" 원 ~</span>" +
 								"		<span class='hideRoomNum'>"+ room.roomNum+"</span>" +
 								"	</td>" +
@@ -153,16 +157,24 @@ $(function(){
 				var adultNum = $("#adultNum").text();
 				var kidNum = $("#kidNum").text();
 				var babyNum = $("#babyNum").text();
-				
+								
 				var roomGrade = $(this).parents(".selectViewAndBedTr").prev(".roomInfo").find(".roomGrade").text();
 				var roomName = $(this).parents(".selectViewAndBedTr").prev(".roomInfo").find(".roomName").text();
 				var imgIndex = $(this).parents(".selectViewAndBedTr").prev(".roomInfo").find("img").attr("src");
 				var roomImg = imgIndex.substr(imgIndex.lastIndexOf("/"));
 				
-				var roomPrice = $(this).parent().prev().find(".secondPrice").text().split("원")[0];
-				var view = $(this).parent().prev().find(".viewAndBed").text().split("/")[0];
-				var bed = $(this).parent().prev().find(".viewAndBed").text().split("/")[1];
+				var roomPrice = "";
+				var view = "";
+				var bed = "";
 				
+				var select = $(".selectViewAndBedTr input[type='radio']");
+				for(var i = 0; i < select.length; i++){
+					if($(select[i]).prop("checked") == true){
+						roomPrice = $(select[i]).next().next().text().split("원")[0];
+						view = $(select[i]).next().text().split("/")[0];
+						bed= $(select[i]).next().text().split("/")[1];
+					}
+				}
 				var sDate = $("#sYear").text() + $("#sMonth").text() + $("#sDay").text();
 				var eDate = $("#eYear").text() + $("#eMonth").text() + $("#eDay").text();
 
