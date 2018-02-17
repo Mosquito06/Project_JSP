@@ -47,15 +47,15 @@
 					<div id="completeBottom">
 						<div class="completeBottomDiv">
 							<span class="complteBoldTextColor">고객명</span>
-							<span>${result.reservation.clientNum.nameKo }</span>
+							<span>${result.client.nameKo }</span>
 						</div>
 						<div class="completeBottomDiv">
 							<span class="complteBoldTextColor">연락처</span>
-							<span>${result.reservation.clientNum.phone }</span>
+							<span>${result.client.phone }</span>
 						</div>
 						<div class="completeBottomDiv">
 							<span class="complteBoldTextColor">이메일</span>
-							<span>${result.reservation.clientNum.email }</span>
+							<span>${result.client.email }</span>
 						</div>
 					</div>
 				</div>

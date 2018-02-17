@@ -114,4 +114,15 @@ public class ReservationDaoService implements ReservationDao {
 		return null;
 	}
 
+	@Override
+	public List<Reservation> selectLastReservation() {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			ReservationDao dao = session.getMapper(ReservationDao.class);
+			return dao.selectLastReservation();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }

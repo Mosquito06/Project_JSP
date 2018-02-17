@@ -1,6 +1,6 @@
 package Project_JSP.service.test;
 
-import java.util.Date;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
@@ -11,6 +11,23 @@ import Project_JSP.mvc.util.MySqlSessionFactory;
 
 public class TestReservationDaoService {
 
+	@Test
+	public void selectReservation() {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			ReservationDao dao = session.getMapper(ReservationDao.class);
+			List<Reservation> list = dao.selectLastReservation();
+
+			System.out.println(list.get(list.size()-1).getReservationNum());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	
+	
 /*	@Test
 	public void selectReservation() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {

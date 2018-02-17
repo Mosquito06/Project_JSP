@@ -38,14 +38,16 @@
 	<select id="selectAvailabilityRoom" resultMap="RoomJoinRoomInfoResult">
 	    select room_grade, room_info_name, min(room_price) as room_price, room_size, reservation_img
 		from room r join room_info ri on r.room_info_num = ri.room_info_num 
-		where room_num not in (select room_num from reservation where check_out <![CDATA[>=]]> #{param1} and check_in <![CDATA[<=]]> #{param2}) 
+		where room_num not in (select room_num from reservation where check_out <![CDATA[>=]]> #{param1} 
+		and check_in <![CDATA[<=]]> #{param2} and reservation_state = "RESERVE") 
 		group by room_info_name order by room_price 
 	</select>
 	
 	<select id="selectAvailabilityRoomByRoomNameAndDate" resultMap="RoomJoinRoomInfoResult">
 	    select r.room_num, ri.view_type, ri.bed_type, min(room_price) as room_price from room r join room_info ri 
 		on r.room_info_num = ri.room_info_num where room_info_name = #{param1} and 
-		room_num not in (select room_num from reservation where check_out <![CDATA[>=]]> #{param2} and check_in <![CDATA[<=]]> #{param3})
+		room_num not in (select room_num from reservation where check_out <![CDATA[>=]]> #{param2} 
+		and check_in <![CDATA[<=]]> #{param3} and reservation_state = "RESERVE")
 		group by view_type, bed_type order by room_price desc
 	</select>
 	
@@ -53,7 +55,7 @@
 	    select r.room_num, ri.view_type, ri.bed_type, room_price from room r join room_info ri 
 		on r.room_info_num = ri.room_info_num
 		where room_num not in (select room_num from reservation where check_out <![CDATA[>=]]> #{param1} 
-		and check_in <![CDATA[<=]]> #{param2})
+		and check_in <![CDATA[<=]]> #{param2} and reservation_state = "RESERVE")
 		and room_grade = #{param3} and room_info_name= #{param4} and view_type = #{param5} and bed_type = #{param6}
 	</select>
 	

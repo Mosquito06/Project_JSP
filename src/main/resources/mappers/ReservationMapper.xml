@@ -48,6 +48,10 @@
 	<select id="selectReservationState" parameterType="ReservationState" resultMap="ReservationResult">
 		select * from reservation where reservation_state = #{state}
 	</select>
+	
+	<select id="selectLastReservation" resultMap="ReservationResult">
+		select last_insert_id(reservation_num) as reservation_num from reservation order by reservation_num
+	</select>
 
 	<insert id="insertReservation" parameterType="Reservation">
 	   insert into reservation(room_num,total_price,check_in,check_out,personnel,
