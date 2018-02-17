@@ -220,7 +220,6 @@ ul.selList>li:last-child .rsBox{
 }
 .bannerWrap{
 	width: 100%;
-	height: 353px;
 	margin-bottom: 100px;	 
 }
 .bannerBgColor{
@@ -366,4 +365,63 @@ ul.selList>li:last-child .rsBox{
 	color:#666 !important;	
 	font-size: 24px !important;
 	font-weight: bold !important;
+}
+
+.rewardsWrap{
+    border: 1px solid #e0e0e0;
+    background: #f6f6f6;
+    height: 193px !important;
+    padding: 50px;
+    overflow: hidden;
+}
+
+.rewardsWrap .rwTitle{
+    margin-bottom: 25px;
+}
+
+.rewardsWrap .rwDesc {
+    overflow: hidden;
+    margin: 0 0 45px;
+}
+
+.rewardsWrap .rwDesc li {
+    float: left;
+    margin-left: 28px;
+    padding-left: 28px;
+    border-left: 1px solid #e4e4e4;
+    font-size: 0;
+    line-height: 0;
+}
+
+.rewardsWrap .rwDesc li:FIRST-CHILD {
+    margin-left: 0;
+    padding-left: 0;
+    border-right: none;
+}
+
+.rewardsWrap .rwJoin {
+    position: absolute;
+    top: 110px;
+    right: 50px;
+    width: 230px;
+}
+
+.rewardsWrap .rwJoin .btnRwJoin {
+    display: block;
+    position: absolute;
+    top: 98px;
+    right: 0;
+    font-size: 0;
+    line-height: 0;
+}
+
+.rewardsWrap .rwBenefit {
+    position: relative;
+    width: 724px;
+}
+
+.rewardsWrap .rwBenefit .btnRwMore {
+    position: absolute;
+    top: 24px; 
+    right: 102px;
 }

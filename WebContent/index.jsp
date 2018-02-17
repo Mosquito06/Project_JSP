@@ -7,7 +7,7 @@
 <title>누구나 한번쯤 꿈꾸는 일상으로부터의 탈출 |대구신라호텔</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
-<link rel="stylesheet" type="text/css" href="css/main.css?v=30"> 
+<link rel="stylesheet" type="text/css" href="css/main.css?v=31"> 
 <link rel="stylesheet" type="text/css" href="css/reservation/jsCalendar.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
@@ -193,24 +193,24 @@
 			 		</div>
 			 	</div> 
 			</div> 
-			
+			  
 			<div class="bannerWrap">
 			 	<div class="banContent rewardsWrap"> 
-			 		<h2 class="rwTitle"><img src="/images/ko/seoul/main/rwTitle.gif" alt="신라리워즈"></h2>
+			 		<h2 class="rwTitle"><img src="/Project_JSP/img/main/rwTitle.gif" alt="신라리워즈"></h2>
 			 		<ul class="rwDesc">
-						<li class="first"><a href="#"><img src="/images/ko/seoul/main/rwDesc1.gif"></a></li>
-						<li><a href="#"><img src="/images/ko/seoul/main/rwDesc2.gif"></a></li>
-						<li class="last"><a href="#"><img src="/images/ko/seoul/main/rwDesc3.gif"></a></li>
+						<li><a href="#"><img src="/Project_JSP/img/main/rwDesc1.gif"></a></li>
+						<li><a href="#"><img src="/Project_JSP/img/main/rwDesc2.gif"></a></li>
+						<li><a href="#"><img src="/Project_JSP/img/main/rwDesc3.gif"></a></li>
 					</ul>
 					<div class="rwBenefit">
-						<img src="/images/ko/jeju/main/rwBenefit.gif">
-						<a href="http://www.shillahotels.com/membership/offers/benefits/memBenefitsIndex.do"><img src="/images/ko/jeju/main/btnRwMore.gif"></a>
+						<img src="/Project_JSP/img/main/rwBenefit.gif">
+						<a href="#" class="btnRwMore"><img src="/Project_JSP/img/main/btnRwMore.gif"></a>
 					</div>
 					<div class="rwJoin">
-							<img src="/images/ko/seoul/main/rwCard.png">
-							<a href="#" class="btnRwJoin"><img src="/images/ko/jeju/main/btnRwJoin.gif"></a>
+							<img src="/Project_JSP/img/main/rwCard.png">
+							<a href="#" class="btnRwJoin"><img src="/Project_JSP/img/main/btnRwJoin.gif"></a>
 					</div>
-			 	</div>
+			 	</div> 
 			</div>
 		</div>
 	</section>
