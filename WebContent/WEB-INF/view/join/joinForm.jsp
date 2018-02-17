@@ -7,19 +7,10 @@
 <title>회원가입 ㅣ신라호텔</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
-<link rel="stylesheet" type="text/css" href="css/join/joinForm.css?v=2">
+<link rel="stylesheet" type="text/css" href="css/join/joinForm.css?v=3">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> 
 <script src="js/common/common.js"></script>
-<script src="js/join/joinForm.js?v=4"></script>
-<script>
-	$(function(){
-		$(document).on("mouseover","#addr_content ul", function(){
-			$(this).css({"background-color":"black","opacity":"0.5"});
-		});
-		
-	})
-
-</script>
+<script src="js/join/joinForm.js?v=1"></script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/common/header.jsp"/>
@@ -165,9 +156,9 @@
 							</p>
 							<p>
 								<label>주소</label>
-								<input type="text" name="addr1" disabled="disabled"><a href="#" id="addr_btn"><img src="${pageContext.request.contextPath}/img/join/btnSchAddress.gif"></a><br>
-								<input type="text" name="addr2" disabled="disabled"><br>
-								<input type="text" name="addr3" disabled="disabled" placeholder="상세주소">
+								<input type="text" name="addr1" readonly="readonly" id="zipcode"><a href="#" id="addr_btn"><img src="${pageContext.request.contextPath}/img/join/btnSchAddress.gif"></a><br>
+								<input type="text" name="addr2" readonly="readonly" id="addr_main"><br>
+								<input type="text" name="addr3" readonly="readonly" id="addr_detail">
 							</p>
 							
 						</div>
@@ -179,7 +170,7 @@
 					<div id="web_join_info_input">
 						<p>
 								<label><span class="star">*</span>아이디</label>
-								<input type="text" name="id" class="import"><img src="img/join/x.png" class="x-btn">
+								<input type="text" name="id" class="import" style="ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'');"><img src="img/join/x.png" class="x-btn">
 								<a href="#" id="id_check_btn"><img src="${pageContext.request.contextPath}/img/join/idConfirm.gif"></a>
 								<span id="id_info">5~12 이내 영문 또는 영문/숫자 조합</span>
 									<span class="error id_errs">아이디를 확인하세요(*필수)</span>
@@ -221,8 +212,8 @@
 				</div>
 			</div>
 				<div id="addr_input">
-					<label>도로명 검색</label>
-					<input type="text" id="doro" placeholder="도로명 입력">
+					<label>도로명 주소</label>
+					<input type="text" id="doro" placeholder="도로명 입력" style="ime-mode:active;" onkeyup="this.value=this.value.replace(/[^가-힣]/g,'');">
 					<a href="#" id="search_addr"><img src="${pageContext.request.contextPath}/img/join/popAdressSchAddSchBtn.gif"></a>
 				</div>
 				<div id="addr_content">

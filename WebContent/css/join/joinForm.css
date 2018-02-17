@@ -293,7 +293,7 @@ input[type='submit']{
 #addr_box{
 	z-index: 10000;
 	width:500px;
-	height:300px;
+	max-height:300px;
 	border:4px solid #9B7F5B;
 	overflow-y:auto; 
 	position: absolute;
@@ -306,17 +306,17 @@ input[type='submit']{
 	height:35px;
 	line-height:35px;
 	background-color:#9B7F5B;
+	width:100%;
 	color:white;
 	position: relative;
-	padding:0 5px;
 	margin-bottom: 10px;
 }
 #addr_title h1{
-	float: left;
+	 float: left; 
 	width:120px;
-	margin-left:5px;
 	font-size: 1.2em;
 	font-weight: bold;
+	margin-left:5px;
 }
 #addr_img{
 	float: right;
@@ -336,7 +336,7 @@ input[type='submit']{
 	background-color: #fbfbfb;
 	padding:10px 5px;
 	overflow: hidden;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 #addr_input label{
 	float: left;
@@ -353,4 +353,28 @@ input[type='submit']{
 }
 #search_addr{
 	display:inline-block;
+}
+#addr_content > table{
+	width:96%;
+	margin:0 auto;
+}
+#addr_content > table th,td{
+	border:#e9e9e9 solid 1px;
+	height:30px;
+	line-height: 30px;
+	font-size: 14px;
+}
+#addr_content > table tr{
+	cursor: pointer;
+}
+#addr_content > table th{
+	width:100px;
+}
+#addr_content > table td{
+	padding-left: 7px;
+}
+#no_search{
+	font-size: 13px;
+	color:#8C8C8C;
+	padding:0px 0px 20px 10px;
 }
