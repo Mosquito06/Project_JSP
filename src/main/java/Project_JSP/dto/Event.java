@@ -24,7 +24,7 @@ public class Event {
 		this.eventEndDay = eventEndDay;
 		this.eventImgPath = eventImgPath;
 	}
-	public int getEventNum() {
+	public int getEventNum() { 
 		return eventNum;
 	}
 
