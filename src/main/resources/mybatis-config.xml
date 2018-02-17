@@ -49,5 +49,6 @@
 	  <mapper resource="mappers/PostMapper.xml" />
 	  <mapper resource="mappers/CommentMapper.xml" />
 	  <mapper resource="mappers/BannerMapper.xml" />
+	  <mapper resource="mappers/QnaBoardMapper.xml" />
   </mappers>
 </configuration>

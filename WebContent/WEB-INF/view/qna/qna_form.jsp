@@ -75,7 +75,7 @@
 								<td><input type="text" name="name"></td>
 								<c:if test="${MEMBER != null}">
 									<script>
-											$("input[name='name']").val("${MEMBER.nameKo}");
+											$("input[name='name']").val("${MEMBER.nameKo}").attr("readonly","readonly");
 									</script>
 								</c:if>
 								
@@ -101,8 +101,8 @@
 										var email ="${MEMBER.email}";
 										var email1 = email.substring(0, email.indexOf("@"));
 										var email2 = email.substring(email.indexOf("@")+1);
-											$("input[name='email1']").val(email1);
-											$("input[name='email2']").val(email2);
+											$("input[name='email1']").val(email1).attr("readonly","readonly");
+											$("input[name='email2']").val(email2).attr("readonly","readonly");
 											$("select[name='email3']").attr("disabled","disabled");
 									</script>
 								</c:if>
@@ -112,7 +112,7 @@
 								<td><input type="tel" name="tell"></td>
 								<c:if test="${MEMBER !=null }">
 									<script>
-										$("input[name='tell']").val("${MEMBER.phone}");
+										$("input[name='tell']").val("${MEMBER.phone}").attr("readonly","readonly");
 									</script>
 								</c:if>
 							</tr>
