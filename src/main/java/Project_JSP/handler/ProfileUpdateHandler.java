@@ -34,15 +34,16 @@ public class ProfileUpdateHandler implements CommandHandler {
 			ClientDaoService service = ClientDaoService.getInstance(); 
 			
 			service.updateProfile(client);
-			System.out.println(client);
+			
 			Client newClient = new Client();
 			newClient.setId(req.getParameter("id"));
 			newClient.setClientGrade(ClientGrade.MEMBER);
-			
 			Client c = service.selectClientId(newClient);
 			
-			System.out.println(c);
-			
+			//기존꺼를 지우고
+			req.getSession().removeAttribute("MEMBER");
+			//새롭게 지정
+			req.getSession().setAttribute("MEMBER", c);
 			HashMap<String,Client> map = new HashMap<>();
 			map.put("client",c);
 			ObjectMapper om = new ObjectMapper();

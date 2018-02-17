@@ -15,7 +15,7 @@
 	href="${pageContext.request.contextPath}/css/mypage/profileUpdate.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common/common.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/mypage/profileUpdate.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/mypage/profileUpdate.js?v=1"></script>
 </head>
 <body>
 	<div>
@@ -101,9 +101,9 @@
 									<tr>
 										<th>주소</th>
 										<td>
-											<input type="text" name="addr1" id="addr1"><a href="#" id="addressBtn"><img src="${pageContext.request.contextPath}/img/join/btnSchAddress.gif"></a><br>
-											<input type="text" name="addr2" id="addr2"><br>
-											<input type="text" name="addr3" id="addr3">
+											<input type="text" name="addr1" readonly="readonly" id="zipcode"><a href="#" id="addressBtn"><img src="${pageContext.request.contextPath}/img/join/btnSchAddress.gif"></a><br>
+											<input type="text" name="addr2" readonly="readonly" id="addr_main"><br>
+											<input type="text" name="addr3" readonly="readonly" id="addr_detail">
 										</td>
 									</tr>
 									
@@ -135,6 +135,22 @@
 					</div>
 				</div>
 			</div>
+				<div id="addr_box">
+			<div id="addr_title">
+				<h1>주소 찾기</h1>
+				<div id='addr_img'>
+					<img src="/Project_JSP/img/join/popLayerBtnClose.gif">
+				</div>
+			</div>
+				<div id="addr_input">
+					<label>도로명 주소</label>
+					<input type="text" id="doro" placeholder="도로명 입력" style="ime-mode:active;" onkeyup="this.value=this.value.replace(/[^가-힣]/g,'');">
+					<a href="#" id="search_addr"><img src="${pageContext.request.contextPath}/img/join/popAdressSchAddSchBtn.gif"></a>
+				</div>
+				<div id="addr_content">
+				</div>
+			</div>
+			<div id="addr_bg"></div>
 		</section>
 		<footer>
 			<jsp:include page="/WEB-INF/common/footer.jsp" />
