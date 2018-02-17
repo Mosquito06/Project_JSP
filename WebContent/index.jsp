@@ -7,28 +7,28 @@
 <title>누구나 한번쯤 꿈꾸는 일상으로부터의 탈출 |대구신라호텔</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
-<link rel="stylesheet" type="text/css" href="css/main.css?v=27"> 
+<link rel="stylesheet" type="text/css" href="css/main.css?v=29"> 
 <link rel="stylesheet" type="text/css" href="css/reservation/jsCalendar.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.js"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.lang.de.js"></script>
-<script type="text/javascript" src="js/main.js?v=21"></script>  
+<script type="text/javascript" src="js/main.js?v=24"></script>  
 </head>   
 <body>  
 	<%@ include file="WEB-INF/common/header.jsp" %>   
-	<section>        
+	<section>         
 		<div id="visualWrap">    
 			<div class="mainVisual">
 				
 			</div>
 			<div class="visContent">
-				<a href="#" class="prev mVisBtn">이전</a>   
+				<a href="#" class="prev mVisBtn">이전</a>
 				<a href="#" class="next mVisBtn">이후</a>
-				
+				 
 				<div class="reserveWrap"> 
-					<div class="selArea">
+					<div class="selArea"> 
 						<ul class="selList">
 							<li class="hotelLi">
 								대구신라호텔    
@@ -118,15 +118,30 @@
 			</div>
 		</div>
 		
-		
-		<div class="bannerWrap">
-		 
+		<div class="mainContent">
+			<div class="bannerWrap">
+			 	<div class="banContent">
+			 		<div class="titleWrap"> 
+			 			<h2><img src="/Project_JSP/img/main/eventTit.gif"></h2>
+			 			<a href="/Project_JSP/event/eventlist.do"><img src="/Project_JSP/img/main/btnOfferMore.gif"></a> 
+			 		</div>
+			 		<div class="conBox">
+			 			
+			 		</div> 
+			 	</div>   
+			</div>
+			
+			<div class="bannerWrap bannerBgColor">
+			 	<div class="banContent">
+			 	</div> 
+			</div> 
+			
+			<div class="bannerWrap">
+			 	<div class="banContent"> 
+			 	
+			 	</div>
+			</div>
 		</div>
-		
-		<div class="bannerWrap">
-		
-		</div> 
-		
 	</section>
 	<jsp:include page="WEB-INF/common/footer.jsp"/>
 </body>

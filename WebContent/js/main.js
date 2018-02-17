@@ -23,7 +23,44 @@ $(function(){
 		    	auto : true,
 		    	pause : 5000
 		    });
-		    
+			 
+			var eventSize = Object.keys(json.event).length;
+			  
+			for(var i=0; i<3; i++){	 			
+				var event = json.event[--eventSize];
+				if(eventSize < 0){
+					break; 
+				} 
+				var no = event.eventNum;
+				var imgPath = event.eventImgPath;
+				var startDate = new Date(event.eventStartDay);
+				var endDate = new Date(event.eventEndDay);
+				
+				var sYear = startDate.getFullYear();
+				var sMonth = startDate.getMonth()+1;
+				var sDate = startDate.getDate()
+				var sFullDate = sYear + "-" + sMonth + "-"+ sDate;
+					
+				var eYear = endDate.getFullYear();
+				var eMonth = endDate.getMonth()+1;
+				var eDate = endDate.getDate()
+				var eFullDate = eYear + "-" + eMonth + "-" + eDate;
+				var box = $("<div class='contentBox'>");
+				
+				var img = "<a href='"+contextPath+"/event/eventread.do?no="+no+"'>";
+					img += "<img src='"+imgPath+"'/>";
+					img += "</a>"; 
+				var div = "<div class='tit'>";
+					div	+= "<h3>"+event.eventTitle+"</h3>";
+					div	+= "<p>"+event.eventIntroduce+"</p>";
+					div	+= "<p>"+sFullDate + "~" + eFullDate+"</p>";
+					div	+= "</div>";
+					
+				 box.append(img);
+				 box.append(div);
+				 
+				 $(".conBox").append(box); 
+			}
 		}			 
 	}) 
 	

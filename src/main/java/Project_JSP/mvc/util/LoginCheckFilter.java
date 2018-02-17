@@ -23,14 +23,17 @@ public class LoginCheckFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
 		
-		// 필터의 req는 ServletRequest 타입이기 때문에 자식이 HttpServletRequest으로 다운 캐스팅 해줘야 getSession 함수를 사용가능
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpSession session = request.getSession(false);
 		
 		// 로그인 하지 않은 상태
-		if(session == null || session.getAttribute("auth") == null){
-			HttpServletResponse response = (HttpServletResponse) res;
-			response.sendRedirect(request.getContextPath() + "/login.do");
+		if(session == null || session.getAttribute("MEMBER") == null){
+			if(session.getAttribute("NONMEMBER") == null){
+				HttpServletResponse response = (HttpServletResponse) res;
+				response.sendRedirect(request.getContextPath() + "/login.do");
+			}else{
+				chain.doFilter(req, res);
+			}
 		}else{
 			chain.doFilter(req, res);
 		}

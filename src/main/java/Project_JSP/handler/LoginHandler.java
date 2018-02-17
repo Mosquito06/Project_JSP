@@ -86,7 +86,7 @@ public class LoginHandler implements CommandHandler {
 					req.getSession().setAttribute("NONMEMBER", cName);
 					req.getSession().removeAttribute("MEMBER");
 					req.getSession().removeAttribute("ADMIN");
-					 res.sendRedirect("index.jsp");
+					res.sendRedirect("index.jsp");
 					 return null;
 				}
 				

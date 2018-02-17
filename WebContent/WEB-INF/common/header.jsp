@@ -42,7 +42,7 @@
 						<li><a href="${pageContext.request.contextPath }/login.do">로그인</a></li>
 						<li><a href="${pageContext.request.contextPath }/join.do">신라리워즈 가입</a></li>
 					</c:if>
-					<li><a href="#">예약확인</a></li>
+					<li><a href="${pageContext.request.contextPath }/myReservation.do">예약확인</a></li>
 					<li><a href="${pageContext.request.contextPath }/admin.do">관리자</a></li>
 				</ul>
 			</div>  

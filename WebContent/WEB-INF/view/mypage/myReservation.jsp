@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="css/reservation/jsCalendar.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
-<script type="text/javascript" src="js/mypage/myReservation.js?a=ddd"></script>
+<script type="text/javascript" src="js/mypage/myReservation.js?a=dddsd"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.js"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.lang.de.js"></script>
 
@@ -62,13 +62,13 @@
 										<th>예약번호</th>
 										<th>호텔</th>
 										<th>객실</th>
-										<th>체크인/체크아웃</th>
+										<th>체크인</th>
+										<th>체크아웃</th>
 										<th>예약상태</th>		
 									</tr>
 									<tr class="emptyTr">
-										<td colspan="5">자료가 없습니다.</td>
-									</tr>
-									
+										<td colspan="6">자료가 없습니다.</td>
+									</tr>								
 								</table>
 							</div>
 						</div>

@@ -60,6 +60,21 @@ div#reservationMainDiv{
 
 #TableDiv table tr.reservationTr{
 	border-bottom: 1px solid #cdcbbe;
+	cursor: pointer;
+}
+
+#TableDiv table tr.reservationTr:hover{
+	background-color: #faf9f4;
+}
+
+#TableDiv table tr[class*='roomInfo']{
+	border-top: 1px solid #cdcbbe;
+	border-bottom: 1px solid #cdcbbe;
+	display: none;
+}
+
+#TableDiv table tr[class*='roomInfo'] img{
+	cursor: pointer;
 }
 
 #start-calendar{
