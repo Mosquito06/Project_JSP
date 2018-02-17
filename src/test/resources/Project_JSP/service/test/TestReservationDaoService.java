@@ -15,9 +15,11 @@ public class TestReservationDaoService {
 	public void selectReservation() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			ReservationDao dao = session.getMapper(ReservationDao.class);
-			List<Reservation> list = dao.selectLastReservation();
-
-			System.out.println(list.get(list.size()-1).getReservationNum());
+			List<Reservation> list = dao.selectReservationJoinRoomAndRoomInfo(20);
+			
+			for(Reservation r : list){
+				System.out.println(r.toString());
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -26,6 +28,19 @@ public class TestReservationDaoService {
 	}
 	
 	
+	/*@Test
+	public void selectReservation() {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			ReservationDao dao = session.getMapper(ReservationDao.class);
+			List<Reservation> list = dao.selectLastReservation();
+
+			System.out.println(list.get(list.size()-1).getReservationNum());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}*/
 	
 	
 /*	@Test

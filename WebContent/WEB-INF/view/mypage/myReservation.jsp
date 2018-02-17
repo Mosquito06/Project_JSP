@@ -8,11 +8,11 @@
 <link rel="stylesheet" type="text/css" href="css/common/reset.css?d=s">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
 <link rel="stylesheet" type="text/css" href="css/mypage/leftMenu.css?v=2d">
-<link rel="stylesheet" type="text/css" href="css/mypage/myReservation.css?v=dd">
+<link rel="stylesheet" type="text/css" href="css/mypage/myReservation.css?v=ddd">
 <link rel="stylesheet" type="text/css" href="css/reservation/jsCalendar.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
-<script type="text/javascript" src="js/mypage/myReservation.js?a=d"></script>
+<script type="text/javascript" src="js/mypage/myReservation.js?a=ddd"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.js"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.lang.de.js"></script>
 
@@ -65,9 +65,10 @@
 										<th>체크인/체크아웃</th>
 										<th>예약상태</th>		
 									</tr>
-									<tr>
+									<tr class="emptyTr">
 										<td colspan="5">자료가 없습니다.</td>
 									</tr>
+									
 								</table>
 							</div>
 						</div>

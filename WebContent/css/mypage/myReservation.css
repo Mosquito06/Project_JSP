@@ -58,6 +58,10 @@ div#reservationMainDiv{
 	font-size: 13px;
 }
 
+#TableDiv table tr.reservationTr{
+	border-bottom: 1px solid #cdcbbe;
+}
+
 #start-calendar{
 	position: absolute;
 	top: 350px;

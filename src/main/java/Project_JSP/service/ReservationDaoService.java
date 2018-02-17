@@ -125,4 +125,15 @@ public class ReservationDaoService implements ReservationDao {
 		return null;
 	}
 
+	@Override
+	public List<Reservation> selectReservationJoinRoomAndRoomInfo(int clientNum) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			ReservationDao dao = session.getMapper(ReservationDao.class);
+			return dao.selectReservationJoinRoomAndRoomInfo(clientNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }

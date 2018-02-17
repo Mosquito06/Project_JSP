@@ -95,7 +95,34 @@ $(function(){
 	
 	// 전제 조회 버튼
 	$("#reservationBtnDiv img").eq(1).click(function(){
-		alert(1);
+		$.ajax({
+			url : "/Project_JSP/AllSearchReserv.do",
+			type : "get",
+			dataType : "json",
+			success: function(data){
+				console.log(data);
+				$(".reservationTr").remove();
+				$("#TotalDiv").text("Total : " + data.length);
+								
+				$("#TableDiv .emptyTr").remove();
+				$(data).each(function(i, reserv){
+					var sDate = getFormatDate(new Date(reserv.checkIn))
+					var eDate = getFormatDate(new Date(reserv.checkOut));
+					var status = reserv.state;
+					status = status == "RESERVE" ? "예약" : status == "CANCEL"? "취소" : "완료";
+					
+					$("#TableDiv table").append(
+						"<tr class='reservationTr'>" +
+						"	<td>" + reserv.reservationNum +
+						"	<td>대구신라호텔</td>" +
+						"	<td>" + "[" + reserv.roomNum.roomInfoNum.roomGrade +"] " + reserv.roomNum.roomInfoNum.roomInfoName + "</td>" +
+						"	<td>" + sDate + "/" + eDate + "</td>" +
+						"	<td>" + status + "</td>" +
+						"</tr>"
+					);
+				})
+			}
+		})
 	})
 	
 	
@@ -103,6 +130,15 @@ $(function(){
 	$("#reservationBtnDiv img").eq(4).click(function(){
 		alert(4);
 	})
+	
+	function getFormatDate(date){
+		var month = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
+		var Year = date.getFullYear();
+		var Month = month[date.getMonth()];
+		var Date = date.getDate();
+		Date = Date >= 10? Date : "0" + Date;
+		return Year + "." + Month + "." + Date;
+	}
 	
 
 	
