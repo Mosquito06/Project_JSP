@@ -39,6 +39,18 @@ public class ReservationStep4Handler implements CommandHandler {
 			String tel = req.getParameter("tel");
 			nonClient = new Client();
 			
+			int RanNum = (int) (Math.floor(Math.random()*10000)+1);
+			String id = "DGSHILLA" + RanNum;
+			
+			List<Client> clientList = ClientDaoService.getInstance().selectClient();
+			for(Client c : clientList){
+				if(c.getId().equals(id)){
+					 RanNum = (int) (Math.floor(Math.random()*10000)+1);
+					 id = "DGSHILLA" + RanNum;
+				}
+			}
+						
+			nonClient.setId(id);
 			nonClient.setNameKo(name);
 			nonClient.setNameEn(firstName + " " + lastName);
 			nonClient.setEmail(email);

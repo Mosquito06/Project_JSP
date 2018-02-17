@@ -42,7 +42,7 @@
 					</div>
 					<div id="completeRight">
 						<span class="complteBoldTextColor">예약번호</span>
-						<span>${result.reservation.reservationNum }</span>
+						<span>${result.reservation.reservationNum }(${result.client.id })</span>
 					</div>
 					<div id="completeBottom">
 						<div class="completeBottomDiv">
@@ -105,7 +105,7 @@
 						<ul>
 							<li>※ 10% service charge and 11% Tax Included.</li>
 							<li>※ 예약한 내용 확인 및 변경, 취소는 My page에서 가능합니다.</li>
-							<li>※ 비회원으로 예약한 경우에는, 예약번호로 예약 내용 확인, 변경, 취소가 가능합니다.</li>
+							<li>※ 비회원으로 예약한 경우에는, 예약번호(괄호 속 임의 아이디)로 예약 내용 확인, 변경, 취소가 가능합니다.</li>
 							<li>※ 현재 미결제 상태이며, 체크인시 결제가 진행됩니다.</li>
 						</ul>
 					</div>
