@@ -30,7 +30,7 @@ $(function(){
 				var event = json.event[--eventSize];
 				if(eventSize < 0){
 					break; 
-				} 
+		 		} 
 				var no = event.eventNum;
 				var imgPath = event.eventImgPath;
 				var startDate = new Date(event.eventStartDay);
@@ -64,18 +64,56 @@ $(function(){
 		}			 
 	}) 
 	
+	
+	
 	//메인 비주얼 	
 	$(".prev").click(function(e){
-		    	 e.preventDefault();
-		    	 mainVis.goToPrevSlide();
-		    	 return false; 
-		    })
+		 e.preventDefault();
+		 mainVis.goToPrevSlide();
+		 return false; 
+	})
 		    
-		    $(".next").click(function(e){
-		    	 e.preventDefault();
-		    	 mainVis.goToNextSlide();
-		    	 return false;
-		    })
+	$(".next").click(function(e){
+		 e.preventDefault();
+		 mainVis.goToNextSlide();
+		 return false;
+	})
+	
+	//액티비티 슬라이드 
+	var actSlide =  $('.activitySlide').bxSlider({
+				mode: 'fade',
+		    	pager : false,
+		    	controls : false,
+		    	auto : false
+		 });
+	
+	setInterval(function(){
+		 actSlide.goToNextSlide();
+		var slide = actSlide.getCurrentSlide()+1;
+		$(".showSlide").text(slide);
+	}, 5000);
+	
+	var totalSlide = actSlide.getSlideCount();	
+	
+	$(".maxSlide").text(totalSlide);
+	var slide = actSlide.getCurrentSlide()+1;
+	$(".showSlide").text(slide);
+	 
+	$(".act_prev").click(function(e){
+		 e.preventDefault();
+		 actSlide.goToPrevSlide();
+		 var slide = actSlide.getCurrentSlide()+1;
+		 $(".showSlide").text(slide);
+		 return false; 
+	})
+		     
+	$(".act_next").click(function(e){
+		 e.preventDefault();
+		 actSlide.goToNextSlide();
+		 var slide = actSlide.getCurrentSlide()+1;
+		 $(".showSlide").text(slide);
+		 return false;
+	})
 	//달력
 	var month = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
 	var sElement = document.getElementById("start-calendar");
