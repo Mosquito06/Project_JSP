@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+
+div#wrap_title{
+	margin-bottom: 0px;	
+}
+
+div#reservationMainDiv{
+	border: 1px solid #f1e3c4;
+	padding: 20px;	
+}
+
+#reservationBtnDiv{
+	border: 1px solid black;
+}
+
+#reservationBtnDiv input{
+	height: 21px;
+	width: 85px;
+	vertical-align: top;
+}
