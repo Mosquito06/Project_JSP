@@ -69,12 +69,31 @@ $(function(){
 							"email2":$("#email2").val(),
 							"phone":$("#phone").val(),
 							"home":$("#tel").val(),
-							"addr1":$("#addr1").val(),
-							"addr2":$("#addr2").val(),
-							"addr3":$("#addr3").val()
+							"addr1":$("#zipcode").val(),
+							"addr2":$("#addr_main").val(),
+							"addr3":$("#addr_detail").val()
 						},
 						dataType:"json",
 						success:function(data){
+							alert("프로필이 수정되었습니다.");
+							
+							var email = data.client.email;
+							var email1 = email.substring(0, email.indexOf("@"));
+							var email2 = email.substring(email.indexOf("@")+1);
+							$("#email1").val(email1);
+							$("#email2").val(email2);
+							
+							var address =data.client.address;
+							var zipcode = address.substring(0, address.indexOf("/"));
+							var address1 = address.substring(address.indexOf("/")+1,address.lastIndexOf("/"));
+							var address2 = address.substring(address.lastIndexOf("/")+1);
+							
+							$("#zipcode").val(zipcode);
+							$("#addr_main").val(address1);
+							$("#addr_detail").val(address2);
+							
+							$("#phone").val(data.client.phone);
+							$("#tel").val(data.client.home);
 							console.log(data);
 						}
 					})
@@ -89,6 +108,74 @@ $(function(){
 		}
 	})
 	
+	/*주소록*/
+	
+	$("#search_addr").click(function(){
+		$.ajax({
+			url:"post.do",
+			type:"get",
+			data:{"doro":$("#doro").val()},
+			dataType:"json",
+			success:function(json){
+				console.log(json);
+				
+				$("#addr_content").empty();
+				
+				var data = "";
+				
+				if(json.length==0){
+					data="<span id='no_search'>검색내역이 없습니다. 도로명 주소를 다시 입력해주세요</span>";
+				}else{
+					data = "<table id='addr_data'>";
+					for(var i=0;i<json.length;i++){
+
+						data+="<tr class='addr_sel'><th>"+json[i].zipCode+"</th>";
+						data+="<td>"+json[i].sido+" "+json[i].sigungu+" "+json[i].doro+" "+json[i].building1+"</td></tr>";
+
+					}
+					data+="</table>";
+				}
+				$("#addr_content").append(data);
+				
+		
+			}			
+			
+		})
+		return false;
+	})
+	
+	$("#addressBtn").click(function(){
+		$("#addr_bg").css("display","block");
+		$("#addr_box").css("display","block");
+		
+	})
+	$("#addr_img > img").click(function(){
+			$("#addr_box").css("display","none");
+			$("#addr_bg").css("display","none");
+		})
+
+	$(document).on("mouseover",".addr_sel",function(){
+		$(this).css("background-color","#fbfbfb");
+	})
+	
+	$(document).on("mouseout",".addr_sel",function(){
+		$(this).css("background-color","white");
+	})
+		
+	$(document).on("click",".addr_sel",function(){
+		var zipcode = $(this).find("th").text();
+		var addr = $(this).find("td").text();
+		
+		$("#addr_box").css("display","none");
+		$("#addr_bg").css("display","none");
+		
+		$("#zipcode").val(zipcode);
+		$("#addr_main").val(addr);
+		$("#addr_detail").val("");
+		$("#addr_detail").removeAttr("readonly");
+		$("#addr_detail").focus();
+		
+	})
 
 	
 })
