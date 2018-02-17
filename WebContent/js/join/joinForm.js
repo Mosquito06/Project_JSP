@@ -28,19 +28,18 @@
 				var data = "";
 				
 				if(json.length==0){
-					data="검색내역이 없습니다. 도로명을 다시 입력해주세요";
-					$("#addr_content").append(data);
+					data="<span id='no_search'>검색내역이 없습니다. 도로명 주소를 다시 입력해주세요</span>";
 				}else{
+					data = "<table id='addr_data'>";
 					for(var i=0;i<json.length;i++){
-						data = "<table border='1' id='addr_data'>";
-						data+="<tr><th>"+json[i].zipCode+"</th>";
+
+						data+="<tr class='addr_sel'><th>"+json[i].zipCode+"</th>";
 						data+="<td>"+json[i].sido+" "+json[i].sigungu+" "+json[i].doro+" "+json[i].building1+"</td></tr>";
 
-						data+="</table>";
-
 					}
-					$("#addr_content").append(data);
+					data+="</table>";
 				}
+				$("#addr_content").append(data);
 				
 		
 			}			
@@ -59,11 +58,27 @@
 			$("#addr_bg").css("display","none");
 		})
 
-	$(document).on("mouseout","#addr_content ul", function(){
-			$(this).css({"background-color":"white","opacity":"1"});
-		});
-		
+	$(document).on("mouseover",".addr_sel",function(){
+		$(this).css("background-color","#fbfbfb");
+	})
 	
+	$(document).on("mouseout",".addr_sel",function(){
+		$(this).css("background-color","white");
+	})
+		
+	$(document).on("click",".addr_sel",function(){
+		var zipcode = $(this).find("th").text();
+		var addr = $(this).find("td").text();
+		
+		$("#addr_box").css("display","none");
+		$("#addr_bg").css("display","none");
+		
+		$("#zipcode").val(zipcode);
+		$("#addr_main").val(addr);
+		$("#addr_detail").removeAttr("readonly");
+		$("#addr_detail").focus();
+		
+	})
 	/*input에 focus가 가면 테두리 색으로 변경을 해준다*/
 		$("input").each(function(i, obj) {
 				var left ="";
