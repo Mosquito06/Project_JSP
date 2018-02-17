@@ -16,4 +16,6 @@ public interface ReservationDao {
 	public List<Reservation> selectReservationDate(Reservation reservation);
 	public List<Reservation> selectReservationUser(int clientNum);
 	public List<Reservation> selectReservationState(ReservationState state);
+	public List<Reservation> selectLastReservation();
+	public List<Reservation> selectReservationJoinRoomAndRoomInfo(int clientNum);
 }

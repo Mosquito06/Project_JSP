@@ -1,0 +1,92 @@
+@CHARSET "UTF-8";
+
+div#contentWrap{
+	min-height: 600px;	
+}
+
+div#wrap_title{
+	margin-bottom: 0px;	
+}
+
+div#reservationMainDiv{
+	border: 1px solid #f1e3c4;
+	padding: 20px;	
+}
+
+#reservationBtnDiv{
+	margin-bottom: 20px;
+}
+
+#reservationBtnDiv img{
+	cursor: pointer;
+}
+
+#reservationBtnDiv input{
+	height: 21px;
+	width: 85px;
+	vertical-align: top;
+}
+
+#reservationTableDiv div:FIRST-CHILD {
+	border-bottom: 2px solid #a1886f;
+}
+
+#TotalDiv{
+	font-size: 13px;
+	padding: 10px 0 10px 0;
+}
+
+#TableDiv table{
+	border-top: 1px solid #cdcbbe;
+	border-bottom: 1px solid #cdcbbe;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#TableDiv table th{
+	background-color: #faf9f4;
+	border-bottom: 1px solid #cdcbbe;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 15px;
+	color: #666666;
+}
+
+#TableDiv table td{
+	text-align: center;
+	padding: 15px;
+	font-size: 13px;
+}
+
+#TableDiv table tr.reservationTr{
+	border-bottom: 1px solid #cdcbbe;
+	cursor: pointer;
+}
+
+#TableDiv table tr.reservationTr:hover{
+	background-color: #faf9f4;
+}
+
+#TableDiv table tr[class*='roomInfo']{
+	border-top: 1px solid #cdcbbe;
+	border-bottom: 1px solid #cdcbbe;
+	display: none;
+}
+
+#TableDiv table tr[class*='roomInfo'] img{
+	cursor: pointer;
+}
+
+#start-calendar{
+	position: absolute;
+	top: 350px;
+	left: 700px;
+	display: none;
+}
+
+#end-calendar{
+	position: absolute;
+	top: 350px;
+	left: 850px;
+	display: none;
+}

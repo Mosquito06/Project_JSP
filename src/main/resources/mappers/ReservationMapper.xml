@@ -15,6 +15,20 @@
         <result property="payDate" column="pay_date"/>
       	<result property="clientReq" column="client_req"/>
     </resultMap>
+    
+    <resultMap type="Reservation" id="ReservationJoinRoomAndRoomInfo">
+        <result property="reservationNum" column="reservation_num"/>
+       	<result property="totalPrice" column="total_price"/>
+        <result property="checkIn" column="check_in"/>
+        <result property="checkOut" column="check_out"/>
+        <result property="personnel" column="personnel"/>
+        <result property="state" column="reservation_state"/>
+        <result property="option" column="option_content"/>
+        <result property="payDate" column="pay_date"/>
+      	<result property="clientReq" column="client_req"/>
+    	<result property="clientNum.clientNum" column="client_num"/>
+    	<association property="roomNum" resultMap="Project_JSP.dao.RoomDao.RoomJoinRoomInfoResult"/>
+    </resultMap>
    
     <sql id="selectReservationSql" >
         select * from reservation
@@ -47,6 +61,15 @@
 	
 	<select id="selectReservationState" parameterType="ReservationState" resultMap="ReservationResult">
 		select * from reservation where reservation_state = #{state}
+	</select>
+	
+	<select id="selectLastReservation" resultMap="ReservationResult">
+		select last_insert_id(reservation_num) as reservation_num from reservation order by reservation_num
+	</select>
+	
+	<select id="selectReservationJoinRoomAndRoomInfo" resultMap="ReservationJoinRoomAndRoomInfo">
+		select * from reservation rv, room r, room_info ri where rv.room_num = r.room_num 
+		and r.room_info_num = ri.room_info_num and client_num = #{param1}
 	</select>
 
 	<insert id="insertReservation" parameterType="Reservation">

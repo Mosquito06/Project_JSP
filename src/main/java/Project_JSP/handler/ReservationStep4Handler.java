@@ -31,8 +31,6 @@ public class ReservationStep4Handler implements CommandHandler {
 		Client client = (Client) req.getSession().getAttribute("MEMBER");
 		Client nonClient = null;
 		
-		System.out.println(client);
-		
 		if(client == null){
 			String name = req.getParameter("name");
 			String firstName = req.getParameter("firstName");
@@ -41,6 +39,18 @@ public class ReservationStep4Handler implements CommandHandler {
 			String tel = req.getParameter("tel");
 			nonClient = new Client();
 			
+			int RanNum = (int) (Math.floor(Math.random()*10000)+1);
+			String id = "DGSHILLA" + RanNum;
+			
+			List<Client> clientList = ClientDaoService.getInstance().selectClient();
+			for(Client c : clientList){
+				if(c.getId().equals(id)){
+					 RanNum = (int) (Math.floor(Math.random()*10000)+1);
+					 id = "DGSHILLA" + RanNum;
+				}
+			}
+						
+			nonClient.setId(id);
 			nonClient.setNameKo(name);
 			nonClient.setNameEn(firstName + " " + lastName);
 			nonClient.setEmail(email);
@@ -84,7 +94,6 @@ public class ReservationStep4Handler implements CommandHandler {
 
 		String clientReq = req.getParameter("clientReq");
 		String OptionName = req.getParameter("option");
-		System.out.println(OptionName);
 		String optionContent = "";
 		
 		if(OptionName.equals("[]")){
@@ -113,14 +122,6 @@ public class ReservationStep4Handler implements CommandHandler {
 		
 		RoomDaoService roomService = RoomDaoService.getInstance();
 		List<Room> selectRoom = roomService.selectRoomToReservation(sDate, eDate, roomGrade, roomName, viewType, bedType);
-		System.out.println(sDate);
-		System.out.println(eDate);
-		System.out.println(roomGrade);
-		System.out.println(roomName);
-		System.out.println(viewType);
-		System.out.println(bedType);
-		
-		System.out.println(selectRoom.get(0));
 		Reservation reservation = new Reservation();
 		
 		reservation.setCheckIn(sDate);
@@ -134,8 +135,15 @@ public class ReservationStep4Handler implements CommandHandler {
 		reservation.setTotalPrice(Integer.parseInt(finalPrice));
 		reservation.setRoomNum(selectRoom.get(0));
 		
-		ReservationDaoService.getInstance().insertReservation(reservation);
-		result.put("reservation", reservation);
+		ReservationDaoService reservationService = ReservationDaoService.getInstance();
+		
+		reservationService.insertReservation(reservation);
+		List<Reservation> ReservationList = reservationService.selectLastReservation();
+		Reservation lastReservation = ReservationList.get(ReservationList.size()-1);
+		Reservation selectReservation = reservationService.selectReservationNum(lastReservation);
+				
+		result.put("reservation", selectReservation);
+		result.put("client", client);
 		result.put("stay", stay);
 		result.put("basicPrice", basicPrice);
 		result.put("ServiceCharge", ServiceCharge);

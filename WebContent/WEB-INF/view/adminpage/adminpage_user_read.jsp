@@ -26,6 +26,17 @@
 
 </head>
 <body>
+						<c:if test="${error == 1}">
+							<script type="text/javascript">
+								alert("멤버가 아닙니다.");
+							</script>
+						</c:if>
+						<c:if test="${error == 2}">
+							<script type="text/javascript">
+								alert("블랙리스트가 아닙니다.");
+							</script>
+						</c:if>
+
 	<div>
 		<header>
 			<jsp:include page="/WEB-INF/common/header.jsp" />
@@ -95,7 +106,7 @@
 						<table id="t2">
 							<caption>예약이력</caption>
 							<tr>
-								<th></th>
+							
 								<th>예약번호</th>
 								<th>호수</th>
 								<th>체크인</th>
@@ -107,7 +118,7 @@
 							</tr>
 							<c:forEach items="${reserve}" var="item">
 								<tr>
-									<td class="check"><input type="checkbox"></td>
+								
 									<td class="reserve_num">${item.reservationNum}</td>
 									
 									<td>${item.roomNum.roomNum}</td>
@@ -133,9 +144,14 @@
 						</table>
 						
 						
+						
 					</div>
 					<div id="wrap_admin_btn">
-						<a href="adminReservation.do?set=0" class="admin_btn">돌아가기</a>
+						<a href="adminUser.do" class="admin_btn">돌아가기</a>
+						<a href="adminUserUpdate.do?set=1&num=${client.clientNum}" class="admin_btn">블랙리스트 추가</a>
+						<a href="adminUserUpdate.do?set=2&num=${client.clientNum}" class="admin_btn">블랙리스트 해제</a>
+						<a href="adminUser.do" class="admin_btn">회원정보 삭제</a>
+						
 					</div>
 				</div>
 			</div>
@@ -144,5 +160,6 @@
 			<jsp:include page="/WEB-INF/common/footer.jsp" />
 		</footer>
 	</div>
+						
 </body>
 </html>
