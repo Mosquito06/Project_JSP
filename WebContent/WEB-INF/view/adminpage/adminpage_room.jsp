@@ -38,11 +38,6 @@
 						<div id="adminRoomBtnDiv">
 							<img src="/Project_JSP/img/adminpage/SearchText.png">
 							<img src="/Project_JSP/img/mypage/allBtn.png">
-							<input type="text">
-							<img src="/Project_JSP/img/mypage/calenrdar.gif">
-							<input type="text">
-							<img src="/Project_JSP/img/mypage/calenrdar.gif">
-							<img src="/Project_JSP/img/mypage/Btnsearch.gif">
 						</div>
 						
 						<div id="adminRoomTableDiv">
@@ -62,7 +57,6 @@
 							<div id="TableDiv">
 								<table>
 									<tr>
-										<th></th>
 										<th>객실정보번호</th>
 										<th>룸이름</th>
 										<th>등급</th>
@@ -73,11 +67,10 @@
 										<th>예약이미지</th>
 									</tr>
 									<tr class="emptyTr">
-										<td colspan="6">자료가 없습니다.</td>
+										<td colspan="8">등록된 객실이 없습니다.</td>
 									</tr>
 									<c:forEach items="${roomInfo}" var="item">
 									<tr>
-										<td><input type="checkbox"></td>
 										<td>${item.roomInfoNum}</td>
 										<td>${item.roomInfoName}</td>
 										<td>${item.roomGrade}</td>

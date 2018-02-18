@@ -21,12 +21,6 @@ div#adminRoomMainDiv{
 	cursor: pointer;
 }
 
-#adminRoomBtnDiv input{
-	height: 21px;
-	width: 85px;
-	vertical-align: top;
-}
-
 #adminRoomTableDiv div:FIRST-CHILD {
 	border-bottom: 2px solid #a1886f;
 }
