@@ -3,11 +3,11 @@
 <mapper namespace="Project_JSP.dao.GalleryDao">
     
     <resultMap type="Gallery" id="GalleryResult">
-        <result property="galleryNum" column="gallery_num"/>
-        <result property="galleryName" column="gallery_name"/>
-        <result property="galleryContent" column="gallery_content"/>
-        <result property="galleryPath" column="gallery_path"/>
-        <result property="galleryType" column="gallery_type"/>
+        <result property="num" column="gallery_num"/>
+        <result property="name" column="gallery_name"/>
+        <result property="content" column="gallery_content"/>
+        <result property="path" column="gallery_path"/>
+        <result property="type" column="gallery_type"/>
     </resultMap>
    
    <sql id="selectGallerySql">
@@ -16,8 +16,8 @@
     
     <sql id="whereSql">
         <where>
-            <if test="galleryNum != null">
-                gallery_num = #{galleryNum}
+            <if test="num != null">
+                gallery_num = #{num}
             </if>            
         </where>        
     </sql>
@@ -33,12 +33,12 @@
 	
 	<insert id="insertGallery" parameterType="Gallery">
 	   insert into Gallery(gallery_name, gallery_content, gallery_path, gallery_type) 
-	   values(#{galleryName}, #{galleryContent}, #{galleryPath}, #{galleryType})
+	   values(#{name}, #{content}, #{path}, #{type})
 	</insert>
 	
 	<update id="updateGallery" parameterType="Gallery">
-	    update Gallery set gallery_name = #{galleryName}, gallery_content = #{galleryContent},
-	    gallery_path = #{galleryPath}, gallery_type = #{galleryType}
+	    update Gallery set gallery_name = #{name}, gallery_content = #{content},
+	    gallery_path = #{path}, gallery_type = #{type}
 	    <include refid="whereSql"/>
 	</update>
 	

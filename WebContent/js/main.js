@@ -1,3 +1,5 @@
+var actSlideInterval;
+var actSlide;
 
 $(function(){
 	var mainVis;
@@ -65,7 +67,6 @@ $(function(){
 	}) 
 	
 	
-	
 	//메인 비주얼 	
 	$(".prev").click(function(e){
 		 e.preventDefault();
@@ -80,18 +81,15 @@ $(function(){
 	})
 	
 	//액티비티 슬라이드 
-	var actSlide =  $('.activitySlide').bxSlider({
+	actSlide =  $('.activitySlide').bxSlider({
 				mode: 'fade',
 		    	pager : false,
 		    	controls : false,
 		    	auto : false
 		 });
 	
-	setInterval(function(){
-		 actSlide.goToNextSlide();
-		var slide = actSlide.getCurrentSlide()+1;
-		$(".showSlide").text(slide);
-	}, 5000);
+	
+	actSildeInterval();
 	
 	var totalSlide = actSlide.getSlideCount();	
 	
@@ -104,6 +102,8 @@ $(function(){
 		 actSlide.goToPrevSlide();
 		 var slide = actSlide.getCurrentSlide()+1;
 		 $(".showSlide").text(slide);
+		 clearInterval(actSlideInterval);
+		 actSildeInterval();
 		 return false; 
 	})
 		     
@@ -112,6 +112,8 @@ $(function(){
 		 actSlide.goToNextSlide();
 		 var slide = actSlide.getCurrentSlide()+1;
 		 $(".showSlide").text(slide);
+		 clearInterval(actSlideInterval);
+		 actSildeInterval();
 		 return false;
 	})
 	//달력
@@ -295,6 +297,17 @@ $(function(){
 	})
 	
 }) 
+
+function actSildeInterval(){
+	actSlideInterval = setInterval(function(){
+		actSlide.goToNextSlide();
+		var slide = actSlide.getCurrentSlide()+1;
+		$(".showSlide").text(slide);
+	}, 5000);
+}
+ 
+
+	
 
 function resActive(position){  
 	var startPos = [165.97,165.97,131.98,131.98,131.98];

@@ -193,7 +193,7 @@
 			 		</div>
 			 	</div> 
 			</div> 
-			  
+			
 			<div class="bannerWrap">
 			 	<div class="banContent rewardsWrap"> 
 			 		<h2 class="rwTitle"><img src="/Project_JSP/img/main/rwTitle.gif" alt="신라리워즈"></h2>

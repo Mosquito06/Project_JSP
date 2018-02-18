@@ -25,7 +25,9 @@
 			 			<li class="bMenu"> 
 			 				<a href="#" class="noBorder"><span>이벤트관리</span></a>  
 			 			</li>
-
+						<li class="bMenu">
+			 				<a href="${pageContext.request.contextPath}/adminGallery.do" class="noBorder"><span>갤러리 관리</span></a>  
+			 			</li>
 			 		</ul>
 			 	</div>
 			 	

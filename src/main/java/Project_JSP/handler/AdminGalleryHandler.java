@@ -14,18 +14,18 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import Project_JSP.mvc.controller.CommandHandler;
 
-public class FileUploadHandler implements CommandHandler {
-	private static final String filePath = "/WEB-INF/view/event/";
+public class AdminGalleryHandler implements CommandHandler {
+	private static final String filePath = "/WEB-INF/view/adminpage/";
+
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		
 		if(req.getMethod().equalsIgnoreCase("get")){
-			return filePath + "fileUpload.jsp";
+			return filePath + "adminpage_gallery.jsp";		
 		}else if(req.getMethod().equalsIgnoreCase("post")){
-			postProcess(req,res,"/img/event/upload");
-			return  null;
+			postProcess(req, res, "/img/gallary");
+			return null;
 		}
-		return null;
+		return filePath + "adminpage_gallery.jsp";
 	}
 	
 	private String postProcess(HttpServletRequest req, HttpServletResponse res, String fileUploadPath) {
@@ -72,14 +72,15 @@ public class FileUploadHandler implements CommandHandler {
 			req.setAttribute("file", map);		
 			
 			String contextPath = req.getContextPath() + fileUploadPath;
-			 
-			return contextPath+"/"+fileName;
+					
+			String uploadScript= "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction(1,'"+contextPath+ "/" + fileName + "', '완료');</script>";
+			
+			req.setAttribute("upScript", uploadScript);
+						
 		}catch (Exception e){
 			e.printStackTrace();
-		} 
+		}
 		
 		return filePath + "fileUpload.jsp";
 	}
-	
 }
- 
