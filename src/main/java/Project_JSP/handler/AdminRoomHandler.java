@@ -13,9 +13,7 @@ public class AdminRoomHandler implements CommandHandler{
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		RoomInfoDaoService service = RoomInfoDaoService.getInstance();
-		List<RoomInfo> lists= service.selectRoomInfo();
-		req.setAttribute("roomInfo", lists);
+
 		return "/WEB-INF/view/adminpage/adminpage_room.jsp";
 	}
 

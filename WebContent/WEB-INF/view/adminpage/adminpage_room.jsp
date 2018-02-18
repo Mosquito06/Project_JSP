@@ -8,9 +8,11 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/common/common.css?ver=1">
-<link rel="stylesheet" type="text/css" href="css/adminpage/adminpage_room.css?v=ddd">
+<link rel="stylesheet" type="text/css" href="css/adminpage/adminpage_room.css?v=dddd">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
+<script type="text/javascript" src="js/adminpage/adminpage_room.js?a=d"></script>
+
 </head>
 <body>
 	<div> 
@@ -37,50 +39,40 @@
 					<div id="adminRoomMainDiv">
 						<div id="adminRoomBtnDiv">
 							<img src="/Project_JSP/img/adminpage/SearchText.png">
-							<img src="/Project_JSP/img/mypage/allBtn.png">
+							<select id="roomGradeSelect">
+								<option>선택하세요.</option>
+								<option>STANDARD</option>
+								<option>PREMIER</option>
+								<option>SUITE</option>
+							</select>
+							<select id="roomNameSelect">
+								<option>선택하세요.</option>
+							</select>
 						</div>
 						
 						<div id="adminRoomTableDiv">
 							<div>
 								<img src="/Project_JSP/img/adminpage/adminRoomText2.png"> 
+								<img src="/Project_JSP/img/adminpage/registerBtn.png">
 							</div>
 							<div id="TotalDiv">
-								<c:choose>
-									<c:when test="${result == 'Empty'}">
-										Total : 0	
-									</c:when>
-									<c:otherwise>
-										Total : ${result.size() }
-									</c:otherwise>
-								</c:choose>
+								Total : 0	
 							</div>
 							<div id="TableDiv">
 								<table>
 									<tr>
-										<th>객실정보번호</th>
-										<th>룸이름</th>
+										<th>객실</th>
 										<th>등급</th>
-										<th>전망타입</th>
-										<th>침대타입</th>
+										<th>객실명</th>
 										<th>객실크기</th>
-										<th>이미지폴더</th>
-										<th>예약이미지</th>
+										<th>침대타입/전망</th>
+										<th>가격(1박)</th>
 									</tr>
 									<tr class="emptyTr">
-										<td colspan="8">등록된 객실이 없습니다.</td>
+										<td colspan="6">객실을 추가하거나, 검색 조건을 선택하세요.</td>
 									</tr>
-									<c:forEach items="${roomInfo}" var="item">
-									<tr>
-										<td>${item.roomInfoNum}</td>
-										<td>${item.roomInfoName}</td>
-										<td>${item.roomGrade}</td>
-										<td>${item.viewType}</td>
-										<td>${item.bedType}</td>
-										<td>${item.roomSize}</td>
-										<td>${item.roomImg}</td>
-										<td>${item.reservationImg}</td>
-									</tr>
-									</c:forEach>				
+
+				
 								</table>
 							</div>
 						</div>

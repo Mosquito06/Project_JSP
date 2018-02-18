@@ -14,4 +14,6 @@ public interface RoomDao {
 	public List<Room> selectAvailabilityRoom(String sDate, String eDate);
 	public List<Room> selectAvailabilityRoomByRoomNameAndDate(String roomName, String sDate, String eDate);
 	public List<Room> selectRoomToReservation(Date sDate, Date eDate, String roomGrade, String roomName, String viewType, String bedType);
+	public List<Room> selectRoombyGrade(String roomGrade);
+	public List<Room> selectRoombyGradeAndName(String roomGrade, String roomName);
 }

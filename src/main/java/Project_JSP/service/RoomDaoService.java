@@ -120,4 +120,30 @@ public class RoomDaoService implements RoomDao {
 			return null;
 	}
 
+	@Override
+	public List<Room> selectRoombyGrade(String roomGrade) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			RoomDao dao = session.getMapper(RoomDao.class);
+			return dao.selectRoombyGrade(roomGrade);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	@Override
+	public List<Room> selectRoombyGradeAndName(String roomGrade, String roomName) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			RoomDao dao = session.getMapper(RoomDao.class);
+			return dao.selectRoombyGradeAndName(roomGrade, roomName);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	
+
 }
