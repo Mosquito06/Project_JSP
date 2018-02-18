@@ -35,6 +35,16 @@
 	    <include refid="whereSql"/>	    
 	</select>
 	
+	<select id="selectRoombyGrade" resultMap="RoomJoinRoomInfoResult">
+	    select * from room join room_info on room.room_info_num = room_info.room_info_num
+		where room_grade = #{param1} group by room_info_name
+	</select>
+		
+	<select id="selectRoombyGradeAndName" resultMap="RoomJoinRoomInfoResult">
+	    select * from room join room_info on room.room_info_num = room_info.room_info_num
+		where room_grade = #{param1} and room_info_name = #{param2} order by room_num
+	</select>
+		
 	<select id="selectAvailabilityRoom" resultMap="RoomJoinRoomInfoResult">
 	    select room_grade, room_info_name, min(room_price) as room_price, room_size, reservation_img
 		from room r join room_info ri on r.room_info_num = ri.room_info_num 

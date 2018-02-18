@@ -17,12 +17,20 @@ div#adminRoomMainDiv{
 	margin-bottom: 20px;
 }
 
-#adminRoomBtnDiv img{
-	cursor: pointer;
+#adminRoomBtnDiv select{
+	vertical-align: top;
+	height: 25px;
 }
+
 
 #adminRoomTableDiv div:FIRST-CHILD {
 	border-bottom: 2px solid #a1886f;
+}
+
+#adminRoomTableDiv div:FIRST-CHILD img:LAST-CHILD{
+	float: right;
+	width: 60px;
+	cursor: pointer;
 }
 
 #TotalDiv{
@@ -52,16 +60,16 @@ div#adminRoomMainDiv{
 	font-size: 13px;
 }
 
-#TableDiv table tr.reservationTr{
+#TableDiv table tr.roomInfoTr{
 	border-bottom: 1px solid #cdcbbe;
 	cursor: pointer;
 }
 
-#TableDiv table tr.reservationTr:hover{
+#TableDiv table tr.roomInfoTr:hover{
 	background-color: #faf9f4;
 }
 
-#TableDiv table tr[class*='roomInfo']{
+/* #TableDiv table tr[class*='roomInfo']{
 	border-top: 1px solid #cdcbbe;
 	border-bottom: 1px solid #cdcbbe;
 	display: none;
@@ -69,4 +77,4 @@ div#adminRoomMainDiv{
 
 #TableDiv table tr[class*='roomInfo'] img{
 	cursor: pointer;
-}
+} */
