@@ -93,7 +93,7 @@ $(function(){
 			$("#end-calendar").css("display", "none");
 	});
 	
-	// 전제 조회 버튼
+	// 전제 버튼
 	$("#reservationBtnDiv img").eq(1).click(function(){
 		$.ajax({
 			url : "/Project_JSP/AllSearchReserv.do",
@@ -101,10 +101,16 @@ $(function(){
 			dataType : "json",
 			success: function(data){
 				console.log(data);
+				
+				if(data == "Empty"){
+					return;
+				}
+							
 				$(".reservationTr").remove();
+				$("tr[class*=roomInfo]").remove();
 				$("#TotalDiv").text("Total : " + data.length);
-								
 				$("#TableDiv .emptyTr").remove();
+				
 				$(data).each(function(i, reserv){
 					var sDate = getFormatDate(new Date(reserv.checkIn))
 					var eDate = getFormatDate(new Date(reserv.checkOut));
@@ -112,41 +118,8 @@ $(function(){
 					
 					var status = reserv.state;
 					status = status == "RESERVE" ? "예약" : status == "CANCEL"? "취소" : "완료";
+					setReservInfo(reserv, sDate, eDate, payDate, status);
 					
-					$("#TableDiv table").append(
-						"<tr class='reservationTr'>" +
-						"	<td>" + reserv.reservationNum + "</td>" +
-						"	<td>대구신라호텔</td>" +
-						"	<td>" + "[" + reserv.roomNum.roomInfoNum.roomGrade +"] " + reserv.roomNum.roomInfoNum.roomInfoName + "</td>" +
-						"	<td>" + sDate + "</td>" +
-						"	<td>" + eDate + "</td>" +
-						"	<td>" + status + "</td>" +
-						"</tr>" +
-						"<tr class='roomInfo"+ reserv.reservationNum + "'>" +
-						"	<th>투숙인원</th>" +
-						"	<td colspan='2'>"+ reserv.personnel +"</td>" +
-						"	<th>침대타입</th>" +
-						"	<td colspan='2'>"+ reserv.roomNum.roomInfoNum.bedType +"</td>" +
-						"</tr>" +
-						"<tr class='roomInfo"+ reserv.reservationNum + "'>" +
-						"	<th>전망</th>" +
-						"	<td colspan='2'>"+ reserv.roomNum.roomInfoNum.viewType +"</td>" +
-						"	<th>선택옵션</th>" +
-						"	<td colspan='2'>"+ reserv.option +"</td>" +
-						"</tr>" +
-						"<tr class='roomInfo"+ reserv.reservationNum + "'>" +
-						"	<th>예약일</th>" +
-						"	<td colspan='2'>"+ payDate +"</td>" +
-						"	<th>최종가격</th>" +
-						"	<td colspan='2'>"+ reserv.totalPrice +"</td>" +
-						"</tr>" +
-						"<tr class='roomInfo"+ reserv.reservationNum + "'>" +
-						"	<td colspan='6'>" +
-						"	<img src='/Project_JSP/img/mypage/btnConfirm.gif'>" +
-						"	<img src='/Project_JSP/img/mypage/btnCancel.png'>" +
-						"	</td>" +
-						"</tr>"
-					);
 				})
 			}
 		})
@@ -171,24 +144,65 @@ $(function(){
 	
 	// 테이블 내 취소 버튼
 	$(document).on("click", "img[src*='Cancel']", function(){
+		var index = $(this).parents("tr").prev().prev().prev().prev().find("td:eq(0)").text().trim();
+				
 		var check = confirm("정말로 취소하시겠습니까?");
 		if(check){
 			$.ajax({
-				url : "",
+				url : "/Project_JSP/CancelReserv.do?index=" + index,
 				type : "get",
-				dataType : "json"
+				dataType : "json",
+				success: function(data){
+					console.log(data);
+					alert("취소되었습니다.");
+					
+					$(".reservationTr").remove();
+					$("tr[class*=roomInfo]").remove();
+					
+					if(data == "Empty"){
+						$("#TotalDiv").text("Total : 0");
+						$("#TableDiv table").append(
+							"<tr class='emptyTr'>" +
+							"	<td colspan='6'>자료가 없습니다.</td>" +
+							"</tr>"
+						);
+						return;
+					}								
+
+					$("#TotalDiv").text("Total : " + data.length);
+					$("#TableDiv .emptyTr").remove();
+					
+					$(data).each(function(i, reserv){
+						var sDate = getFormatDate(new Date(reserv.checkIn))
+						var eDate = getFormatDate(new Date(reserv.checkOut));
+						var payDate = getFormatDate(new Date(reserv.payDate));
+						
+						var status = reserv.state;
+						status = status == "RESERVE" ? "예약" : status == "CANCEL"? "취소" : "완료";
+						setReservInfo(reserv, sDate, eDate, payDate, status);
+						
+					})
+				}
 			})
 		}
 	})
 	
 	// 조회 버튼
 	$("#reservationBtnDiv img").eq(4).click(function(){
-		alert(4);
+		var sDate = $("#reservationBtnDiv input").eq(0).val().split("-")[0] + 
+		$("#reservationBtnDiv input").eq(0).val().split("-")[1] + 
+		$("#reservationBtnDiv input").eq(0).val().split("-")[2];
+		var eDate = $("#reservationBtnDiv input").eq(1).val().split("-")[0] + 
+		$("#reservationBtnDiv input").eq(1).val().split("-")[1] + 
+		$("#reservationBtnDiv input").eq(1).val().split("-")[2];
+		
+		if($("#reservationBtnDiv input").eq(0).val() == "" || $("#reservationBtnDiv input").eq(1).val() == ""){
+			alert("조회할 날짜를 선택하세요.");
+			return;
+		}
+		
+		location.href = "/Project_JSP/DateSearchReserv.do?sDate=" + sDate + "&eDate=" + eDate;
 	})
-	
-	
-	
-	
 	
 	function getFormatDate(date){
 		var month = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
@@ -199,4 +213,76 @@ $(function(){
 		return Year + "." + Month + "." + Date;
 	}	
 	
+	function setReservInfo(reserv, sDate, eDate, payDate, status){
+		if(status == "예약"){
+			$("#TableDiv table").append(
+				"<tr class='reservationTr'>" +
+				"	<td>" + reserv.reservationNum + "</td>" +
+				"	<td>대구신라호텔</td>" +
+				"	<td>" + "[" + reserv.roomNum.roomInfoNum.roomGrade +"] " + reserv.roomNum.roomInfoNum.roomInfoName + "</td>" +
+				"	<td>" + sDate + "</td>" +
+				"	<td>" + eDate + "</td>" +
+				"	<td>" + status + "</td>" +
+				"</tr>" +
+				"<tr class='roomInfo"+ reserv.reservationNum + "'>" +
+				"	<th>투숙인원</th>" +
+				"	<td colspan='2'>"+ reserv.personnel +"</td>" +
+				"	<th>침대타입/전망</th>" +
+				"	<td colspan='2'>"+ reserv.roomNum.roomInfoNum.bedType + " / " + reserv.roomNum.roomInfoNum.viewType + "</td>" +
+				"</tr>" +
+				"<tr class='roomInfo"+ reserv.reservationNum + "'>" +
+				"	<th>요구사항</th>" +
+				"	<td colspan='2'>"+ reserv.clientReq +"</td>" +
+				"	<th>선택옵션</th>" +
+				"	<td colspan='2'>"+ reserv.option +"</td>" +
+				"</tr>" +
+				"<tr class='roomInfo"+ reserv.reservationNum + "'>" +
+				"	<th>예약일</th>" +
+				"	<td colspan='2'>"+ payDate +"</td>" +
+				"	<th>최종가격</th>" +
+				"	<td colspan='2'>"+ reserv.totalPrice +"</td>" +
+				"</tr>" +
+				"<tr class='roomInfo"+ reserv.reservationNum + "'>" +
+				"	<td colspan='6'>" +
+				"	<img src='/Project_JSP/img/mypage/btnConfirm.gif'>" +
+				"	<img src='/Project_JSP/img/mypage/btnCancel.png'>" +
+				"	</td>" +
+				"</tr>"
+				);
+		}else{
+			$("#TableDiv table").append(
+				"<tr class='reservationTr'>" +
+				"	<td>" + reserv.reservationNum + "</td>" +
+				"	<td>대구신라호텔</td>" +
+				"	<td>" + "[" + reserv.roomNum.roomInfoNum.roomGrade +"] " + reserv.roomNum.roomInfoNum.roomInfoName + "</td>" +
+				"	<td>" + sDate + "</td>" +
+				"	<td>" + eDate + "</td>" +
+				"	<td>" + status + "</td>" +
+				"</tr>" +
+				"<tr class='roomInfo"+ reserv.reservationNum + "'>" +
+				"	<th>투숙인원</th>" +
+				"	<td colspan='2'>"+ reserv.personnel +"</td>" +
+				"	<th>침대타입/전망</th>" +
+				"	<td colspan='2'>"+ reserv.roomNum.roomInfoNum.bedType + " / " + reserv.roomNum.roomInfoNum.viewType + "</td>" +
+				"</tr>" +
+				"<tr class='roomInfo"+ reserv.reservationNum + "'>" +
+				"	<th>요구사항</th>" +
+				"	<td colspan='2'>"+ reserv.clientReq +"</td>" +
+				"	<th>선택옵션</th>" +
+				"	<td colspan='2'>"+ reserv.option +"</td>" +
+				"</tr>" +
+				"<tr class='roomInfo"+ reserv.reservationNum + "'>" +
+				"	<th>예약일</th>" +
+				"	<td colspan='2'>"+ payDate +"</td>" +
+				"	<th>최종가격</th>" +
+				"	<td colspan='2'>"+ reserv.totalPrice +"</td>" +
+				"</tr>" +
+				"<tr class='roomInfo"+ reserv.reservationNum + "'>" +
+				"	<td colspan='6'>" +
+				"	<img src='/Project_JSP/img/mypage/btnConfirm.gif'>" +
+				"	</td>" +
+				"</tr>"
+			);
+		}
+	}
 })

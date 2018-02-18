@@ -93,11 +93,15 @@ public class ReservationStep4Handler implements CommandHandler {
 		String bedType = splitInfo[2].trim();
 
 		String clientReq = req.getParameter("clientReq");
+		if(clientReq == "" || clientReq == null){
+			clientReq = "요청사항 없음";
+		}
+		
 		String OptionName = req.getParameter("option");
 		String optionContent = "";
 		
 		if(OptionName.equals("[]")){
-			optionContent += "옵션을 선택하지 않았습니다.";
+			optionContent += "선택 옵션 없음";
 		}else{
 			String[] splitOption = OptionName.split("]");
 			

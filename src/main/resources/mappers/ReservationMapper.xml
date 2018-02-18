@@ -71,6 +71,17 @@
 		select * from reservation rv, room r, room_info ri where rv.room_num = r.room_num 
 		and r.room_info_num = ri.room_info_num and client_num = #{param1}
 	</select>
+	
+	<select id="selectReservationOnlyReserv" resultMap="ReservationJoinRoomAndRoomInfo">
+		select * from reservation, room, room_info where reservation.room_num = room.room_num 
+		and room.room_info_num = room_info.room_info_num and client_num = #{param1} and reservation_state = "RESERVE"
+	</select>
+	
+	<select id="selectReservationDateByClientNum" parameterType="Reservation" resultMap="ReservationJoinRoomAndRoomInfo">
+		select * from reservation rv, room r, room_info ri where rv.room_num = r.room_num 
+		and r.room_info_num = ri.room_info_num and client_num= #{clientNum.clientNum} 
+		and check_out <![CDATA[>=]]> #{checkIn} and check_in <![CDATA[<=]]> #{checkOut}
+	</select>
 
 	<insert id="insertReservation" parameterType="Reservation">
 	   insert into reservation(room_num,total_price,check_in,check_out,personnel,
@@ -83,6 +94,10 @@
 	    update reservation set room_num=#{roomNum.roomNum},total_price=#{totalPrice},check_in=#{checkIn},
 	    check_out=#{checkOut},personnel=#{personnel},reservation_state=#{state},client_num=#{clientNum.clientNum},
 	    option_content=#{option},pay_date=#{payDate},client_req=#{clientReq} where reservation_num = #{reservationNum}
+	</update>
+	
+	<update id="updateReservationCancel" parameterType="Reservation">
+	   update reservation set reservation_state = "CANCEL" where reservation_num = #{reservationNum};
 	</update>
 	 	
 	<delete id="deleteReservation" parameterType="Reservation">

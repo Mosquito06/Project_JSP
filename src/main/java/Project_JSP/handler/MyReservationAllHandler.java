@@ -13,7 +13,7 @@ import Project_JSP.dto.Reservation;
 import Project_JSP.mvc.controller.CommandHandler;
 import Project_JSP.service.ReservationDaoService;
 
-public class AllReservHandler implements CommandHandler {
+public class MyReservationAllHandler implements CommandHandler {
 	
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -21,6 +21,7 @@ public class AllReservHandler implements CommandHandler {
 		Client nonClient = (Client) req.getSession().getAttribute("NONMEMBER");
 		ObjectMapper om = new ObjectMapper();
 		List<Reservation> result = null;
+		String data = "";
 		
 		if(client != null){
 			ReservationDaoService reservService = ReservationDaoService.getInstance();
@@ -30,7 +31,12 @@ public class AllReservHandler implements CommandHandler {
 			result = reservService.selectReservationJoinRoomAndRoomInfo(nonClient.getClientNum());			
 		}
 		
-		String data = om.writeValueAsString(result);
+		if(result.isEmpty()){
+			data = om.writeValueAsString("Empty");
+		}else{
+			data = om.writeValueAsString(result);
+		}
+				
 		res.setContentType("application/json;charset=utf-8");
 		PrintWriter pw = res.getWriter();
 		pw.print(data);

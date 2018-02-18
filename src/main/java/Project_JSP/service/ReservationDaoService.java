@@ -136,4 +136,37 @@ public class ReservationDaoService implements ReservationDao {
 		return null;
 	}
 
+	@Override
+	public List<Reservation> selectReservationOnlyReserv(int clientNum) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			ReservationDao dao = session.getMapper(ReservationDao.class);
+			return dao.selectReservationOnlyReserv(clientNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public List<Reservation> selectReservationDateByClientNum(Reservation reservation) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			ReservationDao dao = session.getMapper(ReservationDao.class);
+			return dao.selectReservationDateByClientNum(reservation);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public void updateReservationCancel(Reservation reservation) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			ReservationDao dao = session.getMapper(ReservationDao.class);
+			dao.updateReservationCancel(reservation);
+			session.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 }
