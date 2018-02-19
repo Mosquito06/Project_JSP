@@ -62,5 +62,63 @@ $(function(){
 		return false;
 	})
 	
+	$("#close").click(function(){
+		$("#pop_search_id").css("display","none");
+		$("#bodybg").css("display","none");
+		$("input").each(function(i,obj){
+			$(obj).val("");
+		})
+		return false;
+	})
+	/*아이디 찾기 버튼을 클릭했을때*/
+	$("#searchId").click(function(){
+		var screen = $(document).height();
+		$("#headerWrap").css("z-index","1");
+		$("#pop_search_id").css("display","block");
+		$("#bodybg").css({"display":"block","height":screen});
+		return false;
+	})
+	/*모두 입력하고 아이디 찾기 했을때*/
+	$("#search_id").click(function(){
+		
+		var empty = isEmpty();
+		
+		if(!empty){
+			alert("이름,이메일을 모두 입력해야 합니다.");
+			return false;
+		}
+		
+		if(empty){
+			$.ajax({
+				url:"findId.do",
+				type:"get",
+				data:{"email":$("#email_id").val(),
+					"nameEn2":$("#en1").val(),
+					"nameEn1":$("#en2").val()},
+				dataType:"json",
+				success:function(data){
+					console.log(data);
+				}
+						
+			})
+		}
+		
+		return false;
+		
+	})
+	
+	
+	
 })
+
+function isEmpty(){
+	var err = true;
+	$(".search_id_input").each(function(i,obj){
+		if($(obj).val()==""){
+			err=false;
+		}
+		
+	})
+	return err;
+}
 

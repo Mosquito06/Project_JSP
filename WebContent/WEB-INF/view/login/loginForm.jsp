@@ -8,12 +8,13 @@
 <title>로그인 | The Shilla Hotel</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
-<link rel="stylesheet" type="text/css" href="css/login/loginForm.css">
+<link rel="stylesheet" type="text/css" href="css/login/loginForm.css?v=2">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> 
 <script src="js/common/common.js"></script>
-<script src="js/login/loginForm.js"></script>
+<script src="js/login/loginForm.js?v=2"></script>
 </head>
 <body>
+	<div id="bodybg"></div>
 	<jsp:include page="/WEB-INF/common/header.jsp"/>
 	<section>
 		<div id="loginForm_wrap">
@@ -126,6 +127,26 @@
 		</div>
 	</div>
 	</section>
+	<div id="pop_search_id">
+		<div id="pop_id_title">
+			<h1>신라리워즈 아이디 찾기</h1>
+			<a href="#" id="close"><img src="${pageContext.request.contextPath}/img/join/popLayerBtnClose.gif"></a>
+		</div>
+		<div id="input_form">
+			<p>
+				<label>성명</label>
+				<input type="text" id="en1" placeholder="FIRST NAME(이름)" style="text-transform:uppercase; ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');" class="search_id_input">
+				<input type="text" id="en2" placeholder="LAST NAME(성)" style="text-transform:uppercase; ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');" class="search_id_input">
+			</p>
+			<p>
+				<label>이메일</label>
+				<input type="text" id="email_id" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9@.]/g,'');" class="search_id_input">
+			</p>
+		</div>
+		<div id="pop_ok">
+			<a href="#" id="search_id"><img src="${pageContext.request.contextPath}/img/login/popFindIdBtnSubmit.gif"></a>
+		</div>
+	</div>
 	<jsp:include page="/WEB-INF/common/footer.jsp"/>
 </body>
 </html>

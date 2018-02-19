@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/common/common.css">
 	<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/qna/qnaRegister.css?v=1">
+	href="${pageContext.request.contextPath}/css/qna/qnaRegister.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common/common.js"></script>
 </head>
