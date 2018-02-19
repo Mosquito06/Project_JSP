@@ -3,6 +3,7 @@ package Project_JSP.dao;
 import java.util.List;
 
 import Project_JSP.dto.Client;
+import Project_JSP.dto.ClientGrade;
 
 
 
@@ -20,4 +21,5 @@ public interface ClientDao {
 	public void updateProfile(Client client);
 	public Client selectNonClientByNameAndEmil(Client client);
 	public void updatePassword(Client client);
+	public List<Client> findClientGrade(ClientGrade clientGrade);
 }

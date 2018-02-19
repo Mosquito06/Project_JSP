@@ -17,7 +17,7 @@
 			 				<a href="${pageContext.request.contextPath}/adminQnA.do" class="noBorder"><span>문의관리</span></a>  
 			 			</li>
 			 			<li class="bMenu">
-			 				<a href="${pageContext.request.contextPath}/adminQnA.do" class="noBorder"><span>후기관리</span></a>  
+			 				<a href="${pageContext.request.contextPath}/adminBoard.do" class="noBorder"><span>후기관리</span></a>  
 			 			</li>
 			 			<li class="bMenu">
 			 				<a href="${pageContext.request.contextPath}/adminBanner.do" class="noBorder"><span>메인 관리</span></a>  

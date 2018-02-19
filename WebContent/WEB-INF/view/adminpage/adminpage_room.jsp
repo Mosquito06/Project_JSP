@@ -8,10 +8,10 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/common/common.css?ver=1">
-<link rel="stylesheet" type="text/css" href="css/adminpage/adminpage_room.css?v=dddd">
+<link rel="stylesheet" type="text/css" href="css/adminpage/adminpage_room.css?v=ddd">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
-<script type="text/javascript" src="js/adminpage/adminpage_room.js?a=d"></script>
+<script type="text/javascript" src="js/adminpage/adminpage_room.js?a=dd"></script>
 
 </head>
 <body>
@@ -71,8 +71,6 @@
 									<tr class="emptyTr">
 										<td colspan="6">객실을 추가하거나, 검색 조건을 선택하세요.</td>
 									</tr>
-
-				
 								</table>
 							</div>
 						</div>

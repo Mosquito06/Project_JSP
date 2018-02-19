@@ -1,0 +1,83 @@
+@CHARSET "UTF-8";
+
+div#contentWrap{
+	min-height: 600px;	
+}
+
+div#wrap_title{
+	margin-bottom: 0px;	
+}
+
+div#adminRoomMainDiv{
+	border: 1px solid #f1e3c4;
+	padding: 20px;	
+}
+
+#adminRoomTableDiv div:FIRST-CHILD {
+	border-bottom: 2px solid #a1886f;
+}
+
+#TotalDiv{
+	font-size: 13px;
+	padding: 15px 0 15px 0;
+}
+
+#TableDiv table{
+	border-top: 1px solid #cdcbbe;
+	border-bottom: 1px solid #cdcbbe;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#TableDiv table tr{
+	border-bottom: 1px solid #cdcbbe;
+}
+
+
+#TableDiv table th{
+	background-color: #faf9f4;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 15px;
+	color: #666666;
+		vertical-align: middle; 
+}
+
+#TableDiv table td{
+	text-align: center;
+	padding: 15px 0 15px 0;
+	font-size: 13px;
+	vertical-align: middle; 
+}
+
+#TableDiv table td input{
+	width: 100px;
+	height: 30px;
+}
+
+#TableDiv table td select{
+	width: 100px;
+	height: 30px;
+}
+
+#TableDiv table td img{
+	cursor: pointer;
+}
+
+span.redText{
+	color: red;
+	font-size: 11px;
+	margin-top: 5px;
+}
+
+span.smallText{
+	font-size: 11px;
+}
+
+ul.roomImg_wrap img{
+	width: 400px;
+	height: 220px
+}
+ 
+
+

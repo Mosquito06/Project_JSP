@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE>
 <html>
 <head>
@@ -9,7 +10,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath }/css/common/common.css?ver=1">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/adminpage/adminpage.css?v=1">
+	href="${pageContext.request.contextPath}/css/adminpage/adminUser.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
 </head>
@@ -24,23 +25,41 @@
 				<jsp:include page="admin_leftMenu.jsp" />
 				<div id="rightArea">
 					<div id="wrap_title">
-						<h1 id="title">관리자 모드</h1>
+						<h1 id="title">후기관리</h1>
 						<div id="wrap_home">
 							<img src="${pageContext.request.contextPath}/img/common/locaton.gif" id="home"> > <span
-								id="board">관리자</span>
+								id="board">관리자</span> > <span id="board">후기관리</span>
 						</div>
 					</div>
-						
-					<div id="wrap_admin_btn">
-						<a href="${pageContext.request.contextPath}/adminUser.do" class="admin">회원관리</a>
-						<a href="${pageContext.request.contextPath}/adminReservation.do?set=0" class="admin">예약관리</a>
-						<a href="${pageContext.request.contextPath}/adminRoom.do" class="admin">객실관리</a>
-						<a href="${pageContext.request.contextPath}/adminQnA.do" class="admin">문의관리</a>
-			 			<a href="${pageContext.request.contextPath}/adminBoard.do" class="admin"><span>후기관리</span></a>  
-			 			<a href="${pageContext.request.contextPath}/adminBanner.do" class="admin"><span>메인 관리</span></a>  
-			 			<a href="#" class="admin">이벤트관리</a>
-			 			<a href="${pageContext.request.contextPath}/adminGallery.do" class="admin"><span>갤러리 관리</span></a>  
-						
+					<div>
+						<table>
+							<tr>
+								<th>고객번호</th>
+								<th>아이디</th>
+								<th>성명</th>
+								<th>성명(영)</th>
+								<th>생년월일</th>
+								<th>이메일</th>
+								<th>휴대전화</th>
+								<th>자택전화</th>
+								<th>주소</th>
+								<th>등급</th>
+							</tr>
+							<c:forEach items="${client}" var="item">
+								<tr>
+									<td>${item.clientNum}</td>
+									<td>${item.id}</td>
+									<td>${item.nameKo}</td>
+									<td>${item.nameEn}</td>
+									<td>${item.birth}</td>
+									<td>${item.email}</td>
+									<td>${item.phone}</td>
+									<td>${item.home}</td>
+									<td>${item.address}</td>
+									<td>${item.clientGrade}</td>
+								</tr>
+							</c:forEach>
+						</table>
 					</div>
 				</div>
 			</div>

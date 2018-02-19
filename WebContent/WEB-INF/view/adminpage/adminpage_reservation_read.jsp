@@ -13,17 +13,20 @@
 	href="${pageContext.request.contextPath }/css/common/common.css?ver=2">
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/adminpage/admin_reserve_read.css?var=31">
-<link rel="stylesheet" type="text/css"
-	href="css/reservation/jsCalendar.css">
+
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/js/common/common.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath }/js/adminpage/admin.js?v=1"></script>
-<script type="text/javascript" src="js/reservation/jsCalendar.js"></script>
-<script type="text/javascript"
-	src="js/reservation/jsCalendar.lang.de.js"></script>
-
+<script type="text/javascript">
+$(function(){
+	$("#del_btn").click(function(){
+		var yes=confirm("정말 삭제 하시겠습니까?");
+		if(!yes){
+			return false;
+		}
+	})
+})
+</script>
 </head>
 <body>
 	<div>
@@ -148,6 +151,7 @@
 					</div>
 					<div id="wrap_admin_btn">
 						<a href="adminReservation.do?set=0" class="admin_btn">돌아가기</a>
+						<a href="adminReserveDelete.do?set=1&num=${reservation.reservationNum}" class="admin_btn" id="del_btn">삭제</a>
 					</div>
 				</div>
 			</div>

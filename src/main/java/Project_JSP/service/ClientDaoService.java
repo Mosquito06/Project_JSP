@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import Project_JSP.dao.ClientDao;
 import Project_JSP.dto.Client;
+import Project_JSP.dto.ClientGrade;
 import Project_JSP.mvc.util.MySqlSessionFactory;
 
 public class ClientDaoService implements ClientDao {
@@ -174,6 +175,18 @@ public class ClientDaoService implements ClientDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public List<Client> findClientGrade(ClientGrade clientGrade) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			ClientDao dao = session.getMapper(ClientDao.class);
+			return dao.findClientGrade(clientGrade);
+	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 

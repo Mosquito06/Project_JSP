@@ -15,6 +15,7 @@
 	color:rgb(104, 88, 69);
 	background:rgb(241, 227, 196);
 	border: 1px solid rgb(104, 88, 69);
+	margin-bottom:10px;
 }
 .admin:hover{
 	background:rgb(104, 88, 69);

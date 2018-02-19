@@ -16,6 +16,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/adminpage/admin.js?v=1"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/adminpage/admin_reserve.js?v=11"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.js"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.lang.de.js"></script>
 
@@ -97,7 +98,7 @@
 							<a href="adminReservation.do?set=2" class="btn_admin">예약완료보기</a>
 							<a href="adminReservation.do?set=3" class="btn_admin">예약취소보기</a>
 						
-							<a href="" class="btn_admin" id="del_btn">삭제</a>
+							<a href="" class="btn_admin" id="del_list">삭제</a>
 						</div>
 						
 						<table id="t1">
@@ -117,7 +118,7 @@
 							</tr>
 							<c:forEach items="${reserve}" var="item">
 								<tr>
-									<td class="check"><input type="checkbox"></td>
+									<td class="check"><input type="checkbox" value="${item.reservationNum}"></td>
 									<td class="reserve_num">${item.reservationNum}</td>
 									<td>${item.clientNum.clientNum}</td>
 									<td>${item.roomNum.roomNum}</td>

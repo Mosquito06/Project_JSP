@@ -107,6 +107,10 @@
                     index++;                
                 } 
                 reader.readAsDataURL(f);
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/Mosquito06/Project_JSP.git
             }); 
            
         }    

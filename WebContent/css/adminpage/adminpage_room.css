@@ -69,12 +69,45 @@ div#adminRoomMainDiv{
 	background-color: #faf9f4;
 }
 
-/* #TableDiv table tr[class*='roomInfo']{
+#TableDiv table tr[class*='roomInfo']{
 	border-top: 1px solid #cdcbbe;
 	border-bottom: 1px solid #cdcbbe;
+}
+
+ #TableDiv table tr[class*='roomInfo'] th{
+ 	vertical-align: middle;
+ }
+
+#TableDiv table tr[class*='roomInfo'] td{
+ 	padding: 15px 10px 15px 10px;
+}
+
+#TableDiv table tr[class*='roomInfoImg']{
 	display: none;
 }
 
-#TableDiv table tr[class*='roomInfo'] img{
+#TableDiv table tr[class*='roomInfoImg'] img{
+	width: 160px;
+	height: 90px;
+	margin-right: 5px;
+	text-align: center;
+}
+
+#TableDiv table tr[class*='roomInfoBtn']{
+	display: none;
+}
+
+#TableDiv table tr[class*='roomInfoBtn'] td{
+	vertical-align: middle;
+}
+
+#TableDiv table tr[class*='roomInfoBtn'] td.reservImg img{
+	width: 160px;
+	float: left;
+	margin-left: 20px;
+}
+
+#TableDiv table tr[class*='roomInfoBtn'] td:LAST-CHILD img{
 	cursor: pointer;
-} */
+}
+

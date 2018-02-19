@@ -29,7 +29,7 @@ public class JoinHandler implements CommandHandler {
 			
 			
 			String nameKo = req.getParameter("nameKo");
-			String nameEn = req.getParameter("nameEn2").toUpperCase()+" "+req.getParameter("nameEn1").toUpperCase();
+			String nameEn = req.getParameter("nameEn1").toUpperCase()+" "+req.getParameter("nameEn2").toUpperCase();
 			 Date birth = df.parse(newDate);
 			String email = req.getParameter("email1")+"@"+req.getParameter("email2");
 			String phone = req.getParameter("p1")+req.getParameter("p2")+req.getParameter("p3");
@@ -49,7 +49,9 @@ public class JoinHandler implements CommandHandler {
 											address, 
 											ClientGrade.MEMBER));
 			
-			return JOIN_VIEW;
+			req.setAttribute("name", nameEn);
+			req.setAttribute("id", id);
+		return "/WEB-INF/view/join/joinSuccessForm.jsp";	
 		}
 		return null;
 	}

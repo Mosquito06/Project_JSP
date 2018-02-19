@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입 ㅣ신라호텔</title>
+<title>회원가입 ㅣThe Shilla Hotel</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
-<link rel="stylesheet" type="text/css" href="css/join/joinForm.css?v=3">
+<link rel="stylesheet" type="text/css" href="css/join/joinForm.css?v=2">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> 
 <script src="js/common/common.js"></script>
-<script src="js/join/joinForm.js?v=1"></script>
+<script src="js/join/joinForm.js"></script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/common/header.jsp"/>
@@ -20,6 +20,10 @@
 		<div id="join_wrap">
 			<div id="join_title">
 				<h1>회원가입</h1>
+					<div id="wrap_home">
+							<img src="${pageContext.request.contextPath}/img/common/locaton.gif" id="home"> > <span
+								id="board">신라리워즈 가입</span>
+					</div>	
 			</div>
 			<div id="join_title_info">
 				<ul>
