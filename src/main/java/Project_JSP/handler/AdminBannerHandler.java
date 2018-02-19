@@ -62,7 +62,7 @@ public class AdminBannerHandler implements CommandHandler {
 				pw.flush(); //내보내기 
 				
 				return null;
-			} 
+			}  
 			
 			if(set.equals("insert")){
 				postProcess(req,res,"/img/admin/upload");
@@ -111,7 +111,7 @@ public class AdminBannerHandler implements CommandHandler {
 				sendData.put("error", "추가에 실패하였습니다.");
 				return null; 
 			}
-			
+			 
 			int lastNo = service.getLastInsert();
 			
 			return  null;

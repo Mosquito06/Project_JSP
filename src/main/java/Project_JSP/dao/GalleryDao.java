@@ -9,5 +9,5 @@ public interface GalleryDao {
 	public Gallery selecGalleryByNum(Gallery gallery);
 	public void insertGallery(Gallery gallery);
 	public void updateGallery(Gallery gallery);
-	public void deleteGallery(Gallery gallery);
+	public int deleteGallery(Gallery gallery);
 }

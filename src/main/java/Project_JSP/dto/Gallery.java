@@ -9,10 +9,6 @@ public class Gallery {
 
 	public Gallery() {}
 
-	public int getGalleryNum() {
-		return num;
-	}
- 
 	public Gallery(int num) {
 		this.num = num;
 	}
@@ -25,40 +21,44 @@ public class Gallery {
 		this.type = type;
 	}
 
-	public void setGalleryNum(int galleryNum) {
-		this.num = galleryNum;
+	public int getNum() { 
+		return num;
 	}
-	
-	public String getGalleryName() {
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
+	public String getName() {
 		return name;
 	}
 
-	public void setGalleryName(String galleryName) {
-		this.name = galleryName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getGalleryContent() {
+	public String getContent() {
 		return content;
 	}
 
-	public void setGalleryContent(String galleryContent) {
-		this.content = galleryContent;
+	public void setContent(String content) {
+		this.content = content;
 	}
 
-	public String getGalleryPath() {
+	public String getPath() {
 		return path;
 	}
 
-	public void setGalleryPath(String galleryPath) {
-		this.path = galleryPath;
+	public void setPath(String path) {
+		this.path = path;
 	}
 
-	public GalleryType getGalleryType() {
+	public GalleryType getType() {
 		return type;
 	}
 
-	public void setGalleryType(GalleryType galleryType) {
-		this.type = galleryType;
+	public void setType(GalleryType type) {
+		this.type = type;
 	}
 
 	@Override

@@ -72,15 +72,17 @@ public class GalleryDaoService implements GalleryDao {
 	}
 
 	@Override
-	public void deleteGallery(Gallery gallery) {
+	public int deleteGallery(Gallery gallery) {
+		int result = -1;
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			GalleryDao dao = session.getMapper(GalleryDao.class);
-			dao.deleteGallery(gallery);
+			result = dao.deleteGallery(gallery);
 			session.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
+		return result;
 	}
 
 }
