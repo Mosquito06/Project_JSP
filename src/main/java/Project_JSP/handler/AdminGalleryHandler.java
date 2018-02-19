@@ -2,17 +2,22 @@ package Project_JSP.handler;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory.Default;
 
+import Project_JSP.dto.Gallery;
+import Project_JSP.dto.GalleryType;
 import Project_JSP.mvc.controller.CommandHandler;
+import Project_JSP.mvc.util.FileUtils;
+import Project_JSP.service.GalleryDaoService;
 
 public class AdminGalleryHandler implements CommandHandler {
 	private static final String filePath = "/WEB-INF/view/adminpage/";
@@ -22,9 +27,9 @@ public class AdminGalleryHandler implements CommandHandler {
 		if(req.getMethod().equalsIgnoreCase("get")){
 			return filePath + "adminpage_gallery.jsp";		
 		}else if(req.getMethod().equalsIgnoreCase("post")){
-			postProcess(req, res, "/img/gallary");
+			res.sendRedirect(postProcess(req, res, "/img/gallary"));
 			return null;
-		}
+		} 
 		return filePath + "adminpage_gallery.jsp";
 	}
 	
@@ -34,53 +39,124 @@ public class AdminGalleryHandler implements CommandHandler {
 		File dir = new File(uploadPath);
 		if(dir.exists() == false){
 			dir.mkdirs();//폴더만들기
-		}
+		} 
 		
 		System.out.println("uploadPath - " + uploadPath);
 		
 		int maxSize = 1024 * 1024 * 10;//10M
 		String fileName = "";
-		String originFileName = "";
+		String originFileName = ""; 
 		try{
-			
+			Date now = new Date();
 			MultipartRequest multi = new MultipartRequest(req, uploadPath,maxSize, "utf-8" , new DefaultFileRenamePolicy());
 			
 			HashMap<String, String> map = new HashMap<>();
 			
-			fileName = multi.getFilesystemName("upload");
-			originFileName = multi.getOriginalFileName("upload");
+			fileName = multi.getFilesystemName("file");
+			originFileName = multi.getOriginalFileName("file");
 			
-			HttpSession session = req.getSession(false);
-			List<String> fileList = new ArrayList<>();
+			String deleteFiles = multi.getParameter("deleteFiles");
+			String uploadFiles = multi.getParameter("uploadFiles");
+			String title = multi.getParameter("titleArr");
+			String content = multi.getParameter("contentArr");
+			String type = multi.getParameter("typeArr");
+			deleteFiles = deleteFiles.replace(".jpg", "");
+			deleteFiles = deleteFiles.replace(".png", "");
+			deleteFiles = deleteFiles.replace(".gif", "");
+			uploadFiles = uploadFiles.replace(".jpg", "");
+			uploadFiles = uploadFiles.replace(".png", "");
+			uploadFiles = uploadFiles.replace(".gif", "");
 			
-			List<String> tempList = (List<String>) session.getAttribute("fileList");
+			String[] delteFileArr = null;
 			
-			if(tempList == null){
-				fileList.add(fileName);
-				session.setAttribute("fileList", fileList);
-				System.out.println(fileList);
-			}else{
-				fileList = tempList;
-				fileList.add(fileName);
-				session.setAttribute("fileList", fileList);
-				System.out.println(fileList);
+			if(!deleteFiles.equals("")){
+				delteFileArr =  deleteFiles.split(",");
 			}
 			
-			map.put("fileName", fileName);
-			map.put("orignFileName", originFileName);
+			String[] upLoadArr = uploadFiles.split(",");
+			String[] titleArr = title.split(","); 
+			String[] contentArr =content.split(",");
+			String[] typeArr = type.split(","); 
+			File dirFile=new File(uploadPath);   
+			File []fileList=dirFile.listFiles();
+			List<String> uploadFileName = new ArrayList(); 
 			
+	    	System.out.println("======== 절취선 ========="); 
+			for(File tempFile : fileList) {
+			  if(tempFile.isFile()) {
+			    String tempPath=tempFile.getParent();
+			    String tempFileName=tempFile.getName();
+			    
+			    int compare = (int) (tempFile.lastModified()-now.getTime());
+			    
+			    if(compare>0&&compare<1000){
+				    System.out.println("FileName="+tempFileName);
+		    		if(delteFileArr != null){
+		    			for(String delfile :delteFileArr){
+							if(tempFileName.contains(delfile)){
+					    		FileUtils.deleteFile(tempFileName, uploadPath);
+					    		uploadFileName.remove(tempFileName);
+					    	}else{
+					    		uploadFileName.add(tempFileName);
+					    	}
+						} 
+		    		}else{ 
+		    			uploadFileName.add(tempFileName);  
+		    		}
+		    		
+			    }
+			  }      
+			}
+			
+			map.put("fileName", fileName); 
+			map.put("orignFileName", originFileName); 
+			  
 			req.setAttribute("file", map);		
 			
-			String contextPath = req.getContextPath() + fileUploadPath;
-					
-			String uploadScript= "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction(1,'"+contextPath+ "/" + fileName + "', '완료');</script>";
+			GalleryDaoService service = GalleryDaoService.getInstance();
 			
-			req.setAttribute("upScript", uploadScript);
-						
+			
+			for(int i=0; i<titleArr.length; i++){
+				String upFile = "";
+				
+				for(String file : uploadFileName){
+					if(file.contains(upLoadArr[i])){
+						System.out.println("------"); 
+						System.out.println(upLoadArr[i]);
+						System.out.println(file);
+						upFile = file;
+						break; 
+					}
+				}
+				
+				Gallery gallery = new Gallery(0, titleArr[i], contentArr[i],upFile, galleryTypeCheck(typeArr[i]));
+				
+				service.insertGallery(gallery);  
+			}
+			  
+			String contextPath = req.getContextPath() + fileUploadPath;
+			
 		}catch (Exception e){
 			e.printStackTrace();
-		}
+		} 
 		
-		return filePath + "fileUpload.jsp";
+		return req.getContextPath() + "/adminGallery.do";
+	}
+
+	private GalleryType galleryTypeCheck(String typeArr) {
+		int type = Integer.parseInt(typeArr);
+		switch (type) {
+		case 0:
+			return GalleryType.ROOM;
+		case 1:	
+			return GalleryType.DINING;
+		case 2:
+			return GalleryType.ACTIVITY;
+		case 3: 
+			return GalleryType.FACILITY;
+		case 4:
+			return GalleryType.ETC;
+		}
+		return null;
 	}
 }
