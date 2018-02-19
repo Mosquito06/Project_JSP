@@ -13,7 +13,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script> 
 <script>
-	function delBtn(){	
+	function delBtn(){	 
 			if (!confirm("삭제하시겠습니까?")) {
 		        return;
 		    }
@@ -61,16 +61,18 @@
 						</div>
 					</div>
 					<div id="wrap_admin_btn">
-							<a href="#" class="btn_admin" onclick="delBtn()">선택 삭제</a></div>
+							<a href="#" class="btn_admin" onclick="delBtn()">선택 삭제</a>
+							<a href="${pageContext.request.contextPath}/adminGallery.do" class="btn_admin" >추가</a>
+					</div>
 					<div> 
 						<table id="t1">
-							<tr>
+							<tr> 
 								<th></th> 
 								<th>갤러리번호</th>
 								<th>타이틀</th>
-								<th>내용</th> 
+								<th>내용</th>  
 								<th>이미지</th> 
-								<th>타입</th> 
+								<th>타입</th>  
 							</tr>
 							<c:if test="${error }!=null">
 							<tr>
