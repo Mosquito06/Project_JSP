@@ -77,7 +77,15 @@ $(function(){
 							</tr>
 							<tr>
 								<th>인원</th>
-								<td>${reservation.personnel}</td>
+								<td>
+									<select name="pNum">
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+									</select>
+									${reservation.personnel}
+								</td>
 							</tr>
 							<tr>
 								<th>결제날짜</th>
@@ -87,19 +95,27 @@ $(function(){
 							</tr>
 							<tr>
 								<th>옵션내용</th>
-								<td>${reservation.option}</td>
+								<td><input type="text" value="${reservation.option}" name="option"></td>
 							</tr>
 							<tr>
 								<th>총 가격</th>
-								<td>${reservation.totalPrice}</td>
+								<td><input type="text" value="${reservation.totalPrice}" name="totalPrice"></td>
 							</tr>
 							<tr>
 								<th>대여상태</th>
-								<td>${reservation.state}</td>
+								<td>
+									<select name="state">
+										<option>RESERVE</option>
+										<option>COMPLETE</option>
+										<option>CANCEL</option>
+									</select>
+									${reservation.state}
+								
+								</td>
 							</tr>
 							<tr>
 								<th>고객요청</th>
-								<td>${reservation.clientReq}</td>
+								<td><textarea>${reservation.clientReq}</textarea></td>
 							</tr>
 						</table>
 						
@@ -152,8 +168,7 @@ $(function(){
 					</div>
 					<div id="wrap_admin_btn">
 						<a href="adminReservation.do?set=0" class="admin_btn">돌아가기</a>
-						<a href="adminReserveDelete.do?set=1&num=${reservation.reservationNum}" class="admin_btn" id="del_btn">삭제</a>
-						<a href="adminReserveUpdate.do?num=${reservation.reservationNum}" class="admin_btn" id="up_btn">변경</a>
+						
 					</div>
 				</div>
 			</div>

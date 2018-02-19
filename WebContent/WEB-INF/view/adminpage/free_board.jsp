@@ -85,7 +85,7 @@
 									}else{
 										
 										for(var i=0;i<(${page}+1); i++){
-											$("#page_num").append("<a href=''>"+(i+1)+"  </a>");
+											$("#page_num").append((i+1));
 										}
 									}
 								</script></td>
