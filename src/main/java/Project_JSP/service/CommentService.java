@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import Project_JSP.dao.BoardDao;
 import Project_JSP.dao.CommentDao;
 import Project_JSP.dto.Comment;
 import Project_JSP.mvc.util.MySqlSessionFactory;
