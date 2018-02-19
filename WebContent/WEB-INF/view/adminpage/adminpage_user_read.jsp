@@ -18,24 +18,29 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath }/js/common/common.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath }/js/adminpage/admin.js?v=1"></script>
-<script type="text/javascript" src="js/reservation/jsCalendar.js"></script>
-<script type="text/javascript"
-	src="js/reservation/jsCalendar.lang.de.js"></script>
-
+<script type="text/javascript">
+	$(function(){
+		$("#del_btn").click(function(){
+			
+			var yes=confirm("정말 삭제 하시겠습니까?");
+			if(!yes){
+				return false;
+			}
+		})
+	})
+</script>
 </head>
 <body>
-						<c:if test="${error == 1}">
-							<script type="text/javascript">
-								alert("멤버가 아닙니다.");
-							</script>
-						</c:if>
-						<c:if test="${error == 2}">
-							<script type="text/javascript">
-								alert("블랙리스트가 아닙니다.");
-							</script>
-						</c:if>
+	<c:if test="${error == 1}">
+		<script type="text/javascript">
+			alert("멤버가 아닙니다.");
+		</script>
+	</c:if>
+	<c:if test="${error == 2}">
+		<script type="text/javascript">
+			alert("블랙리스트가 아닙니다.");
+		</script>
+	</c:if>
 
 	<div>
 		<header>
@@ -55,7 +60,7 @@
 								id="board">회원관리</span>
 						</div>
 					</div>
-					
+
 					<div id="wrap_table">
 						<table id="t1">
 							<caption>회원 정보</caption>
@@ -75,16 +80,17 @@
 								<th>성명(영)</th>
 								<td>${client.nameEn}</td>
 							</tr>
-							
+
 							<tr>
 								<th>생년월일</th>
-								<td><fmt:formatDate value="${client.birth}" pattern="yyyy.MM.dd"/></td>
+								<td><fmt:formatDate value="${client.birth}"
+										pattern="yyyy.MM.dd" /></td>
 							</tr>
 							<tr>
 								<th>이메일</th>
 								<td>${client.email}</td>
 							</tr>
-							
+
 							<tr>
 								<th>휴대전화</th>
 								<td>${client.phone}</td>
@@ -93,9 +99,9 @@
 								<th>자택전화</th>
 								<td>${client.home}</td>
 							</tr>
-							
+
 							<tr>
-								<th>주소</th> 
+								<th>주소</th>
 								<td>${client.address}</td>
 							</tr>
 							<tr>
@@ -106,7 +112,7 @@
 						<table id="t2">
 							<caption>예약이력</caption>
 							<tr>
-							
+
 								<th>예약번호</th>
 								<th>호수</th>
 								<th>체크인</th>
@@ -118,40 +124,41 @@
 							</tr>
 							<c:forEach items="${reserve}" var="item">
 								<tr>
-								
+
 									<td class="reserve_num">${item.reservationNum}</td>
-									
+
 									<td>${item.roomNum.roomNum}</td>
-									<td><fmt:formatDate value="${item.checkIn}" pattern="yyyy.MM.dd"/></td>
-									<td><fmt:formatDate value="${item.checkOut}" pattern="yyyy.MM.dd"/></td>
+									<td><fmt:formatDate value="${item.checkIn}"
+											pattern="yyyy.MM.dd" /></td>
+									<td><fmt:formatDate value="${item.checkOut}"
+											pattern="yyyy.MM.dd" /></td>
 									<td>${item.totalPrice}</td>
 									<td>${item.personnel}</td>
-									<td><fmt:formatDate value="${item.payDate}" pattern="yyyy.MM.dd"/></td>
-									<td>
-										<c:if test="${item.state == 'COMPLETE'}">
+									<td><fmt:formatDate value="${item.payDate}"
+											pattern="yyyy.MM.dd" /></td>
+									<td><c:if test="${item.state == 'COMPLETE'}">
 											완료
-										</c:if>
-										<c:if test="${item.state == 'CANCEL'}">
+										</c:if> <c:if test="${item.state == 'CANCEL'}">
 											취소
-										</c:if>
-										<c:if test="${item.state == 'RESERVE'}">
+										</c:if> <c:if test="${item.state == 'RESERVE'}">
 											예약
-										</c:if>
-									
-									</td>
+										</c:if></td>
 								</tr>
 							</c:forEach>
 						</table>
-						
-						
-						
+
+
+
 					</div>
 					<div id="wrap_admin_btn">
-						<a href="adminUser.do" class="admin_btn">돌아가기</a>
-						<a href="adminUserUpdate.do?set=1&num=${client.clientNum}" class="admin_btn">블랙리스트 추가</a>
-						<a href="adminUserUpdate.do?set=2&num=${client.clientNum}" class="admin_btn">블랙리스트 해제</a>
-						<a href="adminUser.do" class="admin_btn">회원정보 삭제</a>
-						
+						<a href="adminUser.do" class="admin_btn">돌아가기</a> <a
+							href="adminUserUpdate.do?set=1&num=${client.clientNum}"
+							class="admin_btn">블랙리스트 추가</a> <a
+							href="adminUserUpdate.do?set=2&num=${client.clientNum}"
+							class="admin_btn">블랙리스트 해제</a> <a
+							href="adminUserDelete.do?set=1&num=${client.clientNum}"
+							class="admin_btn" id="del_btn">회원정보 삭제</a>
+
 					</div>
 				</div>
 			</div>
@@ -160,6 +167,6 @@
 			<jsp:include page="/WEB-INF/common/footer.jsp" />
 		</footer>
 	</div>
-						
+
 </body>
 </html>

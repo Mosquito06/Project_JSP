@@ -6,16 +6,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Project_JSP.dto.Client;
+import Project_JSP.dto.ClientGrade;
 import Project_JSP.mvc.controller.CommandHandler;
 import Project_JSP.service.ClientDaoService;
 
-public class AdminUserHandler implements CommandHandler{
+public class AdminUserFindHandler implements CommandHandler{
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		ClientDaoService service = ClientDaoService.getInstance();
 		if(req.getMethod().equalsIgnoreCase("get")){
-			List<Client> lists=service.selectClient();
+			List<Client> lists=service.findClientGrade(ClientGrade.BLACKLIST);
 			req.setAttribute("lists", lists);
 			return "/WEB-INF/view/adminpage/adminpage_user.jsp";
 		}else if(req.getMethod().equalsIgnoreCase("post")){

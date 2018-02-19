@@ -1,16 +1,11 @@
 $(function(){
 	
-	
-	$("#t1 tr td").not(".check").click(function(){
-		var num=$(this).parent().find(".client_num").html();
-		location.href="adminUser_read.do?num="+num;
-	});
-	
-	
+
 	
 		
 	$("#del_list").click(function(){
-		var leng = $("input:checked").length;
+		var leng = $(".check input:checked").length;
+
 		if(leng==0){
 			alert("삭제내용이 없습니다.");
 			return false;
@@ -21,10 +16,10 @@ $(function(){
 		}
 		
 		var str = "";
-		$("input:checked").each(function(i){
+		$(".check input:checked").each(function(i){
 			str += $(this).val()+",";
 		})
-		location.href="adminUserDelete.do?set=2&list="+str;
+		location.href="adminReserveDelete.do?set=2&list="+str;
 	
 		return false;
 		

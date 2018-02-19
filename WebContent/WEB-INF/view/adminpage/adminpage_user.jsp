@@ -11,10 +11,10 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath }/css/common/common.css?ver=1">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/adminpage/adminUser.css?v=1">
+	href="${pageContext.request.contextPath}/css/adminpage/adminUser.css?v=112">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/adminpage/admin_user.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/adminpage/admin_user.js?=12"></script>
 </head>
 <body>
 	<div> 
@@ -33,12 +33,24 @@
 								id="board">관리자</span> > <span id="board">회원관리</span>
 						</div>
 					</div>
-					<div id="wrap_admin_btn">
-						<a href="" class="btn_admin">관리자추가</a>
+					<div id="search_user">
+					<form method="post" action="adminUser.do">
+						<input type="hidden" name="set" id="set_type">
+						<label>회원아이디</label>
+										
+						<input type="text" name="id" id="id">
+						<input type="submit" value="검색">
+					</form>
 						
-						<a href="" class="btn_admin">블랙리스트추가</a>
-						<a href="" class="btn_admin">삭제</a>
 					</div>
+					
+					
+					<div id="wrap_admin_btn">
+						<a href="adminUser.do" class="btn_admin">전체보기</a>
+						<a href="adminUserFind.do" class="btn_admin">블랙리스트보기</a>
+						<a href="" class="btn_admin" id="del_list">삭제</a>
+					</div>
+			
 					<div>
 
 						<table id="t1">
@@ -52,12 +64,11 @@
 								<th>이메일</th>
 								<th>휴대전화</th>
 								<th>자택전화</th>
-								<th>주소</th>
 								<th>등급</th>
 							</tr>
-							<c:forEach items="${client}" var="item">
+							<c:forEach items="${lists}" var="item">
 								<tr>
-									<td class="check"><input type="checkbox"></td>
+									<td class="check"><input type="checkbox"  value="${item.clientNum}"></td>
 									<td class="client_num">${item.clientNum}</td>
 									<td>${item.id}</td>
 									<td>${item.nameKo}</td>
@@ -66,10 +77,25 @@
 									<td>${item.email}</td>
 									<td>${item.phone}</td>
 									<td>${item.home}</td>
-									<td>${item.address}</td>
 									<td>${item.clientGrade}</td>
 								</tr>
 							</c:forEach>
+							<c:if test="${client !=null }">
+								<tr>
+									<td class="check"><input type="checkbox" value="${client.clientNum}"></td>
+									<td class="client_num">${client.clientNum}</td>
+									<td>${client.id}</td>
+									<td>${client.nameKo}</td>
+									<td>${client.nameEn}</td>
+									<td><fmt:formatDate value="${client.birth}" pattern="yyyy.MM.dd"/></td>
+									<td>${client.email}</td>
+									<td>${client.phone}</td>
+									<td>${client.home}</td>
+									<td>${client.address}</td>
+									<td>${client.clientGrade}</td>
+								</tr>
+							
+							</c:if>
 						</table>
 					</div>
 				</div>

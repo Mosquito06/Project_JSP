@@ -45,6 +45,10 @@
 		select * from Client where id=#{id}
 	</select>
 	
+	<select id="findClientGrade" parameterType="ClientGrade" resultMap="ClientResult">
+		select * from Client where client_grade=#{clientGrade}
+	</select>
+	
 	<select id="selectClientPw" parameterType="Client" resultMap="ClientResult">
 		select * from Client where password =password(#{pw}) and id=#{id} and client_grade =#{clientGrade}
 	</select>
