@@ -126,6 +126,7 @@ $(function(){
 	})
 	
 	
+	// 테이블 행 클릭
 	$(document).on("click", "tr.reservationTr", function(){
 		var index = $(this).find("td").eq(0).text();
 		var css = $(".roomInfo" + index).css("display");
