@@ -87,7 +87,7 @@ public class TestGalleryDaoService {
 		}
 	}*/
 
-	@Test
+	/*@Test
 	public void deleteEvent() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			GalleryDao dao = session.getMapper(GalleryDao.class);
@@ -101,5 +101,5 @@ public class TestGalleryDaoService {
 			e.printStackTrace();
 		}
 
-	}
+	}*/
 }

@@ -27,6 +27,7 @@
 			 
 			 for(var i=0; i<upload_files.length; i++){
 				 upFileName.push(upload_files[i].name);
+				 console.log(upload_files[i].name);
 			 }
 			 
 			 $("#uploadFiles").val(upFileName);
@@ -43,7 +44,7 @@
 			 $(".content").each(function(i,obj){  
 				 contentArr.push($(this).val());
 			 });
-			 $(".type").each(function(i,obj){
+			 $(".type").each(function(i,obj){ 
 				 typeArr.push($(this).find("option:selected").index());
 			 }); 
 			 
@@ -85,9 +86,10 @@
                     alert("확장자는 이미지 확장자만 가능합니다."); 
                     return; 
                 } 
-                sel_files.push(f);
+                
+                sel_files.push(f); 
                 upload_files.push(f);
-                var reader = new FileReader();
+                var reader = new FileReader(); 
                 reader.onload = function(e) {
                 	  var html = "<li>"
                 	  + "<div><input type='checkbox' class='checklist'></div>"
@@ -101,16 +103,12 @@
              		  + "<option>부대시설</option>"
              		  + "<option>기타</option>" 
              		  + "</select></div>"
-             		  +"</li>";
+             		  +"</li>"; 
        				console.log("인풋 html")
                     $(".imgs_wrap").append(html);  
                     index++;                
                 } 
                 reader.readAsDataURL(f);
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/Mosquito06/Project_JSP.git
             }); 
            
         }    
@@ -151,7 +149,7 @@
 				<jsp:include page="admin_leftMenu.jsp" />
 				<div id="rightArea">
 					<div id="wrap_title">
-						<h1 id="title">메인 관리</h1>
+						<h1 id="title">갤러리 관리</h1>
 						<div id="wrap_home">
 							<img src="${pageContext.request.contextPath}/img/common/locaton.gif" id="home"> > <span
 								id="board">관리자</span> > <span id="board">갤러리 관리</span>
@@ -195,27 +193,6 @@
 							</table>
 						</form> 
 					</div>
-					<%-- <div id="wrap_admin_btn">
-							<a href="#" class="btn_admin" onclick="delBtn()">선택 삭제</a></div>
-					<div> 
-						<table id="t1">
-							<tr>
-								<th></th>
-								<th>배너번호</th>
-								<th>링크경로</th>
-								<th>이미지경로</th> 
-							</tr>
-							<c:forEach items="${list}" var="item">
-								<tr> 
-									<td><input type="checkbox" class="checkbox"></td>
-									<td class="banNo">${item.no}</td>
-									<td>${item.linkPath}</td>
-									<td>${item.imgPath}</td>
-								</tr>
-							</c:forEach>
-						</table>
-					</div> 
-				</div> --%>
 			</div>
 		</section>
 		<footer>

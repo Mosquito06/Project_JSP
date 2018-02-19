@@ -62,7 +62,7 @@ public class AdminBannerHandler implements CommandHandler {
 				pw.flush(); //내보내기 
 				
 				return null;
-			} 
+			}  
 			
 			if(set.equals("insert")){
 				postProcess(req,res,"/img/admin/upload");

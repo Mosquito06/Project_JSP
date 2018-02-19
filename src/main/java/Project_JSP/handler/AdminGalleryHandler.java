@@ -51,7 +51,7 @@ public class AdminGalleryHandler implements CommandHandler {
 			MultipartRequest multi = new MultipartRequest(req, uploadPath,maxSize, "utf-8" , new DefaultFileRenamePolicy());
 			
 			HashMap<String, String> map = new HashMap<>();
-			
+			 
 			fileName = multi.getFilesystemName("file");
 			originFileName = multi.getOriginalFileName("file");
 			
@@ -68,12 +68,12 @@ public class AdminGalleryHandler implements CommandHandler {
 			uploadFiles = uploadFiles.replace(".gif", "");
 			
 			String[] delteFileArr = null;
-			
+			  
 			if(!deleteFiles.equals("")){
-				delteFileArr =  deleteFiles.split(",");
+				delteFileArr =  deleteFiles.split(","); 
 			}
-			
-			String[] upLoadArr = uploadFiles.split(",");
+			 
+			String[] upLoadArr = uploadFiles.split(","); 
 			String[] titleArr = title.split(","); 
 			String[] contentArr =content.split(",");
 			String[] typeArr = type.split(","); 
@@ -115,7 +115,6 @@ public class AdminGalleryHandler implements CommandHandler {
 			
 			GalleryDaoService service = GalleryDaoService.getInstance();
 			
-			
 			for(int i=0; i<titleArr.length; i++){
 				String upFile = "";
 				
@@ -126,21 +125,20 @@ public class AdminGalleryHandler implements CommandHandler {
 						System.out.println(file);
 						upFile = file;
 						break; 
-					}
-				}
+					} 
+				}  
 				
 				Gallery gallery = new Gallery(0, titleArr[i], contentArr[i],upFile, galleryTypeCheck(typeArr[i]));
-				
 				service.insertGallery(gallery);  
 			}
-			  
+			
 			String contextPath = req.getContextPath() + fileUploadPath;
 			
 		}catch (Exception e){
 			e.printStackTrace();
 		} 
 		
-		return req.getContextPath() + "/adminGallery.do";
+		return req.getContextPath() + "/adminGalleryList.do";
 	}
 
 	private GalleryType galleryTypeCheck(String typeArr) {
