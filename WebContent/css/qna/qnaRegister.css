@@ -1,0 +1,41 @@
+@CHARSET "UTF-8";
+#register_wrap{
+	
+	text-align: center;
+}
+#register_wrap>h1{
+	font-size: 1.7em;
+	color:#9c875c;
+	margin-bottom: 20px;
+}
+#register_wrap>h2{
+	font-size:1.3em;
+	margin-bottom: 20px;
+	color:#626262;
+}
+#register_wrap>h3{
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+#register_wrap>h4{
+	color:#989898;
+	font-size: 13px;
+}
+#btn{
+	margin-top: 60px;
+	text-align: center;
+}
+#btn button{
+	outline: none;
+	cursor: pointer;
+	border:1px solid #3A3125;
+	background-color: #3A3125;
+	color:#FAF1D0;
+	font-weight: bold;
+	font-size: 15px;
+	width:130px;
+	height:35px;
+}
+#btn a{
+	display:inline-block;
+}
