@@ -81,4 +81,19 @@ input,textarea,select{
 	outline: none;
 }
 
-
+#extra{
+	font-size: 13px;
+	color:#543900;
+	font-weight: bold;
+}
+input[type='file']{
+	cursor: pointer;
+}
+table td{
+	position: relative;
+}
+#select_email{
+	position: absolute;
+	top:6px;
+	margin-left: 5px;
+}

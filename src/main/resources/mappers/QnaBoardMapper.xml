@@ -3,7 +3,7 @@
 <mapper namespace="Project_JSP.dao.QnaBoardDao">
     
     <resultMap type="QnaBoard" id="QnaBoardResult">
-    	<id property="num" column="question_num"/>
+    	<id property="qnaNum" column="question_num"/>
     	<result property="name" column="question_name"/>
     	<result property="email" column="question_email"/>
     	<result property="tel" column="question_tel"/>
@@ -13,4 +13,24 @@
     	<result property="path" column="question_path"/>
     </resultMap>
    
+   <insert id="insertQnaBoard" parameterType="QnaBoard">
+   	insert into question_board(question_title,question_name,question_email,question_tel,question_date,client_grade,question_path)
+   	values(#{title}, #{name},#{email},#{tel},#{date},#{clientGrade},#{path})
+   </insert>
+   
+   <select id="selectAllQnaBoard" resultMap="QnaBoardResult">
+   		select * from question_board
+   </select>
+   
+   <select id="selectByNumQnaBoard" parameterType="QnaBoard" resultMap="QnaBoardResult">
+   		select * from question_board where question_num = #{qnaNum}
+   </select>
+   
+   <delete id="deleteByNumQnaBoard" parameterType="QnaBoard">
+   		delete from question_board where question_num = #{qnaNum}
+   </delete>
+   
+   <select id="lastId" resultType="int">
+   		select max(question_num) from question_board
+   </select>
 </mapper>

@@ -50,5 +50,6 @@
 	  <mapper resource="mappers/CommentMapper.xml" />
 	  <mapper resource="mappers/BannerMapper.xml" />
 	  <mapper resource="mappers/QnaBoardMapper.xml" />
+	   <mapper resource="mappers/QnaBoardContentMapper.xml" />
   </mappers>
 </configuration>

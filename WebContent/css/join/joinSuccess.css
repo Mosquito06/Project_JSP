@@ -97,12 +97,7 @@
 	color:#FAF1D0;
 	font-weight: bold;
 	font-size: 15px;
-}
-#login{
-	width:120px;
+		width:130px;
 	height:35px;
-}
-#main{
-	width:130px;
-	height:35px;
+	outline: none;
 }

@@ -8,36 +8,12 @@
 <title>고객의견접수 | The Shilla Hotel</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/common/reset.css">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/common/common.css?ver=1">
+	href="${pageContext.request.contextPath}/css/common/common.css">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/qna/qnaboard.css?v=2">
+	href="${pageContext.request.contextPath}/css/qna/qnaboard.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common/common.js"></script>
-<script type="text/javascript">
-	$(function(){
-		$("#select_email").change(function(){
-			if($(this).val() != '직접입력'){
-				$("#com").val($(this).val());
-			}else{
-				$("#com").val("");
-			}
-		})
-		
-		$("#submit").click(function(){
-			$("input").each(function(j,obj){
-				if($(this).val()==""){
-					alert("필수항목을 작성해주세요");
-					return false;
-				}else{
-					("#f").submit();
-				}
-			})
-		})
-	})
-</script>
-<style>
-	
-</style>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/qna/qnaForm.js"></script>
 </head>
 <body>
 	<div>
@@ -59,20 +35,20 @@
 
 					</div>
 
-					<form action="qna.do" method="post" id="f">
+					<form action="qna.do" method="post" id="f" enctype="multipart/form-data">
 						
 						<table id="wrap_form">
 							<tr>
 								<th><span class="dot">*</span>제목</th>
-								<td><input type="text" name="title"></td>
+								<td><input type="text" name="title" class="import"></td>
 							</tr>
 							<tr id="content">
 								<th><span class="dot">*</span>내용</th>
-								<td><textarea rows="7" cols="" name="content" id="textarea"></textarea></td>
+								<td><textarea rows="7" cols="" name="content" id="textarea" class="import"></textarea></td>
 							</tr>
 							<tr>
 								<th><span class="dot">*</span>성명</th>
-								<td><input type="text" name="name"></td>
+								<td><input type="text" name="name" onkeyup="this.value=this.value.replace(/[^a-zA-Z가-힣]/g,'');" class="import"class="import"></td>
 								<c:if test="${MEMBER != null}">
 									<script>
 											$("input[name='name']").val("${MEMBER.nameKo}").attr("readonly","readonly");
@@ -82,17 +58,17 @@
 							</tr>
 							<tr>
 								<th><span class="dot">*</span>이메일</th>
-								<td><input type="text" name="email1" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'');">
-								<span id="email_">@ </span><input type="text" name="email2" id="com" onkeyup="this.value=this.value.replace(/[^a-zA-Z.]/g,'');">
-								<select name="email3" id="select_email">
-									<option>직접입력</option>
-									<option>naver.com</option>
-									<option>hanmail.net</option>
-									<option>hotmail.com</option>
-									<option>nate.com</option>
-									<option>yahoo.co.kr</option>
-									<option>empas.com</option>
-									<option>gmail.com</option>
+								<td><input type="text" name="email1" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'');" class="import">
+								<span id="email_">@ </span><input type="text" name="email2" id="com" onkeyup="this.value=this.value.replace(/[^a-zA-Z.]/g,'');" class="import">
+								<select id="select_email">
+									<option value="">직접입력</option>
+									<option value="naver.com">naver.com</option>
+									<option value = "hanmail.net">hanmail.net</option>
+									<option value="hotmail.com">hotmail.com</option>
+									<option value="nate.com">nate.com</option>
+									<option value="yahoo.co.kr">yahoo.co.kr</option>
+									<option value="empas.com">empas.com</option>
+									<option value="gmail.com">gmail.com</option>
 								</select>
 							
 								</td>
@@ -109,18 +85,18 @@
 							</tr>
 							<tr>
 								<th><span class="dot">*</span>휴대전화</th>
-								<td><input type="tel" name="tell"></td>
+								<td><input type="tel" name="tel"  onkeyup="this.value=this.value.replace(/[^0-9]/g,'');" class="import"></td>
 								<c:if test="${MEMBER !=null }">
 									<script>
-										$("input[name='tell']").val("${MEMBER.phone}").attr("readonly","readonly");
+										$("input[name='tel']").val("${MEMBER.phone}").attr("readonly","readonly");
 									</script>
 								</c:if>
 							</tr>
 							<tr>
 								<th>첨부이미지</th>
 								<td>
-								<input type="file" name="filePath"><br>
-									<span>*추가적으로 첨부할 이미지가 있으면 첨부해주세요</span>
+								<input type="file" name="filePath"><br><br>
+									<span id="extra">*추가적으로 첨부할 이미지가 있으면 첨부해주세요</span>
 								</td>
 							</tr>
 						</table>
@@ -138,11 +114,10 @@
 							<div id="wrap_check">
 								<input type="checkbox" name="check" id="check_btn"><span id="check">동의함</span>
 							</div>
-							
 						</div>
 						</c:if>
-			
 						<div id="wrap_sub_btn">
+						<input type="hidden" value="${MEMBER.id }" id="member">
 							<input type="submit" value="등록" id="submit">
 						</div>
 						

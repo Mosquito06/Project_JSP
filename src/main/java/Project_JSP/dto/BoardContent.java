@@ -1,9 +1,5 @@
 package Project_JSP.dto;
 
-/**
- * @author DGIT3-9
- *
- */
 public class BoardContent {
 	private Board num;
 	private String content;

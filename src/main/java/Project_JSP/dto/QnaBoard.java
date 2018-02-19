@@ -3,7 +3,7 @@ package Project_JSP.dto;
 import java.util.Date;
 
 public class QnaBoard {
-	private int num;
+	private int qnaNum;
 	private String name;
 	private String email;
 	private String tel;
@@ -11,11 +11,12 @@ public class QnaBoard {
 	private Date date;
 	private ClientGrade clientGrade;
 	private String path;
-	public int getNum() {
-		return num;
+	
+	public int getqnaNum() {
+		return qnaNum;
 	}
-	public void setNum(int num) {
-		this.num = num;
+	public void setqnaNum(int qnaNum) {
+		this.qnaNum = qnaNum;
 	}
 	public String getName() {
 		return name;
@@ -59,10 +60,10 @@ public class QnaBoard {
 	public void setPath(String path) {
 		this.path = path;
 	}
-	public QnaBoard(int num, String name, String email, String tel, String title, Date date, ClientGrade clientGrade,
+	public QnaBoard(int qnaNum, String name, String email, String tel, String title, Date date, ClientGrade clientGrade,
 			String path) {
 		super();
-		this.num = num;
+		this.qnaNum = qnaNum;
 		this.name = name;
 		this.email = email;
 		this.tel = tel;
@@ -73,6 +74,22 @@ public class QnaBoard {
 	}
 	public QnaBoard() {
 		super();
+	}
+	public QnaBoard(String name, String email, String tel, String title, Date date, ClientGrade clientGrade,
+			String path) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.tel = tel;
+		this.title = title;
+		this.date = date;
+		this.clientGrade = clientGrade;
+		this.path = path;
+	}
+	@Override
+	public String toString() {
+		return String.format("QnaBoard [qnaNum=%s, name=%s, email=%s, tel=%s, title=%s, date=%s, clientGrade=%s, path=%s]",
+				qnaNum, name, email, tel, title, date, clientGrade, path);
 	}
 	
 	
