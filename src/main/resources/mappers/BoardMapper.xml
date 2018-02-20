@@ -4,18 +4,19 @@
     
     <resultMap type="Board" id="BoardResult">
     	<id property="num" column="board_num"/>
-    	<result property="type" column="board_type"/>
     	<result property="name" column="board_name"/>
     	<result property="email" column="board_email"/>
     	<result property="tel" column="board_tel"/>
     	<result property="title" column="board_title"/>
     	<result property="date" column="board_date"/>
     	<result property="check" column="board_check"/>
+    	<result property="path" column="board_path"/>
+    	<result property="id" column="id"/>
     </resultMap>
    
    <insert id="insertBoard" parameterType="Board">
-   		insert into board(board_name,board_email,board_tel,board_title,board_date,board_check)
-   		values(#{name},#{email},#{tel},#{title},#{date},#{check})
+   		insert into board(board_name,board_email,board_tel,board_title,board_date,board_check,board_path,id)
+   		values(#{name},#{email},#{tel},#{title},#{date},#{check},#{path},#{id})
    </insert>
    
    <select id="lastId" resultType="int">
@@ -60,9 +61,11 @@
 
    <update id="updateBoard" parameterType="Board">
    		update board set 
-   		board_type = #{type},board_name =#{name},
+   		board_name =#{name},
    		board_email = #{email},board_tel =#{tel},board_title=#{title},
-   		board_check = #{check}
+   		board_check = #{check},
+   		board_path = #{path},
+   		id = #{id}
    		where board_num = #{num}
    </update>
 </mapper>

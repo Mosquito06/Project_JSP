@@ -20,10 +20,11 @@ public class CommentHandler implements CommandHandler{
 		boardNum.setNum(no);
 		String content=req.getParameter("content");
 		String writer=req.getParameter("name");
-		Comment comment = new Comment(boardNum, content, new Date(), writer);
+		String id=req.getParameter("id");
+		Comment comment = new Comment(boardNum, content, new Date(), writer,id);
 		service.insertComment(comment);
 		res.sendRedirect(req.getContextPath()+"/board/content.do?set=4&no="+no);
 		return null;
-	}
+	} 
 
 }

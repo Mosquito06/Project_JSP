@@ -1,5 +1,6 @@
 package Project_JSP.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import Project_JSP.dto.Reservation;
@@ -21,4 +22,5 @@ public interface ReservationDao {
 	public List<Reservation> selectReservationJoinRoomAndRoomInfo(int clientNum);
 	public List<Reservation> selectReservationOnlyReserv(int clientNum);
 	public List<Reservation> selectReservationDateByClientNum(Reservation reservation);
+	public List<Reservation> selectReservationCheckout(Reservation reservation);
 }
