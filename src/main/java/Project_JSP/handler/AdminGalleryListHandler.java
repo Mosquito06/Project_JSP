@@ -28,15 +28,16 @@ public class AdminGalleryListHandler implements CommandHandler {
 			if(list ==null){
 				req.setAttribute("error", "추가된 갤러리 이미지가 없습니다.");
 			}else{
-				req.setAttribute("list", list); 
+				req.setAttribute("list", list);
+				System.out.println("핸들러 : "+list);
 			}
 			
 			return filePath + "adminpage_gallery_list.jsp";
 		}else if(req.getMethod().equalsIgnoreCase("post")){
 			ObjectMapper om = new ObjectMapper(); 	
-			
-			String no =req.getParameter("no");
-			String img =req.getParameter("img");
+			 
+			String no =req.getParameter("no"); 
+			String img =req.getParameter("img"); 
 			
 			int result = service.deleteGallery(new Gallery(Integer.parseInt(no)));
 

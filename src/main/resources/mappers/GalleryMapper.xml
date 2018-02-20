@@ -26,6 +26,14 @@
 	    <include refid="selectGallerySql"/>	    
 	</select>
 	
+	<select id="selectByGalleryType" parameterType="Gallery" resultMap="GalleryResult">
+	    <include refid="selectGallerySql"/>
+	    <where>	   
+		    <if test="type != null">
+	              gallery_type = #{type}
+	        </if> 
+        </where>
+	</select>
 	<select id="selecGalleryByNum" parameterType="Gallery" resultMap="GalleryResult">
 	    <include refid="selectGallerySql"/>
 	    <include refid="whereSql"/>	    

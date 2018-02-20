@@ -17,17 +17,15 @@ public class GalleryDaoService implements GalleryDao {
 		return INSTANCE;
 	}
 
-	private GalleryDaoService() {
-		super();
-	}
-
+	private GalleryDaoService() {}
+	
 	@Override
 	public List<Gallery> selectGallery() {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			GalleryDao dao = session.getMapper(GalleryDao.class);
+			
 			return dao.selectGallery();
-
-		} catch (Exception e) {
+		} catch (Exception e) {   
 			e.printStackTrace();
 		}
 
@@ -83,6 +81,18 @@ public class GalleryDaoService implements GalleryDao {
 		}
 		
 		return result;
+	}
+
+	@Override
+	public List<Gallery> selectByGalleryType(Gallery gallery) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			GalleryDao dao = session.getMapper(GalleryDao.class);
+			return dao.selectByGalleryType(gallery);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
 	}
 
 }

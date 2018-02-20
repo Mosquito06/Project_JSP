@@ -7,10 +7,10 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/common/common.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/activity/style.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/gallary/photoStyle.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
-</head>  
+</head>   
 <body>
 	<%@ include file="../../common/header.jsp" %>
 	<section id="section">  
@@ -25,8 +25,8 @@
 						<span id="board"> 동영상</span>
 					</div>
 				</div>
-				<div> 
-					내용 
+				<div>  
+					
 				</div>
 			 </div>
 		</div>
