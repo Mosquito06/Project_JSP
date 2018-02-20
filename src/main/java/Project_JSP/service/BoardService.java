@@ -77,6 +77,16 @@ public class BoardService {
 		}
 		return null;
 	};
+	public List<Board> findByIdBoard(Board board) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			BoardDao dao = session.getMapper(BoardDao.class);
+
+			return dao.findByIdBoard(board);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	};
 
 	public List<Board> findByNameLimitBoard(HashMap<String, Object> map) {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {

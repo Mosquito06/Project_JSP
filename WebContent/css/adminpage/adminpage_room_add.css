@@ -13,7 +13,7 @@ div#adminRoomMainDiv{
 	padding: 20px;	
 }
 
-#adminRoomTableDiv div:FIRST-CHILD {
+#adminRoomTableDiv > div:FIRST-CHILD {
 	border-bottom: 2px solid #a1886f;
 }
 
@@ -74,10 +74,72 @@ span.smallText{
 	font-size: 11px;
 }
 
-ul.roomImg_wrap img{
+
+/* 객실 이미지 CSS */
+ul.roomImg_wrap li{
+	overflow: hidden;
+	border-bottom: 1px solid #cdcbbe;
+	padding: 10px;
+}
+
+
+ul.roomImg_wrap div.roomImgDiv{
+	width: 60%;
+	border-right: 1px solid #cdcbbe;
+	margin-left: 20px;
+	padding-right: 30px;
+	float: left;
+}
+
+
+ul.roomImg_wrap div.roomImgDiv img{
 	width: 400px;
 	height: 220px
 }
+
+ul.roomImg_wrap div.roomImgBtn{
+	width: 30%;
+	float: right;
+	height: 220px;
+	line-height: 50px;
+	
+}
+
+ul.roomImg_wrap div.roomImgBtn img{
+	margin-top: 40%; 
+}
  
+ 
+/* 예약 이미지 CSS */
+ul.reservImg_wrap li{
+	overflow: hidden;
+	padding: 10px;
+}
+
+ul.reservImg_wrap div.reservImgDiv{
+	width: 60%;
+	border-right: 1px solid #cdcbbe;
+	margin-left: 20px;
+	padding-right: 30px;
+	float: left;
+}
+
+ul.reservImg_wrap div.reservImgDiv img{
+	width: 228px;
+	height: 118px;
+}
+
+ul.reservImg_wrap div.reservImgBtn{
+	width: 30%;
+	float: right;
+	line-height: 50px;
+	
+}
+
+ul.reservImg_wrap div.reservImgBtn img{
+	margin-top: 20%; 
+	
+}
+
 
 

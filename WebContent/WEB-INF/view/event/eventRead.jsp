@@ -29,7 +29,7 @@
 		    $(".prev").click(function(e){
 		    	 e.preventDefault();
 		    	 mySlider.goToPrevSlide();
-		    	 return false; x
+		    	 return false; 
 		    })
 		    
 		    $(".next").click(function(e){

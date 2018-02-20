@@ -12,6 +12,10 @@ public class Gallery {
 	public Gallery(int num) {
 		this.num = num;
 	}
+	
+	public Gallery(GalleryType type) {
+		this.type = type;
+	}
 
 	public Gallery(int num, String name, String content, String path, GalleryType type) {
 		this.num = num;

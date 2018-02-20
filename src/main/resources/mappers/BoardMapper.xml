@@ -49,6 +49,10 @@
    		select * from board where board_title like #{title}
    </select>
    
+    <select id="findByIdBoard" parameterType="Board" resultMap="BoardResult">
+   		select * from board where id like #{id}
+   </select>
+   
    <select id="findByTitleLimitBoard" parameterType="map" resultMap="BoardResult">
    		select * from board where board_title like #{board.title} order by board_num desc limit #{num1},#{num2}
    </select>

@@ -14,7 +14,26 @@
 	href="../css/adminpage/free_board.css?v=2">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="../js/common/common.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#writeDo").click(function(){
+			var mId= "${MEMBER.id}";
+			var nId= "${NONMEMBER.id}";
+			if(mId != "" || nId != ""){
+				location.href="write_board.do";
+				
+				return false;
+			}else{
+				alert("로그인하세요");
+				return false;
+			}
+			
+			
+		})
+	})
+</script>
 </head>
+
 <body>
 
 	<div>
@@ -96,8 +115,8 @@
 						</table>
 						<div id="wrap_btn_style">
 							<a href="free_board.do" class="btn_style">목록보기</a> 
-							<a href="write_board.do"
-								class="btn_style">글쓰기</a>
+							<a href=""
+								class="btn_style" id="writeDo">글쓰기</a>
 						</div>
 
 						<div id="search_form">

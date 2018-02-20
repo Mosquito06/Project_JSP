@@ -51,12 +51,10 @@
 		<div id="header_gnb">
 			<div id="navWrap"> 
 			<ul id="mainNav">
-				<li><a href="#">스페셜 오퍼</a>
+				<li><a href="${pageContext.request.contextPath }/event/eventlist.do">스페셜 오퍼</a>
 					<ul class="subNav">
-						<li><a href="#">객실패키지</a></li>
-						<li><i class="line"></i></li>
 						<li><a href="${pageContext.request.contextPath }/event/eventlist.do">이벤트</a></li>
-					</ul>
+					</ul> 
 				</li>
 				<li><a href="#">객실</a>
 					<ul class="subNav">
@@ -116,9 +114,9 @@
 						<li><a href="#">렌터카</a></li>
 					</ul> 
 				</li>
-				<li><a href="#">갤러리</a>
+				<li><a href="${pageContext.request.contextPath }/gallery/photolist.do">갤러리</a>
 					<ul class="subNav">
-						<li><a href="#">사진</a></li>
+						<li><a href="${pageContext.request.contextPath }/gallery/photolist.do">사진</a></li>
 						<li><i class="line"></i></li>
 						<li><a href="#">동영상</a></li>
 					</ul>

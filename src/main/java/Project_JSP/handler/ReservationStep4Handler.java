@@ -18,7 +18,6 @@ import Project_JSP.mvc.controller.CommandHandler;
 import Project_JSP.service.ClientDaoService;
 import Project_JSP.service.ReservationDaoService;
 import Project_JSP.service.RoomDaoService;
-import sun.java2d.pipe.SpanShapeRenderer.Simple;
 
 public class ReservationStep4Handler implements CommandHandler {
 	HashMap<String, Object> result = new HashMap<>();

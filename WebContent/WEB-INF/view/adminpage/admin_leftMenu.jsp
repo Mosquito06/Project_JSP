@@ -23,7 +23,7 @@
 			 				<a href="${pageContext.request.contextPath}/adminBanner.do" class="noBorder"><span>메인 관리</span></a>  
 			 			</li>
 			 			<li class="bMenu"> 
-			 				<a href="#" class="noBorder"><span>이벤트관리</span></a>  
+			 				<a href="${pageContext.request.contextPath}/event/eventlist.do" class="noBorder"><span>이벤트관리</span></a>  
 			 			</li>
 						<li class="bMenu">
 			 				<a href="${pageContext.request.contextPath}/adminGalleryList.do" class="noBorder"><span>갤러리 관리</span></a>  
