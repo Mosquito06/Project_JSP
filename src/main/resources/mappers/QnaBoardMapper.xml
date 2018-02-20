@@ -23,6 +23,10 @@
    		select * from question_board
    </select>
    
+   <select id="selectAllQnaBoardById" resultMap="QnaBoardResult" parameterType="QnaBoard">
+   		select * from question_board where id=#{id}	
+   </select>
+   
    <select id="selectByNumQnaBoard" parameterType="QnaBoard" resultMap="QnaBoardResult">
    		select * from question_board where question_num = #{qnaNum}
    </select>

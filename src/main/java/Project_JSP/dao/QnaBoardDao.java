@@ -10,4 +10,5 @@ public interface QnaBoardDao {
 	public QnaBoard selectByNumQnaBoard(QnaBoard qnaBoard); 
 	public void deleteByNumQnaBoard(QnaBoard qnaBoard);
 	public int lastId();
+	public List<QnaBoard> selectAllQnaBoardById(QnaBoard qnaBoard);
 }

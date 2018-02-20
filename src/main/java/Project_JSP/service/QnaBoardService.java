@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import Project_JSP.dao.ClientDao;
 import Project_JSP.dao.QnaBoardDao;
 import Project_JSP.dto.QnaBoard;
 import Project_JSP.mvc.util.MySqlSessionFactory;
@@ -80,5 +79,19 @@ public class QnaBoardService implements QnaBoardDao{
 		}
 		return -1;
 	}
+
+	@Override
+	public List<QnaBoard> selectAllQnaBoardById(QnaBoard qnaBoard) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			QnaBoardDao dao = session.getMapper(QnaBoardDao.class);
+			return dao.selectAllQnaBoardById(qnaBoard);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+
 
 }

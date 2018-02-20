@@ -1,5 +1,66 @@
 @CHARSET "UTF-8";
-
 #qnaRecord{
 	background:#D3C09A url("../../img/mypage/BtnNext.png") no-repeat right;
+}
+#wrap_title{
+		margin-bottom:10px;
+}
+#info1{
+	padding:20px 0px;
+	font-size: 12px;
+	color:#A6A6A6;
+}
+#qnaRecordContent{
+	margin-top: 10px;
+	border:#e2d5c5 solid 1px;
+	padding:25px;
+}
+#record_title #date_title{
+	color:#A6A6A6;
+	margin-right: 10px;
+}
+#record_title a{
+	display: inline-block;
+}
+#record_title button{
+	outline:none;
+	background-color: #727272;
+	color:white;
+	border:1px solid #727272; 
+	padding:3px 5px;
+}
+#record_table{
+	margin-top:20px;
+}
+#record_table table{
+	border-collapse: collapse;
+	border-top:#cdcbbe solid 1px;
+	width:100%;
+	border-bottom: #eceae1 solid 1px;
+	font-size: 14px;
+}
+#record_table table th{
+	border-bottom: #cdcbbe solid 1px;
+	color: #666666;
+	line-height: 17px;
+	background: #faf9f4;
+	padding: 7px 10px;
+}
+#record_table table tr{
+	    border-bottom: #cdcbbe solid 1px;
+}
+#record_table table td{
+	padding: 7px 10px 6px;
+}
+#num{
+	width:70px;
+}
+#date{
+	width:80px;
+}
+#answer{
+	width:70px;
+}
+#noRecord{
+	text-align: center;
 }
