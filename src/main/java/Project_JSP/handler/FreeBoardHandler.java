@@ -39,17 +39,7 @@ public class FreeBoardHandler implements CommandHandler {
 			
 			
 			list = service.selcetAllLimitBoard(map);
-			/*
-			String json = "";
-			for(int i=0;i<list.size();i++){
-				json += "{"
-						+ "'list'"
-						+ ""
-						+ "}";
-				
-			}
-			
-			*/
+		
 			
 			if (list.size() == 0) {
 				req.setAttribute("error", "123");

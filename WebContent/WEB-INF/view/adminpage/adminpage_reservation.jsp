@@ -97,7 +97,7 @@
 							<a href="adminReservation.do?set=1" class="btn_admin">예약현황보기</a>
 							<a href="adminReservation.do?set=2" class="btn_admin">예약완료보기</a>
 							<a href="adminReservation.do?set=3" class="btn_admin">예약취소보기</a>
-						
+							<a href="adminReservation.do?set=4" class="btn_admin">오늘체크아웃보기</a>
 							<a href="" class="btn_admin" id="del_list">삭제</a>
 						</div>
 						
@@ -116,6 +116,9 @@
 								<th>대여상태</th>
 								<th>고객요청</th>
 							</tr>
+							<c:if test="${reserve.size() == 0}">
+								<tr><th colspan="12" id="noClick"><b>조건에 맞는 예약현황이 없습니다.</b></th></tr>
+							</c:if>
 							<c:forEach items="${reserve}" var="item">
 								<tr>
 									<td class="check"><input type="checkbox" value="${item.reservationNum}"></td>

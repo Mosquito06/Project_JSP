@@ -4,75 +4,23 @@ import java.util.Date;
 
 public class Board {
 	private int num;
-	private int type;
 	private String name;
 	private String email;
 	private String tel;
 	private String title;
 	private Date date;
 	private int check;
-
-	public int getCheck() {
-		return check;
-	}
-	
-
-	public Board(String name, String title, Date date, int check) {
-		super();
-		this.name = name;
-		this.title = title;
-		this.date = date;
-		this.check = check;
-	}
+	private String path;
+	private String id;
 	
 	
 
-
-	public Board(String name, String email, String tel, String title, Date date) {
-		super();
-		this.name = name;
-		this.email = email;
-		this.tel = tel;
-		this.title = title;
-		this.date = date;
+	public String getId() {
+		return id;
 	}
 
-
-	public void setCheck(int check) {
-		this.check = check;
-	}
-
-	public Board(int type, String name, String email, String tel, String title, Date date, int check) {
-		super();
-		this.type = type;
-		this.name = name;
-		this.email = email;
-		this.tel = tel;
-		this.title = title;
-		this.date = date;
-		this.check = check;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-	public Board(int type, String name, String email, String tel, String title, Date date) {
-		super();
-
-		this.type = type;
-		this.name = name;
-		this.email = email;
-		this.tel = tel;
-		this.title = title;
-		this.date = date;
-	}
-
-	public Board() {
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public int getNum() {
@@ -81,14 +29,6 @@ public class Board {
 
 	public void setNum(int num) {
 		this.num = num;
-	}
-
-	public int getType() {
-		return type;
-	}
-
-	public void setType(int type) {
-		this.type = type;
 	}
 
 	public String getName() {
@@ -123,10 +63,46 @@ public class Board {
 		this.title = title;
 	}
 
-	@Override
-	public String toString() {
-		return "Board [num=" + num + ", type=" + type + ", name=" + name + ", email=" + email + ", tel=" + tel
-				+ ", title=" + title + "]";
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public int getCheck() {
+		return check;
+	}
+
+	public void setCheck(int check) {
+		this.check = check;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+
+
+	public Board(String name, String email, String tel, String title, Date date, int check, String path, String id) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.tel = tel;
+		this.title = title;
+		this.date = date;
+		this.check = check;
+		this.path = path;
+		this.id = id;
+	}
+
+	public Board() {
+		// TODO Auto-generated constructor stub
 	}
 
 }

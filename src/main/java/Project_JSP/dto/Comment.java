@@ -11,14 +11,7 @@ public class Comment {
 	private int order;
 	private int depth;
 	private int group;
-	
-	
-
-	@Override
-	public String toString() {
-		return "Comment [num=" + num + ", boardNum=" + boardNum + ", content=" + content + ", time=" + time
-				+ ", writer=" + writer + ", order=" + order + ", depth=" + depth + ", group=" + group + "]";
-	}
+	private String id;
 
 	public int getNum() {
 		return num;
@@ -84,7 +77,16 @@ public class Comment {
 		this.group = group;
 	}
 
-	public Comment(Board boardNum, String content, Date time, String writer, int order, int depth, int group) {
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public Comment(Board boardNum, String content, Date time, String writer, int order, int depth, int group,
+			String id) {
 		super();
 		this.boardNum = boardNum;
 		this.content = content;
@@ -93,16 +95,18 @@ public class Comment {
 		this.order = order;
 		this.depth = depth;
 		this.group = group;
+		this.id = id;
 	}
 	
 	
 
-	public Comment(Board boardNum, String content, Date time, String writer) {
+	public Comment(Board boardNum, String content, Date time, String writer, String id) {
 		super();
 		this.boardNum = boardNum;
 		this.content = content;
 		this.time = time;
 		this.writer = writer;
+		this.id = id;
 	}
 
 	public Comment() {

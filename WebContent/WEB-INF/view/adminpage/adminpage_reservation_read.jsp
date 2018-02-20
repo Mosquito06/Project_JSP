@@ -152,8 +152,11 @@ $(function(){
 					</div>
 					<div id="wrap_admin_btn">
 						<a href="adminReservation.do?set=0" class="admin_btn">돌아가기</a>
+						<a href="adminReservation_read.do?set=2&num=${reservation.reservationNum}" class="admin_btn">예약완료</a>
+						<a href="adminReservation_read.do?set=3&num=${reservation.reservationNum}" class="admin_btn">예약취소</a>
+						<a href="adminReservation_read.do?set=4&num=${reservation.reservationNum}" class="admin_btn">예약</a>
 						<a href="adminReserveDelete.do?set=1&num=${reservation.reservationNum}" class="admin_btn" id="del_btn">삭제</a>
-						<a href="adminReserveUpdate.do?num=${reservation.reservationNum}" class="admin_btn" id="up_btn">변경</a>
+						
 					</div>
 				</div>
 			</div>

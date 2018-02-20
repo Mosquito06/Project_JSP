@@ -22,4 +22,6 @@ public interface ClientDao {
 	public Client selectNonClientByNameAndEmil(Client client);
 	public void updatePassword(Client client);
 	public List<Client> findClientGrade(ClientGrade clientGrade);
+	public Client findClientByNameAndEmailAndId(Client client);
+	
 }

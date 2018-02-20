@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE>
 <html>
 <head>
@@ -12,6 +13,7 @@
 	href="../css/adminpage/write_board.css?v=2">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="../js/common/common.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/adminpage/boardForm.js"></script>
 <script type="text/javascript">
 	$(function(){
 		$("#select_email").change(function(){
@@ -23,6 +25,8 @@
 			
 		
 		})
+		
+		
 	
 		
 		
@@ -50,25 +54,35 @@
 
 					</div>
 
-					<form action="write_board.do" method="post" id="f">
+					<form action="write_board.do" method="post" id="f"  enctype="multipart/form-data">
 						
 						<table id="wrap_form">
 							<tr>
 								<th><span class="dot">*</span>제목</th>
-								<td><input type="text" name="title"></td>
+								<td><input type="text" name="title" class="import"></td>
 							</tr>
 							<tr id="content">
 								<th><span class="dot">*</span>내용</th>
-								<td><textarea rows="7" cols="" name="content" id="textarea"></textarea></td>
+								<td><textarea rows="7" cols="" name="content" id="textarea" class="import"></textarea></td>
 							</tr>
 							<tr>
 								<th><span class="dot">*</span>성명</th>
-								<td><input type="text" name="name"></td>
+								<td><input type="text" name="name" class="import"  onkeyup="this.value=this.value.replace(/[^a-zA-Z가-힣]/g,'');"></td>
+								<c:if test="${MEMBER != null}">
+									<script>
+											$("input[name='name']").val("${MEMBER.nameKo}").attr("readonly","readonly");
+									</script>
+								</c:if>
+								<c:if test="${NONMEMBER != null}">
+									<script>
+											$("input[name='name']").val("${NONMEMBER.nameKo}").attr("readonly","readonly");
+									</script>
+								</c:if>
 							</tr>
 							<tr>
 								<th><span class="dot">*</span>이메일</th>
-								<td><input type="text" name="email1">
-								<span id="email_">@ </span><input type="text" name="email2" id="com">
+								<td><input type="text" name="email1" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'');" class="import">
+								<span id="email_">@ </span><input type="text" name="email2" id="com" onkeyup="this.value=this.value.replace(/[^a-zA-Z.]/g,'');" class="import">
 								<select name="email3" id="select_email">
 									<option>직접입력</option>
 									<option>naver.com</option>
@@ -79,14 +93,52 @@
 									<option>empas.com</option>
 									<option>gmail.com</option>
 								</select></td>
+								<c:if test="${MEMBER != null}">
+									<script>
+										var email ="${MEMBER.email}";
+										var email1 = email.substring(0, email.indexOf("@"));
+										var email2 = email.substring(email.indexOf("@")+1);
+											$("input[name='email1']").val(email1).attr("readonly","readonly");
+											$("input[name='email2']").val(email2).attr("readonly","readonly");
+											$("select[name='email3']").attr("disabled","disabled");
+									</script>
+								</c:if>
+								<c:if test="${NONMEMBER != null}">
+									<script>
+										var email ="${NONMEMBER.email}";
+										var email1 = email.substring(0, email.indexOf("@"));
+										var email2 = email.substring(email.indexOf("@")+1);
+											$("input[name='email1']").val(email1).attr("readonly","readonly");
+											$("input[name='email2']").val(email2).attr("readonly","readonly");
+											$("select[name='email3']").attr("disabled","disabled");
+									</script>
+								</c:if>
 							</tr>
 							<tr>
 								<th><span class="dot">*</span>휴대전화</th>
-								<td><input type="tel" name="tell"></td>
+								<td><input type="tel" name="tel"  onkeyup="this.value=this.value.replace(/[^0-9]/g,'');" class="import"></td>
+								<c:if test="${MEMBER !=null }">
+									<script>
+										$("input[name='tel']").val("${MEMBER.phone}").attr("readonly","readonly");
+									</script>
+								</c:if>
+								<c:if test="${NONMEMBER !=null }">
+									<script>
+										$("input[name='tel']").val("${NONMEMBER.phone}").attr("readonly","readonly");
+									</script>
+								</c:if>
+							</tr>
+							<tr>
+								<th>첨부이미지</th>
+								<td>
+								<input type="file" name="filePath"><br><br>
+									<span id="extra">*추가적으로 첨부할 이미지가 있으면 첨부해주세요</span>
+								</td>
 							</tr>
 							
 						</table>
-						<div id="wrap_agree">
+						<c:if test="${MEMBER == null }">
+										<div id="wrap_agree">
 							<h3>필수적 개인정보 수집 및 이용에 대한 동의</h3>
 							<textarea rows="4" cols="">신라호텔 고객의 문의 및 의견과 관련하여 귀사가 아래와 같이 본인의 개인정보를 수집 및 이용하는데 동의합니다.
 
@@ -98,13 +150,21 @@
 							<div id="wrap_check">
 								<input type="checkbox" name="check" id="check_btn"><span id="check">동의함</span>
 							</div>
-							
 						</div>
+						</c:if>
 						<div id="wrap_sub_btn">
+						<c:if test="${NONMEMBER !=null }">
+							<input type="hidden" value="${NONMEMBER.id}" id="member" name="memberId">
+						</c:if>
+						<c:if test="${MEMBER !=null }">
+							<input type="hidden" value="${MEMBER.id}" id="member" name="memberId">
+						</c:if>
+						
 							<input type="submit" value="등록" id="submit">
 						</div>
 						
 					</form>
+					
 				</div>
 			</div>
 		</section>

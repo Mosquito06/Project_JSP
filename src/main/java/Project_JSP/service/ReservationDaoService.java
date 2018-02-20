@@ -1,5 +1,6 @@
 package Project_JSP.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -167,6 +168,17 @@ public class ReservationDaoService implements ReservationDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public List<Reservation> selectReservationCheckout(Reservation reservation) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			ReservationDao dao = session.getMapper(ReservationDao.class);
+			return dao.selectReservationCheckout(reservation);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }
