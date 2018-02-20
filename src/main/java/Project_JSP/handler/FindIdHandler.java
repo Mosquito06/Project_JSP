@@ -11,6 +11,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import Project_JSP.dto.Client;
 import Project_JSP.dto.ClientGrade;
 import Project_JSP.mvc.controller.CommandHandler;
+import Project_JSP.service.ClientDaoService;
 
 public class FindIdHandler implements CommandHandler {
 
@@ -22,10 +23,12 @@ public class FindIdHandler implements CommandHandler {
 		client.setNameEn(nameEn);
 		client.setEmail(req.getParameter("email"));
 		client.setClientGrade(ClientGrade.MEMBER);
-		System.out.println(client);
+		
+		ClientDaoService service  = ClientDaoService.getInstance();
+		Client c = service.selectNonClientByNameAndEmil(client);
 		
 		HashMap<String,Client> map = new HashMap<>();
-		map.put("client",client);
+		map.put("client",c);
 		ObjectMapper om = new ObjectMapper();
 		
 		String json = om.writeValueAsString(map);

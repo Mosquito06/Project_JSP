@@ -1,5 +1,7 @@
 
 $(function(){
+	var screen = $(document).height();
+	
 	/*회원일때와 비회원일때 다른 화면화면*/
 	if($("#no").attr("checked") =="checked"){
 		$("#no_member").show();
@@ -65,14 +67,63 @@ $(function(){
 	$("#close").click(function(){
 		$("#pop_search_id").css("display","none");
 		$("#bodybg").css("display","none");
+		$("#title_find_id").html("");
+		$("#input_info").css("display","block");
+		$("#original_btn").css("display","block");
+		$("#after_find_id_btn").css("display","none");
+		$("#find_info").empty();
+		$("#pop_id_err").html("");
+		$("#title_find_id").html("");
 		$("input").each(function(i,obj){
 			$(obj).val("");
 		})
 		return false;
 	})
+	
+	$(document).on("click","#close_pop",function(){
+		$("#pop_search_id").css("display","none");
+		$("#bodybg").css("display","none");
+		$("#title_find_id").html("");
+		$("#input_info").css("display","block");
+		$("#original_btn").css("display","block");
+		$("#after_find_id_btn").css("display","none");
+		$("#find_info").empty();
+		$("#pop_id_err").html("");
+		$("#title_find_id").html("");
+		$("input").each(function(i,obj){
+			$(obj).val("");
+		})
+		return false;
+	})
+	$(document).on("click","#pop_search_pw_btn",function(){
+		$("#pop_search_pw").css("display","block");
+		$("#close").trigger("click");
+		$("#bodybg").css({"display":"block","height":screen});
+	})
+	/*비밀번호 찾기에서 x이미지 또는 취소 버튼을 눌렀을때 */
+	$(document).on("click",".close_pop_pw",function(){
+		$("#bodybg").css("display","none");
+		$("#pop_search_pw").css("display","none");
+		$(".pw_input_import").each(function(i,obj){
+			$(obj).val("");
+			
+		})
+	})
+	/*로그인 화면에서 비밀번호 찾기 버튼을 눌렀을때*/
+	$("#searchPw").click(function(){
+		$("#pop_search_pw").css("display","block");
+		$("#bodybg").css({"display":"block","height":screen});
+		return false;
+	})
+	/*비밀번호 찾기 화면에서 아이디 찾기 화면으로 넘어가기*/
+	$(document).on("click","#other_search",function(){
+		$(".close_pop_pw").trigger("click");
+		$("#pop_search_id").css("display","block");
+		$("#bodybg").css({"display":"block","height":screen});
+		return false;
+	})
 	/*아이디 찾기 버튼을 클릭했을때*/
 	$("#searchId").click(function(){
-		var screen = $(document).height();
 		$("#headerWrap").css("z-index","1");
 		$("#pop_search_id").css("display","block");
 		$("#bodybg").css({"display":"block","height":screen});
@@ -97,7 +148,17 @@ $(function(){
 					"nameEn1":$("#en2").val()},
 				dataType:"json",
 				success:function(data){
-					console.log(data);
+					if(data.client==null){
+						$("#pop_id_err").html("<br>*가입된 정보가 없습니다. 입력한 정보를 확인해주세요.");
+					}else{
+						$("#pop_id_err").html("");
+						$("#title_find_id").html("<p>신라리워즈 아이디찾기 결과는 아래와 같습니다.</p>");
+						$("#input_info").css("display","none");
+						$("#original_btn").css("display","none");
+						$("#after_find_id_btn").css("display","block");
+						$("#find_info").append("<span id='find_name'>"+data.client.nameEn+"</span><br><br>"
+												+"<span>ID - </span><span id='find_id'>["+data.client.id+"]</span>");
+					}
 				}
 						
 			})
@@ -106,7 +167,28 @@ $(function(){
 		return false;
 		
 	})
-	
+	/*임시 비밀번호 보내는거 확인하는 절차*/
+	$(document).on("click","#send_email_btn",function(){
+		$.ajax({
+			url:"tempPqssword.do",
+			type:"get",
+			data:{	"id":$("#pw_id").val(),
+					"nameEn1":$("#pw_en1").val(),
+					"nameEn2":$("#pw_en2").val(),
+					"email":$("#pw_email").val()},
+			dataType:"json",
+			success:function(data){
+				if(data.client==null){
+					alert("회원정보가 없습니다");
+				}else{
+					
+				}
+					console.log(data);
+			
+			}
+			
+		})
+	})
 	
 	
 })

@@ -8,7 +8,7 @@
 <title>로그인 | The Shilla Hotel</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
-<link rel="stylesheet" type="text/css" href="css/login/loginForm.css?v=2">
+<link rel="stylesheet" type="text/css" href="css/login/loginForm.css?v=1">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> 
 <script src="js/common/common.js"></script>
 <script src="js/login/loginForm.js?v=2"></script>
@@ -132,8 +132,10 @@
 			<h1>신라리워즈 아이디 찾기</h1>
 			<a href="#" id="close"><img src="${pageContext.request.contextPath}/img/join/popLayerBtnClose.gif"></a>
 		</div>
+		<span id="title_find_id"></span>
 		<div id="input_form">
-			<p>
+			<div id="input_info">
+				<p>
 				<label>성명</label>
 				<input type="text" id="en1" placeholder="FIRST NAME(이름)" style="text-transform:uppercase; ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');" class="search_id_input">
 				<input type="text" id="en2" placeholder="LAST NAME(성)" style="text-transform:uppercase; ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');" class="search_id_input">
@@ -141,10 +143,67 @@
 			<p>
 				<label>이메일</label>
 				<input type="text" id="email_id" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9@.]/g,'');" class="search_id_input">
+				<span id="pop_id_err"></span>
 			</p>
+			</div>
+			
+			<div id="find_info">
+			</div>
 		</div>
 		<div id="pop_ok">
+		<div id="original_btn">
 			<a href="#" id="search_id"><img src="${pageContext.request.contextPath}/img/login/popFindIdBtnSubmit.gif"></a>
+		</div>
+			<div id="after_find_id_btn">
+				<a href="#" id="close_pop"><img src="${pageContext.request.contextPath}/img/login/popFindIdBtnSubmit.gif"></a>
+				<a href="#" id="pop_search_pw_btn"><img src="${pageContext.request.contextPath}/img/login/popFindIdBtnLostPw.gif"></a>
+			</div>
+		</div>
+	</div>
+	<div id="pop_search_pw">
+		<div id="pop_pw_title">
+			<h1>비밀번호 찾기</h1>
+			<a href="#" class="close_pop_pw"><img src="${pageContext.request.contextPath}/img/join/popLayerBtnClose.gif"></a>
+		</div>
+		<div id="input_pw">
+			<div id="input_pw_title">
+				<p>임시 비밀번호 발급</p>
+				<p></p>
+			</div>
+			<div id="main_pw">
+				<span id="main_pw_info">회원가입 시 등록하신 이메일로 임시비밀번호를 발급해드립니다.</span>
+				<div id="main_pw_input">
+					<p>
+						<label>신라리워즈 아이디</label>
+						<input type="text" id="pw_id" class="pw_input_import" style="ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'');">
+					</p>
+					<p>
+						<label>성명</label>
+						<input type="text" id="pw_en1" class="pw_input_import" placeholder="FIRST NAMBE(이름)" style="text-transform:uppercase; ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');">
+						<input type="text" id="pw_en2" class="pw_input_import" placeholder="LAST NAMBE(성)" style="text-transform:uppercase; ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');">
+					</p>					
+					<p>
+						<label>이메일</label>
+						<input type="text" id="pw_email" class="pw_input_import" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9@.]/g,'');">
+					</p>	
+				</div>
+				<div id="pw_btn">
+					<a href="#" id="send_email_btn"><img src="${pageContext.request.contextPath}/img/login/popFindIdBtnSubmit.gif"></a>
+					<a href="#" class="close_pop_pw"><img src="${pageContext.request.contextPath}/img/login/popFindIdBtnCancel.gif"></a>
+				</div>
+				<div id="pw_btn_other">
+					<div id="pw_btn_01">
+						<p class="other_info">로그인을 하시려면?</p>
+						<a href="login.do" id="other_login"><img src="${pageContext.request.contextPath}/img/login/popFindIdBtnLogin.gif"></a>
+					</div>
+						
+					<div id="pw_btn_02">
+						<p class="other_info">신라리워즈 아이디를 찾으시려면?</p>
+						<a href="#" id="other_search"><button>아이디 찾기</button></a>
+					</div>
+				
+				</div>
+			</div>
 		</div>
 	</div>
 	<jsp:include page="/WEB-INF/common/footer.jsp"/>

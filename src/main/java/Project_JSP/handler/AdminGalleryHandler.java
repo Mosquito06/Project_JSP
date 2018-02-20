@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory.Default;
 
 import Project_JSP.dto.Gallery;
 import Project_JSP.dto.GalleryType;
@@ -115,6 +114,8 @@ public class AdminGalleryHandler implements CommandHandler {
 			
 			GalleryDaoService service = GalleryDaoService.getInstance();
 			
+			String contextPath = req.getContextPath() + fileUploadPath;
+			
 			for(int i=0; i<titleArr.length; i++){
 				String upFile = "";
 				
@@ -124,15 +125,13 @@ public class AdminGalleryHandler implements CommandHandler {
 						System.out.println(upLoadArr[i]);
 						System.out.println(file);
 						upFile = file;
-						break; 
-					} 
+						break;  
+					}
 				}  
 				
-				Gallery gallery = new Gallery(0, titleArr[i], contentArr[i],upFile, galleryTypeCheck(typeArr[i]));
+				Gallery gallery = new Gallery(0, titleArr[i], contentArr[i],contextPath+"/"+upFile, galleryTypeCheck(typeArr[i]));
 				service.insertGallery(gallery);  
 			}
-			
-			String contextPath = req.getContextPath() + fileUploadPath;
 			
 		}catch (Exception e){
 			e.printStackTrace();

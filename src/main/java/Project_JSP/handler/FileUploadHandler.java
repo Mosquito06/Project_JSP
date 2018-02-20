@@ -31,7 +31,7 @@ public class FileUploadHandler implements CommandHandler {
 		String uploadPath = req.getRealPath(fileUploadPath);
 		
 		File dir = new File(uploadPath);
-		if(dir.exists() == false){
+		if(dir.exists() == false){ 
 			dir.mkdirs();//폴더만들기 
 		}
 		
