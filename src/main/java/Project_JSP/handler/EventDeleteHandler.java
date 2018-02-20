@@ -14,7 +14,7 @@ import Project_JSP.service.EventContentService;
 import Project_JSP.service.EventService;
 
 public class EventDeleteHandler implements CommandHandler {
-	private static final String filePath = "/WEB-INF/view/event/";
+	private static final String filePath = "/WEB-INF/view/adminpage/";
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		int no = Integer.parseInt(req.getParameter("no"));
@@ -27,7 +27,7 @@ public class EventDeleteHandler implements CommandHandler {
 		String bannerImg = event.getEventImgPath();
 		bannerImg = bannerImg.substring(bannerImg.lastIndexOf("/")+1);
 		
-		System.out.println("배너 이미지 : " + bannerImg);
+		System.out.println("배너 이미지 : " + bannerImg); 
 		
 		//배너 이미지 삭제
 		FileUtils.deleteFile(bannerImg, uploadPath);
@@ -39,7 +39,7 @@ public class EventDeleteHandler implements CommandHandler {
 		
 		service.deleteEvent(new Event(no));
 		
-		res.sendRedirect(req.getContextPath() + "/event/eventlist.do");
+		res.sendRedirect(req.getContextPath() + "/adminEventList.do");
 		return null;
 	}
 	

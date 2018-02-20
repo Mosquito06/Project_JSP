@@ -23,10 +23,21 @@
 	<%@ include file="../../common/header.jsp"%>
 	<section id="section">
 		<div id="contentWrap">
-			<%@ include file="leftMenu.jsp"%>
-
+			<%@ include file="admin_leftMenu.jsp"%>
+			<div id="rightArea">
+					<div id="wrap_title">
+						<h1 id="title">갤러리 관리</h1>
+						<div id="wrap_home">
+							<img src="${pageContext.request.contextPath}/img/common/locaton.gif" id="home"> > <span
+								id="board">관리자</span> > <span id="board">갤러리 관리</span>
+						</div>
+					</div>
 				<div class="cntEvent">
-					
+					<!-- 관리자 전용 버튼 -->
+					<div class="btnWrap">
+						<a href="${pageContext.request.contextPath }/adminEventWrite.do" class="btn">이벤트 등록 하기</a>
+					</div>
+					 
 					<div class="eventTitle">
 						<p>EVENT</p>	
 					</div>
@@ -44,12 +55,12 @@
 							<c:forEach var="item" items="${list}">
 								<li class="outBox">  
 									<div  class="innerBox">
-										<a href="${pageContext.request.contextPath}/event/eventread.do?no=${item.eventNum}" class="eventLink">
+										<a href="${pageContext.request.contextPath}/adminEventRead.do?no=${item.eventNum}" class="eventLink">
 											<img  src="${item.eventImgPath}" class="eventBanner">
 										</a>  
-										<div class="eventInfo">
+										<div class="eventInfo"> 
 											<h3 class="tit">
-												<a href="${pageContext.request.contextPath}/event/eventread.do?no=${item.eventNum}" class="smTitle">${item.eventTitle }</a>
+												<a href="${pageContext.request.contextPath}/adminEventRead.do?no=${item.eventNum}" class="smTitle">${item.eventTitle }</a>
 											</h3>
 											<p class="eventDate">
 												<fmt:formatDate value="${item.eventStartDay }" pattern="yyyy-MM-dd"/>
@@ -65,7 +76,7 @@
 					</ul>
 				</div>
 			</div>
-		</div>
+		</div> 
 	</section>
 	<jsp:include page="../../common/footer.jsp" />
 </body>

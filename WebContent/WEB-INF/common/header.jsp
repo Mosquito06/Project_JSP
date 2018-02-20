@@ -111,14 +111,12 @@
 						<li><i class="line"></i></li>
 						<li><a href="#">아케이드</a></li>
 						<li><i class="line"></i></li>
-						<li><a href="#">렌터카</a></li>
+						<li><a href="#">렌터카</a></li> 
 					</ul> 
 				</li>
-				<li><a href="${pageContext.request.contextPath }/gallery/photolist.do">갤러리</a>
+				<li><a href="${pageContext.request.contextPath }/gallery/photolist.do?showGalType=ALL">갤러리</a>
 					<ul class="subNav">
-						<li><a href="${pageContext.request.contextPath }/gallery/photolist.do">사진</a></li>
-						<li><i class="line"></i></li>
-						<li><a href="#">동영상</a></li>
+						<li><a href="${pageContext.request.contextPath }/gallery/photolist.do?showGalType=ALL">사진</a></li>
 					</ul>
 				</li>
 			</ul>

@@ -18,12 +18,12 @@ import Project_JSP.mvc.util.FileUtils;
 import Project_JSP.service.EventService;
 
 public class EventWriteHandler implements CommandHandler {
-	private static final String filePath = "/WEB-INF/view/event/";
+	private static final String filePath = "/WEB-INF/view/adminpage/";
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		if (req.getMethod().equalsIgnoreCase("get")) {
-			return filePath + "eventWrite.jsp";
+			return filePath + "adminpage_eventWrite.jsp"; 
 		} else if (req.getMethod().equalsIgnoreCase("post")) {
 			return postProcess(req, res,"/img/event/upload");
 		}
@@ -98,10 +98,10 @@ public class EventWriteHandler implements CommandHandler {
 				return null;
 			}
 
-			res.sendRedirect(req.getContextPath() + "/event/eventlist.do");
+			res.sendRedirect(req.getContextPath() + "/adminEventList.do");
 			return null;
 
-		} catch (Exception e) {
+		} catch (Exception e) { 
 			e.printStackTrace();
 			return "";
 		}

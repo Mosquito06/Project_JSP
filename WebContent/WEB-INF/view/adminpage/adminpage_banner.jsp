@@ -3,13 +3,13 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE>
 <html>
-<head>
+<head> 
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/common/reset.css">
 <link rel="stylesheet" type="text/css"	href="${pageContext.request.contextPath }/css/common/common.css?ver=1">
 <link rel="stylesheet" type="text/css"	href="${pageContext.request.contextPath}/css/adminpage/adminUser.css">
-<link rel="stylesheet" type="text/css"	href="${pageContext.request.contextPath}/css/adminpage/admin_banner.css">
+<link rel="stylesheet" type="text/css"	href="${pageContext.request.contextPath}/css/adminpage/admin_banner.css?ver=1">
 	
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
@@ -88,21 +88,21 @@
 					<div> 
 						<table id="t1">
 							<tr>
-								<th></th> 
-								<th>배너번호</th>
-								<th>링크경로</th>
-								<th>이미지경로</th> 
+								<th width="25px"></th> 
+								<th width="75px">배너번호</th>
+								<th >링크경로</th>
+								<th width="220px">이미지경로</th>   
 							</tr>
 							<c:forEach items="${list}" var="item">
 								<tr> 
 									<td><input type="checkbox" class="checkbox"></td>
 									<td class="banNo">${item.no}</td>
 									<td>${item.linkPath}</td>
-									<td>${item.imgPath}</td>
+									<td ><img src="${item.imgPath}" width="200px"></td>
 								</tr>
-							</c:forEach>
+							</c:forEach> 
 						</table>
-					</div> 
+					</div>  
 				</div>
 			</div>
 		</section>

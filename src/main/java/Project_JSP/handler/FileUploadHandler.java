@@ -81,7 +81,7 @@ public class FileUploadHandler implements CommandHandler {
 		}catch (Exception e){
 			e.printStackTrace();  
 		}  
-		 
+		
 		return filePath + "fileUpload.jsp";
 	}
 	

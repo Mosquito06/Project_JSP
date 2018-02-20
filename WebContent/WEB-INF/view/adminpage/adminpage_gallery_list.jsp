@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/common/reset.css">
 <link rel="stylesheet" type="text/css"	href="${pageContext.request.contextPath }/css/common/common.css?ver=1">
 <link rel="stylesheet" type="text/css"	href="${pageContext.request.contextPath}/css/adminpage/adminUser.css">
-<link rel="stylesheet" type="text/css"	href="${pageContext.request.contextPath}/css/adminpage/admin_banner.css">
+<link rel="stylesheet" type="text/css"	href="${pageContext.request.contextPath}/css/adminpage/admin_banner.css?ver=1">
 <link rel="stylesheet" type="text/css"	href="${pageContext.request.contextPath}/css/adminpage/admin_gallery.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script> 
@@ -23,15 +23,15 @@
 			for(var i=leng-1; i>-1; i--){
 				if($(".checkbox").eq(i).prop("checked")){  
 					var no = $(".galNo").eq(i).text();  
-					var img = $(".img").eq(i).text();
+					var img = $(".img").eq(i).attr("src");
 					$.ajax({ 
 				        url: contextPath + "/adminGalleryList.do?no="+no+"&img="+img,
 				        type:"post", 
 				        dataType : "json",
-				        success: function(json){
+				        success: function(json){ 
 				        	console.log(json);
 				        	var res = json.result
-				        	if(res == 1){
+				        	if(res == 1){ 
 				        		$(".checkbox").eq(i).parents("tr").remove();
 				        	}else{    
 				        		console.log("삭제실패");
@@ -80,7 +80,7 @@
 									${error }
 								</td>
 							</tr>
-							</c:if>
+							</c:if> 
 							<c:if test="${list!=null}">
 								<c:forEach items="${list}" var="item">
 									<tr> 
@@ -88,14 +88,15 @@
 										<td class="galNo">${item.num}</td>
 										<td>${item.name}</td>
 										<td>${item.content}</td>
-										<td class="img">${item.path}</td>
+										<td><img src="${item.path}" class="img" width="150"></td>
 										<td>${item.type}</td>
 									</tr>
 								</c:forEach>
 							</c:if>
 						</table> 
 					</div>
-			</div>
+				</div>
+			</div> 
 		</section>
 		<footer>
 			<jsp:include page="/WEB-INF/common/footer.jsp" />

@@ -22,13 +22,12 @@ public class EventFileDeleteHandler implements CommandHandler {
 			System.out.println("파일 리스트 존재");
 			for(String img : fileList){		
 				System.out.println("이미지 파일 없음"+img);
-				FileUtils.deleteFile(img,uploadPath);
+				FileUtils.deleteFile(img,uploadPath); 
 			}
 			session.setAttribute("fileList", null);
 		}
 		
-		res.sendRedirect(req.getContextPath() + "/event/eventlist.do");
+		res.sendRedirect(req.getContextPath() + "/adminEventList.do");
 		return null;
 	}
-
-}
+} 

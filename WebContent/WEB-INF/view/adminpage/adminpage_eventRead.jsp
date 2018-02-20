@@ -46,17 +46,37 @@
 	<section id="section">
 
 			<div id="contentWrap">
-				<%@ include file="leftMenu.jsp"%>
+				<%@ include file="admin_leftMenu.jsp"%>
+			<div id="rightArea">
+					<div id="wrap_title">
+						<h1 id="title">갤러리 관리</h1>
+						<div id="wrap_home">
+							<img src="${pageContext.request.contextPath}/img/common/locaton.gif" id="home"> > <span
+								id="board">관리자</span> > <span id="board">갤러리 관리</span>
+						</div>
+					</div>
 				<div class="eventContent">
 					
 					<div class="btnWrap">
+						<!-- ▽ 관리자 전용 버튼 -->
+						<div>
+							<a href="${pageContext.request.contextPath }/adminEventModify.do?no=${content.eventNum}" class="mod btn">수정하기</a> 
+							<a href="${pageContext.request.contextPath }/event/eventDelete.do?no=${content.eventNum}" class="del btn">삭제하기</a> 
+						</div>
+						<!-- △ 관리자 전용 버튼 -->
 						<a href="${pageContext.request.contextPath }/event/eventlist.do" class="btn">목록보기</a>
 					</div>
 					<div class="contentWrap">${content.eventContent }</div>
 					
 				
 					<div class="btnWrap">
-						<a href="${pageContext.request.contextPath }/event/eventlist.do" class="btn">목록보기</a>
+						<!-- ▽ 관리자 전용 버튼 -->
+						<div>
+							<a href="${pageContext.request.contextPath }/adminEventModify.do?no=${content.eventNum}" class="mod btn">수정하기</a> 
+							<a href="${pageContext.request.contextPath }/event/eventDelete.do?no=${content.eventNum}" class="del btn">삭제하기</a>  
+						</div>
+						<!-- △ 관리자 전용 버튼 -->
+						<a href="${pageContext.request.contextPath }/adminEventList.do" class="btn">목록보기</a>
 					</div>
 				</div>
 			
@@ -77,14 +97,14 @@
 						</script>
 						<div class="slideWrap">
 							<div class="imgBox">
-								<a href="${pageContext.request.contextPath}/event/eventread.do?no=${item.eventNum}"	class="smTitle">
+								<a href="${pageContext.request.contextPath}/adminEventRead.do?no=${item.eventNum}"	class="smTitle">
 									<img src="${item.eventImgPath}">
 								</a>
 							</div>
 							
 							<div class="infoBox">
 									<h3 class="sTit">
-										<a href="${pageContext.request.contextPath}/event/eventread.do?no=${item.eventNum}"	class="smTitle">${item.eventTitle }</a>
+										<a href="${pageContext.request.contextPath}/adminEventRead.do?no=${item.eventNum}"	class="smTitle">${item.eventTitle }</a>
 									</h3>
 									<p class='sDate'>
 										<fmt:formatDate value="${item.eventStartDay }" pattern="yyyy-MM-dd" />
@@ -96,8 +116,8 @@
 					</c:forEach> 
 					</div>
 					</div>
-				</div>
-			</c:if>
+				</div> 
+			</c:if> 
 			</div>
 		</div>
 	</section>

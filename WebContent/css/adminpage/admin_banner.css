@@ -19,8 +19,12 @@
 	color: #666;
 	text-align: left;
 	padding:10px;	
+} 
+td{
+	vertical-align:middle !important;
 }
-#addForm td{
+#addForm td{  
+	vertical-align:middle;
 	padding:10px;	
 	border-bottom: 1px solid #e7e7e7;
 } 

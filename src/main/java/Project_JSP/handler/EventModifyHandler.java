@@ -22,9 +22,9 @@ import Project_JSP.service.EventService;
 
 public class EventModifyHandler implements CommandHandler {
 
-	private static final String filePath = "/WEB-INF/view/event/";
+	private static final String filePath = "/WEB-INF/view/adminpage/";
 
-	@Override
+	@Override 
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		if (req.getMethod().equalsIgnoreCase("get")) {
 			int no = Integer.parseInt(req.getParameter("no"));
@@ -36,12 +36,12 @@ public class EventModifyHandler implements CommandHandler {
 			req.setAttribute("event",event);
 			req.setAttribute("content", content);
 			
-			return filePath + "eventModify.jsp";
+			return filePath + "adminpage_eventModify.jsp"; 
 		} else if (req.getMethod().equalsIgnoreCase("post")) {
 			return postProcess(req, res,"/img/event/upload");
 		}
 		return null;
-	}
+	} 
 
 	private String postProcess(HttpServletRequest req, HttpServletResponse res,String fileUploadPath) {
 		String uploadPath = req.getRealPath(fileUploadPath);
@@ -88,11 +88,11 @@ public class EventModifyHandler implements CommandHandler {
 			
 			oldImageDelte(uploadPath,content,oldContent,contextPath);
 			
-			if(fileList != null){
+			if(fileList != null){ 
 				System.out.println("파일 리스트 존재");
 				for(String img : fileList){
 					if(!content.contains(img)){
-						System.out.println("이미지 파일 없음"+img);
+						System.out.println("이미지 파일 없음"+img); 
 						FileUtils.deleteFile(img,uploadPath);
 					}
 				}
@@ -119,17 +119,16 @@ public class EventModifyHandler implements CommandHandler {
 			
 			
 			int result = service.updateEvent(event, content);
-			
+			System.out.println(result);
 			if (result < 0) {
 				req.setAttribute("error", "수정에 실패하였습니다.");
-				res.sendRedirect(filePath + "eventWrite.jsp");
+				res.sendRedirect(filePath + "adminpage_eventWrite.jsp");
 				return null;
 			}
 
-			res.sendRedirect(req.getContextPath() + "/event/eventlist.do");
+			res.sendRedirect(req.getContextPath() + "/adminEventList.do");
 			return null;
-
-		} catch (Exception e) {
+		} catch (Exception e) { 
 			e.printStackTrace();
 			return "";
 		}

@@ -51,8 +51,8 @@
 			  asNavFor: '.slideWrap', 
 			  focusOnSelect: true 
 			});  
-		 
-		$('.slideWrap').slick({  
+		  
+		$('.slideWrap').slick({
 			  slidesToShow: 1,
 			  slidesToScroll: 1, 
 			  initialSlide: 1,
@@ -60,7 +60,7 @@
 			  asNavFor: '.slide-nav-wrap'
 	    });  
 		  
-		$(".next").click(function(){
+		$(".next").click(function(){ 
 			$('.slideWrap').slick("slickNext");
 			return false; 
 		}) 

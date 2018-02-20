@@ -38,13 +38,13 @@
 						<a href="${pageContext.request.contextPath}/adminQnA.do" class="admin">문의관리</a>
 			 			<a href="${pageContext.request.contextPath}/adminBoard.do" class="admin"><span>후기관리</span></a>  
 			 			<a href="${pageContext.request.contextPath}/adminBanner.do" class="admin"><span>메인 관리</span></a>  
-			 			<a href="${pageContext.request.contextPath}/event/eventlist.do" class="admin">이벤트관리</a>
-			 			<a href="${pageContext.request.contextPath}/adminGallery.do" class="admin"><span>갤러리 관리</span></a>  
+			 			<a href="${pageContext.request.contextPath}/adminEventList.do" class="admin">이벤트관리</a>
+			 			<a href="${pageContext.request.contextPath}/adminGalleryList.do" class="admin"><span>갤러리 관리</span></a>  
 						
 					</div>
-				</div>
-			</div>
-		</section>
+				</div>  
+			</div> 
+		</section> 
 		<footer>
 			<jsp:include page="/WEB-INF/common/footer.jsp" />
 		</footer> 

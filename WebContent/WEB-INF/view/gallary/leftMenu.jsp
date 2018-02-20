@@ -7,9 +7,6 @@
 			 			<li class="bMenu">
 			 				<a href="${pageContext.request.contextPath }/gallery/photolist.do?showGalType=ALL" class="noBorder"><span>사진</span></a>  
 			 			</li>
-			 			<li class="bMenu">
-			 				<a href="#" class="noBorder"><span>동영상</span></a>  
-			 			</li> 
 			 		</ul>
 			 	</div>
-			 </div> 
+			 </div>  
