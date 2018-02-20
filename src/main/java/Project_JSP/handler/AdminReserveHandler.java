@@ -1,6 +1,7 @@
 package Project_JSP.handler;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +19,7 @@ public class AdminReserveHandler implements CommandHandler{
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		ReservationDaoService service = ReservationDaoService.getInstance();
+		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
 		if(req.getMethod().equalsIgnoreCase("get")){
 			List<Reservation> lists=service.selectReservation();
 			String set = req.getParameter("set");
@@ -28,12 +30,17 @@ public class AdminReserveHandler implements CommandHandler{
 				lists = service.selectReservationState(ReservationState.COMPLETE);
 			}else if(set.equals("3")){
 				lists = service.selectReservationState(ReservationState.CANCEL);
+			}else if(set.equals("4")){
+				
+				Reservation reservation = new Reservation();
+				reservation.setCheckOut(sd.parse(sd.format(new Date())));
+				lists = service.selectReservationCheckout(reservation);
 			}
 			req.setAttribute("reserve", lists);
 			return "/WEB-INF/view/adminpage/adminpage_reservation.jsp";
 		}else if(req.getMethod().equalsIgnoreCase("post")){
 			Reservation reservation = new Reservation();
-			SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
+			
 			String set = req.getParameter("set");
 			List<Reservation> lists = null;
 			if(set.equals("1")){

@@ -63,6 +63,10 @@
 		select * from reservation where reservation_state = #{state}
 	</select>
 	
+	<select id="selectReservationCheckout" parameterType="Reservation" resultMap="ReservationResult">
+		select * from reservation where check_out = #{checkOut}
+	</select>
+	
 	<select id="selectLastReservation" resultMap="ReservationResult">
 		select last_insert_id(reservation_num) as reservation_num from reservation order by reservation_num
 	</select>

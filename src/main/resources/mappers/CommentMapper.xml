@@ -11,6 +11,7 @@
     	<result property="order" column="comment_order"/>
     	<result property="depth" column="comment_depth"/>
     	<result property="group" column="comment_group"/>
+    	<result property="id" column="id"/>
     </resultMap>
     
      <select id="selcetAllComment" resultMap="CommentResult">
@@ -22,8 +23,8 @@
   	  </select>
   	  
   	  <insert id="insertComment" parameterType="Comment">
-   		insert into comment(board_num,comment_content,comment_time,comment_writer)
-   		values(#{boardNum.num},#{content},#{time},#{writer})
+   		insert into comment(board_num,comment_content,comment_time,comment_writer,id)
+   		values(#{boardNum.num},#{content},#{time},#{writer},#{id})
       </insert>
       
       <delete id="deletByNumComment" parameterType="Comment">
@@ -33,7 +34,7 @@
 	<update id="updateComment" parameterType="Comment">
    		update comment set 
    		comment_content = #{content},comment_time =#{time},
-   		comment_writer = #{writer}
+   		comment_writer = #{writer},id=#{id}
    		where comment_num = #{num}
    </update>
 </mapper>

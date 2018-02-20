@@ -27,7 +27,7 @@
 				<a href="#" class="prev mVisBtn">이전</a>
 				<a href="#" class="next mVisBtn">이후</a>
 				 
-				<div class="reserveWrap"> 
+				<div class="reserveWrap">  
 					<div class="selArea"> 
 						<ul class="selList">
 							<li class="hotelLi">
@@ -198,17 +198,17 @@
 			 	<div class="banContent rewardsWrap"> 
 			 		<h2 class="rwTitle"><img src="/Project_JSP/img/main/rwTitle.gif" alt="신라리워즈"></h2>
 			 		<ul class="rwDesc">
-						<li><a href="#"><img src="/Project_JSP/img/main/rwDesc1.gif"></a></li>
-						<li><a href="#"><img src="/Project_JSP/img/main/rwDesc2.gif"></a></li>
-						<li><a href="#"><img src="/Project_JSP/img/main/rwDesc3.gif"></a></li>
+						<li><a href="#"><img src="${pageContext.request.contextPath }/img/main/rwDesc1.gif"></a></li>
+						<li><a href="#"><img src="${pageContext.request.contextPath }/img/main/rwDesc2.gif"></a></li>
+						<li><a href="#"><img src="${pageContext.request.contextPath }/img/main/rwDesc3.gif"></a></li>
 					</ul>
 					<div class="rwBenefit">
 						<img src="/Project_JSP/img/main/rwBenefit.gif">
-						<a href="#" class="btnRwMore"><img src="/Project_JSP/img/main/btnRwMore.gif"></a>
+						<a href="#" class="btnRwMore"><img src="${pageContext.request.contextPath }/img/main/btnRwMore.gif"></a>
 					</div>
 					<div class="rwJoin">
 							<img src="/Project_JSP/img/main/rwCard.png">
-							<a href="#" class="btnRwJoin"><img src="/Project_JSP/img/main/btnRwJoin.gif"></a>
+							<a href="#" class="btnRwJoin"><img src="${pageContext.request.contextPath }/img/main/btnRwJoin.gif"></a>
 					</div>
 			 	</div> 
 			</div>

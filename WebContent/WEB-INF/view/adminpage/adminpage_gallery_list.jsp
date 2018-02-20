@@ -74,24 +74,26 @@
 								<th>이미지</th> 
 								<th>타입</th>  
 							</tr>
-							<c:if test="${error }!=null">
+							<c:if test="${error!=null}">
 							<tr>
 								<td colspan="6">
 									${error }
 								</td>
 							</tr>
 							</c:if>
-							<c:forEach items="${list}" var="item">
-								<tr> 
-									<td><input type="checkbox" class="checkbox"></td>
-									<td class="galNo">${item.num}</td>
-									<td>${item.name}</td>
-									<td>${item.content}</td>
-									<td class="img">${item.path}</td>
-									<td>${item.type}</td>
-								</tr>
-							</c:forEach>
-						</table>
+							<c:if test="${list!=null}">
+								<c:forEach items="${list}" var="item">
+									<tr> 
+										<td><input type="checkbox" class="checkbox"></td>
+										<td class="galNo">${item.num}</td>
+										<td>${item.name}</td>
+										<td>${item.content}</td>
+										<td class="img">${item.path}</td>
+										<td>${item.type}</td>
+									</tr>
+								</c:forEach>
+							</c:if>
+						</table> 
 					</div>
 			</div>
 		</section>

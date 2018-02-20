@@ -41,6 +41,7 @@
 
 						<table>
 							<tr>
+								
 								<th id="th1">번호</th>
 								<th id="th2">제목</th>
 								<th id="th3">작성자</th>
@@ -61,9 +62,11 @@
 
 								</tr>
 							</c:if>
+							
 							<c:if test="${boardList != null}">
 								<c:forEach var="item" items="${boardList}">
 									<tr>
+										
 										<td class="td1">${item.num}</td>
 										<td class="td2"><a href="content.do?no=${item.num}&set=0">${item.title}</a></td>
 										<td class="td3">${item.name}</td>
