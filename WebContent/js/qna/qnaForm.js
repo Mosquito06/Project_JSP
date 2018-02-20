@@ -8,9 +8,9 @@
 			
 			var check = $("#check_btn").is(":checked");
 			var empty = isEmpty();
-			
+			alert(check);
 			/*만약 회원이라면 개인정보 동의에 동의할 필요가 없다.*/
-			if($("#member").val()!=null){
+			if($("#hiddenmember").val()!=""){
 				check=true;
 			}
 			

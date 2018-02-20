@@ -13,7 +13,7 @@
 	href="${pageContext.request.contextPath}/css/qna/qnaboard.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common/common.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/qna/qnaForm.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/qna/qnaForm.js?v=2"></script>
 </head>
 <body>
 	<div>
@@ -117,7 +117,7 @@
 						</div>
 						</c:if>
 						<div id="wrap_sub_btn">
-						<input type="hidden" value="${MEMBER.id }" id="member">
+						<input type="hidden" value="${MEMBER.id }" id="hiddenmember">
 							<input type="submit" value="등록" id="submit">
 						</div>
 						
