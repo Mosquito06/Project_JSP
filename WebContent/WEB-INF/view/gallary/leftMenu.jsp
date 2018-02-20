@@ -14,12 +14,4 @@
 			 	</div>
 			 </div>
 			 
-			 <div id="rightArea">
-				<div id="wrap_title">
-					<h1 id="title">갤러리</h1>
-					<div id="wrap_home">
-						<img src="../img/common/locaton.gif" id="home"> > 
-						<span>갤러리 </span> > 
-						<span id="board"> 사진</span>
-					</div>
-				</div>
+			 

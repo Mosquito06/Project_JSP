@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import Project_JSP.mvc.controller.CommandHandler;
 
 public class GalleryPhotoListHandler implements CommandHandler {
-	private static final String filePath = "/WEB-INF/view/gallery/";
+	private static final String filePath = "/WEB-INF/view/gallary/";
 	
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {

@@ -22,10 +22,10 @@
 					<div id="wrap_home">
 						<img src="../img/common/locaton.gif" id="home"> > 
 						<span>갤러리 </span> > 
-						<span id="board"> 사진</span>
+						<span id="board"> 동영상</span>
 					</div>
 				</div>
-				<div>
+				<div> 
 					내용 
 				</div>
 			 </div>

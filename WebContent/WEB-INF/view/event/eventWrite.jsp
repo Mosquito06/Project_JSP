@@ -75,7 +75,7 @@
 				</table>
 				<textarea name="hiddenContent" id="hiddenContent">
 					</textarea>
-			</form>
+			</form> 
 			
 			<div id="start-calendar" class="calendar"></div>
 			<div id="end-calendar" class="calendar"></div>

@@ -22,8 +22,7 @@ public class FileUploadHandler implements CommandHandler {
 		if(req.getMethod().equalsIgnoreCase("get")){
 			return filePath + "fileUpload.jsp";
 		}else if(req.getMethod().equalsIgnoreCase("post")){
-			postProcess(req,res,"/img/event/upload");
-			return  null;
+			return postProcess(req,res,"/img/event/upload");
 		}
 		return null;
 	}
@@ -33,7 +32,7 @@ public class FileUploadHandler implements CommandHandler {
 		
 		File dir = new File(uploadPath);
 		if(dir.exists() == false){
-			dir.mkdirs();//폴더만들기
+			dir.mkdirs();//폴더만들기 
 		}
 		
 		System.out.println("uploadPath - " + uploadPath);
@@ -72,12 +71,17 @@ public class FileUploadHandler implements CommandHandler {
 			req.setAttribute("file", map);		
 			
 			String contextPath = req.getContextPath() + fileUploadPath;
-			 
-			return contextPath+"/"+fileName;
+			
+ 			String uploadScript= "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction(1,'"+contextPath+ "/" + fileName + "', '완료');</script>";
+
+ 			System.out.println(contextPath);
+ 			System.out.println(uploadScript);
+
+ 			req.setAttribute("upScript", uploadScript);
 		}catch (Exception e){
-			e.printStackTrace();
-		} 
-		
+			e.printStackTrace();  
+		}  
+		 
 		return filePath + "fileUpload.jsp";
 	}
 	
