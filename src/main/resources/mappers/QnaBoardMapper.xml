@@ -11,11 +11,12 @@
     	<result property="date" column="question_date"/>
     	<result property="clientGrade" column="client_grade"/>
     	<result property="path" column="question_path"/>
+    	<result property="id" column="id"/>
     </resultMap>
    
    <insert id="insertQnaBoard" parameterType="QnaBoard">
-   	insert into question_board(question_title,question_name,question_email,question_tel,question_date,client_grade,question_path)
-   	values(#{title}, #{name},#{email},#{tel},#{date},#{clientGrade},#{path})
+   	insert into question_board(question_title,question_name,question_email,question_tel,question_date,client_grade,question_path,id)
+   	values(#{title}, #{name},#{email},#{tel},#{date},#{clientGrade},#{path},#{id})
    </insert>
    
    <select id="selectAllQnaBoard" resultMap="QnaBoardResult">
