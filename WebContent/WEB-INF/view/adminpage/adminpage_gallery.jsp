@@ -14,7 +14,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script> 
 <script>
 	var sel_files = [];
-	var upload_files = [];
+	var upload_files = []; 
 	var delete_files = [];
 	$(function(){
 		 $("#fileList").on("change", handleImgFileSelect);	

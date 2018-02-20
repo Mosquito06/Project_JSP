@@ -5,19 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>누구나 한번쯤 꿈꾸는 일상으로부터의 탈출 |대구신라호텔</title>
-<link rel="stylesheet" type="text/css" href="css/common/reset.css">
+<link rel="stylesheet" type="text/css" href="css/common/reset.css"> 
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
-<link rel="stylesheet" type="text/css" href="css/main.css?v=31"> 
+<link rel="stylesheet" type="text/css" href="css/main.css?v=33"> 
 <link rel="stylesheet" type="text/css" href="css/reservation/jsCalendar.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/common/common.js"></script>
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.js"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.lang.de.js"></script>
-<script type="text/javascript" src="js/main.js?v=25"></script>  
-</head>   
+<script type="text/javascript" src="js/main.js?v=26"></script>  
+</head>
 <body>  
-	<%@ include file="WEB-INF/common/header.jsp" %>   
+	<%@ include file="WEB-INF/common/header.jsp" %>    
 	<section>         
 		<div id="visualWrap">    
 			<div class="mainVisual">
@@ -71,9 +71,9 @@
 								<div class="rsBox">어린이
 									<i class="arr"></i>   
 								</div>
-								<ul class="rsSelect rsSel_ch">       
+								<ul class="rsSelect rsSel_ch">        
 									<li><a href="#">어린이  0</a></li>   
-									<li><a href="#">어린이  1</a></li>
+									<li><a href="#">어린이  1</a></li> 
 									<li><a href="#">어린이  2</a></li>  
 									<li><a href="#">어린이  3</a></li>
 								</ul>  

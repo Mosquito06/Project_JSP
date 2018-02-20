@@ -16,7 +16,7 @@ $(function(){
 		        + "'></a></div>"; 
 
 			   $(".mainVisual").append(img);  
-			});				
+			});				 
 			
 			mainVis =  $('.mainVisual').bxSlider({
 				mode: 'fade',
@@ -121,25 +121,42 @@ $(function(){
 	var sElement = document.getElementById("start-calendar");
 	var sCalendar = jsCalendar.new(sElement);
 	
-	
+	 
 	var date = new Date();
 	
 	$("#ckin, #ckin+span").click(function(){
 		$("#start-calendar").addClass("auto-jsCalendar material-theme shilla");
 		$("#start-calendar").toggle();
 		$("#end-calendar").css("display", "none");	
-		$(".rsSelect").css("display", "none");
+		$(".rsSelect").css("display", "none"); 
 		resActive(0);	
 	})
 	
 	sCalendar.onDateClick(function(event, date){
 		var sDate = "";
 		$("#end-calendar").css("display", "none");
+		var now = new Date(); 
+		now.setHours(0);
+		now.setMinutes(0);
+		now.setSeconds(0);
+		now.setMilliseconds(0);   
+		 
+		date.setHours(0);
+		date.setMinutes(0);
+		date.setSeconds(0); 
+		date.setMilliseconds(0); 
+
+		if((date-now) < -1){ 
+			alert("과거로 돌아갈 수는 없습니다.");
+			return;  
+		}  
+		
 		sDate += date.getFullYear() + "-";
 		sDate += month[date.getMonth()] + "-";
-		var date = date.getDate();
+		
+		var date = date.getDate();  
 		if(date >= 1 && date < 10){
-			sDate += "0"+ date;
+			sDate += "0"+ date; 
 		}else{
 			sDate += date;
 		}
@@ -167,7 +184,7 @@ $(function(){
 		sDate.setMinutes(0);
 		sDate.setMilliseconds(0);
 		if($("#ckin").val() == ""){
-			alert("체크인 날짜보다 먼저 선택하셔야 합니다.");
+			alert("체크인 날짜를 먼저 선택하셔야 합니다.");
 			return;
 		}
 		
@@ -295,6 +312,29 @@ $(function(){
 			index++;    
 		}
 	})
+	
+	$(".resBtn").click(function(e){
+		e.preventDefault();
+		
+		var chckIn = $("#ckin").val();
+		var chckOut = $("#ckout").val();
+		var adult = $(".adSelect option:selected").val(); 
+		var child = $(".chdSelect option:selected").val(); 
+		var sChild= $(".sChdSelect option:selected").val();
+		
+		if(chckIn == "" ||chckOut == "" || adult == ""  || child == "" || sChild == ""  ){
+			alert("모두 선택한뒤 검색하세요.");
+			return; 
+		}
+		
+		console.log(chckIn); 
+		console.log(chckOut);
+		console.log(adult);
+		console.log(child);
+		console.log(sChild);
+		
+		location.href = contextPath+"/step1.do?chckIn="+chckIn+"&chckOut="+chckOut+"&adult="+adult+"&child="+child+"&sChild="+sChild;  
+	})  
 	
 }) 
 
