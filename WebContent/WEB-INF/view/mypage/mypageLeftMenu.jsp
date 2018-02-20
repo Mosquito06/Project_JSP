@@ -26,7 +26,7 @@
 			 				<a href="#"><span>문의내역</span></a>
 			 				<ul id="member_info">
 			 					<li><a href="qna.do">문의하기</a></li>
-			 					<li><a href="#">문의내역 확인</a></li>
+			 					<li><a href="qnaRecord.do" id="qnaRecord">문의내역 확인</a></li>
 			 				</ul>  
 			 			</li>
 			 			<li class="bMenu">

@@ -28,7 +28,7 @@
 					<div id="wrap_title">
 						<h1 id="title">문의하기</h1>
 						<div id="wrap_home">
-							<img src="${pageContext.request.contextPath}/img/common/locaton.gif" id="home"> > <span
+							<img src="${pageContext.request.contextPath}/img/common/locaton.gif" id="home"> > 고객문의 > <span
 								id="board">문의하기</span>
 						</div>
 
@@ -36,7 +36,7 @@
 					</div>
 
 					<form action="qna.do" method="post" id="f" enctype="multipart/form-data">
-						
+						<input type="hidden" value="${MEMBER.id }" id="hiddenmember" name="hiddenId">
 						<table id="wrap_form">
 							<tr>
 								<th><span class="dot">*</span>제목</th>
@@ -117,7 +117,6 @@
 						</div>
 						</c:if>
 						<div id="wrap_sub_btn">
-						<input type="hidden" value="${MEMBER.id }" id="hiddenmember">
 							<input type="submit" value="등록" id="submit">
 						</div>
 						

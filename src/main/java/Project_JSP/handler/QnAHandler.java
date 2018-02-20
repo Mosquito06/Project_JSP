@@ -65,7 +65,7 @@ public class QnAHandler implements CommandHandler{
 			qnaBoard.setTitle(multi.getParameter("title"));
 			qnaBoard.setName(multi.getParameter("name"));
 			qnaBoard.setEmail(email);
-		
+			qnaBoard.setId(multi.getParameter("hiddenId"));
 			qnaBoard.setPath("Qna/"+fileDateY+"/"+fileDateM+"/"+fileDateD+"/"+filename1);
 			
 			qnaBoard.setTel(multi.getParameter("tel"));

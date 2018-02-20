@@ -11,9 +11,10 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath }/css/common/common.css?ver=1">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath }/css/adminpage/free_board.css?v=2">
+	href="${pageContext.request.contextPath }/css/adminpage/free_board.css?v=1">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/adminpage/admin_board.js"></script>
 </head>
 <body>
 	<div> 
@@ -32,13 +33,13 @@
 								id="board">관리자</span> > <span id="board">후기관리</span>
 						</div>
 					</div>
-					<a href="" class="btn_style" id="del_btn">삭제</a>
+					
 					<div>
-						<form action="free_board.do" method="post">
+						<form action="adminBoard.do" method="post">
 						
 						<table>
 							<tr>
-								<th><input type="checkbox" id="check"></th>
+								<th></th>
 								<th id="th1">번호</th>
 								<th id="th2">제목</th>
 								<th id="th3">작성자</th>
@@ -48,7 +49,7 @@
 
 							<c:if test="${error != null}">
 								<tr>
-									<td class="td1" colspan="5">게시물이 존재하지 않습니다.</td>
+									<td class="td1" colspan="6">게시물이 존재하지 않습니다.</td>
 
 								</tr>
 							</c:if>
@@ -57,7 +58,7 @@
 									<tr>
 										<td class="check"><input type="checkbox" value="${item.num}"></td>
 										<td class="td1">${item.num}</td>
-										<td class="td2"><a href="content.do?no=${item.num}&set=0">${item.title}</a></td>
+										<td class="td2"><a href="adminBoardContent.do?no=${item.num}&set=0">${item.title}</a></td>
 										<td class="td3">${item.name}</td>
 										<td class="td4"><fmt:formatDate value="${item.date}"
 												pattern="yyyy-MM-dd" /></td>
@@ -67,26 +68,26 @@
 
 							</c:if>
 							<tr>
-								<td class="td1" colspan="5" id="page_num"><script
+								<td class="td1" colspan="6" id="page_num"><script
 										type="text/javascript">
 								
 									if(${change} ==1 ){
 										for(var i=0;i<(${page}+1); i++){
-											$("#page_num").append("<a href='free_board.do?page_num="+i+"'>  "+(i+1)+"  </a>");
+											$("#page_num").append("<a href='adminBoard.do?page_num="+i+"'>  "+(i+1)+"  </a>");
 										}
 									}else{
 										
-										for(var i=0;i<(${page}+1); i++){
-											$("#page_num").append((i+1));
-										}
+										
+											$("#page_num").append("<span>1</span>");
+										
 									}
 								</script></td>
 							</tr>
 						</table>
 						<div id="wrap_btn_style">
-							<a href="free_board.do" class="btn_style">목록보기</a> 
-							<a href="${pageContext.request.contextPath}/board/write_board.do"
-								class="btn_style">글쓰기</a>
+							<a href="adminBoard.do" class="btn_style">목록보기</a> 
+							
+							<a href="" class="btn_style" id="del_btn">삭제</a>
 						</div>
 
 						<div id="search_form">
@@ -95,6 +96,7 @@
 
 									<option>제목</option>
 									<option>작성자</option>
+									<option>아이디</option>
 								</select> <input type="text" name="search" id="search">
 							</div>
 

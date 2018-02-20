@@ -144,7 +144,10 @@ select{
 	padding:8px;
 	
 }
-
+#today{
+	position: absolute;
+	left:120px;
+}
 
 
 

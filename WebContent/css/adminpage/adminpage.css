@@ -6,12 +6,12 @@
 }
 .admin{
 	display:inline-block;
-	width:19%;
+	width:24%;
 	height:150px;
 	text-align: center;
 	line-height: 150px;
 	font-weight: bolder;
-	font-size: 20px;
+	font-size: 22px;
 	color:rgb(104, 88, 69);
 	background:rgb(241, 227, 196);
 	border: 1px solid rgb(104, 88, 69);

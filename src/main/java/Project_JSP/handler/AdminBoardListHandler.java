@@ -10,7 +10,7 @@ import Project_JSP.dto.Board;
 import Project_JSP.mvc.controller.CommandHandler;
 import Project_JSP.service.BoardService;
 
-public class AdminBoardHandler implements CommandHandler{
+public class AdminBoardListHandler implements CommandHandler{
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {

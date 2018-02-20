@@ -15,6 +15,7 @@ public class CommentSetHandler implements CommandHandler{
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		CommentService service  = CommentService.getInstance();
 		Comment comment = new Comment();
+		String page = req.getParameter("page");
 		int num = Integer.parseInt(req.getParameter("num"));
 		int no = Integer.parseInt(req.getParameter("no"));
 		int set = Integer.parseInt(req.getParameter("set"));
@@ -30,7 +31,12 @@ public class CommentSetHandler implements CommandHandler{
 			service.updateComment(comment);
 			
 		}
-		res.sendRedirect(req.getContextPath()+"/board/content.do?set=4&no="+no);
+		if(page.equals("1")){
+			res.sendRedirect(req.getContextPath()+"/board/content.do?set=4&no="+no);
+		}else{
+			res.sendRedirect(req.getContextPath()+"/adminBoardContent.do?set=4&no="+no);
+		}
+		
 		return null;
 	}
 	

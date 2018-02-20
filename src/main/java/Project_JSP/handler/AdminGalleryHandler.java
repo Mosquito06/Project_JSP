@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory.Default;
 
 import Project_JSP.dto.Gallery;
 import Project_JSP.dto.GalleryType;
