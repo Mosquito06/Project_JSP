@@ -52,14 +52,13 @@
 		});
 		
 		$(".del_btn").click(function(){
-			$(".hide").hide();
 			var mId= "${MEMBER.id}";
 			var nId= "${NONMEMBER.id}";
 			var cId = $(this).parent().parent().find(".commentId").val();
 			var no = $(this).find(".item_no").val();
 			if(mId == cId || nId == cId){
 
-				location.href="commentSet.do?num="+no+"&no=${board.num}&set=1";
+				location.href="commentSet.do?num="+no+"&no=${board.num}&set=1&page=1";
 			}else{
 				alert("삭제권한이 없습니다.");
 				return false;
@@ -83,6 +82,7 @@
 			
 			return false;
 		});
+		
 		
 
 		
@@ -153,7 +153,13 @@
 										pattern="yyyy-MM-dd HH:mm:ss" /></td>
 											
 											<td class="t4"><a href="" class="update_btn btn_style2">수정</a></td>
-											<td class="t5"><a href="" class="del_btn btn_style2"><input type="hidden" value="${item.num}" class="item_no">X</a></td>
+											<td class="t5">
+												<a href="" class="del_btn btn_style2">
+													<input type="hidden" value="${item.num}" class="item_no">
+													
+												X</a>
+											
+											</td>
 										</tr>
 										<tr class="hide">
 											<td colspan="5">
@@ -165,6 +171,7 @@
 														<input type="text" name="up_content" class="textarea" value="${item.content}">
 														<input type="hidden" name="no" value="${board.num}">
 														<input type="hidden" name="set" value="2">
+														<input type="hidden" name="page" value="1">
 														<input type="hidden" name="num" value="${item.num}">
 														<input type="submit" class="btn_style" value="수정">
 													</form>
@@ -176,27 +183,28 @@
 							</c:if>
 							
 						</div>
-						<div class="wrap_comment">
-							
-							<p>댓글달기</p>
+						<c:if test="${MEMBER != null || NONMEMBER !=null}">
+							<div class="wrap_comment">
 								
-							<form method="get" action="comment.do">
-								<label>이름</label>
-								
-								
-								<c:if test="${NONMEMBER !=null }">
-									<input type="text" name="name" class="name" value="${NONMEMBER.nameKo}" readonly="readonly">
-									<input type="hidden" name="id" value="${NONMEMBER.id}">
-								</c:if>
-								<c:if test="${MEMBER !=null }">
-									<input type="text" name="name" class="name" value="${MEMBER.nameKo}" readonly="readonly">
-									<input type="hidden" name="id" value="${MEMBER.id}">
-								</c:if>
-								<input type="text" name="content" class="textarea">
-								<input type="hidden" name="no" value="${board.num}">
-								<input type="submit" class="btn_style" value="보내기">
-							</form>
-						</div>
+								<p>댓글달기</p>
+									
+								<form method="get" action="comment.do">
+									<label>이름</label>
+									<input type="hidden" name="set" value="1">
+									<c:if test="${NONMEMBER !=null }">
+										<input type="text" name="name" class="name" value="${NONMEMBER.nameKo}" readonly="readonly">
+										<input type="hidden" name="id" value="${NONMEMBER.id}">
+									</c:if>
+									<c:if test="${MEMBER !=null }">
+										<input type="text" name="name" class="name" value="${MEMBER.nameKo}" readonly="readonly">
+										<input type="hidden" name="id" value="${MEMBER.id}">
+									</c:if>
+									<input type="text" name="content" class="textarea">
+									<input type="hidden" name="no" value="${board.num}">
+									<input type="submit" class="btn_style" value="보내기" id="sClick">
+								</form>
+							</div>
+						</c:if>
 					</div>
 					
 

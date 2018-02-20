@@ -11,6 +11,7 @@ public interface BoardDao {
 	public List<Board> selcetAllBoard();
 	public List<Board> findByNameBoard(Board board);
 	public List<Board> findByTitleBoard(Board board);
+	public List<Board> findByIdBoard(Board board);
 	public List<Board> selcetAllLimitBoard(HashMap<String, Object> map);
 	public List<Board> findByNameLimitBoard(HashMap<String, Object> map);
 	public List<Board> findByTitleLimitBoard(HashMap<String, Object> map);

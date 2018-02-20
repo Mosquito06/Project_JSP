@@ -7,21 +7,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="../css/common/reset.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/common/reset.css">
 <link rel="stylesheet" type="text/css"
-	href="../css/common/common.css">
+	href="${pageContext.request.contextPath }/css/common/common.css">
 
 <link rel="stylesheet" type="text/css"
-	href="../css/adminpage/board_content.css?v=1">
+	href="${pageContext.request.contextPath }/css/adminpage/board_content.css?v=1">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript" src="../js/common/common.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
 
 <script type="text/javascript">
 	$(function(){
 		$("#btn_del").click(function(){
 			var ask = confirm("정말 삭제하시겠습니까?");
 			if(ask){
-				location.href="content.do?no=${board.num}&set=2";
+				location.href="adminBoardContent.do?no=${board.num}&set=2";
 			}
 			return false;
 		});
@@ -31,7 +31,7 @@
 			$(this).parent().parent().next().show();
 			return false;
 		});
-		
+		 
 		
 		
 	})
@@ -79,11 +79,14 @@
 							</ul>
 						</div>
 						<div id="content_wrap">
+							<c:if test="${board.path != '0'}">
+								<p><img src="${board.path}"></p>
+							</c:if>
 							<p>${content.content}</p>
 						</div>
 						<div id="wrap_btn_style">
-							<a href="free_board.do" class="btn_style">목록보기</a> 
-							<a href="content.do?no=${board.num}&set=1" class="btn_style" id="btn_update">글수정</a>
+							<a href="adminBoard.do" class="btn_style">목록보기</a> 
+							
 							<a href="#" class="btn_style" id="btn_del">삭제</a>
 						</div>
 						<div> 
@@ -99,18 +102,19 @@
 										pattern="yyyy-MM-dd HH:mm:ss" /></td>
 											
 											<td class="t4"><a href="" class="update_btn btn_style2">수정</a></td>
-											<td class="t5"><a href="commentSet.do?num=${item.num}&no=${board.num}&set=1" class="btn_style2">X</a></td>
+											<td class="t5"><a href="board/commentSet.do?num=${item.num}&no=${board.num}&set=1&page=2" class="btn_style2">X</a></td>
 										</tr>
 										<tr class="hide">
 											<td colspan="5">
 												<div class="wrap_comment">
-													<form method="get" action="commentSet.do">
+													<form method="get" action="board/commentSet.do">
 														<p>댓글수정</p>
 														<label>이름</label>
 														<input type="text" name="up_name" class="name" value="${item.writer}">
 														<input type="text" name="up_content" class="textarea" value="${item.content}">
 														<input type="hidden" name="no" value="${board.num}">
 														<input type="hidden" name="set" value="2">
+														<input type="hidden" name="page" value="2">
 														<input type="hidden" name="num" value="${item.num}">
 														<input type="submit" class="btn_style" value="수정">
 													</form>
@@ -126,9 +130,10 @@
 							
 							<p>댓글달기</p>
 								
-							<form method="get" action="comment.do">
+							<form method="get" action="board/comment.do">
 								<label>이름</label>
-								<input type="text" name="name" class="name">
+								<input type="hidden" name="set" value="2">
+								<input type="text" name="name" class="name" value="관리자" readonly="readonly">
 								<input type="text" name="content" class="textarea">
 								
 								<input type="hidden" name="no" value="${board.num}">
@@ -137,8 +142,6 @@
 							</form>
 						</div>
 					</div>
-					
-
 				</div>
 				
 			</div>

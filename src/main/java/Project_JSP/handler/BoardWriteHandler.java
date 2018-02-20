@@ -12,13 +12,8 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import Project_JSP.dto.Board;
 import Project_JSP.dto.BoardContent;
-import Project_JSP.dto.ClientGrade;
-import Project_JSP.dto.QnaBoard;
-import Project_JSP.dto.QnaBoardContent;
 import Project_JSP.mvc.controller.CommandHandler;
 import Project_JSP.service.BoardService;
-import Project_JSP.service.QnaBoardContentService;
-import Project_JSP.service.QnaBoardService;
 
 public class BoardWriteHandler implements CommandHandler{
 
