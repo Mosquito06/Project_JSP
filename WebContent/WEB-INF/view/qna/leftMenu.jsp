@@ -5,11 +5,9 @@
 			 		<h2 class="title">고객문의</h2>
 			 		<ul class="leftMenu">
 			 			<li class="bMenu">
-			 				<a href="#" class="noBorder"><span>연락처</span></a>  
+			 				<a href="${pageContext.request.contextPath }/tell.do" class="noBorder"><span>연락처</span></a>  
 			 			</li>
-			 			<li class="bMenu">
-			 				<a href="#" class="noBorder"><span>FAQ</span></a>  
-			 			</li>
+			 			
 			 			<li class="bMenu">
 			 				<a href="${pageContext.request.contextPath }/qna.do" class="noBorder"><span>문의하기</span></a>  
 			 			</li>

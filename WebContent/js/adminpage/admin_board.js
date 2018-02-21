@@ -6,6 +6,7 @@ $(function(){
 	
 		
 	$("#del_btn").click(function(){
+		
 		var leng = $("input:checked").length;
 		if(leng==0){
 			alert("삭제내용이 없습니다.");
@@ -20,7 +21,7 @@ $(function(){
 		$("input:checked").each(function(i){
 			str += $(this).val()+",";
 		})
-		location.href="adminUserDelete.do?set=2&list="+str;
+		location.href="adminBoardDelete.do?list="+str;
 	
 		return false;
 		
