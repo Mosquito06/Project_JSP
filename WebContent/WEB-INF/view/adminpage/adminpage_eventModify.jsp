@@ -96,9 +96,7 @@
 								<textarea class="form-control" name="noticeContent"
 									id="noticeContent" cols="100" rows="15">${content.eventContent }</textarea>
 								<script>
-									CKEDITOR.replace('noticeContent', {
-										enterMode : '3'
-									});
+									CKEDITOR.replace('noticeContent');
 								</script>
 							</div>
 						</td>
@@ -113,10 +111,10 @@
 				<textarea name="oldContent" id="oldContent" style="display: none;">
 					${content.eventContent }
 				</textarea>
-				<input type="hidden" value="${event.eventNum }" name="no" /> <input
-					type="hidden" value="${event.eventImgPath }" name="oldBanner" />
+				<input type="hidden" value="${event.eventNum }" name="no" /> 
+				<input type="hidden" value="${event.eventImgPath }" name="oldBanner" />
 			</form>
-
+			
 			<div id="start-calendar" class="calendar"></div>
 			<div id="end-calendar" class="calendar"></div>
 		</div>

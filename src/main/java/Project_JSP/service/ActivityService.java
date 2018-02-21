@@ -73,22 +73,22 @@ public class ActivityService {
 			HashMap<String,Object> map = new HashMap<>();
 			
 			map.put("activity", dao.selectByNum(activity));
-			map.put("content", contentDao.selectByNum(activity.getNum()));
+			map.put("content", contentDao.selectByNum(new ActivityContent(activity.getNum())));
 			
 			return map;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+ 
 		return null;
 	}
 	
 	public Activity selectByType(Activity activity) {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			ActivityDao dao = session.getMapper(ActivityDao.class);
-
+			System.out.println(dao.selectByType(activity));
 			return dao.selectByType(activity);
-		} catch (Exception e) {
+		} catch (Exception e) { 
 			e.printStackTrace();
 		}
 
@@ -110,16 +110,21 @@ public class ActivityService {
 	public int insert(Activity activity, ActivityContent content) {
 		SqlSession session = MySqlSessionFactory.openSession();
 
-		try {
+		int newEventId = selectLastNum();
+		
+		try {	
+			
 			ActivityDao dao = session.getMapper(ActivityDao.class);
 			ActivityContentDao contentDao = session.getMapper(ActivityContentDao.class);
-
-			dao.insert(activity);
+			
+			
+			newEventId++; 
+			activity.setNum(newEventId);
+			int result = dao.insert(activity);
 			System.out.println("insertactivity");
-			int newEventId = dao.selectLastInsert();
 			System.out.println(newEventId);
 
-			if (newEventId < 0) {
+			if (result < 0) {
 				System.out.println(log + "insert event fail");
 				return -2;
 			}

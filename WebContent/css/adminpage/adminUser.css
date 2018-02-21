@@ -39,7 +39,6 @@
 	margin-top:2px;
 	font-weight: bold;
 	background: rgb(179, 162, 143);
-	border: 1px solid #ddd;
 	border-radius:3px;
 	padding: 4px 6px;
 	color:white;
@@ -48,7 +47,7 @@
 }
 
 .btn_admin:hover{
-	background:rgb(93, 73, 48);
+	background:rgb(93, 73, 48);  
 }
 #wrap_form{
 	width:800px;

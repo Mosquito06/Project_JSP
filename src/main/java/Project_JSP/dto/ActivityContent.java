@@ -16,8 +16,7 @@ public class ActivityContent {
 		this.imgPath = imgPath;
 	}
 	
-	public ActivityContent() {
-	}
+	public ActivityContent() {}
 
 	public int getNum() {
 		return num;

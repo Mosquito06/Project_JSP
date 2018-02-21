@@ -30,12 +30,7 @@ public class ActivityWriteHandler implements CommandHandler {
 		} else if (req.getMethod().equalsIgnoreCase("post")) {
 			ActivityService service =ActivityService.getInstance();
 			
-			int result = service.selectLastNum();
-			
-			if(result == 0){
-				result = 1;
-			}
-			
+			int result = service.selectLastNum()+1;
 			
 			return postProcess(req, res,"/img/activity/"+ result);
 		}
@@ -72,8 +67,6 @@ public class ActivityWriteHandler implements CommandHandler {
 			map.put("orignFileName", originFileName);
 			
 			String title = multi.getParameter("title");
-			String startDate = multi.getParameter("startDate");
-			String endDate = multi.getParameter("endDate");
 			String content = multi.getParameter("hiddenContent");
 			String introduce = multi.getParameter("introduce");
 			String type =  multi.getParameter("type");

@@ -15,8 +15,8 @@
     </sql>
     
     <select id="selectLastInsert" resultType="int">
-    	select MAX(menu_num) from activity
-    </select>
+    	select ifnull(MAX(menu_num),0) from activity
+    </select> 
     
     <sql id="whereSql">
         <where>
@@ -49,16 +49,16 @@
 	</select>
 	
 	<insert id="insert" parameterType="Activity">
-	   insert into activity( menu_name,menu_introduce, menu_type, menu_img_path) 
-	   values( #{name}, #{introduce},#{type}, #{imgPath})
+	   insert into activity(menu_num, menu_name,menu_introduce, menu_type, menu_img_path) 
+	   values(#{num}, #{name}, #{introduce},#{type}, #{imgPath})
 	</insert>
 	
 	<update id="update" parameterType="Activity">
 	    update activity set menu_introduce = #{introduce}, menu_name = #{name}, 
-	    menu_type = #{type}, m menu_img_path = #{imgPath}
+	    menu_type = #{type}, menu_img_path = #{imgPath}
 	  	<include refid="whereSql"/>
 	</update>
-	
+	 
 	<delete id="delete" parameterType="Activity">
 	    delete from activity
 	    <include refid="whereSql"/>

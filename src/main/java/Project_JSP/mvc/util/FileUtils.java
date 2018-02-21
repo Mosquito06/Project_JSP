@@ -17,7 +17,7 @@ public class FileUtils {
 		if (!path.exists()) {
 			return false;
 		}
-		File[] files = path.listFiles();
+		File[] files = path.listFiles(); 
 		for (File file : files) {
 			if (file.isDirectory()) {
 				deleteDirectory(file);

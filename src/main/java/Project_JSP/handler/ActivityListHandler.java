@@ -24,7 +24,7 @@ public class ActivityListHandler implements CommandHandler {
 		ActivityService service = ActivityService.getInstance();
 		if(req.getMethod().equalsIgnoreCase("get")){
 			List<Activity> list = service.selectList();
-			
+			 
 			if(list.size() == 0){ 
 				req.setAttribute("exist","현재 진행중인 이벤트가 없습니다."); 
 				return "/WEB-INF/view/adminpage/adminpage_activityList.jsp";

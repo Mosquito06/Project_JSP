@@ -14,7 +14,7 @@ $(function() {
 		}
 		
 	});
-	var backClick = false;
+	var backClick = false; 
 
 	$("input[type='button']").click(function() {
 		backClick = true;

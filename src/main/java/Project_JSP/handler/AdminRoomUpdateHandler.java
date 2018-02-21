@@ -172,27 +172,29 @@ public class AdminRoomUpdateHandler implements CommandHandler{
 			
 			RoomInfoDaoService roomInfoService = RoomInfoDaoService.getInstance();
 			RoomDaoService roomService = RoomDaoService.getInstance();
-			roomInfoService.insertRoomInfo(roomInfo);
 			
-			List<RoomInfo> lastId = roomInfoService.selectLastInsertRoomInfo();
-
-			int roomNum = Integer.parseInt(roomMulti.getParameter("room_num"));
+			// ------- 아래 부터 해결
+			
+			
+			System.out.println(req.getParameter("room_num"));
+			System.out.println(roomMulti.getParameter("room_price"));
+			int roomNum = Integer.parseInt(req.getParameter("room_num"));
 			int roomPrice = Integer.parseInt(roomMulti.getParameter("room_price"));
+			
+			// 객실 수정
 			Room room = new Room();
 			room.setRoomNum(roomNum);
 			room.setRoomPrice(roomPrice);
-			room.setRoomInfoNum(lastId.get(lastId.size()-1));
+
+			roomService.updateRoom(room);
 			
-			int result = roomService.insertRoom(room);
-			String Redirect = "";
-			if(result <= 0 ){
-				Redirect = "/Project_JSP/adminRoomAdd.do?result=0";
-				roomInfoService.deleteRoomInfo(lastId.get(lastId.size()-1));
-			}else{
-				Redirect = "/Project_JSP/adminRoom.do?result=1";
-			}
-		
-			res.sendRedirect(Redirect);
+			// 수정한 객실을 가져와 객실 정보의 기본크를 객실 정보에  set 후 수정
+			Room updateRoom = roomService.selectRoomByNum(room);
+			roomInfo.setRoomInfoNum(updateRoom.getRoomInfoNum().getRoomInfoNum());
+			
+			roomInfoService.updateRoomInfo(roomInfo);
+			
+			res.sendRedirect("/Project_JSP/adminRoomAdd.do?result=2");
 			return null;
 		}
 		
