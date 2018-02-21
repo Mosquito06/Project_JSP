@@ -1,12 +1,22 @@
 package Project_JSP.handler;
 
 import java.io.File;
-import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+import Project_JSP.dto.BedType;
+import Project_JSP.dto.Room;
+import Project_JSP.dto.RoomGrade;
+import Project_JSP.dto.RoomInfo;
+import Project_JSP.dto.ViewType;
 import Project_JSP.mvc.controller.CommandHandler;
+import Project_JSP.service.RoomDaoService;
+import Project_JSP.service.RoomInfoDaoService;
 
 public class AdminRoomUpdateHandler implements CommandHandler{
 
@@ -51,7 +61,7 @@ public class AdminRoomUpdateHandler implements CommandHandler{
 			
 			return "/WEB-INF/view/adminpage/adminpage_room_update.jsp";
 		}else if(req.getMethod().equalsIgnoreCase("post")){
-			/*req.setCharacterEncoding("UTF-8");
+			req.setCharacterEncoding("UTF-8");
 			String folderName = req.getParameter("room_info_name");
 			String roomImgPath = req.getRealPath("/img/room/" + folderName);
 
@@ -182,7 +192,7 @@ public class AdminRoomUpdateHandler implements CommandHandler{
 				Redirect = "/Project_JSP/adminRoom.do?result=1";
 			}
 		
-			res.sendRedirect(Redirect);*/
+			res.sendRedirect(Redirect);
 			return null;
 		}
 		

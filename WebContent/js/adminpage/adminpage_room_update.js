@@ -96,12 +96,7 @@ $(function(){
 			reservImg_upload_files.push($(".reservImg_wrap li:eq(" + i + ") > div img").attr("data-file"));
 		}
 		
-		/*$("#roomImgUpload").val(roomImg_upload_files);
-		$("#roomImgDelete").val(roomImg_delete_files);
-		$("#reservImgUpload").val(reservImg_upload_files);
-		$("#reservImgDelete").val(reservImg_delete_files);*/
-		
-		$("#registerForm").attr("action", "/Project_JSP/adminRoomAdd.do?room_info_name=" + $("#room_info_name").val() + 
+		$("#registerForm").attr("action", "/Project_JSP/adminRoomUpdate.do?room_info_name=" + $("#room_info_name").val() + 
 				"&roomImgUpload=" + roomImg_upload_files + "&roomImgDelete=" + roomImg_delete_files + 
 				"&reservImgUpload=" + reservImg_upload_files + "&reservImgDelete=" + reservImg_delete_files);
 		
