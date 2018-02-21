@@ -52,6 +52,8 @@
 }
 #qna_table table td,#answer_table table td{
 	padding: 7px 10px 6px;
+	font-size: 12px;
+	line-height: 17px;
 }
 #listBtn{
 	width:100%;
@@ -66,4 +68,11 @@
 }
 #qna_content img{
 	margin:5px;
+}
+.answer_t:HOVER{
+	text-decoration: underline;
+	cursor: pointer;
+}
+#hiddenTable{
+	display: none;
 }

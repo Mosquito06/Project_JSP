@@ -19,7 +19,7 @@
 			 				<ul id="member_info">
 			 					<li id="profile"><a href="profile.do">프로필 수정</a></li>
 			 					<li id="password"><a href="newPassword.do">비밀번호 변경</a></li>
-			 					<li><a href="#">신라리워즈 탈회 요청</a></li>
+			 					<li id="secession"><a href="secession.do">신라리워즈 탈회 요청</a></li>
 			 				</ul>  
 			 			</li>
 			 			<li class="bMenu" id="question">

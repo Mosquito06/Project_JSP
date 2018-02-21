@@ -1,0 +1,78 @@
+@CHARSET "UTF-8";
+textarea{
+	resize: none;
+	outline: none;
+	border:1px solid #ccc;
+}
+.t1_title{
+	font-size: 14px;
+	font-weight: bold;
+	margin-left: 35px;
+}
+.left_title{
+	vertical-align: top;
+}
+.left_article{
+	text-align: left !important;
+}
+#t1,#t2{
+	width:800px;
+	margin: 0 auto;
+	margin-top:5px;
+	border-top:2px solid #432c10;
+}
+#t1 th,#t2 th{
+	border-bottom: 1px solid #ddd;
+	padding:10px 5px;
+	font-weight: bold;
+	font-size: 13px;
+	background: #faf9f4;
+	color:#666;
+}
+#t1 td,#t2 td{
+	border-bottom:1px solid #ddd;
+	padding:4px 5px;
+	text-align: center;
+	font-size: 11px;
+}
+#qna_content img{
+	margin: 5px;
+}
+#listBtn{
+	margin-top:20px;
+	text-align: center;
+}
+#listBtn a{
+	display: inline-block;
+}
+#noAnswer{
+	width:800px;
+	margin: 0 auto;
+	margin-top: 20px;
+	border-bottom:1px solid #ddd;
+}
+#noAnswer > #replycontent{
+	text-align:center;
+	border-top:2px solid #432c10;
+	margin-top: 5px;
+	padding:15px 30px;
+}
+#btn{
+	margin-top: 20px;
+}
+#btn a{
+	display: inline-block;
+}
+#no_title{
+	font-size: 14px;
+	font-weight: bold;
+}
+#answer{
+	margin-top: 20px;
+}
+#answer table td{
+	padding:10px;
+}
+#answer_title{
+	width:74px;
+}

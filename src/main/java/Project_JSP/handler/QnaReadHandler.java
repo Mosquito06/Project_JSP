@@ -35,7 +35,7 @@ public class QnaReadHandler implements CommandHandler {
 			QnaBoardContent content = service2.selectQnaBoardByNum(qnaContent);
 			
 			QnaReply qnaReply = new QnaReply();
-			qnaReply.setNum(num);
+			qnaReply.setQnaNum(num);
 			
 			QnaReplyService service3 = QnaReplyService.getInstance();
 			QnaReply reply = service3.findByNumQnaReply(qnaReply);

@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+#wrap_title{
+	margin:0px;
+}
+#secession{
+	background:#D3C09A url("../../img/mypage/BtnNext.png") no-repeat right;
+}
+#title_info{
+	font-size: 15px;
+	padding:20px 0px;
+}
+#info{
+	border: 1px solid #eceae1;
+	background: #faf9f4;
+	font-size: 13px;
+	padding:20px;
+}
+#info p{
+	margin:15px 0px;
+	color:#444;
+}
+#btn{
+	margin-top: 25px;
+	text-align: center;
+}
+#btn a{
+	display: inline-block;
+}
+#btnConfirm img{
+	width:62px;
+	height:27px;
+}

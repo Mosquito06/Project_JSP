@@ -13,9 +13,10 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/mypage/leftMenu.css">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/mypage/qnaDetail.css?v=5">
+	href="${pageContext.request.contextPath}/css/mypage/qnaDetail.css?v=3">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common/common.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/mypage/qnaDetail.js"></script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/common/header.jsp" />
@@ -64,8 +65,8 @@
 						</div>
 						
 						<div id="answer_table">
-						<span class="t">답변</span>
-							<table border="1">
+						<span class="t answer_t">답변 ∨</span>
+							<table border="1" id="hiddenTable">
 								<tr>
 									<th>답변여부</th>
 									<c:if test="${reply.content ==null }">
@@ -73,14 +74,13 @@
 									</c:if>
 									<c:if test="${reply.content !=null }">
 										<td id="qna_answer">답변완료</td>
-										
 									</c:if>
 									<th>답변일</th>
-									<c:if test="${reply.date ==null }">
+									<c:if test="${reply.time ==null }">
 										<td id="qna_answer_date" class="all_date"></td>
 									</c:if>
-									<c:if test="${reply.date !=null }">
-									<fmt:formatDate value="${reply.date }" pattern="yyyy-MM-dd" var="reply_date"/>
+									<c:if test="${reply.time !=null }">
+									<fmt:formatDate value="${reply.time }" pattern="yyyy-MM-dd" var="reply_date"/>
 										<td id="qna_answer_date" class="all_date">${reply_date }</td>
 									</c:if>
 								</tr>

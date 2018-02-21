@@ -42,5 +42,27 @@ public class QnaViewService implements QnaViewDao {
 		return null;
 	}
 
+	@Override
+	public List<QnaView> selectNotNullQnaView() {
+		try(SqlSession session = MySqlSessionFactory.openSession()){
+			QnaViewDao dao = session.getMapper(QnaViewDao.class);
+			return dao.selectNotNullQnaView();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public List<QnaView> selectNullQnaView() {
+		try(SqlSession session = MySqlSessionFactory.openSession()){
+			QnaViewDao dao = session.getMapper(QnaViewDao.class);
+			return dao.selectNullQnaView();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 
 }

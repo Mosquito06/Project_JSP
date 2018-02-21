@@ -9,4 +9,6 @@ public interface QnaReplyDao {
 	public QnaReply findByNumQnaReply(QnaReply qnaReply);
 	public void insertQnaReply(QnaReply qnaReply);
 	public void deleteByNumQnaReply (QnaReply qnaReply);
+	public void updateReply(QnaReply qnaReply);
+	public QnaReply selectQnaReplyByNum(QnaReply qnaReply);
 }

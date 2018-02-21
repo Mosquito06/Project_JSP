@@ -75,9 +75,10 @@ $(function(){
 						},
 						dataType:"json",
 						success:function(data){
+							console.log(data);
 							alert("프로필이 수정되었습니다.");
 							
-							var email = data.client.email;
+							/*var email = data.client.email;
 							var email1 = email.substring(0, email.indexOf("@"));
 							var email2 = email.substring(email.indexOf("@")+1);
 							$("#email1").val(email1);
@@ -93,8 +94,9 @@ $(function(){
 							$("#addr_detail").val(address2);
 							
 							$("#phone").val(data.client.phone);
-							$("#tel").val(data.client.home);
-							console.log(data);
+							$("#tel").val(data.client.home);*/
+							location.href="profile.do";
+						
 						}
 					})
 					return false;

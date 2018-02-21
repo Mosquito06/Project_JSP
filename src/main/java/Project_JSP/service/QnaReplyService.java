@@ -64,4 +64,28 @@ public class QnaReplyService implements QnaReplyDao {
 
 	}
 
+	@Override
+	public void updateReply(QnaReply qnaReply) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			QnaReplyDao dao = session.getMapper(QnaReplyDao.class);
+			dao.updateReply(qnaReply);
+			session.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public QnaReply selectQnaReplyByNum(QnaReply qnaReply) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			QnaReplyDao dao = session.getMapper(QnaReplyDao.class);
+			return dao.selectQnaReplyByNum(qnaReply);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
 }

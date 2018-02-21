@@ -19,7 +19,14 @@
  	</select>
 	
 	<select id="selectAll" resultMap="QnaViewResult">
-		select * from qna_view;
+		select * from qna_view order by question_date desc;
 	</select>
-
+	
+	<select id="selectNotNullQnaView" resultMap="QnaViewResult">
+		select * from qna_view where reply_content is not null order by question_date desc
+	</select>
+	
+	<select id="selectNullQnaView" resultMap="QnaViewResult">
+		select * from qna_view where reply_content is null order by question_date desc
+	</select>
 </mapper>
