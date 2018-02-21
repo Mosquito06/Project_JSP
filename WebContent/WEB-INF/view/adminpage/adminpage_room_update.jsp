@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="css/adminpage/adminpage_room_add.css?v=ddd">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
-<script type="text/javascript" src="js/adminpage/adminpage_room_update.js?a=dd"></script>
+<script type="text/javascript" src="js/adminpage/adminpage_room_update.js?a=sdd"></script>
 </head>
 <body>
 	<div> 

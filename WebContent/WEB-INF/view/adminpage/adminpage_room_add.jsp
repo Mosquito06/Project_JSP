@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="css/adminpage/adminpage_room_add.css?v=ddd">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
-<script type="text/javascript" src="js/adminpage/adminpage_room_add.js?a=ddd"></script>
+<script type="text/javascript" src="js/adminpage/adminpage_room_add.js?a=d"></script>
 </head>
 <body>
 	<c:if test="${param.result == '0'}">

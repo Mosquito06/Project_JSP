@@ -27,6 +27,11 @@ $(function(){
 		$("#registerRoom").trigger('click'); 
 	})
 	
+	// 취소 버튼
+	$("img[src*='cancelBtn']").click(function(){
+		location.replace("/Project_JSP/adminRoom.do");
+	})
+	
 	// 수정 버튼 submit 이벤트 호출 시
 	$("#registerForm").submit(function(e){
 		if($("#room_num").val() == "" || $("#room_num").val() == null){
