@@ -13,7 +13,7 @@
 	href="${pageContext.request.contextPath}/css/qna/qnaboard.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common/common.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/qna/qnaForm.js?v=2"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/qna/qnaForm.js?v=3"></script>
 </head>
 <body>
 	<div>

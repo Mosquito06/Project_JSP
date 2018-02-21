@@ -1,0 +1,68 @@
+@CHARSET "UTF-8";
+#qnaRecord{
+	background:#D3C09A url("../../img/mypage/BtnNext.png") no-repeat right;
+}
+#wrap_title{
+		margin-bottom:10px;
+}
+#info1{
+	padding:20px 0px;
+	font-size: 12px;
+	color:#A6A6A6;
+}
+.t{
+	font-size: 12px;
+	font-weight: bold;
+}
+#qnaRecordContent{
+	margin-top: 10px;
+	border:#e2d5c5 solid 1px;
+	padding:25px;
+}
+#qna_table,#answer_table{
+	width:95%;
+	margin:0 auto;
+	margin-top:10px;
+}
+#qna_table{
+	margin-bottom: 20px;
+}
+#qna_table table,#answer_table table{
+	margin-top:10px;
+	border-collapse: collapse;
+	border-top:#cdcbbe solid 1px;
+	width:100%;
+	border-bottom: #eceae1 solid 1px;
+	font-size: 14px;
+}
+#qna_table table tr,#answer_table table tr{
+	    border-bottom: #cdcbbe solid 1px;
+	   	
+}
+#qna_table table th,#answer_table table th{
+	border-bottom: #cdcbbe solid 1px;
+	color: #666666;
+	line-height: 17px;
+	background: #faf9f4;
+	padding: 7px 10px; 
+	width:100px;
+	text-align: justify;
+	font-weight: bold;
+}
+#qna_table table td,#answer_table table td{
+	padding: 7px 10px 6px;
+}
+#listBtn{
+	width:100%;
+	text-align:center;
+	margin-top: 20px;
+}
+#listBtn a{
+	display: inline-block;
+}
+.all_date{
+	width:120px;
+}
+#qna_content img{
+	margin:5px;
+}

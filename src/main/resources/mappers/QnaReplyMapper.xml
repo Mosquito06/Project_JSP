@@ -13,7 +13,7 @@
      	select * from question_reply
      </select>
      
-     <select id="findByNumQnaReply" parameterType="QnaReply">
+     <select id="findByNumQnaReply" parameterType="QnaReply" resultMap="QnaReplyResult">
      	select * from question_reply where question_num=#{qnaNum}
      </select>
      

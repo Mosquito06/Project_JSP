@@ -9,12 +9,12 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/common/common.css?ver=1">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/mypage/leftMenu.css?v=2">
+	href="${pageContext.request.contextPath}/css/mypage/leftMenu.css">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/mypage/qnaRecord.css">
+	href="${pageContext.request.contextPath}/css/mypage/qnaRecord.css?v=1">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common/common.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/mypage/qnaRecord.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/mypage/qnaRecord.js?v=3"></script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/common/header.jsp" />
@@ -38,7 +38,7 @@
 							<a href="#"><button>3개월</button></a>
 							<a href="#"><button>6개월</button></a>
 							<a href="#"><button>전체</button></a>
-							<a href="#"><img src="${pageContext.request.contextPath}/img/mypage/Btnsearch.gif"></a>
+							<%-- <a href="#"><img src="${pageContext.request.contextPath}/img/mypage/Btnsearch.gif"></a> --%>
 						</div>
 						<div id="record_table">
 							<span id="total"></span>
