@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Project_JSP.dao.ActivityDao">
+    
+    <resultMap type="Activity" id="ActivityResult">
+        <id property="num" column="menu_num"/>
+        <result property="name" column="menu_name"/>
+        <result property="introduce" column="menu_introduce"/>
+        <result property="type" column="menu_type"/>
+        <result property="imgPath" column="menu_img_path"/>
+    </resultMap>
+    
+    <sql id="selectSql">
+        select menu_num, menu_name,menu_introduce, menu_type,menu_img_path from activity
+    </sql>
+    
+    <select id="selectLastInsert" resultType="int">
+    	select MAX(menu_num) from activity
+    </select>
+    
+    <sql id="whereSql">
+        <where>
+            <if test="num != null">
+                menu_num = #{num}
+            </if>            
+        </where>        
+    </sql>
+    
+     <sql id="whereSqlType">
+        <where>
+            <if test="num != null">
+                menu_type = #{type}
+            </if>            
+        </where>        
+    </sql>
+    
+	<select id="selectAll" resultMap="ActivityResult">
+	    <include refid="selectSql"/>	    
+	</select>
+	
+	<select id="selectByNum" parameterType="Activity" resultMap="ActivityResult">
+	    <include refid="selectSql"/>
+	    <include refid="whereSql"/>	    
+	</select>
+	
+	<select id="selectByType" parameterType="Activity" resultMap="ActivityResult">
+	    <include refid="selectSql"/>
+	    <include refid="whereSqlType"/>	    
+	</select>
+	
+	<insert id="insert" parameterType="Activity">
+	   insert into activity( menu_name,menu_introduce, menu_type, menu_img_path) 
+	   values( #{name}, #{introduce},#{type}, #{imgPath})
+	</insert>
+	
+	<update id="update" parameterType="Activity">
+	    update activity set menu_introduce = #{introduce}, menu_name = #{name}, 
+	    menu_type = #{type}, m menu_img_path = #{imgPath}
+	  	<include refid="whereSql"/>
+	</update>
+	
+	<delete id="delete" parameterType="Activity">
+	    delete from activity
+	    <include refid="whereSql"/>
+	</delete>
+    
+</mapper>

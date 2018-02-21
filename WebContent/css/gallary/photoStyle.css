@@ -53,14 +53,13 @@
 }
 .slideWrap{
 	width: 100%;
-	background:black; 
 	overflow: hidden;
 	position:relative;
 }
 .slideWrap .slide{
 	width: 100%;
 }
-
+ 
 .slideWrap .slide img{
 	width: 100%; 
 	float: left;
@@ -163,7 +162,7 @@
 	width: 123px;
 	height: 94px; 
 }
-.sCount{ 
+.countWrap{ 
 	float: right;
 	padding-right: 20px;
 } 

@@ -37,7 +37,7 @@
 		
 		$("#searchBtn").trigger("click"); 
 	}) 
-</script> 
+</script>  
 </c:if>
 </head>
 <body>

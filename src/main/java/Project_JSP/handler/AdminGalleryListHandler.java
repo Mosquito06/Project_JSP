@@ -33,8 +33,8 @@ public class AdminGalleryListHandler implements CommandHandler {
 			}
 			
 			return filePath + "adminpage_gallery_list.jsp";
-		}else if(req.getMethod().equalsIgnoreCase("post")){
-			ObjectMapper om = new ObjectMapper(); 	
+		}else if(req.getMethod().equalsIgnoreCase("post")){ 
+			ObjectMapper om = new ObjectMapper(); 	 
 			 
 			String no =req.getParameter("no"); 
 			String img =req.getParameter("img"); 

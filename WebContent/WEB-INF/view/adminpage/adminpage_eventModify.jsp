@@ -18,7 +18,6 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/reservation/jsCalendar.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/reservation/jsCalendar.lang.de.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/event/formCheck.js?a=3"></script>
-
 <script>
 	$(function(){
 		var date = new Date("<fmt:formatDate value="${event.eventStartDay }" pattern="yyyy-MM-dd"/>");
@@ -33,7 +32,7 @@
 		
 		$("#sDay").text(date.getDate());
 		
-		$("#eDay").text(endDate.getDate());
+		$("#eDay").text(endDate.getDate()); 
 	})
 </script>
 </head>
@@ -47,7 +46,7 @@
 						<h1 id="title">갤러리 관리</h1>
 						<div id="wrap_home">
 							<img src="${pageContext.request.contextPath}/img/common/locaton.gif" id="home"> > <span
-								id="board">관리자</span> > <span id="board">갤러리 관리</span>
+								id="board">관리자</span> > <span id="board">이벤트 관리</span>
 						</div>
 					</div>
 			<form action="${pageContext.request.contextPath}/adminEventModify.do"
@@ -55,14 +54,14 @@
 
 
 				<table id="editerTd">
-					<tr>
+					<tr> 
 						<td><span class="titleTxt">제목</span><input type="text"
 							name="title" class="inputTxt" value="${event.eventTitle }"></td>
 					</tr>
 					<tr>
 						<td><span class="titleTxt">시작 날짜</span>
 							<div class="dateBox sDate">
-								<div id="sYear" class="year"></div>
+								<div id="sYear" class="year"></div> 
 								-
 								<div id="sMonth" class="month"></div>
 								-

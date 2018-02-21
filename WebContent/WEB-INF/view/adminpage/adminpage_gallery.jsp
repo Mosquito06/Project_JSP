@@ -136,7 +136,7 @@
 		 $("#checkAll").prop("checked",false); 
 	 }
 
-</script>
+</script> 
 </head>
 <body>  
 	<div> 
@@ -160,8 +160,8 @@
 							<table>
 								<tr> 
 									<th>갤러리 업로드</th>
-								</tr>   
-								<tr> 
+								</tr>
+								<tr>
 									<td style='padding: 10px 0px;'>
 										<input class="btn_admin" value="이미지 추가" onclick="fileUploadAction()" type="button"/>
 										<input class="btn_admin" value="이미지 삭제" onclick="deleteImage()" type="button"/>
@@ -179,8 +179,8 @@
 												<div>내용</div>
 												<div>종류</div>
 											</div>
-											<ul class="imgs_wrap">  
-									 		 
+											<ul class="imgs_wrap"> 
+											
 											</ul>
 										</div>  
 									</td>     
