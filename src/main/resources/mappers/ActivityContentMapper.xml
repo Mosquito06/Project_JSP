@@ -24,7 +24,7 @@
 	    <include refid="selectSql"/>	    
 	</select>
 	
-	<select id="selectByNum" parameterType="int" resultMap="ActivityContentResult">
+	<select id="selectByNum" parameterType="ActivityContent" resultMap="ActivityContentResult">
 	    <include refid="selectSql"/>
 	    <include refid="whereSql"/>	    
 	</select>

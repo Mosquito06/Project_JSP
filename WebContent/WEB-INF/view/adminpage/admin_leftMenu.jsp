@@ -28,7 +28,10 @@
 						<li class="bMenu"> 
 			 				<a href="${pageContext.request.contextPath}/adminGalleryList.do" class="noBorder"><span>갤러리 관리</span></a>  
 			 			</li>
-			 		</ul>
+			 			<li class="bMenu">
+			 				<a href="${pageContext.request.contextPath}/adminActivityList.do" class="noBorder"><span>액티비티 관리</span></a>  
+			 			</li> 
+			 		</ul> 
 			 	</div>
 			 	
 			 </div>

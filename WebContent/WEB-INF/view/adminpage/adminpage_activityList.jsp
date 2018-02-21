@@ -41,7 +41,7 @@
 				}
 			}
 		}
-</script>
+</script> 
 </head>
 <body>  
 	<div> 
@@ -81,15 +81,15 @@
 							</tr>
 							</c:if>  
 							<c:if test="${list!=null}">
-								<c:forEach items="${list}" var="item"> 
-									<tr> 
+								<c:forEach items="${list}" var="item">
+									<tr>
 										<td><input type="checkbox" class="checkbox"></td> 
 										<td class="galNo">${item.num}</td>
-										<td><a href="#">${item.name}</a></td>
+										<td><a href="${pageContext.request.contextPath}/adminActivityRead.do?no=${item.num}">${item.name}</a></td>
 										<td><img src="${item.imgPath}" class="img" width="150"></td>
 										<td>${item.type}</td> 
 									</tr>
-								</c:forEach>
+								</c:forEach> 
 							</c:if>
 						</table> 
 					</div>

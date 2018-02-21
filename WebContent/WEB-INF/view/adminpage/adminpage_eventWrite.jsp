@@ -76,7 +76,7 @@
 							</div>
 						</td>
 					</tr>
-					<tr>
+					<tr> 
 						<td><input type="submit" value="저장" class="btn"> <input
 							type="button" value="돌아가기" class="btn"></td>
 					</tr>

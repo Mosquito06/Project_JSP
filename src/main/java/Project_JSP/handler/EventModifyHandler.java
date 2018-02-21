@@ -81,7 +81,9 @@ public class EventModifyHandler implements CommandHandler {
 			String oldBanner = multi.getParameter("oldBanner");
 			String oldContent = multi.getParameter("oldContent");
 			
-			content = content.substring(content.indexOf("<div>")+5, content.lastIndexOf("</div>"));
+			//content = content.substring(content.indexOf("<div>")+5, content.lastIndexOf("</div>"));
+			
+			
 			
 			HttpSession session = req.getSession();
 			List<String> fileList =  (List<String>) session.getAttribute("fileList");
@@ -130,7 +132,7 @@ public class EventModifyHandler implements CommandHandler {
 			return null;
 		} catch (Exception e) { 
 			e.printStackTrace();
-			return "";
+			return null;
 		}
 
 	}
