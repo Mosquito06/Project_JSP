@@ -83,7 +83,7 @@
 							</select>
 						</td>
 					</tr>
-					<tr>
+					<tr> 
 						<th colspan="1">소개</th>
 						<td colspan="5"><input type="text"	name="introduce" style="width: 94%;" value='${activity.introduce }'/></td>
 					</tr>
