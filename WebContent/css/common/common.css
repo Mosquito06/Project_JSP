@@ -112,7 +112,7 @@ ul#hotelList li a,ul#hotelList li span{
 	border-right: 1px solid #cccfcf;
 }
 
-#headNav ul li:nth-child(4) a {
+#headNav #last_li a {
 	margin-right: 0px;
 	border-right: none;
 }
@@ -478,4 +478,15 @@ li.bMenu>a{
 		margin:0px auto;
 		margin-bottom:40px;
 		overflow: hidden;
+	}
+	#wrap_avi{
+		
+		width:1200px;
+		margin:120px auto;
+	}
+	#avi_title{
+		width:170px;
+		height:130px;
+		margin:0 auto;
+		background: url("/Project_JSP/img/common/enjoyTit.gif") no-repeat;
 	}
