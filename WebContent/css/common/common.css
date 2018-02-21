@@ -117,7 +117,7 @@ ul#hotelList li a,ul#hotelList li span{
 	border-right: none;
 }
 
-#headNav ul li:last-child a {
+#headNav #admin_mode a {
 	border-right: none;
 	padding: 5px 10px;
 	margin-top: -5px;
@@ -126,7 +126,7 @@ ul#hotelList li a,ul#hotelList li span{
 	color: #fff;
 }
 
-#headNav ul li:last-child a:HOVER {
+#headNav #admin_mode a:HOVER {
 	background: #3e2b2c;
 }
 /*헤드 메뉴*/

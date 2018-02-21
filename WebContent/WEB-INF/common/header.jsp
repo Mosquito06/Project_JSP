@@ -44,7 +44,10 @@
 					</c:if>
 					<li><a href="${pageContext.request.contextPath }/myReservation.do">예약확인</a></li>
 					<li><a href="${pageContext.request.contextPath }/qna.do">고객문의</a></li>
-					<li><a href="${pageContext.request.contextPath }/admin.do">관리자</a></li>
+					<c:if test="${ADMIN !=null }">
+						<li id="admin_mode"><a href="${pageContext.request.contextPath }/admin.do">관리자</a></li>
+					</c:if>
+					
 				</ul>
 			</div>  
 		</div>
