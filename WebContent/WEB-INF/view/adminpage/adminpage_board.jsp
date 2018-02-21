@@ -14,7 +14,7 @@
 	href="${pageContext.request.contextPath }/css/adminpage/free_board.css?v=1">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/adminpage/admin_board.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/adminpage/admin_board.js?v=12"></script>
 </head>
 <body>
 	<div> 

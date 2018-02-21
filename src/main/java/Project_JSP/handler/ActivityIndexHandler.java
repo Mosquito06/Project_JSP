@@ -6,9 +6,11 @@ import javax.servlet.http.HttpServletResponse;
 import Project_JSP.mvc.controller.CommandHandler;
 
 public class ActivityIndexHandler implements CommandHandler {
-
+	private static final String filePath = "/WEB-INF/view/adminpage/";
+	
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
+		
 		return "/WEB-INF/view/activity/activity.jsp";
 	}
 

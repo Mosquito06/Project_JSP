@@ -30,6 +30,26 @@ $(function(){
 		
 	})
 	
-	
-	
+	$(".submit").click(function(){
+
+		var empty = isEmpty();
+		
+		if(empty==false){
+			alert("빈칸이 존재합니다.");
+			return false;
+		}
+
+		if(empty){
+			$("#f").submit();
+		}
+		
+	})
 })
+function isEmpty(){
+		var err = true;
+
+		if($("#id").val()==""){
+			err = false;
+		}
+		return err;
+	}

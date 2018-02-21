@@ -60,7 +60,12 @@ public class AdminReserveHandler implements CommandHandler{
 				Client client = new Client();
 				client.setId(id);
 				client=clientDaoService.findClientId(client);
-				lists=service.selectReservationUser(client.getClientNum());
+				if(client == null){
+					lists=null;
+				}else{
+					lists=service.selectReservationUser(client.getClientNum());
+				}
+				
 				req.setAttribute("id", id);
 				req.setAttribute("set", 2); 
 			}

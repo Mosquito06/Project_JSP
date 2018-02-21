@@ -16,7 +16,18 @@ public class AdminUserFindHandler implements CommandHandler{
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		ClientDaoService service = ClientDaoService.getInstance();
 		if(req.getMethod().equalsIgnoreCase("get")){
-			List<Client> lists=service.findClientGrade(ClientGrade.BLACKLIST);
+			String set = req.getParameter("set");
+			List<Client> lists=null;
+			if(set.equals("1")){
+				lists=service.findClientGrade(ClientGrade.BLACKLIST);
+			}else if(set.equals("2")){
+				lists=service.findClientGrade(ClientGrade.MEMBER);
+			}else if(set.equals("3")){
+				lists=service.findClientGrade(ClientGrade.NONMEMBER);
+			}else if(set.equals("4")){
+				lists=service.findClientGrade(ClientGrade.ADMIN);
+			}
+			
 			req.setAttribute("lists", lists);
 			return "/WEB-INF/view/adminpage/adminpage_user.jsp";
 		}else if(req.getMethod().equalsIgnoreCase("post")){

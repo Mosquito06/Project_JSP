@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Project_JSP.dao.ActivityContentDao">
+    
+    <resultMap type="ActivityContent" id="ActivityContentResult">
+        <id property="num" column="menu_num"/>
+        <result property="content" column="content"/>
+        <result property="imgPath" column="imgPath"/>
+    </resultMap>
+    
+    <sql id="selectSql">
+        select menu_num, content, imgPath from ActivityContent
+    </sql>
+    
+    <sql id="whereSql">
+        <where> 
+            <if test="num != null">
+                menu_num = ${num}
+            </if>             
+        </where>        
+    </sql>
+    
+	<select id="selectAll" resultMap="ActivityContentResult">
+	    <include refid="selectSql"/>	    
+	</select>
+	
+	<select id="selectByNum" parameterType="int" resultMap="ActivityContentResult">
+	    <include refid="selectSql"/>
+	    <include refid="whereSql"/>	    
+	</select>
+
+	<insert id="insert" parameterType="ActivityContent">
+	   insert into ActivityContent(menu_num, content,imgPath)
+	   values(#{num}, #{content},#{imgPath})
+	</insert>
+	
+	<update id="update" parameterType="ActivityContent">
+	    update ActivityContent set content = #{content}
+	  	<include refid="whereSql"/>
+	</update>
+	
+	<delete id="delete" parameterType="ActivityContent">
+	    delete from ActivityContent 
+	    <include refid="whereSql"/>
+	</delete>
+    
+</mapper>

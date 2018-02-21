@@ -94,10 +94,14 @@ $(function(){
 	$(".search_type").change(function(){
 		var set = $(this).val();
 		if(set == 1){
+			$(".date").val("");
+			$("#id").val("");
 			$("#search_user").css("display","none");
 			$("#search_date").css("display","block");
 			$("#set_type").val("1");
 		}else if(set == 2){
+			$(".date").val("");
+			$("#id").val("");
 			$("#search_date").css("display","none");
 			$("#search_user").css("display","block");
 			$("#set_type").val("2");

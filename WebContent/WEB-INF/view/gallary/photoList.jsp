@@ -9,15 +9,15 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/common/common.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/gallary/slick.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/gallary/photoStyle.css?v=2">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/gallary/photoStyle.css?v=4">
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/gallary/slick.min.js"></script>
-<script> 
+<script>  
 	$(function(){     
 		var type = "<%=request.getParameter("showGalType") %>"; 
 		switch (type) { 
-			case "ALL": 
+			case "ALL":  
 				$(".tab-list li").eq(0).find("a").addClass("on");
 			break;
 			case "ROOM":
@@ -46,8 +46,8 @@
 			  slidesToShow: 6,
 			  slidesToScroll: 1,
 			  dots: false, 
-			  arrows: false, 
-			  centerMode: true, 
+			  arrows: false,  
+			  centerMode: false,  
 			  asNavFor: '.slideWrap', 
 			  focusOnSelect: true 
 			});  
@@ -55,18 +55,33 @@
 		$('.slideWrap').slick({
 			  slidesToShow: 1,
 			  slidesToScroll: 1, 
-			  initialSlide: 1,
-			  arrows: false, 
-			  asNavFor: '.slide-nav-wrap'
+			  arrows: false , 
+			  asNavFor: '.slide-nav-wrap' 
 	    });  
-		  
+		
+		$(".slideWrap").slick("slickCurrentSlide");
+		
+		var idx = $(".slideWrap").slick("slickCurrentSlide")+1;
+		var size = 0;
+
+		<c:forEach var="item" items="${list}">
+			size++;
+		</c:forEach>
+		$(".totalCount").text(size);
+		 
+		$(".sCount").text(idx); 
+		
 		$(".next").click(function(){ 
 			$('.slideWrap').slick("slickNext");
-			return false; 
-		}) 
+			var idx = $(".slideWrap").slick("slickCurrentSlide")+1;
+			$(".sCount").text(idx);
+			return false;   
+		})  
 		
-		$(".prev").click(function(){
+		$(".prev").click(function(){ 
 			$('.slideWrap').slick("slickPrev");
+			var idx = $(".slideWrap").slick("slickCurrentSlide")+1;
+			$(".sCount").text(idx);
 			return false;
 		})
 		
@@ -74,7 +89,6 @@
 			$('.slideWrap').slick("slickPlay");
 			return false; 
 		})
-		
 		$(".slideShow-stop").click(function(){
 			$('.slideWrap').slick("slickPause");
 			return false;
@@ -110,26 +124,29 @@
 					<div id="gallery">  
 						<div class="image-wrapper"> 
 							<div class="slideWrap">
-								<c:if test="${list!=null}"> 
-								<script>
-									console.log("dsfafsd");
-						 		</script>
+								<c:if test="${list!=null}">  
 									<c:forEach var="item" items="${list}">
 										<div class="slide"> 
 											<img src="${item.path }">
 											<div class="titleWrap">
 												<strong>${item.name }</strong> 
-												<p>${item.content }<span class='sCount'></span></p> 
+												<p>${item.content }
+													<span class="countWrap">
+														<span class='sCount'></span>
+														 / 
+														<spacn class="totalCount"></spacn>
+													</span>
+												</p> 
 											</div> 
 										</div>  
 									</c:forEach>
 								</c:if> 
 							</div>
-							<a href="#" class="prev sbtn">이전</a>
+							<a href="#" class="prev sbtn">이전</a> 
 							<a href="#" class="next sbtn">이후</a> 
 						</div>
 						<div class="slide-controls">
-							<span class="total">Total 888</span>
+							<span class="total">Total <spacn class="totalCount"></spacn></span>
 							<div class="control-btn-wrap">
 								<span class="slideShow-go">go</span>
 								<span class="slideShow-stop">stop</span>

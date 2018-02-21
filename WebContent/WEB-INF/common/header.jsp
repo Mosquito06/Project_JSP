@@ -10,8 +10,8 @@
 				<a href="#" class="openList"><img src="${pageContext.request.contextPath }/img/common/hotolIcon.png"></a>
 				<ul id="hotelList" class="hide">
 					<li><a href="#" class="selTitle">The Shilla</a></li>
-					<li><a href="#">서울신라호텔</a></li>
-					<li><a href="#">제주신라호텔</a></li>
+					<li><a href="http://www.shilla.net/seoul/index.do?lang=ko">서울신라호텔</a></li>
+					<li><a href="http://www.shilla.net/jeju/index.do">제주신라호텔</a></li>
 					<li><a href="#" class="selTitle">Shilla Stay</a></li>
 					<li><span class="stayHead">서울 강북</span></li>
 					<li><a href="#">신라스테이 광화문</a></li>
@@ -36,14 +36,27 @@
 				<ul>  
 					<c:if test="${MEMBER !=null }">
 						<li><a href="${pageContext.request.contextPath }/logOut.do" id="logout">로그아웃</a></li>
-											<li><a href="${pageContext.request.contextPath }/mypage.do">마이페이지</a></li>
+						<li><a href="${pageContext.request.contextPath }/mypage.do">마이페이지</a></li>
+						<li><a href="${pageContext.request.contextPath }/myReservation.do">예약확인</a></li>
+						<li><a href="${pageContext.request.contextPath }/qna.do">고객문의</a></li>
 					</c:if>
-					<c:if test="${MEMBER==null }">
+					<c:if test="${NONMEMBER !=null }">
+						<li><a href="${pageContext.request.contextPath }/logOut.do" id="logout">로그아웃</a></li>
+						<li><a href="${pageContext.request.contextPath }/myReservation.do">예약확인</a></li>
+						<li><a href="${pageContext.request.contextPath }/qna.do">고객문의</a></li>
+					</c:if>
+					<c:if test="${MEMBER==null && ADMIN==null && NONMEMBER==null}">
 						<li><a href="${pageContext.request.contextPath }/login.do">로그인</a></li>
 						<li><a href="${pageContext.request.contextPath }/join.do">신라리워즈 가입</a></li>
+						<li><a href="${pageContext.request.contextPath }/myReservation.do">예약확인</a></li>
+						<li><a href="${pageContext.request.contextPath }/qna.do">고객문의</a></li>
 					</c:if>
-					<li><a href="${pageContext.request.contextPath }/myReservation.do">예약확인</a></li>
-					<li><a href="${pageContext.request.contextPath }/admin.do">관리자</a></li>
+					
+					<c:if test="${ADMIN !=null }">
+						<li><a href="${pageContext.request.contextPath }/logOut.do" id="logout">로그아웃</a></li>
+						<li id="admin_mode"><a href="${pageContext.request.contextPath }/admin.do">관리자</a></li>
+					</c:if>
+					
 				</ul>
 			</div>  
 		</div>

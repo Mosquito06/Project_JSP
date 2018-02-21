@@ -31,7 +31,7 @@
 						</div>
 					</div>
 
-			<form action="${pageContext.request.contextPath}/event/eventWrite.do"
+			<form action="${pageContext.request.contextPath}/adminEventWrite.do"
 				id="addEventForm" method="post" enctype="multipart/form-data">
 				<table id="editerTd">
 					<tr>
@@ -86,7 +86,7 @@
 			</form> 
 			
 			<div id="start-calendar" class="calendar"></div>
-			<div id="end-calendar" class="calendar"></div>
+			<div id="end-calendar" class="calendar"></div> 
 		</div>
 		</div>
 	</section>
