@@ -1,32 +1,57 @@
 package Project_JSP.handler;
 
 import java.io.File;
-import java.sql.SQLException;
-import java.util.List;
+import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-
-import Project_JSP.dto.BedType;
-import Project_JSP.dto.Room;
-import Project_JSP.dto.RoomGrade;
-import Project_JSP.dto.RoomInfo;
-import Project_JSP.dto.ViewType;
 import Project_JSP.mvc.controller.CommandHandler;
-import Project_JSP.service.RoomDaoService;
-import Project_JSP.service.RoomInfoDaoService;
 
-public class AdminRoomAddHandler implements CommandHandler{
+public class AdminRoomUpdateHandler implements CommandHandler{
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		if(req.getMethod().equalsIgnoreCase("get")){
-			return "/WEB-INF/view/adminpage/adminpage_room_add.jsp";
+			String roomNum = req.getParameter("roomNum");
+			String roomGrade = req.getParameter("roomGrade");
+			String roomInfoName = req.getParameter("roomInfoName");
+			String roomSize = req.getParameter("roomSize");
+			String bedType = req.getParameter("bedType");
+			String viewType = req.getParameter("viewType");
+			String roomPrice = req.getParameter("roomPrice");
+
+			String filePath = req.getRealPath("/img/room/" + roomInfoName);
+			File file = new File(filePath);
+			File[] fileList = file.listFiles();
+			String[] roomImgName = new String[fileList.length - 1];
+			
+			for(int i = 0; i < roomImgName.length; i++){
+				roomImgName[i] = fileList[i].getName();
+			}
+			
+			String reservImgName = fileList[fileList.length - 1].getName();
+			
+			String[] roomGradeArr = {"선택하세요", "STANDARD", "PREMIER", "SUITE"};
+			String[] bedTypeArr = {"선택하세요", "SINGLE", "DOUBLE", "TWIN", "FAMILYTWIN"};
+			String[] viewTypeArr = {"선택하세요", "MOUNTAIN", "GARDEN", "OCEAN"};
+			
+			req.setAttribute("roomNum", roomNum);
+			req.setAttribute("roomGrade", roomGrade);
+			req.setAttribute("roomInfoName", roomInfoName);
+			req.setAttribute("roomSize", roomSize);
+			req.setAttribute("bedType", bedType);
+			req.setAttribute("viewType", viewType);
+			req.setAttribute("roomPrice", roomPrice);
+			req.setAttribute("roomImgName", roomImgName);
+			req.setAttribute("reservImgName", reservImgName);
+			req.setAttribute("roomGradeArr", roomGradeArr);
+			req.setAttribute("bedTypeArr", bedTypeArr);
+			req.setAttribute("viewTypeArr", viewTypeArr);
+			
+			return "/WEB-INF/view/adminpage/adminpage_room_update.jsp";
 		}else if(req.getMethod().equalsIgnoreCase("post")){
-			req.setCharacterEncoding("UTF-8");
+			/*req.setCharacterEncoding("UTF-8");
 			String folderName = req.getParameter("room_info_name");
 			String roomImgPath = req.getRealPath("/img/room/" + folderName);
 
@@ -157,7 +182,7 @@ public class AdminRoomAddHandler implements CommandHandler{
 				Redirect = "/Project_JSP/adminRoom.do?result=1";
 			}
 		
-			res.sendRedirect(Redirect);
+			res.sendRedirect(Redirect);*/
 			return null;
 		}
 		

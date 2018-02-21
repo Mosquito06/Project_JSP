@@ -97,4 +97,17 @@ public class RoomInfoDaoService implements RoomInfoDao {
 		return null;
 	}
 
+	@Override
+	public List<RoomInfo> selectLastInsertRoomInfo() {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			RoomInfoDao dao = session.getMapper(RoomInfoDao.class);
+			return dao.selectLastInsertRoomInfo();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
 }
