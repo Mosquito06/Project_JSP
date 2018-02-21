@@ -38,6 +38,18 @@ public class AdminUserUpdateHandler implements CommandHandler{
 					req.setAttribute("error", 2);
 				}
 			
+			}else if(set == 3){
+				if(client.getClientGrade()== ClientGrade.MEMBER){
+					client.setClientGrade(ClientGrade.ADMIN);
+				}else{
+					req.setAttribute("error", 1);
+				}
+			}else if(set == 4){
+				if(client.getClientGrade()!= ClientGrade.NONMEMBER){
+					client.setClientGrade(ClientGrade.MEMBER);
+				}else{
+					req.setAttribute("error", 3);
+				}
 			}
 			clientDaoService.updateClient(client);
 			
