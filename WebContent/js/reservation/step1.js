@@ -37,7 +37,7 @@ $(function(){
 						$("#resultTable").append(
 							"<tr class='roomInfo'>" +
 								"<td>" +
-									"<img src='/Project_JSP/img/reservation/room/"+ room.roomInfoNum.reservationImg +"'>" +
+									"<img src='/Project_JSP/img/room/"+ room.roomInfoNum.roomInfoName + "/" + room.roomInfoNum.reservationImg +"'>" +
 								"</td>" +
 								"<td colspan='2'>" + 
 									"<div>" +

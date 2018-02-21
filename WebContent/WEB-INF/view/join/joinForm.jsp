@@ -75,9 +75,9 @@
 							
 								<p>
 								<label><span class="star">*</span>이메일</label>
-								<input type="text" name="email1" id="email1" class="import"><img src="img/join/x.png" class="x-btn">
+								<input type="text" name="email1" id="email1" class="import" style="ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'');" ><img src="img/join/x.png" class="x-btn">
 								@
-								<input type="text" name="email2" id="email2" class="import"><img src="img/join/x.png" class="x-btn">
+								<input type="text" name="email2" id="email2" class="import" style="ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z.]/g,'');"><img src="img/join/x.png" class="x-btn">
 								<span id="email_select">
 									<select id="sel_email">
 										<option value="">직접입력</option>

@@ -8,13 +8,17 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/common/common.css?ver=1">
-<link rel="stylesheet" type="text/css" href="css/adminpage/adminpage_room.css?v=ddd">
+<link rel="stylesheet" type="text/css" href="css/adminpage/adminpage_room.css?v=dd">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
 <script type="text/javascript" src="js/adminpage/adminpage_room.js?a=dd"></script>
-
 </head>
 <body>
+	<c:if test="${param.result == '1'}">
+		<script>
+			alert("등록되었습니다.");
+		</script>
+	</c:if>
 	<div> 
 		<header>
 			<jsp:include page="/WEB-INF/common/header.jsp" />

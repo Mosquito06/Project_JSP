@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE>
 <html>
 <head>
@@ -11,15 +12,9 @@
 <link rel="stylesheet" type="text/css" href="css/adminpage/adminpage_room_add.css?v=ddd">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
-<script type="text/javascript" src="js/adminpage/adminpage_room_add.js?a=d"></script>
+<script type="text/javascript" src="js/adminpage/adminpage_room_update.js?a=dd"></script>
 </head>
 <body>
-	<c:if test="${param.result == '0'}">
-		<script>
-			alert("이미 등록된 객실입니다. 다시 시도해주세요.");
-		</script>
-	</c:if>
-
 	<div> 
 		<header>
 			<jsp:include page="/WEB-INF/common/header.jsp" />
@@ -54,45 +49,62 @@
 									<table>
 										<tr>
 											<th>객실</th>
-											<td><input type="text" name="room_num" id="room_num"></td>
+											<td><input type="text" name="room_num" value="${roomNum }" id="room_num" disabled="disabled"></td>
 											<th>객실명</th>
-											<td><input type="text" name="room_info_name" id="room_info_name"></td>
+											<td><input type="text" name="room_info_name" id="room_info_name" value="${roomInfoName }"></td>
 											<th>객실크기</th>
-											<td><input type="text" name="room_size" id="room_size"></td>									
+											<td><input type="text" name="room_size" id="room_size" value="${roomSize }"></td>									
 										</tr>
 										<tr>	
 											<th>등급</th>
 											<td>
 												<select name="roomGrade" id="roomGrade">
-													<option>선택하세요.</option>
-													<option>STANDARD</option>
-													<option>PREMIER</option>
-													<option>SUITE</option>
+													<c:forEach var="item" items="${roomGradeArr }">
+														<c:choose>
+															<c:when test="${item == roomGrade }">
+																<option selected="selected">${item }</option>
+															</c:when>
+															<c:otherwise>
+																<option >${item }</option>
+															</c:otherwise>
+														</c:choose>
+													</c:forEach>
 												</select>
 											</td>
 											<th>침대타입</th>
 											<td>
 												<select name="bedType" id="bedType">
-													<option>선택하세요.</option>
-													<option>SINGLE</option>
-													<option>DOUBLE</option>
-													<option>TWIN</option>
-													<option>FAMILYTWIN</option>
+													<c:forEach var="item" items="${bedTypeArr }">
+														<c:choose>
+															<c:when test="${item == bedType }">
+																<option selected="selected">${item }</option>
+															</c:when>
+															<c:otherwise>
+																<option >${item }</option>
+															</c:otherwise>
+														</c:choose>
+													</c:forEach>
 												</select>
 											</td>
 											<th>전망</th>
 											<td>
 												<select name="viewType" id="viewType">
-													<option>선택하세요.</option>
-													<option>MOUNTAIN</option>
-													<option>GARDEN</option>
-													<option>OCEAN</option>
+													<c:forEach var="item" items="${viewTypeArr }">
+														<c:choose>
+															<c:when test="${item == viewType }">
+																<option selected="selected">${item }</option>
+															</c:when>
+															<c:otherwise>
+																<option >${item }</option>
+															</c:otherwise>
+														</c:choose>
+													</c:forEach>
 												</select>
 											</td>
 										</tr>
 										<tr>
 											<th>가격(1박당)</th>
-											<td><input type="text" name="room_price" id="room_price"></td>
+											<td><input type="text" name="room_price" id="room_price" value="${roomPrice }"></td>
 											<th>객실 이미지<br>
 												<span class="redText">*</span><span class="smallText">최대 4개</span>
 											</th>
@@ -118,14 +130,16 @@
 										<tr>
 											<td colspan="6">
 												<ul class="roomImg_wrap">
-													<!-- <li>
-														<div class="roomImgDiv">
-															<img src="/Project_JSP/img/room/Standard/1.jpg">
-														</div>
-														<div class="roomImgBtn">
-															<img src="/Project_JSP/img/adminpage/btnDelete.png">
-														</div>
-													</li> -->
+													<c:forEach var="item" items="${roomImgName}" varStatus="status">
+														<li>
+															<div class="roomImgDiv">
+																<img src="/Project_JSP/img/room/${roomInfoName }/${item}" data-file="${item }" id="roomImgDiv_${status.count }">
+															</div>
+															<div class="roomImgbtn">
+																<img src='/Project_JSP/img/adminpage/btnDelete.png'>
+															</div>
+														</li>
+													</c:forEach>									
 												</ul>
 											</td>
 										</tr>
@@ -135,20 +149,23 @@
 										<tr>
 											<td colspan="6">
 												<ul class="reservImg_wrap">
-													<!-- <li>
-														<div class="reservImgDiv">
-															<img src="/Project_JSP/img/reservation/room/(Standard)Standard.jpg">
-														</div>
-														<div class="reservImgBtn">
-															<img src="/Project_JSP/img/adminpage/btnDelete.png">
-														</div>
-													</li> -->
+													<c:forEach var="item" items="${reservImgName}" varStatus="status">
+														<li>
+															<div class="reservImgDiv">
+																<img src="/Project_JSP/img/room/${roomInfoName }/${item}" data-file="${item }" id="reservImgDiv_${status.count }">
+															</div>
+															<div class="reservImgbtn">
+																<img src='/Project_JSP/img/adminpage/btnDelete.png'>
+															</div>
+														</li>
+													</c:forEach>	
+												
 												</ul>
 											</td>
 										</tr>
 										<tr>
 											<td colspan="6">
-												<img src="/Project_JSP/img/adminpage/registerBtn.png">
+												<img src="/Project_JSP/img/adminpage/btnUpdateV2.png">
 												<input type="submit" id="registerRoom" style="display:none;">
 												<img src="/Project_JSP/img/adminpage/cancelBtn.png"> 
 											</td>

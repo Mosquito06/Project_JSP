@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -27,48 +27,48 @@
 				<jsp:include page="admin_leftMenu.jsp" />
 				<div id="rightArea">
 					<div id="wrap_title">
-						<h1 id="title">문의관리</h1>
+						<h1 id="title">문의내용</h1>
 						<div id="wrap_home">
 							<img src="${pageContext.request.contextPath}/img/common/locaton.gif" id="home"> > <span
-								id="board">관리자</span> > <span id="board">문의관리</span>
+								id="board">관리자</span> > <span id="board">문의 관리</span> > <span id="board">문의내용</span>
 						</div>
 					</div>
 					<div>
-					
-					</div>
-					<div id="qna_table">
-						<table id="t1">
+						<table>
 							<tr>
-								<th id="t_num">고객번호</th>
 								<th>아이디</th>
-								<th>성명</th>
-								<th id="t_title">제목</th>
+								<td>${client.id }</td>
+								<th>이름</th>
+								<td>${client.name }</td>
 								<th>휴대전화</th>
+								<td>${client.tel }</td>
 								<th>이메일</th>
-								<th>작성일</th>
-								<th>등급</th>
-								<th>답변</th>
+								<td>${client.email }</td>
+								<th>고객등급</th>
+								<td>${client.clientGrade }</td>
+								<th>등록일시</th>
+								<fmt:formatDate value="${client.date }" pattern="yyyy-MM-dd" var="enrollDate"/>
+								<td>${enrollDate }</td>
 							</tr>
-							<c:forEach items="${client}" var="item">
-								<tr  class='data'>
-									<td class="hiddenNum">${item.num }</td>
-									<td>${item.id }</td>
-									<td>${item.name }</td>
-									<td>${item.title }</td>
-									<td>${item.tel }</td>
-									<td>${item.email }</td>
-									<fmt:formatDate value="${item.date }" pattern="yyyy-MM-dd" var="item_date"/>
-									<td>${item_date }</td>
-									<td>${item.clientGrade }</td>
-									<c:if test="${item.content == null }">
-									<td>대기중</td>
-									</c:if>
-									<c:if test="${item.content !=null }">
-									<td>완료</td>
-									</c:if>
-								</tr>
-							</c:forEach>
+							<tr>
+								<th>문의 내용</th>
+								<td colspan="12" id="qna_content">${content.content }</td>
+								<c:if test="${client.path !=null}">
+									<script>
+									var path = "${client.path}";
+									var img = path.substring(path.lastIndexOf("/")+1);
+
+									if(img !="null"){
+										$("#qna_content").prepend("<img src='${pageContext.request.contextPath}/"+path+"'><br>");
+										
+									}
+									</script>
+								</c:if>
+							</tr>
 						</table>
+					</div>
+					<div>
+						<textarea rows="5" cols="50" id="reply"></textarea>
 					</div>
 				</div>
 			</div>

@@ -1,7 +1,6 @@
 package Project_JSP.handler;
 
 import java.io.File;
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,12 +18,48 @@ import Project_JSP.mvc.controller.CommandHandler;
 import Project_JSP.service.RoomDaoService;
 import Project_JSP.service.RoomInfoDaoService;
 
-public class AdminRoomAddHandler implements CommandHandler{
+public class AdminRoomUpdateHandler implements CommandHandler{
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		if(req.getMethod().equalsIgnoreCase("get")){
-			return "/WEB-INF/view/adminpage/adminpage_room_add.jsp";
+			String roomNum = req.getParameter("roomNum");
+			String roomGrade = req.getParameter("roomGrade");
+			String roomInfoName = req.getParameter("roomInfoName");
+			String roomSize = req.getParameter("roomSize");
+			String bedType = req.getParameter("bedType");
+			String viewType = req.getParameter("viewType");
+			String roomPrice = req.getParameter("roomPrice");
+
+			String filePath = req.getRealPath("/img/room/" + roomInfoName);
+			File file = new File(filePath);
+			File[] fileList = file.listFiles();
+			String[] roomImgName = new String[fileList.length - 1];
+			
+			for(int i = 0; i < roomImgName.length; i++){
+				roomImgName[i] = fileList[i].getName();
+			}
+			
+			String reservImgName = fileList[fileList.length - 1].getName();
+			
+			String[] roomGradeArr = {"선택하세요", "STANDARD", "PREMIER", "SUITE"};
+			String[] bedTypeArr = {"선택하세요", "SINGLE", "DOUBLE", "TWIN", "FAMILYTWIN"};
+			String[] viewTypeArr = {"선택하세요", "MOUNTAIN", "GARDEN", "OCEAN"};
+			
+			req.setAttribute("roomNum", roomNum);
+			req.setAttribute("roomGrade", roomGrade);
+			req.setAttribute("roomInfoName", roomInfoName);
+			req.setAttribute("roomSize", roomSize);
+			req.setAttribute("bedType", bedType);
+			req.setAttribute("viewType", viewType);
+			req.setAttribute("roomPrice", roomPrice);
+			req.setAttribute("roomImgName", roomImgName);
+			req.setAttribute("reservImgName", reservImgName);
+			req.setAttribute("roomGradeArr", roomGradeArr);
+			req.setAttribute("bedTypeArr", bedTypeArr);
+			req.setAttribute("viewTypeArr", viewTypeArr);
+			
+			return "/WEB-INF/view/adminpage/adminpage_room_update.jsp";
 		}else if(req.getMethod().equalsIgnoreCase("post")){
 			req.setCharacterEncoding("UTF-8");
 			String folderName = req.getParameter("room_info_name");
@@ -137,27 +172,29 @@ public class AdminRoomAddHandler implements CommandHandler{
 			
 			RoomInfoDaoService roomInfoService = RoomInfoDaoService.getInstance();
 			RoomDaoService roomService = RoomDaoService.getInstance();
-			roomInfoService.insertRoomInfo(roomInfo);
 			
-			List<RoomInfo> lastId = roomInfoService.selectLastInsertRoomInfo();
-
-			int roomNum = Integer.parseInt(roomMulti.getParameter("room_num"));
+			// ------- 아래 부터 해결
+			
+			
+			System.out.println(req.getParameter("room_num"));
+			System.out.println(roomMulti.getParameter("room_price"));
+			int roomNum = Integer.parseInt(req.getParameter("room_num"));
 			int roomPrice = Integer.parseInt(roomMulti.getParameter("room_price"));
+			
+			// 객실 수정
 			Room room = new Room();
 			room.setRoomNum(roomNum);
 			room.setRoomPrice(roomPrice);
-			room.setRoomInfoNum(lastId.get(lastId.size()-1));
+
+			roomService.updateRoom(room);
 			
-			int result = roomService.insertRoom(room);
-			String Redirect = "";
-			if(result <= 0 ){
-				Redirect = "/Project_JSP/adminRoomAdd.do?result=0";
-				roomInfoService.deleteRoomInfo(lastId.get(lastId.size()-1));
-			}else{
-				Redirect = "/Project_JSP/adminRoom.do?result=1";
-			}
-		
-			res.sendRedirect(Redirect);
+			// 수정한 객실을 가져와 객실 정보의 기본크를 객실 정보에  set 후 수정
+			Room updateRoom = roomService.selectRoomByNum(room);
+			roomInfo.setRoomInfoNum(updateRoom.getRoomInfoNum().getRoomInfoNum());
+			
+			roomInfoService.updateRoomInfo(roomInfo);
+			
+			res.sendRedirect("/Project_JSP/adminRoomAdd.do?result=2");
 			return null;
 		}
 		

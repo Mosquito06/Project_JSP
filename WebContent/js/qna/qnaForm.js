@@ -23,6 +23,7 @@
 				return false;
 			}
 			if(check&&empty){
+				$("textarea").val($("textarea").val().replace(/(?:\r\n|\r|\n)/g, '<br />'));
 				$("#f").submit();
 			}
 			

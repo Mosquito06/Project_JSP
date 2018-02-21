@@ -47,13 +47,16 @@ public class RoomDaoService implements RoomDao {
 	}
 
 	@Override
-	public void insertRoom(Room room) {
+	public int insertRoom(Room room) {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			RoomDao dao = session.getMapper(RoomDao.class);
-			dao.insertRoom(room);
+			int result = dao.insertRoom(room);
 			session.commit();
+			return result;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return 0;
+			
 		}
 	}
 

@@ -39,10 +39,13 @@
 		select view_type from room_info where room_info_name = #{param1} group by view_type;   
 	</select>
 	
+	<select id="selectLastInsertRoomInfo" resultMap="RoomInfoResult">
+	   	select last_insert_id(room_info_num) as room_info_num from room_info order by room_info_num;
+	</select>
 	
 	<insert id="insertRoomInfo" parameterType="RoomInfo">
 	   insert into room_info(room_info_name, room_grade, view_type, bed_type, room_size, room_img, reservation_img) 
-	   values(#{roomInfoName}, #{roomGrade}, #{viewType}, #{bedType}, #{roomSize}, #{roomImg}, ${reservationImg})
+	   values(#{roomInfoName}, #{roomGrade}, #{viewType}, #{bedType}, #{roomSize}, #{roomImg}, #{reservationImg})
 	</insert>
 	
 	<update id="updateRoomInfo" parameterType="RoomInfo">

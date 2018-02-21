@@ -175,7 +175,7 @@
 						<span class="rightText">${result.sDate }</span>
 						<span class="rightPrice"><span id="basicPrice">${result.roomPrice }</span> 원</span><br>
 						<span class="rightPriceBold">${result.roomPrice*result.stayDay } 원(${result.stayDay }박)</span>
-						<img src="/Project_JSP/img/reservation/room${result.roomImg }">
+						<img src="/Project_JSP/img/room/${result.roomName }${result.roomImg }">
 					</div>
 					<div id="fiveDiv">
 						<span class="importantText">옵션</span><br><br>

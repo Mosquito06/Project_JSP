@@ -10,8 +10,10 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import Project_JSP.dto.Post;
 import Project_JSP.dto.QnaBoard;
+import Project_JSP.dto.QnaView;
 import Project_JSP.mvc.controller.CommandHandler;
 import Project_JSP.service.QnaBoardService;
+import Project_JSP.service.QnaViewService;
 
 public class QnaRecordHandler implements CommandHandler {
 	private static final String QNALISTVIEW = "/WEB-INF/view/mypage/qnaRecordForm.jsp";
@@ -21,10 +23,11 @@ public class QnaRecordHandler implements CommandHandler {
 		if(req.getMethod().equalsIgnoreCase("get")){
 			return QNALISTVIEW;
 		}else if(req.getMethod().equalsIgnoreCase("post")){
-			QnaBoard qnaBoard = new QnaBoard();
-			qnaBoard.setId(req.getParameter("id"));
-			QnaBoardService service = QnaBoardService.getInstance();
-			List<QnaBoard> list =  service.selectAllQnaBoardById(qnaBoard);
+			QnaView qnaView = new QnaView();
+			qnaView.setId(req.getParameter("id"));
+			QnaViewService service = QnaViewService.getInstance();
+			List<QnaView> list = service.selectQnaViewAll(qnaView);
+			
 			ObjectMapper om = new ObjectMapper();
 			
 			String json = om.writeValueAsString(list);
@@ -33,6 +36,7 @@ public class QnaRecordHandler implements CommandHandler {
 			PrintWriter pw = res.getWriter();
 			pw.print(json);
 			pw.flush(); //고객에게 돌려줌
+			return null;
 		}
 		return null;
 	}

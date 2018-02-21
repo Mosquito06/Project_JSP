@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>누구나 한번쯤 꿈꾸는 일상으로부터의 탈출 |대구신라호텔</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css"> 
-<link rel="stylesheet" type="text/css" href="css/common/common.css">
+<link rel="stylesheet" type="text/css" href="css/common/common.css?v=1">
 <link rel="stylesheet" type="text/css" href="css/main.css?v=33"> 
 <link rel="stylesheet" type="text/css" href="css/reservation/jsCalendar.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
@@ -211,7 +211,13 @@
 							<a href="#" class="btnRwJoin"><img src="${pageContext.request.contextPath }/img/main/btnRwJoin.gif"></a>
 					</div>
 			 	</div> 
+			 	<div id="wrap_avi">
+			 		<div id="avi_title"></div>
+			 		<iframe width="1200" height="678" src="https://www.youtube.com/embed/81xxCLvADlU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			 	</div>
 			</div>
+			
+
 		</div>
 	</section>
 	<jsp:include page="WEB-INF/common/footer.jsp"/>

@@ -56,11 +56,17 @@
 	width:70px;
 }
 #date{
-	width:80px;
+	width:120px;
 }
 #answer{
-	width:70px;
+	width:90px;
 }
 #noRecord{
 	text-align: center;
+}
+.center_table{
+	text-align: center;
+}
+.notyet,.yes{
+	font-size: 13px;
 }

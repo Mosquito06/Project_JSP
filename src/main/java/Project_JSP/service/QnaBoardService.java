@@ -20,9 +20,9 @@ public class QnaBoardService implements QnaBoardDao{
 		super();
 	}
 
-
 	@Override
 	public void insertQnaBoard(QnaBoard qnaBoard) {
+		
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			QnaBoardDao dao = session.getMapper(QnaBoardDao.class);
 			dao.insertQnaBoard(qnaBoard);

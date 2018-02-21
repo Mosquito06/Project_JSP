@@ -12,4 +12,5 @@ public interface RoomInfoDao {
 	public void updateRoomInfo(RoomInfo roomInfo);
 	public void deleteRoomInfo(RoomInfo roomInfo);
 	public List<RoomInfo> selectViewTypeByRoomGrade(String roomName);
+	public List<RoomInfo> selectLastInsertRoomInfo();
 }

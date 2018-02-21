@@ -11,4 +11,12 @@
      	insert into question_content(question_num,question_content)
      	values(#{qnaNum},#{content})
      </insert>
+     
+     <select id="selectQnaBoardByNum" parameterType="QnaBoardContent" resultMap="QnaBoardContentResult">
+     	select * from question_content where question_num = #{qnaNum}
+     </select>
+     
+     <select id="selectQnaBoardContentAll" resultMap="QnaBoardContentResult">
+     	select * from question_content
+     </select>
 </mapper>

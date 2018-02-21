@@ -82,7 +82,7 @@ public class QnAHandler implements CommandHandler{
 			
 			int num = service.lastId();
 			String content = multi.getParameter("content");
-			
+	
 			QnaBoardContent qnaContent = new QnaBoardContent(num, content);
 			QnaBoardContentService service2 = QnaBoardContentService.getInstance();
 			service2.insertQnaBoardContent(qnaContent);

@@ -78,7 +78,7 @@ $(function(){
 						"</tr>" +
 						"<tr class='roomInfoBtn"+ roomInfo.roomNum + "'>" +
 						"	<th>예약 이미지</th>" +
-						"	<td colspan='2' class='reservImg'><img src='/Project_JSP/img/reservation/room/" + roomInfo.roomInfoNum.reservationImg + "'></td>" +
+						"	<td colspan='2' class='reservImg'><img src='/Project_JSP/img/room/" + roomInfo.roomInfoNum.roomInfoName + "/" + roomInfo.roomInfoNum.reservationImg + "'></td>" +
 						"	<td colspan='3'>" +
 						"		<img src='/Project_JSP/img/adminpage/btnConfirm.png'>" +
 						"		<img src='/Project_JSP/img/adminpage/btnUpdate.png'>" +
@@ -89,6 +89,10 @@ $(function(){
 				})
 				
 				$(data.imgList).each(function(i, img){
+					if(i == 4){
+						return;
+					}
+					
 					$("#TableDiv table tr[class*='roomInfoImg'] td").append(
 						"<img src='/Project_JSP/img/room/"+ roomFolder + "/" + img +"'>"
 					)
@@ -124,6 +128,22 @@ $(function(){
 		$(btnIndex).css("display", "none");
 		$(imgIndex).css("display", "none");
 	})
+	
+	// 테이블 내 수정 버튼
+	$(document).on("click", "img[src*='Update']", function(){
+		var roomNum = $(this).parents("tr").prev().prev().find("td").eq(0).text();
+		var roomGrade = $(this).parents("tr").prev().prev().find("td").eq(1).text();
+		var roomInfoName = $(this).parents("tr").prev().prev().find("td").eq(2).text();
+		var roomSize = $(this).parents("tr").prev().prev().find("td").eq(3).text();
+		var bedType = $(this).parents("tr").prev().prev().find("td").eq(4).text().split(" / ")[0];
+		var viewType = $(this).parents("tr").prev().prev().find("td").eq(4).text().split(" / ")[1];
+		var roomPrice = $(this).parents("tr").prev().prev().find("td").eq(5).text();
+	
+		location.href = "/Project_JSP/adminRoomUpdate.do?roomNum=" + roomNum + "&roomGrade=" + roomGrade + "&roomInfoName=" + roomInfoName + "&roomSize=" + roomSize + 
+		"&bedType=" + bedType + "&viewType=" + viewType + "&roomPrice=" + roomPrice;
+	})
+	
+	
 	
 	
 })

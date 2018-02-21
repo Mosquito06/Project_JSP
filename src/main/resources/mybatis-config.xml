@@ -52,7 +52,9 @@
 	  <mapper resource="mappers/QnaBoardMapper.xml" />
 	  <mapper resource="mappers/QnaBoardContentMapper.xml" />
 	  <mapper resource="mappers/QnaReplyMapper.xml" />
+	  <mapper resource="mappers/QnaViewMapper.xml" />
 	  <mapper resource="mappers/ActivityMapper.xml" />
 	  <mapper resource="mappers/ActivityContentMapper.xml" />
+
   </mappers>
 </configuration>
