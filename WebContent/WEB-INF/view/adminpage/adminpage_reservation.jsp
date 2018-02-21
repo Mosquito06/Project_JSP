@@ -15,8 +15,8 @@
 	<link rel="stylesheet" type="text/css" href="css/reservation/jsCalendar.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/adminpage/admin.js?v=1"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/adminpage/admin_reserve.js?v=11"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/adminpage/admin.js?v=12"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/adminpage/admin_reserve.js?v=1"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.js"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.lang.de.js"></script>
 
@@ -68,27 +68,27 @@
 						<input type="radio" name="search_type" class="search_type" value="2">회원검색
 						
 						<div id="wrap_form">
-							<form method="post" action="adminReservation.do">
+							<form method="post" action="adminReservation.do" id="form">
 								<input type="hidden" name="set" id="set_type">
 									<div id="search_date">
 										<label>검색날짜</label>
 										<c:if test="${sDay !=null && eDay !=null}">
-											<input type="text" id="sDay" name="sDay" value="${sDay}">~
-											<input type="text" id="eDay" name="eDay" value="${eDay}">
+											<input type="text" id="sDay" class="date" name="sDay" value="${sDay}">~
+											<input type="text" id="eDay" class="date" name="eDay" value="${eDay}">
 										</c:if>
 										<c:if test="${sDay ==null}">
-											<input type="text" id="sDay" name="sDay" >~
-											<input type="text" id="eDay" name="eDay" >
+											<input type="text" id="sDay" class="date" name="sDay" >~
+											<input type="text" id="eDay" class="date" name="eDay" >
 										</c:if>
 										
-										<input type="submit" value="검색">
+										<input type="submit" value="검색" class="submit">
 									</div>
 									
 									<div id="search_user">
 										<label>회원아이디</label>
 										
-										<input type="text" name="id" id="id">
-										<input type="submit" value="검색">
+										<input type="text"  name="id" id="id">
+										<input type="submit" value="검색" class="submit">
 									</div>
 							</form>
 						</div>
@@ -116,7 +116,7 @@
 								<th>대여상태</th>
 								<th>고객요청</th>
 							</tr>
-							<c:if test="${reserve.size() == 0}">
+							<c:if test="${reserve.size() == 0 || reserve == null}">
 								<tr><th colspan="12" id="noClick"><b>조건에 맞는 예약현황이 없습니다.</b></th></tr>
 							</c:if>
 							<c:forEach items="${reserve}" var="item">

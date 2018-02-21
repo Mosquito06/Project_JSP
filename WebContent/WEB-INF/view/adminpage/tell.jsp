@@ -13,7 +13,11 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
-
+<style>
+	#last_wrap{
+		margin-bottom:50px;
+	}
+</style>
 </head>
 
 <body>
@@ -41,7 +45,7 @@
 					<div>
 						<img src="${pageContext.request.contextPath }/img/adminpage/tell3.gif">
 					</div>
-					<div>
+					<div id="last_wrap">
 						<img src="${pageContext.request.contextPath }/img/adminpage/tell2.gif">
 					</div>
 				</div>
