@@ -41,6 +41,11 @@
 			alert("블랙리스트가 아닙니다.");
 		</script>
 	</c:if>
+	<c:if test="${error == 3}">
+		<script type="text/javascript">
+			alert("일반회원으로 변경할 수 없습니다.");
+		</script>
+	</c:if>
 
 	<div>
 		<header>
@@ -155,10 +160,13 @@
 							href="adminUserUpdate.do?set=1&num=${client.clientNum}"
 							class="admin_btn">블랙리스트 추가</a> <a
 							href="adminUserUpdate.do?set=2&num=${client.clientNum}"
-							class="admin_btn">블랙리스트 해제</a> <a
-							href="adminUserDelete.do?set=1&num=${client.clientNum}"
+							class="admin_btn">블랙리스트 해제</a> 
+							<a href="adminUserUpdate.do?set=4&num=${client.clientNum}"
+							class="admin_btn">일반회원 변경</a>
+							<a href="adminUserUpdate.do?set=3&num=${client.clientNum}"
+							class="admin_btn">관리자 변경</a>
+							<a href="adminUserDelete.do?set=1&num=${client.clientNum}"
 							class="admin_btn" id="del_btn">회원정보 삭제</a>
-
 					</div>
 				</div>
 			</div>

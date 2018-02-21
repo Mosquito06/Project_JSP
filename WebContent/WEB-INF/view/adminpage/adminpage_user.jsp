@@ -47,7 +47,10 @@
 					
 					<div id="wrap_admin_btn">
 						<a href="adminUser.do" class="btn_admin">전체보기</a>
-						<a href="adminUserFind.do" class="btn_admin">블랙리스트보기</a>
+						<a href="adminUserFind.do?set=1" class="btn_admin">블랙리스트보기</a>
+						<a href="adminUserFind.do?set=2" class="btn_admin">일반회원보기</a>
+						<a href="adminUserFind.do?set=3" class="btn_admin">비회원보기</a>
+						<a href="adminUserFind.do?set=4" class="btn_admin">관리자보기</a>
 						<a href="" class="btn_admin" id="del_list">삭제</a>
 					</div>
 			

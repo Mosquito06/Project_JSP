@@ -70,8 +70,8 @@
 	</select>
 	
 	<insert id="insertRoom" parameterType="Room">
-	   insert into room(room_info_num, room_price, room_availability) 
-	   values(#{roomInfoNum.roomInfoNum}, #{roomPrice}) 
+	   insert into room(room_num, room_info_num, room_price) 
+	   values(#{roomNum}, #{roomInfoNum.roomInfoNum}, #{roomPrice}) 
 	</insert>
 	
 	<update id="updateRoom" parameterType="Room">

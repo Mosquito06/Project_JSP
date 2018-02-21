@@ -1,6 +1,6 @@
 var roomImg_delete_files = [];
 var reservImg_delete_files = [];
-var index = 0; 
+var index = 4; 
 
 $(function(){
 	// input file change 이벤트
@@ -22,12 +22,12 @@ $(function(){
 		 $("#reservList").trigger('click'); 
 	})
 	
-	// 추가 버튼
-	$("img[src*='registerBtn']").click(function(){
+	// 수정 버튼
+	$("img[src*='btnUpdateV2']").click(function(){
 		$("#registerRoom").trigger('click'); 
 	})
 	
-	// 추가 버튼 submit 이벤트 호출 시
+	// 수정 버튼 submit 이벤트 호출 시
 	$("#registerForm").submit(function(e){
 		if($("#room_num").val() == "" || $("#room_num").val() == null){
 			$("#room_num").focus();
@@ -71,7 +71,6 @@ $(function(){
 			return false;
 		}
 		
-		
 		var roomImg_upload_files = [];
 		var reservImg_upload_files = [];
 		
@@ -97,12 +96,7 @@ $(function(){
 			reservImg_upload_files.push($(".reservImg_wrap li:eq(" + i + ") > div img").attr("data-file"));
 		}
 		
-		/*$("#roomImgUpload").val(roomImg_upload_files);
-		$("#roomImgDelete").val(roomImg_delete_files);
-		$("#reservImgUpload").val(reservImg_upload_files);
-		$("#reservImgDelete").val(reservImg_delete_files);*/
-		
-		$("#registerForm").attr("action", "/Project_JSP/adminRoomAdd.do?room_info_name=" + $("#room_info_name").val() + 
+		$("#registerForm").attr("action", "/Project_JSP/adminRoomUpdate.do?room_info_name=" + $("#room_info_name").val() + 
 				"&roomImgUpload=" + roomImg_upload_files + "&roomImgDelete=" + roomImg_delete_files + 
 				"&reservImgUpload=" + reservImg_upload_files + "&reservImgDelete=" + reservImg_delete_files);
 		

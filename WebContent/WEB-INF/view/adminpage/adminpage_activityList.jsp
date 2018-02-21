@@ -13,25 +13,19 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script> 
 <script>
-	function delBtn(){	
-		 var checkSize = $(".checkbox:checked").length;
-
-		if(checkSize==0){
-			alert("삭제내용이 없습니다.");
-			return false;
-		} 
+	function delBtn(){	 
 			if (!confirm("삭제하시겠습니까?")) {
-		        return;
+		        return; 
 		    }
 			 
-			var leng = $(".checkbox").size();
+			var leng = $(".checkbox").size(); 
 			
 			for(var i=leng-1; i>-1; i--){
 				if($(".checkbox").eq(i).prop("checked")){  
 					var no = $(".galNo").eq(i).text();  
 					var img = $(".img").eq(i).attr("src");
 					$.ajax({ 
-				        url: contextPath + "/adminGalleryList.do?no="+no+"&img="+img,
+				        url: contextPath + "/adminActivityList.do?no="+no+"&img="+img,
 				        type:"post", 
 				        dataType : "json",
 				        success: function(json){ 
@@ -60,25 +54,24 @@
 				<jsp:include page="admin_leftMenu.jsp" />
 				<div id="rightArea">
 					<div id="wrap_title">
-						<h1 id="title">갤러리 관리</h1>
+						<h1 id="title">액티비티 관리</h1>
 						<div id="wrap_home">
 							<img src="${pageContext.request.contextPath}/img/common/locaton.gif" id="home"> > <span
-								id="board">관리자</span> > <span id="board">갤러리 관리</span>
+								id="board">관리자</span> > <span id="board">액티비티 관리</span>
 						</div>
-					</div>
+					</div> 
 					<div id="wrap_admin_btn">
 							<a href="#" class="btn_admin" onclick="delBtn()">선택 삭제</a>
-							<a href="${pageContext.request.contextPath}/adminGallery.do" class="btn_admin" >추가</a>
+							<a href="${pageContext.request.contextPath}/adminActivityWrite.do" class="btn_admin" >추가</a>
 					</div>
-					<div> 
+					<div>
 						<table id="t1">
 							<tr> 
 								<th></th> 
-								<th>갤러리번호</th>
-								<th>타이틀</th>
-								<th>내용</th>  
-								<th>이미지</th> 
-								<th>타입</th>  
+								<th>번호</th>
+								<th>메뉴명</th>
+								<th>배너이미지</th> 
+								<th>분류</th>
 							</tr>
 							<c:if test="${error!=null}">
 							<tr>
@@ -86,16 +79,15 @@
 									${error }
 								</td>
 							</tr>
-							</c:if> 
+							</c:if>  
 							<c:if test="${list!=null}">
-								<c:forEach items="${list}" var="item">
+								<c:forEach items="${list}" var="item"> 
 									<tr> 
-										<td><input type="checkbox" class="checkbox"></td>
+										<td><input type="checkbox" class="checkbox"></td> 
 										<td class="galNo">${item.num}</td>
-										<td>${item.name}</td>
-										<td>${item.content}</td>
-										<td><img src="${item.path}" class="img" width="150"></td>
-										<td>${item.type}</td>
+										<td><a href="#">${item.name}</a></td>
+										<td><img src="${item.imgPath}" class="img" width="150"></td>
+										<td>${item.type}</td> 
 									</tr>
 								</c:forEach>
 							</c:if>
