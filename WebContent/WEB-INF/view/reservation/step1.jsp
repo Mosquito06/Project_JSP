@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +17,28 @@
 <script type="text/javascript" src="js/reservation/step1.js?a=ddd"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.js"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.lang.de.js"></script>
+<c:if test="${param.chckIn != null }">
+<script>
+	$(function(){
+		var sDate = "${param.chckIn}";
+		var eDate = "${param.chckOut}";
+		sDate = sDate.split("-");
+		eDate = eDate.split("-");
+		
+		$("#sYear").text(sDate[0]);
+		$("#sMonth").text(sDate[1]);
+		$("#sDay").text(sDate[2]);
+		$("#eYear").text(eDate[0]);
+		$("#eMonth").text(eDate[1]); 
+		$("#eDay").text(eDate[2]); 
+		$("#adultNum").text("${param.adult}"); 
+		$("#kidNum").text("${param.child}"); 
+		$("#babyNum").text("${param.sChild}");
+		
+		$("#searchBtn").trigger("click"); 
+	}) 
+</script> 
+</c:if>
 </head>
 <body>
 	<div id="container">
