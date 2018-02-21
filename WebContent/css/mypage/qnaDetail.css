@@ -48,6 +48,7 @@
 	width:100px;
 	text-align: justify;
 	font-weight: bold;
+	vertical-align: top;
 }
 #qna_table table td,#answer_table table td{
 	padding: 7px 10px 6px;

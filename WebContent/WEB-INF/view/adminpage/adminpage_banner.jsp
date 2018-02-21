@@ -42,6 +42,36 @@
 				}
 			}
 		}
+	
+	function isEmpty(){
+		var err = true;
+		
+		$(".import").each(function(j,obj){
+			if($(this).val()==""){
+				err = false;
+			}
+		})
+		
+		return err;
+	}
+	
+	
+	$(function(){
+		$("#submit").click(function(){
+
+			var empty = isEmpty();
+			
+			if(empty==false){
+				alert("빈칸이 존재합니다.");
+				return false;
+			}
+
+			if(empty){
+				$("#f1").submit();
+			}
+			
+		})
+	})
 </script>
 </head>
 <body> 
@@ -69,15 +99,15 @@
 								</tr>
 								<tr>
 									<th>이미지 파일</th>
-									<td><input type="file" name="imgPath"></td>
+									<td><input type="file" name="imgPath" class="import"></td>
 								</tr>
 								<tr>
 									<th>링크 업로드</th>
-									<td><input type="text" name="linkPath"></td> 
+									<td><input type="text" name="linkPath" class="import"></td> 
 								</tr>
 								<tr>
 									<td colspan="2">
-										<input type="submit" class="btn_admin" value="추가">
+										<input type="submit" class="btn_admin" id="submit" value="추가">
 									</td>
 								</tr>
 							</table> 

@@ -1,0 +1,10 @@
+-- view 테이블
+create view qna_view as select question_board.question_num,id,question_name,question_title,question_email,question_tel,client_grade,question_date,reply_content 
+from question_board,question_reply where question_board.question_num = question_reply.question_num;
+
+-- trigger
+create trigger qna_trigger
+after insert on question_board for each row	
+begin 
+	insert into question_reply(question_num) values (new.question_num);
+end;

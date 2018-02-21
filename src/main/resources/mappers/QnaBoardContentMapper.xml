@@ -15,4 +15,8 @@
      <select id="selectQnaBoardByNum" parameterType="QnaBoardContent" resultMap="QnaBoardContentResult">
      	select * from question_content where question_num = #{qnaNum}
      </select>
+     
+     <select id="selectQnaBoardContentAll" resultMap="QnaBoardContentResult">
+     	select * from question_content
+     </select>
 </mapper>

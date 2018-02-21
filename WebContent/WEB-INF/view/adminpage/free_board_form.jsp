@@ -8,12 +8,12 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="../css/common/reset.css">
 <link rel="stylesheet" type="text/css"
-	href="../css/common/common.css?ver=1">
+	href="../css/common/common.css?ver=12">
 <link rel="stylesheet" type="text/css"
 	href="../css/adminpage/write_board.css?v=2">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="../js/common/common.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/adminpage/boardForm.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/adminpage/boardForm.js?v=12"></script>
 <script type="text/javascript">
 	$(function(){
 		$("#select_email").change(function(){
@@ -154,7 +154,8 @@
 						</c:if>
 						<div id="wrap_sub_btn">
 						<c:if test="${NONMEMBER !=null }">
-							<input type="hidden" value="${NONMEMBER.id}" id="member" name="memberId">
+							<input type="hidden" value="${NONMEMBER.id}" name="memberId">
+							<input type="hidden" value="" id="member">
 						</c:if>
 						<c:if test="${MEMBER !=null }">
 							<input type="hidden" value="${MEMBER.id}" id="member" name="memberId">

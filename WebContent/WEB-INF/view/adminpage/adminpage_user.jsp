@@ -14,7 +14,7 @@
 	href="${pageContext.request.contextPath}/css/adminpage/adminUser.css?v=112">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/adminpage/admin_user.js?=12"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/adminpage/admin_user.js?=1"></script>
 </head>
 <body>
 	<div> 
@@ -34,12 +34,12 @@
 						</div>
 					</div>
 					<div id="search_user">
-					<form method="post" action="adminUser.do">
+					<form method="post" action="adminUser.do" id="f">
 						<input type="hidden" name="set" id="set_type">
 						<label>회원아이디</label>
 										
 						<input type="text" name="id" id="id">
-						<input type="submit" value="검색">
+						<input type="submit" value="검색" class="submit">
 					</form>
 						
 					</div>
@@ -66,6 +66,9 @@
 								<th>자택전화</th>
 								<th>등급</th>
 							</tr>
+							<c:if test="${lists.size() == 0 || lists == null && client == null}">
+								<tr><td colspan="10">검색조건에 맞는 회원이 존재하지 않습니다.</td></tr>
+							</c:if>
 							<c:forEach items="${lists}" var="item">
 								<tr>
 									<td class="check"><input type="checkbox"  value="${item.clientNum}"></td>

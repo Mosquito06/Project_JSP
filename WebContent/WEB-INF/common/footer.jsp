@@ -16,17 +16,16 @@
 						<div id="ul_link">
 							<dl>
 								<dt>소개</dt>
-								<dd><a href="#">호텔소개</a></dd>
-								<dd><a href="#">호텔정보</a></dd>
-								<dd><a href="#">층별안내도</a></dd>
-								<dd><a href="#">오시는길</a></dd>
+								<dd><a href="${pageContext.request.contextPath }/info.do?page=1">호텔소개</a></dd>
+								<dd><a href="${pageContext.request.contextPath }/info.do?page=2">호텔정보</a></dd>
+								<dd><a href="${pageContext.request.contextPath }/info.do?page=3">층별안내도</a></dd>
+								<dd><a href="${pageContext.request.contextPath }/info.do?page=4">오시는길</a></dd>
 							</dl>
 							<br>
 					
 							<dl>
 								<dt>고객문의</dt>
-								<dd><a href="#">연락처</a></dd>
-								<dd><a href="#">FAQ</a></dd>
+								<dd><a href="${pageContext.request.contextPath }/tell.do">연락처</a></dd>
 								<dd><a href="${pageContext.request.contextPath }/qna.do">문의하기</a></dd>
 								<dd><a href="${pageContext.request.contextPath }/board/free_board.do">후기게시판</a></dd>
 							</dl>

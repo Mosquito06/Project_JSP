@@ -5,7 +5,11 @@
     <resultMap type="QnaView" id="QnaViewResult">
     	<result property="num" column="question_num"/>
     	<result property="id" column="id"/>
+    	<result property="name" column="question_name"/>
     	<result property="title" column="question_title"/>
+    	<result property="email" column="question_email"/>
+    	<result property="tel" column="question_tel"/>
+    	<result property="clientGrade" column="client_grade"/>
     	<result property="date" column="question_date"/>
     	<result property="content" column="reply_content"/>
     </resultMap>
@@ -14,5 +18,8 @@
   		select * from qna_view where id=#{id} order by question_date desc
  	</select>
 	
+	<select id="selectAll" resultMap="QnaViewResult">
+		select * from qna_view;
+	</select>
 
 </mapper>
