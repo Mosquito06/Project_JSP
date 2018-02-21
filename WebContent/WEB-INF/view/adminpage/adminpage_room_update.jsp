@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="css/adminpage/adminpage_room_add.css?v=ddd">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
-<script type="text/javascript" src="js/adminpage/adminpage_room_update.js?a=sdd"></script>
+<script type="text/javascript" src="js/adminpage/adminpage_room_update.js?a=dd"></script>
 </head>
 <body>
 	<div> 
@@ -49,16 +49,16 @@
 									<table>
 										<tr>
 											<th>객실</th>
-											<td><input type="text" name="room_num" value="${roomNum }" disabled="disabled"></td>
+											<td><input type="text" name="room_num" value="${roomNum }" id="room_num" disabled="disabled"></td>
 											<th>객실명</th>
 											<td><input type="text" name="room_info_name" id="room_info_name" value="${roomInfoName }"></td>
 											<th>객실크기</th>
-											<td><input type="text" name="room_size" value="${roomSize }"></td>									
+											<td><input type="text" name="room_size" id="room_size" value="${roomSize }"></td>									
 										</tr>
 										<tr>	
 											<th>등급</th>
 											<td>
-												<select name="roomGrade">
+												<select name="roomGrade" id="roomGrade">
 													<c:forEach var="item" items="${roomGradeArr }">
 														<c:choose>
 															<c:when test="${item == roomGrade }">
@@ -73,7 +73,7 @@
 											</td>
 											<th>침대타입</th>
 											<td>
-												<select name="bedType">
+												<select name="bedType" id="bedType">
 													<c:forEach var="item" items="${bedTypeArr }">
 														<c:choose>
 															<c:when test="${item == bedType }">
@@ -88,7 +88,7 @@
 											</td>
 											<th>전망</th>
 											<td>
-												<select name="viewType">
+												<select name="viewType" id="viewType">
 													<c:forEach var="item" items="${viewTypeArr }">
 														<c:choose>
 															<c:when test="${item == viewType }">
@@ -104,7 +104,7 @@
 										</tr>
 										<tr>
 											<th>가격(1박당)</th>
-											<td><input type="text" name="room_price" value="${roomPrice }"></td>
+											<td><input type="text" name="room_price" id="room_price" value="${roomPrice }"></td>
 											<th>객실 이미지<br>
 												<span class="redText">*</span><span class="smallText">최대 4개</span>
 											</th>

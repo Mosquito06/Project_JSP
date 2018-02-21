@@ -34,19 +34,19 @@ $(function(){
 	
 	// 수정 버튼 submit 이벤트 호출 시
 	$("#registerForm").submit(function(e){
-		if($("#room_num").val() == "" || $("#room_num").val() == null){
+		if($("#room_num").val() == ""){
 			$("#room_num").focus();
 			alert("객실을 작성해주세요.");
 			return false;
 		}
 		
-		if($("#room_info_name").val() == "" || $("#room_info_name").val() == null){
+		if($("#room_info_name").val() == ""){
 			$("#room_info_name").focus();
 			alert("객실명을 작성해주세요.");
 			return false;
 		}
 		
-		if($("#room_size").val() == "" || $("#room_size").val() == null){
+		if($("#room_size").val() == ""){
 			$("#room_size").focus();
 			alert("객실명을 작성해주세요.");
 			return false;
@@ -70,7 +70,7 @@ $(function(){
 			return false;
 		}
 		
-		if($("#room_price").val() == "" || $("#room_price").val() == null){
+		if($("#room_price").val() == ""){
 			$("#room_price").focus();
 			alert("가격을 작성해주세요.");
 			return false;
@@ -100,6 +100,9 @@ $(function(){
 		for(var i = 0; i < $(reservImg_length).length; i++){
 			reservImg_upload_files.push($(".reservImg_wrap li:eq(" + i + ") > div img").attr("data-file"));
 		}
+		
+		
+		alert($("#room_num").val());
 		
 		$("#registerForm").attr("action", "/Project_JSP/adminRoomUpdate.do?room_info_name=" + $("#room_info_name").val() + 
 				"&roomImgUpload=" + roomImg_upload_files + "&roomImgDelete=" + roomImg_delete_files + 
