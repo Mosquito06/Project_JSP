@@ -13,7 +13,13 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script> 
 <script>
-	function delBtn(){	 
+	function delBtn(){	
+		 var checkSize = $(".checkbox:checked").length;
+
+		if(checkSize==0){
+			alert("삭제내용이 없습니다.");
+			return false;
+		} 
 			if (!confirm("삭제하시겠습니까?")) {
 		        return;
 		    }

@@ -7,13 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="../css/common/reset.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/css/common/reset.css">
 <link rel="stylesheet" type="text/css"
-	href="../css/common/common.css?ver=1">
+	href="${pageContext.request.contextPath }/css/common/common.css?ver=1">
 <link rel="stylesheet" type="text/css"
-	href="../css/adminpage/free_board.css?v=2">
+	href="${pageContext.request.contextPath }/css/adminpage/free_board.css?v=2">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript" src="../js/common/common.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
 <script type="text/javascript">
 	$(function(){
 		$("#writeDo").click(function(){
@@ -49,7 +49,7 @@
 					<div id="wrap_title">
 						<h1 id="title">후기 게시판</h1>
 						<div id="wrap_home">
-							<img src="../img/common/locaton.gif" id="home"> > <span
+							<img src="${pageContext.request.contextPath }/img/common/locaton.gif" id="home"> > <span
 								id="board">후기게시판</span>
 						</div>
 

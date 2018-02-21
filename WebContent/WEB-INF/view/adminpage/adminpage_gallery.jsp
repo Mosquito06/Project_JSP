@@ -125,6 +125,7 @@
 
      //체크된 모든 이미지 삭제
 	 function deleteImage(){
+    	 
 		 var size = $(".checklist").size();
 		 
 		 for(var i=size-1; i>-1; i--){
