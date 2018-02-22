@@ -13,7 +13,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"	integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/activity/activityFormCheck.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/activity/activityFormCheck.js?v=1"></script>
 <style type="text/css">
 	#editerTd tr{
 			border-bottom: 1px solid #cdcbbe;
@@ -87,7 +87,7 @@
 							<input	type="file" name="imgBannerPath" id="imgBannerPath" style="float: left; margin-left: 10px;"/>
 						</td>
 					</tr> 
-					<tr> 
+					<tr>
 						<th colspan="1">
 							갤러리 이미지
 						</th>

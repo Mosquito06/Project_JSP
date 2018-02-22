@@ -8,10 +8,10 @@
 <title>로그인 | The Shilla Hotel</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
-<link rel="stylesheet" type="text/css" href="css/login/loginForm.css?v=1">
+<link rel="stylesheet" type="text/css" href="css/login/loginForm.css?v=5">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> 
 <script src="js/common/common.js"></script>
-<script src="js/login/loginForm.js?v=2"></script>
+<script src="js/login/loginForm.js?v=4"></script>
 </head>
 <body>
 	<div id="bodybg"></div>
@@ -95,9 +95,13 @@
 									<input type="hidden" value="NONMEMBER" name="clientGrade">
 									<a href="#"  id="nomember_btn"><img src="/Project_JSP/img/login/login.gif"></a>
 							</div>	
+							
 							<c:if test="${error2 !=null }">
 								<span class="error">${error2 }</span>	
 							</c:if>
+							<div id="reservation_num">
+								<a href="#" id="reser_search"><button>예약번호 찾기</button></a>
+							</div>
 					</div> 
 			</form>
 			
@@ -204,6 +208,54 @@
 				
 				</div>
 			</div>
+		</div>
+	</div>
+	<div id="success_pw">
+		<div id="success_title">
+			<h1>임시비밀번호 발급 완료</h1>
+			<a href="#" id="success_close"><img src="${pageContext.request.contextPath}/img/join/popLayerBtnClose.gif"></a>
+		</div>
+		<div id="success_form">
+			<p>회원님의 이메일 <span id="success_email"></span>로 임시 비밀번호를 발송해드렸습니다.</p>
+			<p>발급받은 임시 비밀번호로 로그인 해주시기 바랍니다.</p>
+		</div>
+		<div id="success_btn">
+			<a href="#" id="success_ok"><img src="${pageContext.request.contextPath}/img/login/popFindIdBtnSubmit.gif"></a>
+		</div>
+	</div>
+	
+	<div id="search_r_num">
+		<div id="search_r_num_title">
+			<h1>예약번호 찾기</h1>
+			<a href="#" id="r_num_close"><img src="${pageContext.request.contextPath}/img/join/popLayerBtnClose.gif"></a>
+		</div>
+		<div id="r_input">
+			<p>
+				<label>성명</label>
+				<input type="text" id="ren1" placeholder="FIRST NAME(이름)" style="text-transform:uppercase; ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');" class="r_id_input">
+				<input type="text" id="ren2" placeholder="LAST NAME(성)" style="text-transform:uppercase; ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'');" class="r_id_input">
+			</p>
+			<p>
+				<label>이메일</label>
+				<input type="text" id="remail" onkeyup="this.value=this.value.replace(/[^a-zA-Z0-9@.]/g,'');" class="r_id_input">
+			</p>
+		</div>
+		<div id="choice_btn">
+			<a href="#" id="ok_choice"><img src="${pageContext.request.contextPath}/img/login/popFindIdBtnSubmit.gif"></a>
+			<a href="#" id="close_choice"><img src="${pageContext.request.contextPath}/img/login/popFindIdBtnCancel.gif"></a>
+		</div>
+	</div>
+	
+	<div id="reservation_pop">
+		<div id="r_pop_title">
+			<h1>예약번호 재발송</h1>
+			<a href="#" id="r_close"><img src="${pageContext.request.contextPath}/img/join/popLayerBtnClose.gif"></a>
+		</div>
+		<div id="r_form">
+			<p>회원님의 이메일 <span id="r_email"></span>로 예약번호를 발송해드렸습니다.</p>
+		</div>
+		<div id="r_btn">
+			<a href="#" id="r_ok"><img src="${pageContext.request.contextPath}/img/login/popFindIdBtnSubmit.gif"></a>
 		</div>
 	</div>
 	<jsp:include page="/WEB-INF/common/footer.jsp"/>

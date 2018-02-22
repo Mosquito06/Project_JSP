@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/mypage/leftMenu.css">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/mypage/qnaRecord.css?v=3">
+	href="${pageContext.request.contextPath}/css/mypage/qnaRecord.css?v=5">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common/common.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/mypage/qnaRecord.js?v=2"></script>
@@ -32,11 +32,9 @@
 					<span id="info1">회원님께서 문의하신 내역과 답변을 확인하실 수 있습니다.</span>
 					<div id="qnaRecordContent">
 						<div id="record_title">
-							<a href="#"><button>1주일</button></a>
-							<a href="#"><button>1개월</button></a>
-							<a href="#"><button>3개월</button></a>
-							<a href="#"><button>6개월</button></a>
-							<a href="qnaRecord.do"><button>전체</button></a>
+							<a href="#" id="recoment_redy"><button>답변대기</button></a>
+							<a href="#" id="recoment_okay"><button>답변완료</button></a>
+							<a href="qnaRecord.do"><button>전체문의</button></a>
 						</div>
 						<p id="total"></p>
 						<div id="record_table">

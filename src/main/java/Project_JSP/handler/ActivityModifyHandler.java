@@ -3,6 +3,7 @@ package Project_JSP.handler;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -76,7 +77,7 @@ public class ActivityModifyHandler implements CommandHandler {
 		String fileName = "";
 		String originFileName = "";
 		try {
-			
+			Date now = new Date();
 			MultipartRequest multi = new MultipartRequest(req, uploadPath, maxSize, "utf-8", new DefaultFileRenamePolicy());
 			
 			HashMap<String, String> map = new HashMap<>();
@@ -96,8 +97,55 @@ public class ActivityModifyHandler implements CommandHandler {
 			String type =  multi.getParameter("type");
 			String oldBanner = multi.getParameter("oldBanner");
 			String oldContent = multi.getParameter("oldContent");
+			String deleteFiles = multi.getParameter("deletFiles");
+			String newDeleteFiles = multi.getParameter("newDeletFiles");
+			System.out.println("newdelete file list : "+newDeleteFiles);
+			newDeleteFiles = newDeleteFiles.replace(".jpg", "");
+			newDeleteFiles = newDeleteFiles.replace(".png", "");
+			newDeleteFiles = newDeleteFiles.replace(".gif", "");
 			
-			//content = content.substring(content.indexOf("<div>")+5, content.lastIndexOf("</div>"));
+			String[] delteFileArr = null;
+			String[] newDelteFileArr = null;
+			if(!deleteFiles.equals("")){
+				delteFileArr =  deleteFiles.split(",");
+			}
+			
+			if(!newDeleteFiles.equals("")){
+				newDelteFileArr =  newDeleteFiles.split(",");
+			}
+			
+			File dirFile=new File(uploadPath);   
+			File []fileLists=dirFile.listFiles();
+			
+			for(File tempFile : fileLists) {
+				  if(tempFile.isFile()) {
+				    String tempPath=tempFile.getParent();
+				    String tempFileName=tempFile.getName();
+				    
+				    int compare = (int) (tempFile.lastModified()-now.getTime());
+				    
+				    if(compare>0&&compare<1000){
+					    System.out.println("FileName="+tempFileName);
+			    		if(newDelteFileArr != null){ 
+			    			for(String delfile :newDelteFileArr){
+							    System.out.println("newDelFileName="+delfile);
+								if(tempFileName.contains(delfile)){
+						    		FileUtils.deleteFile(tempFileName, uploadPath);
+								}
+							} 
+			    		} 
+				    }
+				    
+				    if(delteFileArr != null){ 
+					    System.out.println("delFileName="+delteFileArr);
+		    			for(String delfile :delteFileArr){
+							if(tempFileName.contains(delfile)){
+					    		FileUtils.deleteFile(tempFileName, uploadPath);
+							}
+						} 
+		    		} 
+				  }      
+				}
 			
 			HttpSession session = req.getSession();
 			List<String> fileList =  (List<String>) session.getAttribute("fileList");

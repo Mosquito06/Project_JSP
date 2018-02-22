@@ -43,7 +43,7 @@
 			<%@ include file="admin_leftMenu.jsp"%>
 			<div id="rightArea">
 					<div id="wrap_title">
-						<h1 id="title">갤러리 관리</h1>
+						<h1 id="title">이벤트 관리</h1>
 						<div id="wrap_home">
 							<img src="${pageContext.request.contextPath}/img/common/locaton.gif" id="home"> > <span
 								id="board">관리자</span> > <span id="board">이벤트 관리</span>

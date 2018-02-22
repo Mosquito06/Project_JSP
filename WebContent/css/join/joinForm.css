@@ -150,7 +150,7 @@ select{
 	line-height:30px;
 	position: absolute;
 	top:10px;
-	right:95px;
+	right:120px;
 }
 .email_err{
 	position: absolute;
@@ -221,7 +221,7 @@ input[name='addr2'],input[name='addr3']{
 }
 #id_info{
 	position: absolute;
-	left:460px;
+	left:445px;
 }
 .id_errs{
 	position: absolute;

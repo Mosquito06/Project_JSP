@@ -15,18 +15,18 @@
     </resultMap>
     
   	<select id="selectQnaViewAll" resultMap="QnaViewResult" parameterType="QnaView">
-  		select * from qna_view where id=#{id} order by question_date desc
+  		select * from qna_view where id=#{id} order by question_num desc
  	</select>
 	
 	<select id="selectAll" resultMap="QnaViewResult">
-		select * from qna_view order by question_date desc;
+		select * from qna_view order by question_num desc;
 	</select>
 	
 	<select id="selectNotNullQnaView" resultMap="QnaViewResult">
-		select * from qna_view where reply_content is not null order by question_date desc
+		select * from qna_view where reply_content is not null order by question_num desc
 	</select>
 	
 	<select id="selectNullQnaView" resultMap="QnaViewResult">
-		select * from qna_view where reply_content is null order by question_date desc
+		select * from qna_view where reply_content is null order by question_num desc
 	</select>
 </mapper>

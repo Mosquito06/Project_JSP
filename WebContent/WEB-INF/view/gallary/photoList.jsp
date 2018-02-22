@@ -138,7 +138,7 @@
 													</span>
 												</p> 
 											</div> 
-										</div>  
+										</div>   
 									</c:forEach>
 								</c:if> 
 							</div>
