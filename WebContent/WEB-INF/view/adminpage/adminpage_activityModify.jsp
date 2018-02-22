@@ -37,12 +37,12 @@
 		vertical-align:middle; 
 		padding:15px 0;
 	}
-	#galList{
+	#galList, #newGalList{
 		width:100%;
 		height:70px;
 		overflow: auto;
 	}  
-	#galList li{
+	#galList li,#newGalList li{
 		float: left;
 		margin-right: 10px;
 	} 
@@ -51,7 +51,89 @@
 		text-align: left;
 		vertical-align: top;
 	}
+	
+	.imgOver{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width:100%;
+		height:65px;
+		text-align:center;
+		line-height:65px;		
+		color: #fff;
+	} 
+	
+	a.delImg { 
+		display:block;
+		overflow:hidden;
+		position: relative;
+	}
+	a.delImg:HOVER .imgOver{
+		background: rgba(0,0,0,0.7);
+	}
 </style>
+<script>
+	var delFiles = "";
+	var newDelFiles = "";
+	var sel_files = [];
+	$(function(){
+
+		//이미지 클릭시 삭제
+		$(document).on("click","#galList .delImg",function(e){
+			e.preventDefault();
+			if(confirm("정말 삭제하시겠습니까?")){
+				var imgName = $(this).find("img").attr("src");
+				imgName = imgName.split("/");
+				delFiles += imgName[imgName.length-1] + ',';
+				$(this).remove();
+			}
+		})
+		
+		$(document).on("click","#newGalList .delImg",function(e){
+			e.preventDefault();
+			if(confirm("정말 삭제하시겠습니까?")){
+				var imgName = $(this).find("img").attr("data-file");
+				newDelFiles += imgName + ',';
+				$(this).remove();
+			}
+		}) 
+		
+		//submit 시 >>> 삭제파일 인풋에 넣고 넘기기
+		$("#addEventForm").submit(function(){ 
+			$("#delFileInput").val(delFiles);
+			$("#newDelFileInput").val(newDelFiles);
+		})
+		
+		//갤러리 이미지 추가시 갤러리 파일 목록에 이미지 추가
+		$("#fileList").on("change", handleImgFileSelect);	
+		
+	})
+	 
+	function handleImgFileSelect(e) {
+		 	$("#newGalList").empty(); 
+		 	newDelFiles = "";
+            var files = e.target.files;
+            var filesArr = Array.prototype.slice.call(files);
+            
+            filesArr.forEach(function(f) {
+                if(!f.type.match("image.*")) {
+                    alert("확장자는 이미지 확장자만 가능합니다.");
+                    return;
+                } 
+                sel_files.push(f)
+                var reader = new FileReader(); 
+                reader.onload = function(e) {
+                	  var html = "<li>"
+                	  +'<a href="#" class="delImg"><img src="'+ e.target.result +'" data-file="'+f.name+'" width="150" height="65"/>'
+                	  +'<span class="imgOver">삭제</span></a>'
+             		  +"</li>"; 
+       				console.log("인풋 html : " + html);
+                    $("#newGalList").append(html);      
+                }
+                reader.readAsDataURL(f);
+            });
+        }
+</script> 
 </head>
 <body>
 	<%@ include file="../../common/header.jsp"%>
@@ -68,7 +150,7 @@
 					</div>
 			<form action="${pageContext.request.contextPath}/adminActivityModify.do"
 				id="addEventForm" method="post" enctype="multipart/form-data">
-				<table id="editerTd"> 
+				<table id="editerTd">
 					<tr>
 						<th width="12.5%">번호</th>
 						<td width="12.5%">${activity.num }</td>
@@ -83,7 +165,7 @@
 							</select>
 						</td>
 					</tr>
-					<tr> 
+					<tr>
 						<th colspan="1">소개</th>
 						<td colspan="5"><input type="text"	name="introduce" style="width: 94%;" value='${activity.introduce }'/></td>
 					</tr>
@@ -94,6 +176,26 @@
 						</td>
 					</tr>
 					<tr> 
+						<th colspan="1">
+							갤러리 이미지
+						</th>
+						<td colspan="3" align="left">
+							<input	type="file" name="imgpath" multiple="multiple" id="fileList" style="float: left; margin-left: 10px;"/>
+						</td>
+					</tr>
+					<tr>
+						<th colspan="6">
+							갤러리  추가 파일 목록
+						</th>
+					</tr> 
+					<tr>
+						<td colspan="6">
+							<ul id="newGalList">
+								
+							</ul>
+						</td>
+					</tr>
+					<tr>
 						<th colspan="6">
 							갤러리 파일 목록
 						</th>
@@ -104,9 +206,9 @@
 								<c:if test="${fileNames != null }">
 									<c:forEach var="file" items="${fileNames }">
 									<c:if test="${file != activity.imgPath }">
-										<li><img src="${file }" width="150" /></li>
+										<li><a href="#" class="delImg"><img src="${file }" width="150" height="65"/><span class='imgOver'>삭제</span></a></li>
 									</c:if>
-									</c:forEach> 
+									</c:forEach>
 								</c:if>
 							</ul>
 						</td>
@@ -126,8 +228,8 @@
 						</td>  
 					</tr>
 					<tr>
-						<td colspan="6"><input type="submit" value="저장" class="btn"> <input
-							type="button" value="돌아가기" class="btn"></td>
+						<td colspan="6"><input type="submit" value="저장" class="btn"> 
+						<input type="button" value="돌아가기" class="btn"></td>
 					</tr>
 				</table>
 				<textarea name="hiddenContent" id="hiddenContent">
@@ -137,6 +239,8 @@
 				</textarea>
 				<input type="hidden" value="${activity.num }" name="no" /> 
 				<input type="hidden" value="${activity.imgPath }" name="oldBanner" />
+				<input type="hidden" name="deletFiles" id="delFileInput">
+				<input type="hidden" name="newDeletFiles" id="newDelFileInput">
 				<% 
 					Activity activity =(Activity)request.getAttribute("activity");
 					

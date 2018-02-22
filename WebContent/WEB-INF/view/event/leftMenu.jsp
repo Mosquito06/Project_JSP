@@ -4,13 +4,13 @@
 	<div id="lnbWrap">
 		<h2 class="title">스페셜 오퍼</h2>
 		<ul class="leftMenu">
-			<li class="bMenu noBorder"><a href="#" class="noBorder"><span>이벤트</span></a>
+			<li class="bMenu noBorder"><a href="${pageContext.request.contextPath }/event/eventlist.do" class="noBorder"><span>이벤트</span></a>
 			</li>
 		</ul>
 	</div>
 
 </div>
-
+ 
 <div id="rightArea">
 	<div id="wrap_title">
 		<h1 id="title">이벤트</h1>

@@ -48,11 +48,4 @@
 			 	
 			 </div>
 			 
-			 <div id="rightArea">
-				<div id="wrap_title">
-					<h1 id="title">액티비티</h1>
-					<div id="wrap_home">
-						<img src="../img/common/locaton.gif" id="home"> > <span
-							id="board">액티비티</span>
-					</div>
-				</div>
+			 

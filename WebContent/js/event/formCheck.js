@@ -23,9 +23,14 @@ $(function() {
 		if (!checkExistsValue()) {
 			var res = confirm("저장하지 않고 나가겠습니까?");
 			if (res) {
-				location.replace(contextPath + "/fileDelete.do");
+				$.ajax({
+					url : contextPath + "/fileDelete.do",
+					type : "get",
+					dataType : "xml"
+				}); 
+				history.go(-1); 
 			} else {
-				backClick = false;
+				backClick = false; 
 			}
 		} else {
 			history.go(-1);

@@ -86,10 +86,10 @@
 				<%@ include file="admin_leftMenu.jsp"%>
 			<div id="rightArea">
 					<div id="wrap_title">
-						<h1 id="title">갤러리 관리</h1>
+						<h1 id="title">액티비티 관리</h1>
 						<div id="wrap_home">
 							<img src="${pageContext.request.contextPath}/img/common/locaton.gif" id="home"> > <span
-								id="board">관리자</span> > <span id="board">갤러리 관리</span>
+								id="board">관리자</span> > <span id="board">액티비티 관리</span>
 						</div>
 					</div>
 				<div class="eventContent">
@@ -122,7 +122,7 @@
 							</td> 
 						</tr> 
 						<tr>
-							<th colspan="6">갤러리</th> 
+							<th colspan="6">갤러리 파일 목록</th> 
 						</tr>
 						<tr>							 
 							<td colspan="6"> 
