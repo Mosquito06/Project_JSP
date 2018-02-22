@@ -92,12 +92,12 @@ public class TempPasswordHandler implements CommandHandler {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			String PwMeg="<div style='width:700px;background-color:#f1e3c4;margin:0 auto; padding:0;font:12px/160% Dotum,'돋움',serif; color:#101010;overflow:hidden;'>"
+			String PwMeg="<div style='width:700px;background-color:#f1e3c4;margin:0 auto; padding:0;font:12px/160% Dotum,돋움,serif; color:#101010;overflow:hidden;'>"
 					+ "<div style='height:70px;text-align:center;'><h1 style='margin:0px; padding:25px 0 0 0;'>"
 					+ "<a style='text-decoration:none; color:#555' target='_blank' href='http://localhost:8080/Project_JSP/index.jsp'>"
 					+ "<img style='border:0;' src='http://www.shillahotels.com/images/ko/common/email/rewards/hLogo.gif' alt=''></a></h1></div>"
 					+"<img style='border:0; vertical-align:middle' src='http://www.shillahotels.com/images/ko/common/email/rewards/mainImg2.jpg' alt='신라리워즈 이미지'>"
-					+ "<div style='float:left; width:680px; background:#FFF; min-height:100px; margin:0 10px; padding:0; padding-bottom:10px;'>"
+					+ "<div style='float:left; width:696px; background:#FFF; min-height:100px; margin:0px; padding:0; padding-bottom:10px; border:2px solid #f1e3c4'>"
 					+ "<div style='margin:30px;line-height:200%'><p style='margin:0; padding:0;color:#666;'>안녕하십니까. 신라리워즈입니다. </p>"
 					+ "<p style='margin:0; padding:0;color:#666;'>"+to.getNameEn()+"님의 임시비밀번호를 안내해 드립니다.</p></div>"
 					+ "	<div style='background-color:#f9f7f4;border-top:1px solid #edeae6;border-bottom:1px solid #edeae6;padding:10px 0 5px 0;'>"
