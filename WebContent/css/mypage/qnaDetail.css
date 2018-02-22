@@ -59,9 +59,11 @@
 	width:100%;
 	text-align:center;
 	margin-top: 20px;
+	position: relative;
 }
 #listBtn a{
 	display: inline-block;
+	margin-right: 5px;
 }
 .all_date{
 	width:120px;
@@ -76,4 +78,15 @@
 }
 #hiddenTable{
 	display: none;
+}
+#qnaRecordDelBtn{
+	position: absolute;
+	top:0px;
+	outline: none;
+	background-color: #3e2b2c;
+	border:1px solid #3e2b2c;
+	color:white;
+	width:62px;
+	height:27px;
+	cursor: pointer;
 }

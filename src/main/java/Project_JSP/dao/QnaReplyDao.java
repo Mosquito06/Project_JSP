@@ -11,4 +11,5 @@ public interface QnaReplyDao {
 	public void deleteByNumQnaReply (QnaReply qnaReply);
 	public void updateReply(QnaReply qnaReply);
 	public QnaReply selectQnaReplyByNum(QnaReply qnaReply);
+	public void deleteQnaReplyByQnaNum(QnaReply qnaReply);
 }

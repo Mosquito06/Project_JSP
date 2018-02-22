@@ -29,6 +29,9 @@
      <delete id="deleteByNumQnaReply" parameterType="QnaReply">
      	delete from question_reply where reply_num =#{num}
      </delete>
+     <delete id="deleteQnaReplyByQnaNum" parameterType="QnaReply">
+     	delete from question_reply where question_num = #{qnaNum}
+     </delete>
      
      <update id="updateReply" parameterType="QnaReply">
      	update question_reply set reply_content=#{content},reply_time =#{time} where reply_num =#{num}

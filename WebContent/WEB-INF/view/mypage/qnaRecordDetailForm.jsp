@@ -13,10 +13,10 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/mypage/leftMenu.css">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/mypage/qnaDetail.css?v=4">
+	href="${pageContext.request.contextPath}/css/mypage/qnaDetail.css?v=3">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common/common.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/mypage/qnaDetail.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/mypage/qnaDetail.js?v=1"></script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/common/header.jsp" />
@@ -98,6 +98,8 @@
 						
 						<div id="listBtn">
 							<a href="qnaRecord.do"><img src="${pageContext.request.contextPath}/img/mypage/btnGoList.gif"></a>
+							<button id="qnaRecordDelBtn">삭제</button>
+							<input type="hidden" value="${qnaboard.qnaNum }" id="hiddenQnaNum">
 						</div>
 					</div>
 				</div>
