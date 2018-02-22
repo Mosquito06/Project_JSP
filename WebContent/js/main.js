@@ -11,12 +11,36 @@ $(function(){
 		success:function(json){  
 			console.log(json);
 			$.each(json.banner,function(i,obj){
+				//상단 배너
 				var img = "<div><a href='" + obj.linkPath
 				+ "'><img src='" + obj.imgPath
 		        + "'></a></div>"; 
-
+								
 			   $(".mainVisual").append(img);  
+			   			   
+			  
+			   
 			});				 
+			$.each(json.activity,function(i,obj){
+				 //액티비티 배너
+				   var activity = '<div class="content">'
+						 		+'<div class="leftContent">'	
+						 		+	'<h2>캠핑 & 글램핑</h2>'
+						 		+	'<h3 class="aTit">'+ obj.name +'</h3>'
+						 	    +	'<p>'+ obj.introduce +'</p>'
+						 	    +	'<a href="/Project_JSP/activity.do?no='+obj.num
+						 	    +'" class="actMore"><img src="/Project_JSP/img/main/btnPackMore.gif"/></a>'
+						 	    +'</div>'
+						 	    +'<div class="rightContent">'
+						 	    +	'<img src="'+obj.imgPath+'"/>' 
+						 	    +'</div>'
+				 			    +'</div>'; 
+				    console.log(activity);
+				   $(".activitySlide").append(activity); 
+				
+			});
+			
+			activitySlide();
 			
 			mainVis =  $('.mainVisual').bxSlider({
 				mode: 'fade',
@@ -40,7 +64,7 @@ $(function(){
 				
 				var sYear = startDate.getFullYear();
 				var sMonth = startDate.getMonth()+1;
-				var sDate = startDate.getDate()
+				var sDate = startDate.getDate() 
 				var sFullDate = sYear + "-" + sMonth + "-"+ sDate;
 					
 				var eYear = endDate.getFullYear();
@@ -80,42 +104,7 @@ $(function(){
 		 return false;
 	})
 	
-	//액티비티 슬라이드 
-	actSlide =  $('.activitySlide').bxSlider({
-				mode: 'fade',
-		    	pager : false,
-		    	controls : false,
-		    	auto : false
-		 });
 	
-	
-	actSildeInterval();
-	
-	var totalSlide = actSlide.getSlideCount();	
-	
-	$(".maxSlide").text(totalSlide);
-	var slide = actSlide.getCurrentSlide()+1;
-	$(".showSlide").text(slide);
-	 
-	$(".act_prev").click(function(e){
-		 e.preventDefault();
-		 actSlide.goToPrevSlide();
-		 var slide = actSlide.getCurrentSlide()+1;
-		 $(".showSlide").text(slide);
-		 clearInterval(actSlideInterval);
-		 actSildeInterval();
-		 return false; 
-	})
-		     
-	$(".act_next").click(function(e){
-		 e.preventDefault();
-		 actSlide.goToNextSlide();
-		 var slide = actSlide.getCurrentSlide()+1;
-		 $(".showSlide").text(slide);
-		 clearInterval(actSlideInterval);
-		 actSildeInterval();
-		 return false;
-	})
 	//달력
 	var month = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
 	var sElement = document.getElementById("start-calendar");
@@ -337,6 +326,45 @@ $(function(){
 	})  
 	
 }) 
+
+function activitySlide(){
+	//액티비티 슬라이드 
+	actSlide =  $('.activitySlide').bxSlider({
+				mode: 'fade',
+		    	pager : false,
+		    	controls : false,
+		    	auto : false
+		 });
+	
+	
+	actSildeInterval();
+	
+	var totalSlide = actSlide.getSlideCount();	
+	
+	$(".maxSlide").text(totalSlide);
+	var slide = actSlide.getCurrentSlide()+1;
+	$(".showSlide").text(slide);
+	 
+	$(".act_prev").click(function(e){
+		 e.preventDefault();
+		 actSlide.goToPrevSlide();
+		 var slide = actSlide.getCurrentSlide()+1;
+		 $(".showSlide").text(slide);
+		 clearInterval(actSlideInterval);
+		 actSildeInterval();
+		 return false; 
+	})
+		     
+	$(".act_next").click(function(e){
+		 e.preventDefault();
+		 actSlide.goToNextSlide();
+		 var slide = actSlide.getCurrentSlide()+1;
+		 $(".showSlide").text(slide);
+		 clearInterval(actSlideInterval);
+		 actSildeInterval();
+		 return false;
+	})
+}
 
 function actSildeInterval(){
 	actSlideInterval = setInterval(function(){
