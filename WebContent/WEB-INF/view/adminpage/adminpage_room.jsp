@@ -24,6 +24,11 @@
 			alert("수정되었습니다.");
 		</script>
 	</c:if>
+	<c:if test="${param.result == '3'}">
+		<script>
+			alert("삭제되었습니다.");
+		</script>
+	</c:if>
 	<div> 
 		<header>
 			<jsp:include page="/WEB-INF/common/header.jsp" />

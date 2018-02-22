@@ -146,8 +146,10 @@ $(function(){
 	// 테이블 내 삭제 버튼
 	$(document).on("click", "img[src*='Delete']", function(){
 		var check = confirm("객실 데이터를 정말로 삭제하시겠습니까?");
+		var roomNum = $(this).parents("tr").prev().prev().find("td").eq(0).text();
+				
 		if(check){
-			
+			location.href = "/Project_JSP/adminRoomDelete.do?roomNum=" + roomNum;
 		}
 	
 	})
