@@ -75,10 +75,20 @@ $(function(){
 			var sMonth = Number(sDayArray[1]);
 			var sDay = Number(sDayArray[2]);
 
-			if(date.getFullYear() < sYear || Number(month[date.getMonth()]) < sMonth || date.getDate() < sDay){
-				alert("시작 날짜보다 이전 날짜를 선택할 수 없습니다.");
+			if(date.getFullYear() < sYear){
+				alert("체크인 날짜보다 이전 날짜를 선택할 수 없습니다.");
 				return; 
 			} 
+			
+			if(Number(month[date.getMonth()]) < sMonth){
+				alert("체크인 날짜보다 이전 날짜를 선택할 수 없습니다.");
+				return; 
+			} 
+			
+			if(Number(month[date.getMonth()]) == sMonth && date.getDate() < sDay){
+				alert("체크인 날짜보다 이전 날짜를 선택할 수 없습니다.");
+				return; 
+			}
 			
 			var setDateString = "";
 			setDateString += date.getFullYear() + "-" + month[date.getMonth()];
