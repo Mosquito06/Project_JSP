@@ -74,13 +74,17 @@ $(function() {
 		$("#sYear").text(date.getFullYear());
 		$("#sMonth").text(month[date.getMonth()]);
 		var day = date.getDate();
+		var inDay = "";
 		if(day >= 1 && day < 10){
 			$("#sDay").text("0"+day);
+			inDay = "0"+day;
+			console.log(inDay);
 		}else{
 			$("#sDay").text(day);
+			inDay = day;
 		}
 		
-		var dateStr = date.getFullYear()+"-"+month[date.getMonth()]+"-"+day;
+		var dateStr = date.getFullYear()+"-"+month[date.getMonth()]+"-"+ inDay;
 		console.log(dateStr);
 		$("#startDate").val(dateStr);
 		$("#start-calendar").css("display", "none");
@@ -109,17 +113,21 @@ $(function() {
 		$("#eYear").text(date.getFullYear());
 		$("#eMonth").text(month[date.getMonth()]);
 		var day = date.getDate();
+		var inDay = "";
 		if(day >= 1 && day < 10){ 
 			$("#eDay").text("0"+day);
+			inDay = "0"+day;
+			console.log(inDay);
 		}else{
 			$("#eDay").text(day);
+			inDay = day;
 		}
 		
-		var dateStr = date.getFullYear()+"-"+month[date.getMonth()]+"-"+day;
+		var dateStr = date.getFullYear()+"-"+month[date.getMonth()]+"-"+inDay;
 		console.log(dateStr);
 		$("#endDate").val(dateStr);
 		$("#end-calendar").css("display", "none");
-	});
+	}); 
 
 })
 

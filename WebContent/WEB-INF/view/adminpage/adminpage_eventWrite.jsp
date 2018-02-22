@@ -15,7 +15,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/reservation/jsCalendar.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/reservation/jsCalendar.lang.de.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/event/formCheck.js?a=3"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/event/formCheck.js?a=1"></script>
 </head>
 <body>
 	<%@ include file="../../common/header.jsp"%>
