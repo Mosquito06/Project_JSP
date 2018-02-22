@@ -19,7 +19,9 @@
 	$(function(){
 		 $("#fileList").on("change", handleImgFileSelect);	
 		 
+		 //checkAll 체크시 모든 체크박스 checked 
 		 $("#checkAll").on("change", checkAll);
+		 
 		 
 		 $("#f1").submit(function(e){
 			 var selFileName = [];
@@ -75,6 +77,7 @@
             // 이미지 정보들을 초기화
             sel_files = [];
             upload_files = [];
+            delete_files = [];
             $(".imgs_wrap").empty();
  
             var files = e.target.files;
@@ -100,12 +103,12 @@
              		  + "<option>객실</option>" 
              		  + "<option>다이닝</option>"
              		  + "<option>액티비티</option>"
-             		  + "<option>부대시설</option>"
+             		  + "<option>부대시설</option>" 
              		  + "<option>기타</option>" 
              		  + "</select></div>"
              		  +"</li>"; 
        				console.log("인풋 html")
-                    $(".imgs_wrap").append(html);  
+                    $(".imgs_wrap").append(html);
                     index++;                
                 } 
                 reader.readAsDataURL(f);

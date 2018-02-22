@@ -89,7 +89,7 @@
 						<li><a href="#">베이커리</a></li>
 					</ul>
 				</li>
-				<li><a href="#">액티비티</a>
+				<li><a href="${pageContext.request.contextPath }/activity.do?no=1">액티비티</a>
 					<ul class="subNav">
 						<li><a href="#">글램핑 & 캠핑</a></li>
 						<li><i class="line"></i></li>
