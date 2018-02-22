@@ -14,7 +14,7 @@
 	href="${pageContext.request.contextPath}/css/mypage/qnaRecord.css?v=5">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common/common.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/mypage/qnaRecord.js?v=2"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/mypage/qnaRecord.js?v=4"></script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/common/header.jsp" />
