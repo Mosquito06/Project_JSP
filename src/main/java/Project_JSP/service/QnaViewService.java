@@ -64,5 +64,49 @@ public class QnaViewService implements QnaViewDao {
 		return null;
 	}
 
+	@Override
+	public List<QnaView> selectNotNullQnaViewById(QnaView qnaView) {
+		try(SqlSession session = MySqlSessionFactory.openSession()){
+			QnaViewDao dao = session.getMapper(QnaViewDao.class);
+			return dao.selectNotNullQnaViewById(qnaView);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public List<QnaView> selectNullQnaViewById(QnaView qnaView) {
+		try(SqlSession session = MySqlSessionFactory.openSession()){
+			QnaViewDao dao = session.getMapper(QnaViewDao.class);
+			return dao.selectNullQnaViewById(qnaView);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public List<QnaView> selectQnaClientName(QnaView qnaView) {
+		try(SqlSession session = MySqlSessionFactory.openSession()){
+			QnaViewDao dao = session.getMapper(QnaViewDao.class);
+			return dao.selectQnaClientName(qnaView);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public List<QnaView> selectQnaClientId(QnaView qnaView) {
+		try(SqlSession session = MySqlSessionFactory.openSession()){
+			QnaViewDao dao = session.getMapper(QnaViewDao.class);
+			return dao.selectQnaClientId(qnaView);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 
 }
