@@ -11,10 +11,10 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath }/css/common/common.css">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/adminpage/admin_qna.css?v=2">
+	href="${pageContext.request.contextPath}/css/adminpage/admin_qna.css?v=4">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/adminpage/admin_qna.js?v=1"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/adminpage/admin_qna.js?v=7"></script>
 </head>
 <body>
 	<div> 
@@ -41,12 +41,20 @@
 						<button id="incomplete">미완료내역</button>
 						<button id="complete">완료내역</button>
 						<button id="total_btn">전체보기</button>
+						<div id="qna_select_search">
+							<select id="sel_sel">
+								<option value="id">아이디</option>
+								<option value="name">성명</option>
+							</select>
+						<input type="text" id="select_basic">
+						<a href="#" id="select_btn_ok"><img src="${pageContext.request.contextPath}/img/mypage/membershipBtnSch.gif"></a>
+						</div>
 						<p id="total">Total : ${client.size()}</p>
 					</div>
 					
 						<table id="t1">
 							<tr id="t1_title">
-								<th id="t_num">고객번호</th>
+								<th id="t_num">문의번호</th>
 								<th>아이디</th>
 								<th>성명</th>
 								<th id="t_title">제목</th>
@@ -78,7 +86,7 @@
 							</c:forEach>
 							</c:if>
 							<c:if test="${client.size() == 0 }">
-								<tr>
+								<tr class="data">
 									<td colspan="9">문의 내역이 없습니다.</td>
 								</tr>
 							</c:if>

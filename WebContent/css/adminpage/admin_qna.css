@@ -36,6 +36,7 @@
 	margin-top: 5px;
 	font-size: 14px;
 	font-weight: bold;
+	clear: both;
 }
 #select_btn{
 	width:800px;
@@ -56,4 +57,34 @@
 }
 #select_btn button:HOVER {
 	background:rgb(93, 73, 48);
+}
+/*검색창*/
+#qna_select_search{
+	width:555px;
+	float:right;
+	position: relative;
+}
+#qna_select_search select{
+	position: absolute;
+	top:5px;
+	left:0px;
+	width:77px;
+	height:25px;
+	outline: none;
+	boarder:1px solid #ccc;
+}
+#qna_select_search input{
+	position: absolute;
+	top:5px;
+	left:80px;
+	height:25px;
+	outline: none;
+	boarder:1px solid #ccc;
+}
+#qna_select_search a{
+	display: inline-block;
+	position: absolute;
+	top:4px;
+	left:245px;
+	margin: 0px;
 }

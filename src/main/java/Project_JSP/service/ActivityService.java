@@ -83,7 +83,7 @@ public class ActivityService {
 		return null;
 	}
 	
-	public Activity selectByType(Activity activity) {
+	public List<Activity> selectByType(Activity activity) {
 		try (SqlSession session = MySqlSessionFactory.openSession()) {
 			ActivityDao dao = session.getMapper(ActivityDao.class);
 			System.out.println(dao.selectByType(activity));

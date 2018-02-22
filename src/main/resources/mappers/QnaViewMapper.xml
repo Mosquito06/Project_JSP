@@ -29,4 +29,20 @@
 	<select id="selectNullQnaView" resultMap="QnaViewResult">
 		select * from qna_view where reply_content is null order by question_num desc
 	</select>
+	
+	<select id="selectNotNullQnaViewById" parameterType="QnaView" resultMap="QnaViewResult">
+		select * from qna_view where reply_content is not null and id=#{id} order by question_num desc
+	</select>
+	
+	<select id="selectNullQnaViewById" parameterType="QnaView" resultMap="QnaViewResult">
+		select * from qna_view where reply_content is null and id=#{id} order by question_num desc
+	</select>
+	
+	<select id="selectQnaClientName" parameterType="QnaView" resultMap="QnaViewResult">
+		select * from qna_view where question_name like #{name}
+	</select>
+	
+	<select id="selectQnaClientId" parameterType="QnaView" resultMap="QnaViewResult">
+		select * from qna_view where id like #{id}
+	</select>
 </mapper>
