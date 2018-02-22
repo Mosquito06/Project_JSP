@@ -60,3 +60,8 @@ td{
 .admin_btn:hover{
 	background:rgb(93, 73, 48);
 }
+
+
+.count{
+	width:100px;
+}

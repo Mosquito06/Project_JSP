@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath }/css/common/common.css?ver=2">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/adminpage/admin_user_read.css?var=311">
+	href="${pageContext.request.contextPath}/css/adminpage/admin_user_read.css?var=11">
 <link rel="stylesheet" type="text/css"
 	href="css/reservation/jsCalendar.css">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -118,14 +118,14 @@
 							<caption>예약이력</caption>
 							<tr>
 
-								<th>예약번호</th>
+								<th>번호</th>
 								<th>호수</th>
 								<th>체크인</th>
 								<th>체크아웃</th>
 								<th>최종가격</th>
-								<th>투숙인원</th>
+								<th class="count">투숙인원</th>
 								<th>결제날짜</th>
-								<th>대여상태</th>
+								<th>상태</th>
 							</tr>
 							<c:forEach items="${reserve}" var="item">
 								<tr>
@@ -138,7 +138,7 @@
 									<td><fmt:formatDate value="${item.checkOut}"
 											pattern="yyyy.MM.dd" /></td>
 									<td>${item.totalPrice}</td>
-									<td>${item.personnel}</td>
+									<td class="count">${item.personnel}</td>
 									<td><fmt:formatDate value="${item.payDate}"
 											pattern="yyyy.MM.dd" /></td>
 									<td><c:if test="${item.state == 'COMPLETE'}">
