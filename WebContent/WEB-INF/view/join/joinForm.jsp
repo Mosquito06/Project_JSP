@@ -7,7 +7,7 @@
 <title>회원가입 ㅣThe Shilla Hotel</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
-<link rel="stylesheet" type="text/css" href="css/join/joinForm.css?v=4">
+<link rel="stylesheet" type="text/css" href="css/join/joinForm.css?v=5">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> 
 <script src="js/common/common.js"></script>
 <script src="js/join/joinForm.js?v=1"></script>

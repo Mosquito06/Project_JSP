@@ -258,11 +258,6 @@ function emptyOk(){
 function idOk(){
 	$("#id_check_btn").click(function(){
 		
-		if($(this).val()==""){
-			alert("아이디를 입력하세요");
-			return false;
-		}
-		
 		$.ajax({
 			url:"duplicateId.do",
 			type:"get",
