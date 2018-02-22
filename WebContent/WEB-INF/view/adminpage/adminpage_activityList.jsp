@@ -32,7 +32,7 @@
 				        	console.log(json);
 				        	var res = json.result
 				        	if(res == 1){ 
-				        		$(".checkbox").eq(i).parents("tr").remove();
+				        		location.reload();
 				        	}else{    
 				        		console.log("삭제실패");
 				        	}

@@ -39,7 +39,7 @@
 				        	console.log(json);
 				        	var res = json.result
 				        	if(res == 1){
-				        		$(".checkbox").eq(i).parents("tr").remove();
+				        		location.reload();
 				        	}else{    
 				        		console.log("삭제실패");
 				        	}
@@ -113,10 +113,10 @@
 								</tr>
 								<tr>
 									<td colspan="2">
-										<input type="submit" class="btn_admin" id="submit" value="추가">
+										<input type="submit" class="btn_admin" id="submit" value="추가" >
 									</td>
 								</tr>
-							</table> 
+							</table>  
 						</form> 
 					</div>
 					<div id="wrap_admin_btn">

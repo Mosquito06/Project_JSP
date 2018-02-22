@@ -43,8 +43,8 @@
 	padding: 4px 6px;
 	color:white;
 	font-size: 14px;
-	
-}
+	border: none;
+} 
 
 .btn_admin:hover{
 	background:rgb(93, 73, 48);  
