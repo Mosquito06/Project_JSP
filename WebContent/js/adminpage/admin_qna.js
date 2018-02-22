@@ -25,7 +25,7 @@ $(function(){
 				var list ="";
 				
 				if(data.length==0){
-					list="<tr><td colspan='9'>완료 내역이 없습니다</td></tr>";
+					list="<tr class='data'><td colspan='9'>완료 내역이 없습니다</td></tr>";
 					$("#t1").append(list);
 				}else{
 					for(var i=0;i<data.length;i++){
@@ -72,7 +72,7 @@ $(function(){
 				var list ="";
 				
 				if(data.length==0){
-					list="<tr><td colspan='9'>미완료 내역이 없습니다</td></tr>";
+					list="<tr class='data'><td colspan='9'>미완료 내역이 없습니다</td></tr>";
 					$("#t1").append(list);
 				}else{
 					for(var i=0;i<data.length;i++){

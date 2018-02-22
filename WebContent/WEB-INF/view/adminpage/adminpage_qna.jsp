@@ -14,7 +14,7 @@
 	href="${pageContext.request.contextPath}/css/adminpage/admin_qna.css?v=2">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/adminpage/admin_qna.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/adminpage/admin_qna.js?v=1"></script>
 </head>
 <body>
 	<div> 

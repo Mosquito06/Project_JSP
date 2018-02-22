@@ -116,7 +116,14 @@
 		});	
 		
 		$("#email_btn").click(function(){
+			
 			$(this).next(".error").css("display","none");
+			
+			if($("#email1").val()==""||$("#email2").val()==""){
+				alert("이메일을 입력하세요");
+				$("#email1").focus();
+				return false;
+			}
 			$.ajax({
 				url:"duplicateEmail.do",
 				type:"get",
@@ -250,6 +257,11 @@ function emptyOk(){
 }
 function idOk(){
 	$("#id_check_btn").click(function(){
+		
+		if($(this).val()==""){
+			alert("아이디를 입력하세요");
+			return false;
+		}
 		
 		$.ajax({
 			url:"duplicateId.do",
