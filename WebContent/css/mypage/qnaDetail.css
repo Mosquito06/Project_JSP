@@ -67,6 +67,7 @@
 	width:120px;
 }
 #qna_content img{
+	max-width:600px;
 	margin:5px;
 }
 .answer_t:HOVER{
