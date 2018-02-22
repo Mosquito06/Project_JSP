@@ -298,14 +298,14 @@ ul.selList>li:last-child .rsBox{
 	font-size: 18px;
 	color:#7d684d;
 	font-weight: bold; 
-}
+} 
 .leftContent p{
 	padding:15px;
 	line-height: 26px;
 	font-size:13px;
-	color:#727272;
+	color:#727272; 
 }
-.actMore{
+.actMore{ 
 	position: absolute;
 	bottom: 50px;
 	

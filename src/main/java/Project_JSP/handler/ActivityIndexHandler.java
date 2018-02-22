@@ -15,7 +15,6 @@ import Project_JSP.mvc.controller.CommandHandler;
 import Project_JSP.service.ActivityService;
 
 public class ActivityIndexHandler implements CommandHandler {
-	private static final String filePath = "/WEB-INF/view/adminpage/";
 
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -38,7 +37,7 @@ public class ActivityIndexHandler implements CommandHandler {
 		for (File file : files) {
 			fileNames.add(contextPath + file.getName());
 		}
-		 
+		
 		List<Activity> menuList = service.selectList();
 		System.out.println(menuList);
 		Map<String,String[]> map = new HashMap<>();
