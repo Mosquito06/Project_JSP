@@ -44,6 +44,18 @@ public class QnaBoardContentService implements QnaBoardContentDao{
 		return null;
 	}
 
+	@Override
+	public void deleteQnaBoardContentByQnaNum(QnaBoardContent qnaContent) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			QnaBoardContentDao dao = session.getMapper(QnaBoardContentDao.class);
+			dao.deleteQnaBoardContentByQnaNum(qnaContent);
+			session.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
 
 	
 }

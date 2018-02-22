@@ -88,4 +88,15 @@ public class QnaReplyService implements QnaReplyDao {
 		return null;
 	}
 
+	@Override
+	public void deleteQnaReplyByQnaNum(QnaReply qnaReply) {
+		try (SqlSession session = MySqlSessionFactory.openSession()) {
+			QnaReplyDao dao = session.getMapper(QnaReplyDao.class);
+			dao.deleteQnaReplyByQnaNum(qnaReply);
+			session.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 }
