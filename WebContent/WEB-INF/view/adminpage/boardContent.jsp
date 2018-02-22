@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="../css/common/reset.css">
+<link rel="stylesheet" type="text/css" href="../css/common/reset.css?c=1">
 <link rel="stylesheet" type="text/css"
 	href="../css/common/common.css">
 
@@ -90,6 +90,11 @@
 	})
 
 </script>
+<style>
+	#img{
+		max-width: 600px;
+	}
+</style>
 </head>
 <body>
 	<div>
@@ -130,7 +135,7 @@
 						</div>
 						<div id="content_wrap">
 						<c:if test="${board.path != '0'}">
-							<p><img src="${board.path}"></p>
+							<p><img src="${board.path}"  id="img"></p>
 						</c:if>
 							
 							<p>${content.content}</p>

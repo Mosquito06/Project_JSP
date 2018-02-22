@@ -9,9 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
+import Project_JSP.dto.Activity;
 import Project_JSP.dto.Banner;
 import Project_JSP.dto.Event;
 import Project_JSP.mvc.controller.CommandHandler;
+import Project_JSP.service.ActivityService;
 import Project_JSP.service.BannerService;
 import Project_JSP.service.EventService;
 
@@ -33,6 +35,12 @@ public class IndexPageHandler implements CommandHandler {
 		List<Event> eventList = eventService.selectListEvent();
 		
 		sendData.put("event", eventList);
+		
+		ActivityService actService = ActivityService.getInstance();
+
+		List<Activity> actList = actService.selectByType(new Activity("cammping"));
+		
+		sendData.put("activity", actList);
 		
 		String json = om.writeValueAsString(sendData);
 		res.setContentType("application/json;charset=utf-8");

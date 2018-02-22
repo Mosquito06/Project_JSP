@@ -2,6 +2,7 @@ package Project_JSP.handler;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -38,10 +39,22 @@ public class ActivityIndexHandler implements CommandHandler {
 			fileNames.add(contextPath + file.getName());
 		}
 		 
+		List<Activity> menuList = service.selectList();
+		System.out.println(menuList);
+		Map<String,String[]> map = new HashMap<>();
+		String[] camping = {"캠핑&글램핑","cammping"};
+		String[] kidzone = {"키즈 시설","kidzone"};
+		String[] fitness = {"피트니스","fitness"};
+		map.put("cammping",camping);
+		map.put("kidzone", kidzone);
+		map.put("fitness", fitness);
+		 
+		req.setAttribute("menuType", map);
+		req.setAttribute("menuList", menuList);
 		req.setAttribute("activity", activity);
 		req.setAttribute("content", content);
 		req.setAttribute("list", fileNames);
-
+		
 		return "/WEB-INF/view/activity/activity.jsp";
 	}
 

@@ -14,7 +14,7 @@
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.js"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.lang.de.js"></script>
-<script type="text/javascript" src="js/main.js?v=26"></script>  
+<script type="text/javascript" src="js/main.js?v=27"></script>  
 </head>
 <body>  
 	<%@ include file="WEB-INF/common/header.jsp" %>    
@@ -26,7 +26,7 @@
 			<div class="visContent">
 				<a href="#" class="prev mVisBtn">이전</a>
 				<a href="#" class="next mVisBtn">이후</a>
-				 
+				
 				<div class="reserveWrap">  
 					<div class="selArea"> 
 						<ul class="selList">
@@ -134,60 +134,13 @@
 			<div class="bannerWrap bannerBgColor">
 			 	<div class="banContent">
 			 		<div class="activitySlide">
-			 			<div class="content">
-					 		<div class="leftContent">	
-					 			<h2>레저 전문가 서비스</h2>
-					 			<h3 class="aTit">딸기 따기</h3>
-					 			<p>내용 들어가기내용 들어가기내용 들어가기내용 들어가기<br>용 들어가기내용 들어가기내용 들어가기 </p>
-					 			<a href="#" class="actMore"><img src="/Project_JSP/img/main/btnPackMore.gif"/></a>
-					 		</div>
-					 		<div class="rightContent">
-					 			<img src="#"/>  
-					 		</div>
-			 			</div> 
-			 			
-			 			<div class="content">
-					 		<div class="leftContent">	
-					 			<h2>레저 전문가 서비스</h2>
-					 			<h3 class="aTit">22222</h3>
-					 			<p>내용 들어가기내용 들어가기내용 들어가기내용 들어가기<br>용 들어가기내용 들어가기내용 들어가기 </p>
-					 			<a href="#" class="actMore"><img src="/Project_JSP/img/main/btnPackMore.gif"/></a>
-					 		</div>
-					 		<div class="rightContent">
-					 			<img src="#"/>   
-					 		</div>
-			 			</div> 
-			 			
-			 			<div class="content">
-					 		<div class="leftContent">	
-					 			<h2>레저 전문가 서비스</h2>
-					 			<h3 class="aTit">33333333</h3>
-					 			<p>내용 들어가기내용 들어가기내용 들어가기내용 들어가기<br>용 들어가기내용 들어가기내용 들어가기 </p>
-					 			<a href="#" class="actMore"><img src="/Project_JSP/img/main/btnPackMore.gif"/></a>
-					 		</div>
-					 		<div class="rightContent">
-					 			<img src="#"/>  
-					 		</div>
-			 			</div> 
-			 			
-			 			<div class="content">
-					 		<div class="leftContent">	
-					 			<h2>레저 전문가 서비스</h2>
-					 			<h3 class="aTit">444444</h3>
-					 			<p>내용 들어가기내용 들어가기내용 들어가기내용 들어가기<br>용 들어가기내용 들어가기내용 들어가기 </p>
-					 			<a href="#" class="actMore"><img src="/Project_JSP/img/main/btnPackMore.gif"/></a>
-					 		</div>
-					 		<div class="rightContent">
-					 			<img src="#"/>  
-					 		</div> 
-			 			</div> 
 			 		</div> 
 			 		<div class="actBtnWrap">
 			 			<a href="#" class="act_prev actBtn"></a> 
 			 			<p>
 			 				<span class="showSlide">3</span>
 			 				<span class="split">/</span>
-			 				<span class='maxSlide'>3</span>
+			 				<span class='maxSlide'>3</span> 
 			 			</p>
 			 			<a href="#" class="act_next actBtn"></a>
 			 		</div>
