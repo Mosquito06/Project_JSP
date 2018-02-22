@@ -300,7 +300,7 @@ ul.selList>li:last-child .rsBox{
 	font-weight: bold; 
 } 
 .leftContent p{
-	padding:15px;
+	padding-right:50px;
 	line-height: 26px;
 	font-size:13px;
 	color:#727272; 
@@ -416,7 +416,7 @@ ul.selList>li:last-child .rsBox{
     line-height: 0;
 }
 
-.rewardsWrap .rwBenefit {
+.rewardsWrap .rwBenefit { 
     position: relative;
     width: 724px;
 }

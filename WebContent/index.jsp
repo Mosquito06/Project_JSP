@@ -14,9 +14,9 @@
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.js"></script>
 <script type="text/javascript" src="js/reservation/jsCalendar.lang.de.js"></script>
-<script type="text/javascript" src="js/main.js?v=27"></script>  
+<script type="text/javascript" src="js/main.js?v=28"></script>  
 </head>
-<body>  
+<body>    
 	<%@ include file="WEB-INF/common/header.jsp" %>    
 	<section>         
 		<div id="visualWrap">    
