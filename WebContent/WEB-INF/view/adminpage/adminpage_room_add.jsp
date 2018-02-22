@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="css/adminpage/adminpage_room_add.css?v=ddd">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
-<script type="text/javascript" src="js/adminpage/adminpage_room_add.js?a=d"></script>
+<script type="text/javascript" src="js/adminpage/adminpage_room_add.js?a=dd"></script>
 </head>
 <body>
 	<c:if test="${param.result == '0'}">
@@ -19,7 +19,6 @@
 			alert("이미 등록된 객실입니다. 다시 시도해주세요.");
 		</script>
 	</c:if>
-
 	<div> 
 		<header>
 			<jsp:include page="/WEB-INF/common/header.jsp" />

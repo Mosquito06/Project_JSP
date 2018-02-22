@@ -51,7 +51,7 @@
 	<update id="updateRoomInfo" parameterType="RoomInfo">
 	    update room_info set room_info_name = #{roomInfoName}, room_grade = #{roomGrade}, 
 		view_type = #{viewType}, bed_type = #{bedType}, room_size = #{roomSize}, 
-	    room_img = #{roomImg}, reservation_img = ${reservationImg}
+	    room_img = #{roomImg}, reservation_img = #{reservationImg}
 	  	<include refid="whereSql"/>
 	</update>
 	
