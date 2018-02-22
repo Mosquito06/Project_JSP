@@ -16,7 +16,7 @@
 <script>  
 	$(function(){     
 		var type = "<%=request.getParameter("showGalType") %>"; 
-		switch (type) { 
+		switch (type) {
 			case "ALL":  
 				$(".tab-list li").eq(0).find("a").addClass("on");
 			break;

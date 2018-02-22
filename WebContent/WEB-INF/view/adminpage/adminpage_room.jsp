@@ -11,12 +11,22 @@
 <link rel="stylesheet" type="text/css" href="css/adminpage/adminpage_room.css?v=dd">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/common.js"></script>
-<script type="text/javascript" src="js/adminpage/adminpage_room.js?a=dd"></script>
+<script type="text/javascript" src="js/adminpage/adminpage_room.js?a=ddd"></script>
 </head>
 <body>
 	<c:if test="${param.result == '1'}">
 		<script>
 			alert("등록되었습니다.");
+		</script>
+	</c:if>
+	<c:if test="${param.result == '2'}">
+		<script>
+			alert("수정되었습니다.");
+		</script>
+	</c:if>
+	<c:if test="${param.result == '3'}">
+		<script>
+			alert("삭제되었습니다.");
 		</script>
 	</c:if>
 	<div> 

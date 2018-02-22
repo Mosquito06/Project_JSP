@@ -68,16 +68,7 @@ public class AdminRoomUpdateHandler implements CommandHandler{
 			File roomImgDir = new File(roomImgPath);
 			
 			// 객실 이미지 저장 폴더
-			if(roomImgDir.exists()){
-				File[] existsFile = roomImgDir.listFiles();
-				
-				for(File f : existsFile){
-					f.delete();
-				}
-				
-				roomImgDir.delete();
-				roomImgDir.mkdir();
-			}else if(!roomImgDir.exists()){
+			if(!roomImgDir.exists()){
 				roomImgDir.mkdir();
 			}
 
@@ -175,26 +166,23 @@ public class AdminRoomUpdateHandler implements CommandHandler{
 			
 			// ------- 아래 부터 해결
 			
-			
-			System.out.println(req.getParameter("room_num"));
-			System.out.println(roomMulti.getParameter("room_price"));
 			int roomNum = Integer.parseInt(req.getParameter("room_num"));
 			int roomPrice = Integer.parseInt(roomMulti.getParameter("room_price"));
 			
 			// 객실 수정
 			Room room = new Room();
 			room.setRoomNum(roomNum);
-			room.setRoomPrice(roomPrice);
-
-			roomService.updateRoom(room);
+			Room updateRoom = roomService.selectRoomByNum(room);
+			updateRoom.setRoomPrice(roomPrice);
+			roomService.updateRoom(updateRoom);
 			
 			// 수정한 객실을 가져와 객실 정보의 기본크를 객실 정보에  set 후 수정
-			Room updateRoom = roomService.selectRoomByNum(room);
+			
 			roomInfo.setRoomInfoNum(updateRoom.getRoomInfoNum().getRoomInfoNum());
 			
 			roomInfoService.updateRoomInfo(roomInfo);
 			
-			res.sendRedirect("/Project_JSP/adminRoomAdd.do?result=2");
+			res.sendRedirect("/Project_JSP/adminRoom.do?result=2");
 			return null;
 		}
 		
