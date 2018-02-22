@@ -27,6 +27,6 @@
 	</select>
 	
 	<select id="selectNullQnaView" resultMap="QnaViewResult">
-		select * from qna_view where reply_content is null order by question_date desc
+		select * from qna_view where reply_content is null order by question_date
 	</select>
 </mapper>

@@ -167,6 +167,7 @@ $(function(){
 		return false;
 		
 	})
+
 	/*임시 비밀번호 보내는거 확인하는 절차*/
 	$(document).on("click","#send_email_btn",function(){
 		$.ajax({
@@ -181,7 +182,14 @@ $(function(){
 				if(data.client==null){
 					alert("회원정보가 없습니다");
 				}else{
-					
+					var email = $("#pw_email").val();
+					var stare = email.substring(0,email.indexOf("@")-3);
+					var com = email.substring(email.indexOf("@"));
+					stare += "***";
+					$("#success_email").text(stare+com);
+					$(".close_pop_pw").trigger("click");
+					$("#success_pw").css("display","block");
+					$("#bodybg").css({"display":"block","height":screen});
 				}
 					console.log(data);
 			
@@ -190,12 +198,88 @@ $(function(){
 		})
 	})
 	
+	/*비밀번호 확인창 닫기*/
+	$(document).on("click","#success_close, #success_ok",function(){
+		$("#success_pw").css("display","none");
+		$("#bodybg").css("display","none");
+		return false;
+	})
 	
+	/*예약번호 찾기 클릭*/
+	$("#reser_search").click(function(){
+		$(".error").css("display","none");
+		$("#search_r_num").css("display","block");
+		$("#bodybg").css({"display":"block","height":screen});
+		return false;
+	})
+	/*예약번호 찾기 팝업창 닫기*/
+	$(document).on("click","#r_num_close, #close_choice",function(){
+		$("#search_r_num").css("display","none");
+		$("#bodybg").css("display","none");
+		
+		$(".r_id_input").each(function(i,obj){
+			$(obj).val("");
+		})
+		return false;
+	})
+	
+	/*예약번호 찾기 버튼 클릭*/
+	$(document).on("click","#ok_choice",function(){
+		var empty = nomemEmpty();
+		
+		if(empty==false){
+			alert("이름,이메일을 모두 입력해주세요");
+			return false;
+		}else{
+			$.ajax({
+				url:"NomemberReservationNum.do",
+				type:"get",
+				data:{	"nameEn1":$("#ren1").val(),
+						"nameEn2":$("#ren2").val(),
+						"email":$("#remail").val()},
+				dataType:"json",
+				success:function(data){
+					if(data.client==null){
+						alert("비회원 예약기록이 없습니다");
+					}else{
+						var email = $("#remail").val();
+						var stare = email.substring(0,email.indexOf("@")-3);
+						var com = email.substring(email.indexOf("@"));
+						stare += "***";
+						$("#r_email").text(stare+com);
+						$("#r_num_close").trigger("click");
+						$("#reservation_pop").css("display","block");
+						$("#bodybg").css({"display":"block","height":screen});
+					}
+						console.log(data);
+				
+				}
+				
+			})
+		}
+		
+	})
+	/*예약번호 재발송 확인 창*/
+	$(document).on("click","#r_close, #r_ok",function(){
+		$("#reservation_pop").css("display","none");
+		$("#bodybg").css("display","none");
+	})
 })
 
 function isEmpty(){
 	var err = true;
 	$(".search_id_input").each(function(i,obj){
+		if($(obj).val()==""){
+			err=false;
+		}
+		
+	})
+	return err;
+}
+
+function nomemEmpty(){
+	var err = true;
+	$(".r_id_input").each(function(i,obj){
 		if($(obj).val()==""){
 			err=false;
 		}
