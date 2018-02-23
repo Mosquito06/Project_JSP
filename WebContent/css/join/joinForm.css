@@ -148,11 +148,11 @@ select{
 	cursor: pointer;
 	height:30px;
 	line-height:30px;
-	position: absolute;
+	position: absolute; 
 	top:10px;
-	right:120px;
+	right:95px;
 }
-.email_err{
+.email_err{ 
 	position: absolute;
 	left:780px;
 }
@@ -221,7 +221,7 @@ input[name='addr2'],input[name='addr3']{
 }
 #id_info{
 	position: absolute;
-	left:445px;
+	left:455px;
 }
 .id_errs{
 	position: absolute;
