@@ -164,11 +164,11 @@ public class ReservationStep4Handler implements CommandHandler {
 		result.put("roomName", roomName);
 		result.put("bedType", bedType);
 		
-		SendEmail(client,reservation,checkIn,checkOut,roomInfo,basicPrice,ServiceCharge,Tax);
+		SendEmail(client,reservation,checkIn,checkOut,roomInfo,basicPrice,ServiceCharge,Tax,stay);
 		req.setAttribute("result", result);
 	}
 	
-	private void SendEmail(Client to, Reservation reservation,String checkIn,String checkOut,String roomInfo,String  basicPrice,String ServiceCharge , String Tax){
+	private void SendEmail(Client to, Reservation reservation,String checkIn,String checkOut,String roomInfo,String  basicPrice,String ServiceCharge , String Tax,int stay){
 		
 		 String host = "smtp.naver.com";
 		String user = "rkd7327";
@@ -229,7 +229,7 @@ public class ReservationStep4Handler implements CommandHandler {
 										+ "</tr>"
 										+ "<tr style='height:40px; line-height:40px;'>"
 											+ "<th style='color:#a0886e;'>숙박일수</th>"
-											+ "<td colspan='2'>숙박일수가 들어가는 자리</td>"
+											+ "<td colspan='2'>"+stay+"박</td>"
 											+ "<th style='color:#a0886e;'>숙박인원</th>"
 											+ "<td colspan='2'>"+reservation.getPersonnel()+"</td>"
 										+ "</tr>"
