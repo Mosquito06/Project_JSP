@@ -23,9 +23,14 @@ $(function() {
 		if (!checkExistsValue()) {
 			var res = confirm("저장하지 않고 나가겠습니까?");
 			if (res) {
-				location.replace(contextPath + "/fileDelete.do");
+				$.ajax({
+					url : contextPath + "/fileDelete.do",
+					type : "get",
+					dataType : "xml"
+				}); 
+				history.go(-1); 
 			} else {
-				backClick = false;
+				backClick = false; 
 			}
 		} else {
 			history.go(-1);
@@ -74,13 +79,33 @@ $(function() {
 		$("#sYear").text(date.getFullYear());
 		$("#sMonth").text(month[date.getMonth()]);
 		var day = date.getDate();
+		var inDay = "";
 		if(day >= 1 && day < 10){
 			$("#sDay").text("0"+day);
+			inDay = "0"+day;
+			console.log(inDay);
 		}else{
 			$("#sDay").text(day);
+			inDay = day;
 		}
 		
-		var dateStr = date.getFullYear()+"-"+month[date.getMonth()]+"-"+day;
+		if(date.getFullYear() < sYear){
+			alert("시작 날짜보다 이전 날짜를 선택할 수 없습니다.");
+			return;
+		}
+		
+		if(Number(month[date.getMonth()]) < sMonth){
+			alert("시작 날짜보다 이전 날짜를 선택할 수 없습니다.");
+			return;
+		}
+		
+		if( Number(month[date.getMonth()]) == sMonth && date.getDate() < sDay){
+			alert("시작 날짜보다 이전 날짜를 선택할 수 없습니다.");
+			return;
+		}
+		
+		
+		var dateStr = date.getFullYear()+"-"+month[date.getMonth()]+"-"+ inDay;
 		console.log(dateStr);
 		$("#startDate").val(dateStr);
 		$("#start-calendar").css("display", "none");
@@ -101,25 +126,54 @@ $(function() {
 		var sMonth = Number($("#sMonth").text());
 		var sDay = Number($("#sDay").text());
 		
-		if(date.getFullYear() < sYear || Number(month[date.getMonth()]) < sMonth || date.getDate() < sDay){
+	/*	var sDate = new Date();
+		sDate.setFullYear(sYear);
+		sDate.setMonth(sMonth);
+		sDate.setDate(sDay)
+		sDate.setHours(0);
+		sDate.setMinutes(0);
+		sDate.setMilliseconds(0);
+		
+		
+		if((date-sDate) < 0){
+			alert("체크인 날짜보다 이전 날짜를 선택할 수 없습니다.");
+			return;
+		} 
+		*/
+		
+		if(date.getFullYear() < sYear){
 			alert("시작 날짜보다 이전 날짜를 선택할 수 없습니다.");
 			return;
 		}
-					
+		
+		if(Number(month[date.getMonth()]) < sMonth){
+			alert("시작 날짜보다 이전 날짜를 선택할 수 없습니다.");
+			return;
+		}
+		
+		if( Number(month[date.getMonth()]) == sMonth && date.getDate() < sDay){
+			alert("시작 날짜보다 이전 날짜를 선택할 수 없습니다.");
+			return;
+		}
+		
 		$("#eYear").text(date.getFullYear());
 		$("#eMonth").text(month[date.getMonth()]);
 		var day = date.getDate();
+		var inDay = "";
 		if(day >= 1 && day < 10){ 
 			$("#eDay").text("0"+day);
+			inDay = "0"+day;
+			console.log(inDay);
 		}else{
 			$("#eDay").text(day);
+			inDay = day;
 		}
 		
-		var dateStr = date.getFullYear()+"-"+month[date.getMonth()]+"-"+day;
+		var dateStr = date.getFullYear()+"-"+month[date.getMonth()]+"-"+inDay;
 		console.log(dateStr);
 		$("#endDate").val(dateStr);
 		$("#end-calendar").css("display", "none");
-	});
+	}); 
 
 })
 

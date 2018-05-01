@@ -5,13 +5,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Project_JSP.dto.QnaBoard;
-import Project_JSP.dto.QnaBoardContent;
 import Project_JSP.dto.QnaView;
 import Project_JSP.mvc.controller.CommandHandler;
-import Project_JSP.service.QnaBoardService;
 import Project_JSP.service.QnaViewService;
-import sun.print.resources.serviceui;
 
 public class AdminQnAHandler implements CommandHandler{
 	

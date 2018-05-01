@@ -58,7 +58,7 @@
 					</c:if>
 					
 				</ul>
-			</div>  
+			</div>   
 		</div>
 		
 		<div id="header_gnb">
@@ -69,7 +69,7 @@
 						<li><a href="${pageContext.request.contextPath }/event/eventlist.do">이벤트</a></li>
 					</ul> 
 				</li>
-				<li><a href="#">객실</a>
+				<li><a href="${pageContext.request.contextPath }/room.do">객실</a>
 					<ul class="subNav">
 						<li><a href="#">스탠다드</a></li>
 						<li><i class="line"></i></li>
@@ -89,7 +89,7 @@
 						<li><a href="#">베이커리</a></li>
 					</ul>
 				</li>
-				<li><a href="#">액티비티</a>
+				<li><a href="${pageContext.request.contextPath }/activity.do?no=1">액티비티</a>
 					<ul class="subNav">
 						<li><a href="#">글램핑 & 캠핑</a></li>
 						<li><i class="line"></i></li>

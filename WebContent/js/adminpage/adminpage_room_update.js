@@ -101,10 +101,7 @@ $(function(){
 			reservImg_upload_files.push($(".reservImg_wrap li:eq(" + i + ") > div img").attr("data-file"));
 		}
 		
-		
-		alert($("#room_num").val());
-		
-		$("#registerForm").attr("action", "/Project_JSP/adminRoomUpdate.do?room_info_name=" + $("#room_info_name").val() + 
+		$("#registerForm").attr("action", "/Project_JSP/adminRoomUpdate.do?room_num=" + $("#room_num").val() + "&room_info_name=" + $("#room_info_name").val() + 
 				"&roomImgUpload=" + roomImg_upload_files + "&roomImgDelete=" + roomImg_delete_files + 
 				"&reservImgUpload=" + reservImg_upload_files + "&reservImgDelete=" + reservImg_delete_files);
 		

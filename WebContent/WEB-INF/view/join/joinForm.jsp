@@ -7,10 +7,10 @@
 <title>회원가입 ㅣThe Shilla Hotel</title>
 <link rel="stylesheet" type="text/css" href="css/common/reset.css">
 <link rel="stylesheet" type="text/css" href="css/common/common.css">
-<link rel="stylesheet" type="text/css" href="css/join/joinForm.css?v=2">
+<link rel="stylesheet" type="text/css" href="css/join/joinForm.css?v=5">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> 
 <script src="js/common/common.js"></script>
-<script src="js/join/joinForm.js"></script>
+<script src="js/join/joinForm.js?v=1"></script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/common/header.jsp"/>
@@ -226,7 +226,7 @@
 	</section>
 	<div id="pw_info">
 		<p>비밀번호는 8~20자 이내여야 합니다</p>
-		<p>최소한 한번의 대,소문자,숫자,특수기호가 모두 들어가야합니다</p>
+		<p>최소한 한번의 영문,숫자,특수기호가 모두 들어가야합니다</p>
 		<p>특수기호는 '@!%*?&'만 허용됩니다</p>
 		<p>동일한 숫자를 4번 이상 사용할 수 없습니다</p>
 	</div>

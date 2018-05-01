@@ -32,11 +32,9 @@
 					<span id="info1">회원님께서 문의하신 내역과 답변을 확인하실 수 있습니다.</span>
 					<div id="qnaRecordContent">
 						<div id="record_title">
-							<a href="#"><button id="7">1주일</button></a>
-							<a href="#"><button id="1">1개월</button></a>
-							<a href="#"><button id="3">3개월</button></a>
-							<a href="#"><button id="6">6개월</button></a>
-							<a href="qnaRecord.do"><button>전체</button></a>
+							<a href="#" id="recoment_redy"><button>답변대기</button></a>
+							<a href="#" id="recoment_okay"><button>답변완료</button></a>
+							<a href="qnaRecord.do"><button>전체문의</button></a>
 						</div>
 						<p id="total"></p>
 						<div id="record_table">

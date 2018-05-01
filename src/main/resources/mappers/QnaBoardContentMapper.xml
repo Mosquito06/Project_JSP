@@ -19,4 +19,8 @@
      <select id="selectQnaBoardContentAll" resultMap="QnaBoardContentResult">
      	select * from question_content
      </select>
+     
+     <delete id="deleteQnaBoardContentByQnaNum" parameterType="QnaBoardContent">
+     	delete from question_content where question_num = #{qnaNum}
+     </delete>
 </mapper>

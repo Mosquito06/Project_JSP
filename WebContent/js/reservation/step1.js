@@ -326,7 +326,17 @@ $(function(){
 			var sMonth = Number($("#sMonth").text());
 			var sDay = Number($("#sDay").text());
 			
-			if(date.getFullYear() < sYear || Number(month[date.getMonth()]) < sMonth || date.getDate() < sDay){
+			if(date.getFullYear() < sYear){
+				alert("체크인 날짜보다 이전 날짜를 선택할 수 없습니다.");
+				return; 
+			} 
+			
+			if(Number(month[date.getMonth()]) < sMonth){
+				alert("체크인 날짜보다 이전 날짜를 선택할 수 없습니다.");
+				return; 
+			} 
+			
+			if(Number(month[date.getMonth()]) == sMonth && date.getDate() < sDay){
 				alert("체크인 날짜보다 이전 날짜를 선택할 수 없습니다.");
 				return; 
 			} 

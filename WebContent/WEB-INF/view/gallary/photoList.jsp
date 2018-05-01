@@ -16,7 +16,7 @@
 <script>  
 	$(function(){     
 		var type = "<%=request.getParameter("showGalType") %>"; 
-		switch (type) { 
+		switch (type) {
 			case "ALL":  
 				$(".tab-list li").eq(0).find("a").addClass("on");
 			break;
@@ -138,7 +138,7 @@
 													</span>
 												</p> 
 											</div> 
-										</div>  
+										</div>   
 									</c:forEach>
 								</c:if> 
 							</div>

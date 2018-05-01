@@ -27,7 +27,7 @@
             </if>            
         </where>        
     </sql>
-    
+  
 	<select id="selectClient" resultMap="ClientResult">
 	    <include refid="selectClientSql"/>	    
 	</select>

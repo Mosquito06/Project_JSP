@@ -15,7 +15,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/reservation/jsCalendar.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/reservation/jsCalendar.lang.de.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/event/formCheck.js?a=3"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/event/formCheck.js?a=1"></script>
 </head>
 <body>
 	<%@ include file="../../common/header.jsp"%>
@@ -24,10 +24,10 @@
 			<%@ include file="admin_leftMenu.jsp"%>
 			<div id="rightArea">
 					<div id="wrap_title">
-						<h1 id="title">갤러리 관리</h1>
+						<h1 id="title">이벤트 관리</h1>
 						<div id="wrap_home">
 							<img src="${pageContext.request.contextPath}/img/common/locaton.gif" id="home"> > <span
-								id="board">관리자</span> > <span id="board">갤러리 관리</span>
+								id="board">관리자</span> > <span id="board">이벤트 관리</span>
 						</div>
 					</div>
 

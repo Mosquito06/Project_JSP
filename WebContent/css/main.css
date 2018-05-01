@@ -298,13 +298,14 @@ ul.selList>li:last-child .rsBox{
 	font-size: 18px;
 	color:#7d684d;
 	font-weight: bold; 
-}
+} 
 .leftContent p{
+	padding-right:50px;
 	line-height: 26px;
 	font-size:13px;
-	color:#727272;
+	color:#727272; 
 }
-.actMore{
+.actMore{ 
 	position: absolute;
 	bottom: 50px;
 	
@@ -328,12 +329,12 @@ ul.selList>li:last-child .rsBox{
 	height: 58px;	
 	position: absolute;
 	z-index: 999;
-	background-color:rgba(255,255,255,0.5);
+	background-color:rgba(255,255,255,0.8);
 	bottom: 0px;
 	left:40%;
 } 
 
-.actBtn{ 
+.actBtn{
 	display:block;
 	width:14px;
 	height:27px;
@@ -415,7 +416,7 @@ ul.selList>li:last-child .rsBox{
     line-height: 0;
 }
 
-.rewardsWrap .rwBenefit {
+.rewardsWrap .rwBenefit { 
     position: relative;
     width: 724px;
 }

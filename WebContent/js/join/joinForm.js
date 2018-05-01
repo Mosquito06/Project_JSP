@@ -116,7 +116,14 @@
 		});	
 		
 		$("#email_btn").click(function(){
+			
 			$(this).next(".error").css("display","none");
+			
+			if($("#email1").val()==""||$("#email2").val()==""){
+				alert("이메일을 입력하세요");
+				$("#email1").focus();
+				return false;
+			}
 			$.ajax({
 				url:"duplicateEmail.do",
 				type:"get",
@@ -145,8 +152,8 @@
 
 			
 	$("input[name='pw']").keyup(function(){
-		/*최소 대문자 하나와 소문자 하나, 숫자, 특수문자를 하나이상 포함해야한다.*/
-		var reg =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,20}$/;
+		/*최소  소문자 하나, 숫자, 특수문자를 하나이상 포함해야한다.*/
+		var reg =/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,20}$/;
 		var password = $("input[name='pw']").val();
 		var noNum = true;
 	
