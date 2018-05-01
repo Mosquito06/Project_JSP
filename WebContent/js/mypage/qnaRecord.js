@@ -43,13 +43,11 @@ $(function(){
 		}
 	})
 	
-	$("#record_title button").click(function(){
-		return false;
-	})
-	
 	$(document).on("click",".content_list",function(){
 		
 		var num = $(this).attr("id");
 		location.href="qnaRead.do?num="+num;
 	})
+	
+	
 })
